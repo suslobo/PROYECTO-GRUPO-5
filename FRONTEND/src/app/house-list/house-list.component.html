@@ -1,1 +1,73 @@
-<p>house-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+
+      <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3">
+              @for (house of houses; track house) {
+              <div class="col">
+                <div class="card shadow-sm">
+
+                  <a [routerLink]="['/houses', house.id, 'detail']">
+                    <img [src]="house.photoUrls" class="img-fluid">
+                  </a>
+
+                  <div class="card-body">
+                    <p class="card-text"> <strong>{{house.title}}</strong>
+                      <br>
+                      <br>
+
+                      <i class="bi bi-houses"></i> Casa Rural Completa
+                      <br>
+                      <i class="bi bi-people-fill"></i>  {{house.places}}  plazas
+                      <br>
+                      <i class="bi bi-geo-alt-fill"></i> Asturias
+                      <br>
+                      <br>
+                      Desde {{house.price}}/€ persona/noche
+                    </p>
+
+                    @if (house) {
+                    <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/houses', house.id, 'update']">
+                      Editar</button>
+                      }
+                    <button class="btn btn-outline-danger w-50 py-2 " (click)="deleteById(house.id)"> Borrar</button>
+
+
+
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
