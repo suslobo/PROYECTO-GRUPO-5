@@ -1,1 +1,77 @@
-<p>booking-detail works!</p>
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-12">
+
+      </div>
+      <div class="col-10">
+
+          @if(booking){
+              <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre de la Casa</th>
+                      <!-- <th scope="col">Dirección</th> -->
+                      <th scope="col">Fecha de Entrada</th>
+                      <th scope="col">Fecha de Salida</th>
+                      <th scope="col">Ubicación</th>
+                      <th scope="col">Precio</th>
+                    </tr>
+                    <br>
+                    <br>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">{{booking.houses.title}}</td>
+                      <!-- <td scope="row">{{booking.houses.address}}</td> -->
+                      <td>{{booking.entryDate}}</td>
+                      <td>{{booking.departureDate}}</td>
+                      <td>{{booking.destination}}</td>
+                      <td>{{booking.houses.price}}€</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+
+             <!--  <div class="row row-cols-2 row-cols-sm-4 row-cols-md-5 row-cols-lg-4 g-5 py-6">
+                  <div class="col d-flex align-items-start">
+
+                      <div>
+                          <h6 class="fw-bold mb-0 fs-4 text-body-emphasis">Nombre de la casa</h6>
+                          <p>{{booking.houses.title}}</p>
+                      </div>
+                  </div>
+                  <div class="col d-flex align-items-start">
+
+                      <div>
+                          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Teléfono</h3>
+                          <p>{{booking.destination}}</p>
+                      </div>
+                  </div>
+                  <div class="col d-flex align-items-start">
+                      <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+                          <use xlink:href="#calendar3"></use>
+                      </svg>
+                      <div>
+                          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Puntuación</h3>
+                          <p>{{booking.available}}</p>
+                      </div>
+                  </div>
+                  <div class="col d-flex align-items-start">
+                      <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+                          <use xlink:href="#home"></use>
+                      </svg>
+                      <div>
+                          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Nombre empresa</h3>
+                          <p>{{booking.people}}</p>
+                      </div>
+                  </div>
+              </div> -->
+
+          }@else {
+          <p>Reserva no encontrado.</p>
+          }
+      </div>
+
+  </div>
+</div>
