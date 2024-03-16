@@ -1,0 +1,596 @@
+{
+  "houses": [
+    {
+      "id": "1",
+      "title": "Hershel",
+      "address": "Calle del limón, 25",
+      "places": "2-10",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 35,
+      "meters": 303,
+      "destination": "Asturias",
+      "petFriendly": true,
+      "pool": true,
+      "garden": false,
+      "terrace": false,
+      "wifi": false,
+      "air": false,
+      "description": "Casa muy bonita en el mar ",
+      "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Virgil",
+      "address": "Calle del limón, 25",
+      "places": "2-7",
+      "bedrooms": 1,
+      "bathrooms": 3,
+      "price": 60,
+      "meters": 230,
+      "destination": "Asturias",
+      "petFriendly": true,
+      "pool": false,
+      "garden": false,
+      "terrace": false,
+      "wifi": false,
+      "air": false,
+      "description": "Casa muy bonita en el mar ",
+      "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Harriet",
+      "address": "Calle del limón, 25",
+      "places": "10-33",
+      "bedrooms": 5,
+      "bathrooms": 3,
+      "price": 80,
+      "meters": 81,
+      "petFriendly": false,
+      "pool": false,
+      "garden": false,
+      "terrace": true,
+      "wifi": true,
+      "air": true,
+      "description": "Casa muy bonita en el mar ",
+      "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+      "destination": "Asturias"
+    },
+    {
+      "id": "5",
+      "title": "Lanny",
+      "address": "Calle del limón, 25",
+      "places": "6-16",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "price": 55,
+      "meters": 154,
+      "petFriendly": true,
+      "pool": true,
+      "garden": true,
+      "terrace": true,
+      "wifi": false,
+      "air": true,
+      "description": "Casa muy bonita en el mar ",
+      "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+      "destination": "Asturias"
+    },
+    {
+      "id": "6",
+      "title": "Casa Prueba",
+      "address": "Calle del limón, 25",
+      "places": "4",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 50,
+      "meters": 150,
+      "petFriendly": true,
+      "pool": true,
+      "garden": false,
+      "terrace": false,
+      "wifi": false,
+      "air": false,
+      "description": "Casa muy bonita en el mar ",
+      "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+      "destination": "Madrid"
+    },
+    {
+      "id": "7",
+      "title": "Casa Prueba2",
+      "address": "Calle del limón, 25",
+      "places": "4",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 50,
+      "meters": 150,
+      "petFriendly": true,
+      "pool": true,
+      "garden": false,
+      "terrace": false,
+      "wifi": false,
+      "air": false,
+      "description": "Casa muy bonita en el mar ",
+      "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+      "destination": "Madrid"
+    },
+    {
+      "id": "8",
+      "title": "Casa Prueba3",
+      "address": "Calle del limón, 25",
+      "places": "4",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 50,
+      "meters": 150,
+      "destination": "Madrid",
+      "petFriendly": true,
+      "pool": true,
+      "garden": false,
+      "terrace": false,
+      "wifi": false,
+      "air": false,
+      "description": "Casa muy bonita en el mar ",
+      "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg"
+    },
+    {
+      "id": 0,
+      "title": "Casita",
+      "address": "Calle del limón, 25",
+      "places": "2-10",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 35,
+      "meters": 303,
+      "destination": "",
+      "petFriendly": true,
+      "pool": false,
+      "garden": true,
+      "terrace": true,
+      "wifi": false,
+      "air": false,
+      "description": "",
+      "photoUrls": []
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Farra",
+      "lastName": "Eyrl",
+      "email": "feyrl0@cnbc.com",
+      "phone": "+93 580 486 8584",
+      "nif": "11111111 A",
+      "password": "aT2(mVbFj",
+      "street": "37 Gina Plaza",
+      "city": "Khāsh",
+      "postalCode": 55344
+    },
+    {
+      "id": "2",
+      "firstName": "Pierson",
+      "lastName": "Blackburne",
+      "email": "pblackburne1@imdb.com",
+      "phone": "+86 819 318 6367",
+      "nif": "11111111 B",
+      "password": "zO3\"w5hvT",
+      "street": "92681 Village Green Trail",
+      "city": "Xianju",
+      "postalCode": 26664
+    },
+    {
+      "id": "3",
+      "firstName": "Dolf",
+      "lastName": "Ritmeier",
+      "email": "dritmeier2@ameblo.jp",
+      "phone": "+504 150 339 8921",
+      "nif": "11111111 C",
+      "password": "oM3<L?JcQ",
+      "street": "892 Dexter Way",
+      "city": "El Suyatal",
+      "postalCode": 64434
+    },
+    {
+      "id": "4",
+      "firstName": "Letti",
+      "lastName": "Campion",
+      "email": "lcampion3@issuu.com",
+      "phone": "+381 965 514 5101",
+      "nif": "11111111 D",
+      "password": "cY5}d#sPm.u$",
+      "street": "5 American Plaza",
+      "city": "Kovilj",
+      "postalCode": 86273
+    },
+    {
+      "id": "5",
+      "firstName": "Ferdinande",
+      "lastName": "Pionter",
+      "email": "fpionter4@liveinternet.ru",
+      "phone": "+380 983 599 9607",
+      "nif": "11111111 H",
+      "password": "eV6'Z&8eR",
+      "street": "588 Lakewood Gardens Circle",
+      "city": "Klishkivtsi",
+      "postalCode": 15233
+    }
+  ],
+  "booking": [
+    {
+      "id": "1",
+      "entryDate": "23/02/2023",
+      "departureDate": "25/06/2023",
+      "people": 2,
+      "destination": "Asturias",
+      "users": {
+        "id": 1,
+        "firstName": "Farra",
+        "lastName": "Eyrl",
+        "email": "feyrl0@cnbc.com",
+        "phone": "+93 580 486 8584",
+        "nif": "11111111 A",
+        "password": "aT2(mVbFj",
+        "street": "37 Gina Plaza",
+        "city": "Khāsh",
+        "postalCode": 55344
+      },
+      "houses": {
+        "id": 1,
+        "title": "Hershel",
+        "address": "Calle del limón, 25",
+        "places": "2-10",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "price": 35,
+        "meters": 303,
+        "petFriendly": true,
+        "pool": true,
+        "garden": false,
+        "terrace": false,
+        "wifi": false,
+        "air": false,
+        "description": "Casa muy bonita en el mar ",
+        "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+        "destination": "Asturias"
+      },
+      "payment": {
+        "creditCard": true,
+        "biZum": false,
+        "payPal": false
+      },
+      "status": {
+        "pending": false,
+        "confirmed": true,
+        "completed": false,
+        "cancelled": false
+      }
+    },
+    {
+      "id": "2",
+      "entryDate": "26/06/2023",
+      "departureDate": "29/05/2023",
+      "people": 9,
+      "destination": "Madrid",
+      "users": {
+        "id": 2,
+        "firstName": "Pierson",
+        "lastName": "Blackburne",
+        "email": "pblackburne1@imdb.com",
+        "phone": "+86 819 318 6367",
+        "nif": "11111111 B",
+        "password": "zO3\"w5hvT",
+        "street": "92681 Village Green Trail",
+        "city": "Xianju",
+        "postalCode": 26664
+      },
+      "houses": {
+        "id": 2,
+        "title": "Coop",
+        "address": "Calle del limón, 25",
+        "places": "2",
+        "bedrooms": 5,
+        "bathrooms": 3,
+        "price": 42,
+        "meters": 217,
+        "petFriendly": false,
+        "pool": false,
+        "garden": true,
+        "terrace": true,
+        "wifi": false,
+        "air": true,
+        "description": "Casa muy bonita en el mar ",
+        "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+        "destination": "Asturias"
+      },
+      "payment": {
+        "creditCard": true,
+        "biZum": false,
+        "payPal": false
+      },
+      "status": {
+        "pending": false,
+        "confirmed": true,
+        "completed": false,
+        "cancelled": false
+      }
+    },
+    {
+      "id": "3",
+      "entryDate": "12/08/2023",
+      "departureDate": "18/02/2023",
+      "people": 1,
+      "destination": "Asturias",
+      "users": {
+        "id": 3,
+        "firstName": "Dolf",
+        "lastName": "Ritmeier",
+        "email": "dritmeier2@ameblo.jp",
+        "phone": "+504 150 339 8921",
+        "nif": "11111111 C",
+        "password": "oM3<L?JcQ",
+        "street": "892 Dexter Way",
+        "city": "El Suyatal",
+        "postalCode": 64434
+      },
+      "houses": {
+        "id": 3,
+        "title": "Virgil",
+        "address": "Calle del limón, 25",
+        "places": "2-17",
+        "bedrooms": 1,
+        "bathrooms": 3,
+        "price": 60,
+        "meters": 230,
+        "petFriendly": true,
+        "pool": false,
+        "garden": false,
+        "terrace": false,
+        "wifi": false,
+        "air": false,
+        "description": "Casa muy bonita en el mar ",
+        "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+        "destination": "Asturias"
+      },
+      "payment": {
+        "creditCard": true,
+        "biZum": false,
+        "payPal": false
+      },
+      "status": {
+        "pending": false,
+        "confirmed": true,
+        "completed": false,
+        "cancelled": false
+      }
+    },
+    {
+      "id": "4",
+      "entryDate": "13/05/2023",
+      "departureDate": "15/01/2024",
+      "people": 4,
+      "destination": "Madrid",
+      "users": {
+        "id": 4,
+        "firstName": "Letti",
+        "lastName": "Campion",
+        "email": "lcampion3@issuu.com",
+        "phone": "+381 965 514 5101",
+        "nif": "11111111 D",
+        "password": "cY5}d#sPm.u$",
+        "street": "5 American Plaza",
+        "city": "Kovilj",
+        "postalCode": 86273
+      },
+      "houses": {
+        "id": 4,
+        "title": "Harriet",
+        "address": "Calle del limón, 25",
+        "places": "10-30",
+        "bedrooms": 5,
+        "bathrooms": 3,
+        "price": 80,
+        "meters": 81,
+        "petFriendly": false,
+        "pool": false,
+        "garden": false,
+        "terrace": true,
+        "wifi": true,
+        "air": true,
+        "description": "Casa muy bonita en el mar ",
+        "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+        "destination": "Asturias"
+      },
+      "payment": {
+        "creditCard": true,
+        "biZum": false,
+        "payPal": false
+      },
+      "status": {
+        "pending": false,
+        "confirmed": true,
+        "completed": false,
+        "cancelled": false
+      }
+    },
+    {
+      "id": "5",
+      "entryDate": "23/02/2023",
+      "departureDate": "25/06/2023",
+      "people": 2,
+      "destination": "Asturias",
+      "users": {
+        "id": 1,
+        "firstName": "Farra",
+        "lastName": "Eyrl",
+        "email": "feyrl0@cnbc.com",
+        "phone": "+93 580 486 8584",
+        "nif": "11111111 A",
+        "password": "aT2(mVbFj",
+        "street": "37 Gina Plaza",
+        "city": "Khāsh",
+        "postalCode": 55344
+      },
+      "houses": {
+        "id": 1,
+        "title": "Hershel",
+        "address": "Calle del limón, 25",
+        "places": "2-10",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "price": 35,
+        "meters": 303,
+        "petFriendly": true,
+        "pool": true,
+        "garden": false,
+        "terrace": false,
+        "wifi": false,
+        "air": false,
+        "description": "Casa muy bonita en el mar ",
+        "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+        "destination": "Asturias"
+      },
+      "payment": {
+        "creditCard": true,
+        "biZum": false,
+        "payPal": false
+      },
+      "status": {
+        "pending": false,
+        "confirmed": true,
+        "completed": false,
+        "cancelled": false
+      }
+    },
+    {
+      "id": "6",
+      "entryDate": "23/02/2023",
+      "departureDate": "25/06/2023",
+      "people": 2,
+      "destination": "Asturias",
+      "users": {
+        "id": 1,
+        "firstName": "Farra",
+        "lastName": "Eyrl",
+        "email": "feyrl0@cnbc.com",
+        "phone": "+93 580 486 8584",
+        "nif": "11111111 A",
+        "password": "aT2(mVbFj",
+        "street": "37 Gina Plaza",
+        "city": "Khāsh",
+        "postalCode": 55344
+      },
+      "houses": {
+        "id": 1,
+        "title": "Hershel",
+        "address": "Calle del limón, 25",
+        "places": "2-10",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "price": 35,
+        "meters": 303,
+        "petFriendly": true,
+        "pool": true,
+        "garden": false,
+        "terrace": false,
+        "wifi": false,
+        "air": false,
+        "description": "Casa muy bonita en el mar ",
+        "photoUrls": "https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg",
+        "destination": "Asturias"
+      },
+      "payment": {
+        "creditCard": true,
+        "biZum": false,
+        "payPal": false
+      },
+      "status": {
+        "pending": false,
+        "confirmed": true,
+        "completed": false,
+        "cancelled": false
+      }
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "rating": 1.2,
+      "opinion": "Devolved interactive system engine",
+      "users": {
+        "id": 1,
+        "firstName": "Farra",
+        "lastName": "Eyrl",
+        "email": "feyrl0@cnbc.com"
+      },
+      "houses": {
+        "id": 1,
+        "title": "Hershel",
+        "destination": "Asturias"
+      }
+    },
+    {
+      "id": "2",
+      "rating": 4.6,
+      "opinion": "Robust content-based adapter",
+      "users": {
+        "id": 2,
+        "firstName": "Pierson",
+        "lastName": "Blackburne",
+        "email": "pblackburne1@imdb.com"
+      },
+      "houses": {
+        "id": 2,
+        "title": "Coop",
+        "destination": "Asturias"
+      }
+    },
+    {
+      "id": "3",
+      "rating": 4.5,
+      "opinion": "Cross-platform bandwidth-monitored paradigm",
+      "users": {
+        "id": 3,
+        "firstName": "Dolf",
+        "lastName": "Ritmeier",
+        "email": "dritmeier2@ameblo.jp"
+      },
+      "houses": {
+        "id": 3,
+        "title": "Virgil",
+        "destination": "Asturias"
+      }
+    },
+    {
+      "id": "4",
+      "rating": 1.9,
+      "opinion": "Assimilated holistic alliance",
+      "users": {
+        "id": 4,
+        "firstName": "Letti",
+        "lastName": "Campion",
+        "email": "lcampion3@issuu.com"
+      },
+      "houses": {
+        "id": 4,
+        "title": "Harriet",
+        "destination": "Asturias"
+      }
+    },
+    {
+      "id": "5",
+      "rating": 3.4,
+      "opinion": "Down-sized tangible circuit",
+      "users": {
+        "id": 5,
+        "firstName": "Ferdinande",
+        "lastName": "Pionter",
+        "email": "fpionter4@liveinternet.ru"
+      },
+      "houses": {
+        "id": 5,
+        "title": "Lanny",
+        "destination": "Asturias"
+      }
+    }
+  ]
+}
