@@ -1,5 +1,5 @@
-import { Houses } from "./house.model";
-import { Users } from "./user.model";
+import { House} from "./house.model";
+import { User} from "./user.model";
 
 export interface Comment{
     id: number;
