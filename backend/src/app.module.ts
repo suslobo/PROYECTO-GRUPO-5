@@ -18,7 +18,7 @@ import { House } from './house/house.model';
       port: 3306,
       username: 'root',
       password: 'admin',
-      database: 'nest',
+      database: 'backend',
       entities: [User, Booking, House],
       synchronize: true, 
       logging: true
