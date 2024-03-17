@@ -3,6 +3,7 @@ import { House } from '../interfaces/house.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 
+
 @Component({
   selector: 'app-house-list',
   standalone: true,

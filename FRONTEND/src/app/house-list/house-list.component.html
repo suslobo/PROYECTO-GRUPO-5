@@ -18,7 +18,8 @@
                     <p class="card-text"> <strong>{{house.title}}</strong>
                       <br>
                       <br>
-
+                      
+                      <!-- <ngb-rating [rate]="3"></ngb-rating>  -->
                       <i class="bi bi-houses"></i> Casa Rural Completa
                       <br>
                       <i class="bi bi-people-fill"></i>  {{house.places}}  plazas
@@ -28,6 +29,8 @@
                       <br>
                       Desde {{house.price}}/€ persona/noche
                     </p>
+                    <!-- <ngb-rating [rate]="3" />  -->
+                    
 
                     @if (house) {
                     <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/houses', house.id, 'update']">
