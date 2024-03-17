@@ -14,18 +14,18 @@ import { House } from './house/house.model';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'localhost', 
       port: 3306,
       username: 'root',
       password: 'admin',
-      database: 'nest',
-      entities: [User, Booking, House],
+      database: 'backend', // crear esta base de datos en MySQL primero
+      entities: [Booking],
       synchronize: true, 
       logging: true
     }),
-    TypeOrmModule.forFeature([User, Booking, House])
+    TypeOrmModule.forFeature([Booking, User, House])
   ],
-  controllers: [AppController, HouseController, BookingController, UserController],
+  controllers: [BookingController, UserController, HouseController, AppController],
   providers: [AppService],
 })
 export class AppModule {}
