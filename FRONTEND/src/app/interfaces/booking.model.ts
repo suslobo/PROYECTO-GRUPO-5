@@ -14,7 +14,7 @@ export interface Booking {
 
         users: User;
         houses: House;
-        payment: Payment;
+        creditCard: Payment;
         status: BookingStatus;
 
 }
