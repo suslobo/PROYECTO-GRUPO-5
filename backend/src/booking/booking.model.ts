@@ -22,11 +22,21 @@ export class Booking {
     @Column()
     available: boolean;
 
-    // @ManyToOne(() => User, {eager: true})
-    // user: User;
+    @Column()
+    creditCard: string;
 
-    // @ManyToOne(() => House, {eager: true})
-    // house: House;
+    @Column()
+    status: string;
+
+    
+    
+    @ManyToOne(() => User, {eager: true})
+    user: User;
+
+     @ManyToOne(() => House, {eager: true})
+     house: House;
+
+
 
     // @ManyToOne(() => Payment, {eager: true})
     // payment: Payment;

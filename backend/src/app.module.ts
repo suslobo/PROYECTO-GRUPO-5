@@ -19,7 +19,7 @@ import { House } from './house/house.model';
       username: 'root',
       password: 'admin',
       database: 'backend', // crear esta base de datos en MySQL primero
-      entities: [Booking],
+      entities: [Booking, User, House],
       synchronize: true, 
       logging: true
     }),

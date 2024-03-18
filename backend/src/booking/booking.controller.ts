@@ -25,11 +25,11 @@ export class BookingController {
             }
         });
     }
-/*
-        // http://localhost:3000/booking/filter-by-user/2
+
+         //http://localhost:3000/booking/filter-by-user/2
         @Get('filter-by-user/:id')
         findByUserId(@Param('id', ParseIntPipe) id: number){
-            return this.bookiningRepo.find({
+            return this.bookingRepo.find({
                 where: {
                     user: {
                         id: id
@@ -40,7 +40,7 @@ export class BookingController {
 
         @Post()
         create(@Body() booking: Booking) {
-            return this.bookiningRepo.save(booking);
+            return this.bookingRepo.save(booking);
         }
-        */
+        
 }
