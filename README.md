@@ -123,6 +123,26 @@ nest generate controller Book
 3. Levantar el servidor:
 nest start --watch
 
+## CREAR PROYECTO CON MYSQL
+
+ 1. nest  new nest-002-mysql --skip-git --package-manager npm
+ 2. cd nest-002-mysql
+ 3. npm install --save @nestjs/typeorm typeorm mysql2
+ 4. ng generate module database
+ 5. Añadir la configuración de MySQL
+ 6. Crear base de datos en MySQL Workbench
+ 7. book.model.ts
+ 8. ng generate controller Book
+ 9. Inyectar Repository en el BookController
+
+
+ ## CONFIGURACIÓN BASE DE DATOS
+
+app.module.ts:
+
+* TypeOrmModule.forRoot()
+* TypeOrmModule.forFeature()
+
 ## CREAR CONTROLADORES
 
 Crear interface book.model.ts
@@ -186,3 +206,13 @@ Crear author.model.ts dentro de la carpeta author
   * book-list conectado a backend nestjs
   * book-detail conectado a backend nestjs
   * book-form conectado a backend nestjs
+
+
+## HACER MERGE : FUSIONAR LA MAIN CON LA TUYA
+(Esto solo cuando quieras traer todo lo de la main a tu rama)
+
+1. Abrir Desktop
+2. Actualizar tu tama y la main.
+3. Te colocas en tu rama y le das a Choose
+4. Seleccionas la rama main
+5. Si da conflictos en Vscode le das a todos incoming changed.
