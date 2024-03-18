@@ -12,6 +12,7 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BookingFormComponent {
 
+
   bookForm = new FormGroup({
     id: new FormControl(),
     entryDate: new FormControl(new Date()),
@@ -61,6 +62,21 @@ export class BookingFormComponent {
 
     }  */
   }
+
+  calculatePrice() {
+    let totalPrice = 0;
+    // paso 1 obtener fecha inicio
+
+    // paso 2 obtener fecha fin
+
+    // paso 3 calcular la diferencia en días entre ambas fechas
+
+    // paso 4 obtener el precio por noche
+
+    // paso 5 multiplicar precio noche por dias de diferencia  y sumar cualquier otro servicio extra
+
+    return totalPrice;
+    }
 
 
 }

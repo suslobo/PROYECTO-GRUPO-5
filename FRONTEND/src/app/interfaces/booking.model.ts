@@ -16,5 +16,6 @@ export interface Booking {
         houses: House;
         payment: Payment;
         status: BookingStatus;
+        // total price
 
 }
