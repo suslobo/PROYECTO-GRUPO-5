@@ -62,5 +62,13 @@ export class BookingFormComponent {
     }  */
   }
 
+  calculatePrice() {
+    let totalPrice = 0;
+
+
+
+    return totalPrice;
+  }
+
 
 }
