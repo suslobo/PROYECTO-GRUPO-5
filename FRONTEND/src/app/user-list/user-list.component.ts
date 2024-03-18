@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
+  standalone: true,
+  imports:[RouterLink, HttpClientModule],
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css'] // Corrección en la propiedad styleUrls
+  styleUrl: './user-list.component.css' // Corrección en la propiedad styleUrls
 })
 export class UserListComponent implements OnInit {
+
   users: User[] = [];
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private httpClient: HttpClient) {}
   ngOnInit(): void {
-    this.loadUsers();
+      this.httpClient.get<User[]>('http://localhost:3000/users')
+        .subscribe(users => this.users = users);
   }
-
-  loadUsers(): void {
-    this.http.get<User[]>('http://localhost:3000/users')
-      .subscribe(users => this.users = users);
-  }
-
-  deleteUser(id: number): void {
-    // Mostrar una confirmación preguntando si se quiere borrar el usuario
+  
+  deleteById(id: string | number): void {
     const remove: boolean = confirm("¿Quiere borrar el usuario de verdad?");
+    if (!remove) return;
+    this.httpClient.delete<User>(`http://localhost:3000/user/${id}`)
+      .subscribe(() => {
 
-    if (!remove) return; // Si el usuario no confirma, no se borra
-    
-    // Aquí puedes implementar la lógica para borrar el usuario con el ID proporcionado
+       this.users = this.users.filter(user => user.id !== id);
+      });
   }
+
 }
+
