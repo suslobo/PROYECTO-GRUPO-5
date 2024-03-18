@@ -16,14 +16,14 @@ export class UserListComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) {}
   ngOnInit(): void {
-      this.httpClient.get<User[]>('http://localhost:3000/user')
+      this.httpClient.get<User[]>('http://localhost:3000/users')
         .subscribe(users => this.users = users);
   }
   
   deleteById(id: string | number): void {
     const remove: boolean = confirm("¿Quiere borrar el usuario de verdad?");
     if (!remove) return;
-    this.httpClient.delete<User>(`http://localhost:3000/user/${id}`)
+    this.httpClient.delete<User>(`http://localhost:3000/users/${id}`)
       .subscribe(() => {
 
        this.users = this.users.filter(user => user.id !== id);

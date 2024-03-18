@@ -1,43 +1,32 @@
 <div class="container">
     <div class="row">
-        <div class="col-16">
+        <div class="col-12">
             <h1 class="mt-5">Listado de usuarios</h1>
             <br>
             <table class="table">
-
                 <thead>
-
                     <tr>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">E-mail</th>
-                        <th scope="col">Actions</th> <!-- Agregamos una columna para acciones -->
+                        <th scope="col">Actions</th>
                     </tr>
-                    <br>
                 </thead>
                 <tbody>
-                    @for(user of users; track user.id) {
-                    <tr>
+                    <tr *ngFor="let user of users; let i = index; trackBy: trackByFn">
                         <td>{{user.firstName}}</td>
                         <td>{{user.lastName}}</td>
                         <td>{{user.email}}</td>
-                        
-
+                        <td>
                             <button id="detalle" type="button" class="btn btn-outline-success me-2"
-                            [routerLink]="['/usuario', user.id, 'detail']">
-                            <i class="bi bi-eye"></i> 
-                            Ver detalle</button>
-                            <td>
-                            <button id="Borrar" class="btn btn-outline-danger w-100 py-2 " (click)="deleteById(user.id)"> Borrar</button>
-                          </td>
-
-                           
+                                [routerLink]="['/user', user.id, 'detail']"> <!-- Agregué 'detail' al final del enlace -->
+                                <i class="bi bi-eye"></i> Ver detalle
+                            </button>
+                            <button id="Borrar" class="btn btn-outline-danger py-2" (click)="deleteById(user.id)">Borrar</button>
                         </td>
                     </tr>
-                    }
                 </tbody>
             </table>
         </div>
     </div>
-  </div>
-  
+</div>
