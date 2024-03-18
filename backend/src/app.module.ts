@@ -17,9 +17,9 @@ import { House } from './house/house.model';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'admin',
+      password: 'rootroot',
       database: 'backend',
-      entities: [User, Booking, House],
+      entities: [House],
       synchronize: true, 
       logging: true
     }),
