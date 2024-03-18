@@ -9,17 +9,17 @@ export class BookingController {
 
     constructor(
         @InjectRepository(Booking)
-        private bookiningRepo: Repository<Booking>
+        private bookingRepo: Repository<Booking>
     ) {}
 
     @Get()
     findAll() {
-        return this.bookiningRepo.find();
+        return this.bookingRepo.find();
     }
 
     @Get('filter-by-id/:id') // :id es una variable, parámetro en la url
     findById( @Param('id', ParseIntPipe) id: number ) {
-        return this.bookiningRepo.findOne({
+        return this.bookingRepo.findOne({
             where: {
                 id: id
             }
