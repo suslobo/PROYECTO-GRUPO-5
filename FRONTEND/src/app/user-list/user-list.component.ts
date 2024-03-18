@@ -16,7 +16,7 @@ export class UserListComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) {}
   ngOnInit(): void {
-      this.httpClient.get<User[]>('http://localhost:3000/users')
+      this.httpClient.get<User[]>('http://localhost:3000/user')
         .subscribe(users => this.users = users);
   }
   
