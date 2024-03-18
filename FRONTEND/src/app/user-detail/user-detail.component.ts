@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user.model';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../services/user.service'; // Agrega la importación del servicio UserService
+
 
 @Component({
   selector: 'app-user-detail',
@@ -12,9 +12,9 @@ import { UserService } from '../services/user.service'; // Agrega la importació
 export class UserDetailComponent implements OnInit {
 
   user: User | undefined;
+  userService: any;
 
   constructor(private http: HttpClient,
-              private userService: UserService, // Inyecta el servicio UserService
               private activatedRoute: ActivatedRoute,
               private router: Router) { }
 
