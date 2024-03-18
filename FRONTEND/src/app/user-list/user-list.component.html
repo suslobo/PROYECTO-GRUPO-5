@@ -1,1 +1,52 @@
 
+<div class="container">
+    <div class="row">
+      <div class="col-16">
+        <h1 class="mt-5">Listado de Usuarios </h1>
+          <br>
+        <table class="table">
+  
+          <thead>
+  
+              <tr>
+              <th scope="col">Nombre</th>
+              <!-- <th scope="col">Fecha de salida</th> -->
+              <th scope="col">Apellido</th>
+              <th scope="col">Email</th>
+              </tr>
+              <br>
+                </thead>
+                  <tbody>
+                      @for (user of users; track user.id) {
+                      <tr>
+  
+                        <td>{{user.firstName}}</td>
+                        <!-- <td>{{booking.departureDate}}</td> -->
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+  
+                        </td>
+                        <td>
+                          <button id="detalle" type="button" class="btn btn-outline-success me-2"
+                          [routerLink]="['/user', user.id, 'detail']">
+                          <i class="bi bi-eye"></i>
+                          Ver detalle</button>
+                          <td>
+                          <button id="Borrar" class="btn btn-outline-danger w-100 py-2 " (click)="deleteById(user.id)"> Borrar</button>
+                        </td>
+  
+  
+                      </tr>
+                       }
+  
+  
+                  </tbody>
+                </table>
+  
+          </div>
+  
+      </div>
+  
+  </div>
+  
