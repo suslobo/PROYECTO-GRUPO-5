@@ -32,19 +32,19 @@
   color: #f6f7f4;
 }
 
-.dropdown-menu {
-  background-color: #f8e8db;
+/* .dropdown-menu {
+  background-color: #3d3b3b;
   border: none;
   border-radius: 5px;
-}
+} */
 
-.dropdown-item {
-  color: #f8f6f6;
+/* .dropdown-item {
+  color: #080808;
 }
-
+ */
 .dropdown-item:hover {
-  background-color: #ff8800;
-  color: #fff;
+  
+  color: #f7f3f3;
 }
 
 .btn {

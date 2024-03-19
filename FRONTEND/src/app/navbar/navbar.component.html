@@ -49,6 +49,14 @@
       <span class="name-logo">Rural House</span>
     </a>
 
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+        </li>
+      </ul>
+    </div>
+
 		<button
 			class="navbar-toggler"
 			type="button"
@@ -64,36 +72,22 @@
 			<ul class="navbar-nav ms-auto">
 
 				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Casas </a>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Casas Rurales </a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
 						<a ngbDropdownItem routerLink="/books" (click)="$event.preventDefault()">Crear casa</a>
-						<a ngbDropdownItem routerLink="/books/create" (click)="$event.preventDefault()">Crear libro</a>
+						
 					</div>
 				</li>
 
 				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Autores </a>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Usuario </a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
-						<a ngbDropdownItem routerLink="/authors" (click)="$event.preventDefault()">Listado autores</a>
-						<a ngbDropdownItem routerLink="/authors/create" (click)="$event.preventDefault()">Crear autor</a>
+						<a ngbDropdownItem routerLink="/authors" (click)="$event.preventDefault()">Listado de usuarios</a>
+						<a ngbDropdownItem routerLink="/authors/create" (click)="$event.preventDefault()">Formulario usuarios</a>
 					</div>
 				</li>
 
-				<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Categorías </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/categories" (click)="$event.preventDefault()">Listado categorías</a>
-						<a ngbDropdownItem routerLink="/categories/create" (click)="$event.preventDefault()">Crear categoría</a>
-					</div>
-				</li>
-
-        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Editoriales </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/editorials" (click)="$event.preventDefault()">Listado editoriales</a>
-						<a ngbDropdownItem routerLink="/editorials/create" (click)="$event.preventDefault()">Crear editorial</a>
-					</div>
-				</li>
+       
 
         <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Reservas </a>
