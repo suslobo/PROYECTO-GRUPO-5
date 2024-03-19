@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="assets/img/logo1_.svg" alt="Logo de Rural House" width="40" height="24">
@@ -37,3 +37,76 @@
   </div>
 </nav>
 
+ -->
+
+ 
+
+ <nav class="navbar navbar-expand-md navbar-light bg-body-tertiary">
+	<div class="container-fluid">
+
+		<a class="navbar-brand" routerLink="/">
+      <img style="max-width:80px;" src="/" alt="logo">
+    </a>
+
+		<button
+			class="navbar-toggler"
+			type="button"
+			aria-controls="navbarContent"
+			[attr.aria-expanded]="!collapsed"
+			aria-label="Toggle navigation"
+			(click)="collapsed = !collapsed"
+		>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+			<ul class="navbar-nav ms-auto">
+
+				<li class="nav-item" ngbDropdown>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Libros </a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+						<a ngbDropdownItem routerLink="/books" (click)="$event.preventDefault()">Listado libros</a>
+						<a ngbDropdownItem routerLink="/books/create" (click)="$event.preventDefault()">Crear libro</a>
+					</div>
+				</li>
+
+				<li class="nav-item" ngbDropdown>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Autores </a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+						<a ngbDropdownItem routerLink="/authors" (click)="$event.preventDefault()">Listado autores</a>
+						<a ngbDropdownItem routerLink="/authors/create" (click)="$event.preventDefault()">Crear autor</a>
+					</div>
+				</li>
+
+				<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Categorías </a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+						<a ngbDropdownItem routerLink="/categories" (click)="$event.preventDefault()">Listado categorías</a>
+						<a ngbDropdownItem routerLink="/categories/create" (click)="$event.preventDefault()">Crear categoría</a>
+					</div>
+				</li>
+
+        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Editoriales </a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+						<a ngbDropdownItem routerLink="/editorials" (click)="$event.preventDefault()">Listado editoriales</a>
+						<a ngbDropdownItem routerLink="/editorials/create" (click)="$event.preventDefault()">Crear editorial</a>
+					</div>
+				</li>
+
+        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Reservas </a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+						<a ngbDropdownItem routerLink="/reservations" (click)="$event.preventDefault()">Listado reservas</a>
+						<a ngbDropdownItem routerLink="/reservations/create" (click)="$event.preventDefault()">Crear reserva</a>
+					</div>
+				</li>
+
+        <button type="button" class="btn btn-success ms-2" routerLink="/login">Login</button>
+        <button type="button" class="btn btn-secondary ms-2" routerLink="/register">Registro</button>
+
+
+			</ul>
+		</div>
+	</div>
+</nav>

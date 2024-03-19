@@ -5,6 +5,8 @@ export interface House {
 
   title: string;
   address: string;
+  phone: string;
+  email: string;
   places: string;
   bedrooms: number;
   bathrooms: number;
