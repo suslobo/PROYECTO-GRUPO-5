@@ -99,6 +99,9 @@ export class HouseFormComponent implements OnInit{
     const house: House = {
       id: this.houseForm.get('id')?.value ?? 0,
       title: this.houseForm.get('title')?.value ?? '',
+      address: this.houseForm.get('address')?.value ?? '',
+      phone: this.houseForm.get('phone')?.value ?? '',
+      email: this.houseForm.get('email')?.value ?? '',
       places: this.houseForm.get('places')?.value ?? '',
       bedrooms: this.houseForm.get('bedrooms')?.value ?? 0,
       bathrooms: this.houseForm.get('bathrooms')?.value ?? 0,
