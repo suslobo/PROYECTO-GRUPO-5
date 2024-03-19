@@ -1,211 +1,4 @@
 
-   <!--
-
-<form [formGroup]="bookForm" (ngSubmit)="save()">
-
-
-    <div>
-        <label for="id">Nombre de la casa</label>
-        <select id="id" formControlName="id">
-            <option value="">Selecciona una casa</option>
-            <option value="id 1">Hershel</option>
-            <option value="id 2">Coop</option>
-            <option value="id 3">Virgil</option>
-            <option value="id 4">Harriet</option>
-            <option value="id 5">Lanny</option>
-        </select>
-
-    </div>
-
-    <div>
-        <label for="entryDate">Fecha de entrada</label>
-        <input type="datetime-local" id="entryDate" formControlName="entryDate">
-    </div>
-
-    <div>
-        <label for="departureDate">Fecha de salida</label>
-        <input type="datetime-local" id="departureDate" formControlName="departureDate">
-    </div>
-
-    <div>
-        <label form="people">Número de personas</label>
-        <input type="number" id="people" formControlName="people">
-    </div>
-
-    <div>
-        <label>Destino</label>
-        <select id="destination" formControlName="destination">
-            <option value="">Selecciona un destino</option>
-            <option value="id 1">Asturias</option>
-            <option value="id 2">Asturias</option>
-            <option value="id 3">Asturias</option>
-            <option value="id 4">Asturias</option>
-            <option value="id 5">Asturias</option>
-        </select>    </div>
-
-    <div>
-        <label for="available">Disponible (Si/No)</label>
-        <input type="checkbox" id="available" formControlName="available">
-    </div>
-
-    <div>
-        <label for="topics">Categorías</label>
-        <select id="topics" formControlName="topics" multiple>
-            <option value="">Selecciona una categoría</option>
-            <option value="playa">Playa</option>
-            <option value="montaña">Montaña</option>
-            <option value="ciudad">Ciudad</option>
-            <option value="ciudad">Pueblo</option>
-
-
-
-        </select>
-    </div>
-
-    <button type="submit">Enviar</button>
-
-     -->
-
-
-
-     <!--
-
-     <div class="row g-3; mt-3" >
-
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
-        </div>
-
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people">
-        </div>
-
-
-        <div class="col">
-            <label for="destination">Destino</label>
-            <input type="text" class="form-contol" id="destination" formControlName="destination" placeholder="" aria-label="destination">
-        </div>
-
-
-      </div>
-
-
-
-<div class="card" style="margin: 40px;">
-  <div class="card-body">
-    <h5 style="margin-left: 10px;">Espacios para reservar</h5>
-    <div>
-            @if (house) {
-              <div class="d-grid gap-2">
-              <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-success" >Reservar</button>
-            </div>
-            }
-    </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-      <div class="row g-3; mt-3" >
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
-        </div>
-        <div class="col">
-          <label for="destination">Destino</label>
-
-        <select class="form-select form-select-lg" aria-label="">
-          <option selected></option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-
-      </div>
-
-
-
-
-
-    </div>
-</div>
-  </div>
-  </div></div>
--->
-
-<!--
-<div class="card" style="margin: 40px;">
-  <div class="card-body">
-    <h5 style="margin-left: 10px;">Espacios para reservar</h5>
-    <div>
-            @if (house) {
-              <div class="d-grid gap-2">
-              <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-success" >Reservar</button>
-            </div>
-            }
-    </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-      <div class="row g-3; mt-3" >
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
-        </div>
-        <div class="col">
-          <label for="destination">Destino</label>
-
-        <select class="form-select form-select-lg" aria-label="">
-          <option selected></option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-
-      </div>
-
-
-
-
-
-    </div>
-</div>
-  </div>
-  </div></div>
-
-
-
-
-</form> -->
 
 
 <div class="card" style="margin: 40px;">
@@ -255,216 +48,87 @@
   </div>
   </div></div>
 
-  <!-- 
-
-  <body class="bg-body-tertiary">
- 
 
 
-    
+
+  
+
 <div class="container">
-  <main>
+  <div class="row">
+    <div class="col-lg-8">
+
+      <form class="mt-5"
+      [formGroup]="bookForm"
+      (ngSubmit)="save()">
 
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-            <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
-            </div>
-            <span class="text-success">−$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
-
-        <form class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </form>
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control"
+        id="startDate" formControlName="startDate"
+        placeholder="yyyy-mm-dd">
+        <label for="startDate">Fecha inicio</label>
       </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">Dirección de facturación</h4>
-        <form class="needs-validation" novalidate="">
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
-            </div>
 
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="username" class="form-label">Nombre de usuario</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" required="">
-              <div class="invalid-feedback">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="email" class="form-label">Correo electrónico <span class="text-body-secondary">(Opcional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address" class="form-label">Dirección</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-            <div class="col-md-5">
-              <label for="country" class="form-label">País</label>
-              <select class="form-select" id="country" required="">
-                <option value="">Elegir...</option>
-                <option>España</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">Estado</label>
-              <select class="form-select" id="state" required="">
-                <option value="">Elegir...</option>
-                <option>California</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-
-
-            </div>
-
-          <hr class="my-4">
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">La dirección de envío es la misma que mi dirección de facturación</label>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Guarde esta información para la próxima vez  </label>
-          </div>
-
-          <hr class="my-4">
-
-          <h4 class="mb-3">Pago</h4>
-
-          <div class="my-3">
-            <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-              <label class="form-check-label" for="credit">Tarjeta de crédito</label>
-            </div>
-            <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-              <label class="form-check-label" for="debit">Tarjeta de débito</label>
-            </div>
-            <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-              <label class="form-check-label" for="paypal">PayPal</label>
-            </div>
-          </div>
-
-          <div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-              <small class="text-body-secondary">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                Name on card is required
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-              <div class="invalid-feedback">
-                Credit card number is required
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-        </form>
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control"
+        id="endDate" formControlName="endDate"
+        placeholder="yyyy-mm-dd" (change)="calculatePrice()">
+        <label for="endDate">Fecha fin</label>
       </div>
+
+        </form>
+
     </div>
-  </main>
 
+    <div class="col-md-5 col-lg-4 order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">Tu reserva</span>
+        <span class="badge bg-primary rounded-pill">3 días</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0">Casa</h6>
+            @if (house) {
+              <small class="text-body-secondary">{{book.id}}</small>
+            }@else{
+              <small class="text-body-secondary">Ejemplo</small>
+            }
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0">Second product</h6>
+            <small class="text-body-secondary">Brief description</small>
+          </div>
+          <span class="text-body-secondary">$8</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0">Third item</h6>
+            <small class="text-body-secondary">Brief description</small>
+          </div>
+          <span class="text-body-secondary">$5</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+          <div class="text-success">
+            <h6 class="my-0">Promo code</h6>
+            <small>EXAMPLECODE</small>
+          </div>
+          <span class="text-success">−$5</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (USD)</span>
+          <strong>{{price}}</strong>
+        </li>
+      </ul>
 
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Promo code">
+          <button type="submit" class="btn btn-secondary">Redeem</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script src="checkout.js"></script>
-
-</body>
--->
