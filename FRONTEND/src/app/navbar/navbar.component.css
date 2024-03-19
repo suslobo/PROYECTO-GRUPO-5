@@ -8,6 +8,7 @@
   width: 60px;
   height: auto;
   margin-right: 20px;
+ 
 }
 
 .navbar-nav {
@@ -23,12 +24,12 @@
 
 .navbar-nav a {
   text-decoration: none;
-  color: #5a6b56;
+  color: #f4f7f4;
   font-weight: normal; /* Cambia el grosor de la fuente a normal */
 }
 
 .navbar-nav a:hover {
-  color: #7d9e47;
+  color: #f6f7f4;
 }
 
 .dropdown-menu {
@@ -38,7 +39,7 @@
 }
 
 .dropdown-item {
-  color: #333;
+  color: #f8f6f6;
 }
 
 .dropdown-item:hover {
@@ -47,15 +48,16 @@
 }
 
 .btn {
-  background-color: #7d9e47;
+  background-color: #f3f5f0;
   border: none;
-  color:#fff;
+  color:#0c0c0c;
 }
 
 .btn:hover {
-  background-color: #5a6b56;
+  background-color: #f4f5f4;
 }
 
 .name-logo {
-  color: #5a6b56;
+  color: #eff3ee;
 }
+

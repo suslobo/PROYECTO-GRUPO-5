@@ -40,12 +40,13 @@
  -->
 
  
-
- <nav class="navbar navbar-expand-md navbar-light bg-body-tertiary">
+ <!-- <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark"> -->
+ <nav class="navbar navbar-expand-md navbar-dark bg-body-tertiary" data-bs-theme="dark">
 	<div class="container-fluid">
 
-		<a class="navbar-brand" routerLink="/">
-      <img style="max-width:80px;" src="/" alt="logo">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/logo1_.svg" alt="Logo de Rural House" width="40" height="24">
+      <span class="name-logo">Rural House</span>
     </a>
 
 		<button
@@ -63,9 +64,9 @@
 			<ul class="navbar-nav ms-auto">
 
 				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Libros </a>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Casas </a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/books" (click)="$event.preventDefault()">Listado libros</a>
+						<a ngbDropdownItem routerLink="/books" (click)="$event.preventDefault()">Crear casa</a>
 						<a ngbDropdownItem routerLink="/books/create" (click)="$event.preventDefault()">Crear libro</a>
 					</div>
 				</li>
