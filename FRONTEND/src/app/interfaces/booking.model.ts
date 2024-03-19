@@ -11,11 +11,12 @@ export interface Booking {
         people: number;
         destination: string;
         available: boolean;
+        
 
         users: User;
         houses: House;
         payment: Payment;
         status: BookingStatus;
-        // total price
+        totalPrice: number;
 
 }

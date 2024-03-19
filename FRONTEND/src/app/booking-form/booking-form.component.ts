@@ -48,33 +48,26 @@ export class BookingFormComponent {
     const topics = this.bookForm.get('topics')?.value;
     console.log(topics);
 
-/*
 
-*/
-
-/*    const booking: Booking = {
-      id: this.bookForm.get('id')?.value ?? 0,
-      entryDate: this.bookForm.get('entryDate')?.value ?? new Date(),
-      departureDate: this.bookForm.get('departureDate')?.value ?? new Date(),
-      people: this.bookForm.get('people')?.value ?? 0,
-      destination: this.bookForm.get('destination')?.value ?? 'default',
-      available: this.bookForm.get('available')?.value ?? true,
-
-    }  */
   }
 
-  calculatePrice() {
+  calculatePrice(){
+    let departureDate = new Date();
+    let entryDate = new Date();
+
+    
     let totalPrice = 0;
     // paso 1 obtener fecha inicio
-
+    this.bookForm.get('entryDate')?.value;
     // paso 2 obtener fecha fin
-
+    this.bookForm.get('departureDate')?.value;
     // paso 3 calcular la diferencia en días entre ambas fechas
-
+    const differenceInMs = departureDate.getTime() - entryDate.getTime();
+    const differenceInDays = Math.round(differenceInMs / (1000 * 60 * 60 * 24));
     // paso 4 obtener el precio por noche
-
+    const tarifaPorDia = 50;
     // paso 5 multiplicar precio noche por dias de diferencia  y sumar cualquier otro servicio extra
-
+    const precioTotal = differenceInDays * tarifaPorDia;
     return totalPrice;
     }
 
