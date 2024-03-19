@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, MaxLengthValidator, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Booking } from '../interfaces/booking.model';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, NgbDatepickerModule],
+  imports: [ReactiveFormsModule, RouterLink, FormsModule, NgbDatepickerModule],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css'
 })
-export class BookingFormComponent {
+export class BookingFormComponent implements OnInit {
+  ngOnInit(): void {
+    
+  }
 
   bookForm = new FormGroup({
     id: new FormControl(),
@@ -59,7 +63,7 @@ export class BookingFormComponent {
       destination: this.bookForm.get('destination')?.value ?? 'default',
       available: this.bookForm.get('available')?.value ?? true,
 
-    }  */
+    }  
   }
 
   calculatePrice() {
@@ -70,5 +74,58 @@ export class BookingFormComponent {
     return totalPrice;
   }
 
+
+} */
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Booking } from '../interfaces/booking.model';
+
+@Component({
+  selector: 'app-reservation-form',
+  standalone: true,
+  imports: [HttpClientModule, RouterLink, ReactiveFormsModule],
+  templateUrl: './booking-form.component.html',
+  styleUrl: './booking-form.component.css'
+})
+export class BookingFormComponent implements OnInit{
+
+  bookings: Booking | undefined;
+  price = 0;
+
+  bookingForm = new FormGroup({
+
+    startDate: new FormControl<Date>(new Date()),
+    endDate: new FormControl<Date>(new Date()),
+
+  });
+
+  constructor(
+    private httpClient: HttpClient,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+    ){}
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      const id = params['id'];
+      if(!id) return;
+
+      this.httpClient.get<Booking>('http://localhost:3000/booking/' + id)
+      .subscribe(booking => this.bookings = booking);
+    });
+  }
+
+  calculatePrice() {
+
+    // calculo del precio total
+    console.log("Calculando precio");
+    this.price = 80;
+  }
+  save() {
+
+  }
 
 }
