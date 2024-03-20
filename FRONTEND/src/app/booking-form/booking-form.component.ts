@@ -13,7 +13,7 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 export class BookingFormComponent {
 
 
-  bookForm = new FormGroup({
+  bookingForm = new FormGroup({
     id: new FormControl(),
     entryDate: new FormControl(new Date()),
     //entryDate: new FormControl(new Date().toISOSString().slice(0,16))
@@ -25,27 +25,28 @@ export class BookingFormComponent {
     topics: new FormControl([]),
   });
 
+
   save(): void {
 
-    const id = this.bookForm.get('id')?.value;
+    const id = this.bookingForm.get('id')?.value;
     console.log(id);
 
-    const entryDate = this.bookForm.get('entryDate')?.value;
+    const entryDate = this.bookingForm.get('entryDate')?.value;
     console.log(entryDate);
 
-    const departureDate = this.bookForm.get('departureDate')?.value;
+    const departureDate = this.bookingForm.get('departureDate')?.value;
     console.log(departureDate);
 
-    const people = this.bookForm.get('people')?.value;
+    const people = this.bookingForm.get('people')?.value;
     console.log(people);
 
-    const destination = this.bookForm.get('destination')?.value;
+    const destination = this.bookingForm.get('destination')?.value;
     console.log(destination);
 
-    const available = this.bookForm.get('available')?.value;
+    const available = this.bookingForm.get('available')?.value;
     console.log(available);
 
-    const topics = this.bookForm.get('topics')?.value;
+    const topics = this.bookingForm.get('topics')?.value;
     console.log(topics);
 
 
@@ -58,9 +59,9 @@ export class BookingFormComponent {
     
     let totalPrice = 0;
     // paso 1 obtener fecha inicio
-    this.bookForm.get('entryDate')?.value;
+    this.bookingForm.get('entryDate')?.value;
     // paso 2 obtener fecha fin
-    this.bookForm.get('departureDate')?.value;
+    this.bookingForm.get('departureDate')?.value;
     // paso 3 calcular la diferencia en días entre ambas fechas
     const differenceInMs = departureDate.getTime() - entryDate.getTime();
     const differenceInDays = Math.round(differenceInMs / (1000 * 60 * 60 * 24));
