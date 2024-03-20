@@ -4,7 +4,9 @@ export interface House {
   id: number;
 
   title: string;
-  // address: string;
+  address: string;
+  phone: string;
+  email: string;
   places: string;
   bedrooms: number;
   bathrooms: number;
