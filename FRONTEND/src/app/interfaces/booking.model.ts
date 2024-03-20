@@ -8,15 +8,15 @@ export interface Booking {
 
         entryDate: Date;
         departureDate: Date,
-        people: number;
-        destination: string;
-        available: boolean;
+        people?: number;
+        destination?: string;
+        available?: boolean;
         
 
-        users: User;
-        houses: House;
-        payment: Payment;
-        status: BookingStatus;
+        users?: User;
+        houses?: House;
+        payment?: Payment;
+        status?: BookingStatus;
         totalPrice: number;
 
 }
