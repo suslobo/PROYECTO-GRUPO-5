@@ -1,62 +1,10 @@
 
-
-
-<div class="card" style="margin: 40px;">
-  <div class="card-body">
-    <h5 style="margin-left: 10px;">Espacios para reservar</h5>
-    <div>
-            @if (bookingForm) {
-              <div class="d-grid gap-2">
-              <button class="btn btn-outline-success"  >Reservar</button>
-            </div>
-            }
-    </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-      <div class="row g-3; mt-3" >
-        <p>Precio total: {{calculatePrice()}}</p>
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
-        </div>
-        <div class="col">
-          <label for="destination">Destino</label>
-
-        <select class="form-select form-select-lg" aria-label="">
-          <option selected></option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-
-      </div>
-    </div>
-</div>
-  </div>
-  </div></div>
-
-
-
-
-  
-
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col-lg-8">
-
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-dark  ">Reserva</span>
+      </h4>
       <form class="mt-5"
       [formGroup]="bookingForm"
       (ngSubmit)="save()">
@@ -75,15 +23,76 @@
         placeholder="yyyy-mm-dd" (change)="calculatePrice()">
         <label for="endDate">Fecha fin</label>
       </div>
+    <div class="form-floating mb-3">
+      <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
+      <label for="endDate">Número de personas</label>
+    </div>
+
+
+  <div class="form-check mt-3">
+    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+    <label class="form-check-label" for="credit">Tarjeta de crédito</label>
+  </div>
+  <div class="form-check">
+    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+    <label class="form-check-label" for="debit">Tarjeta de débito</label>
+  </div>
+  <div class="form-check">
+    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+    <label class="form-check-label" for="paypal">PayPal</label>
+  </div>
 
         </form>
+
+        <div class="row gy-3 mt-1">
+          <div class="col-md-6">
+            <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+            <small class="text-body-secondary">Nombre completo tal como aparece en la tarjeta</small>
+            <div class="invalid-feedback">
+              Nombre obligatorio
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+            <div class="invalid-feedback">
+              Número de tarjeta de crédito
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-expiration" class="form-label">Expiración</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+            <div class="invalid-feedback">
+              Expiración obligatorio
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+            <div class="invalid-feedback">
+              Código de seguridad obligatorio
+            </div>
+          </div>
+        </div>
+        <div _ngcontent-ng-c3189770292="" >
+          <div>
+            @if (bookingForm) {
+              <div class="d-grid gap-2 mt-3">
+                <button _ngcontent-ng-c3189770292="" class="btn btn-dark">Continuar con el proceso del pago</button>        </div>
+            }
+        </div>
+      </div>
 
     </div>
 
     <div class="col-md-5 col-lg-4 order-md-last">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-primary">Tu reserva</span>
-        <span class="badge bg-primary rounded-pill">3 días</span>
+        <span class="text-dark">Tu reserva</span>
+        <span class="badge bg-dark rounded-pill">3 días</span>
       </h4>
       <ul class="list-group mb-3">
         <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -104,10 +113,10 @@
           <span class="text-body-secondary">$8</span>
         </li>
         <li class="list-group-item d-flex justify-content-between lh-sm">
-          <div>
+          <!--<div>
             <h6 class="my-0">Third item</h6>
             <small class="text-body-secondary">Brief description</small>
-          </div>
+          </div> -->
           <span class="text-body-secondary">$5</span>
         </li>
         <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
@@ -129,6 +138,12 @@
           <button type="submit" class="btn btn-secondary">Redeem</button>
         </div>
       </form>
+      
     </div>
   </div>
+</div>
+
+
+<div class="my-3">
+
 </div>
