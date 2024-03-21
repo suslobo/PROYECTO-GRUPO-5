@@ -21,6 +21,9 @@ export class HouseFormComponent implements OnInit{
 
     id: new FormControl(),
     title: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    phone: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     places: new FormControl('', [Validators.min(2), Validators.max(20)]),
     bedrooms: new FormControl(0, [Validators.min(1), Validators.max(10)]),
     bathrooms: new FormControl(0, [Validators.min(1), Validators.max(10)]),
@@ -61,6 +64,9 @@ export class HouseFormComponent implements OnInit{
             this.houseForm.reset({
               id: houses.id,
               title: houses.title,
+              address: houses.address,
+              phone: houses.phone,
+              email: houses.email,
               places: houses.places,
               bedrooms: houses.bedrooms,
               bathrooms: houses.bathrooms,
@@ -99,6 +105,9 @@ export class HouseFormComponent implements OnInit{
     const house: House = {
       id: this.houseForm.get('id')?.value ?? 0,
       title: this.houseForm.get('title')?.value ?? '',
+      address: this.houseForm.get('address')?.value ?? '',
+      phone: this.houseForm.get('phone')?.value ?? '',
+      email: this.houseForm.get('email')?. value ?? '',
       places: this.houseForm.get('places')?.value ?? '',
       bedrooms: this.houseForm.get('bedrooms')?.value ?? 0,
       bathrooms: this.houseForm.get('bathrooms')?.value ?? 0,
@@ -127,6 +136,7 @@ export class HouseFormComponent implements OnInit{
 
 
   }
+  
   compareObjects(o1: any, o2: any): boolean {
     if (o1 && o2) {
       return o1.id === o2.id;
