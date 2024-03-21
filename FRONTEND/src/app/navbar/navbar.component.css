@@ -23,7 +23,7 @@
 
 .navbar-nav a {
   text-decoration: none;
-  color: #5a6b56;
+  color: #0c0d0c;
   font-weight: normal; /* Cambia el grosor de la fuente a normal */
 }
 
@@ -42,7 +42,7 @@
 }
 
 .dropdown-item:hover {
-  background-color: #ff8800;
+  background-color: #dfddda;
   color: #fff;
 }
 
