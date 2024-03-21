@@ -1,9 +1,10 @@
 .bg-welcome {
-  background-image: url('https://c.wallhere.com/photos/cc/59/nature_landscape_winter_snow_cold_mountains_trees_mist-1523645.jpg!d');
+  background-image: url('https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_1280.jpg');
   background-position: center;
   background-size: cover;
   padding-top:100px;
   padding-bottom: 100px;
+  font-family: 'Guttie Regular', sans-serif;
 }
 
 h1{
@@ -17,3 +18,13 @@ p{
   color: white;
 }
 
+
+  body {
+    font-family: 'Guttie Regular', sans-serif;
+    color: #000000;
+  }
+  
+  .btn {
+    background-color: #00AB87;
+  }
+   
