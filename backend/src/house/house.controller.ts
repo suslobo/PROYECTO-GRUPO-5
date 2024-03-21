@@ -77,6 +77,7 @@ export class HouseController {
         });
     }
 
+    /*
     @Get('filter-by-price/:min/:max')
     findByPriceBetweenMinAndMax(
         @Param('min', ParseIntPipe) min: number,
@@ -84,6 +85,16 @@ export class HouseController {
         return this.houseRepo.find({
             where: {
                 price: Between(min, max)
+            }
+        });
+    }
+    */
+
+    @Get('filter-by-price')
+    findByPrice(@Param('id', ParseIntPipe) id: number) {
+        return this.houseRepo.findOne({
+            where: {
+                price: id
             }
         });
     }
@@ -169,14 +180,19 @@ export class HouseController {
         });
     }
 
+    @Get('filter-by-photoUrls')
+    findByPhotoUrls(@Param('id', ParseIntPipe) id: string) {
+        return this.houseRepo.find({
+            where: {
+                photoUrls: id
+            }
+        });
+    }
+
     @Post()
     create(@Body() house: House) {
         return this.houseRepo.save(house);
     }
 
-}
-
-function Between(min: number, max: number): number | import("typeorm").FindOperator<number> {
-    throw new Error('Function not implemented.');
 }
 

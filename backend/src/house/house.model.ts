@@ -55,7 +55,7 @@ export class House {
     @Column()
     air: boolean;
 
-    @Column({length: 1000})
+    @Column({length: 3000})
     description: string;
 
     @Column({type: 'simple-array'})
