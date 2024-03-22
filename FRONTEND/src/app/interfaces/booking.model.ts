@@ -11,12 +11,13 @@ export interface Booking {
         people?: number;
         destination?: string;
         available?: boolean;
+        price: number;
         
 
         users?: User;
-        houses?: House;
-        payment?: Payment;
-        status?: BookingStatus;
-        totalPrice: number;
+        house?: House;
+        //payment?: Payment;
+        //status?: BookingStatus;
+        totalPrice?: number;
 
 }
