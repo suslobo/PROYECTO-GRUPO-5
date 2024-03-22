@@ -23,12 +23,12 @@
 
 .navbar-nav a {
   text-decoration: none;
-  color: #5a6b56;
+  color: #0c0d0c;
   font-weight: normal; /* Cambia el grosor de la fuente a normal */
 }
 
 .navbar-nav a:hover {
-  color: #7d9e47;
+  color: #00AB87;
 }
 
 .dropdown-menu {
@@ -42,7 +42,7 @@
 }
 
 .dropdown-item:hover {
-  background-color: #ff8800;
+  background-color: #dfddda;
   color: #fff;
 }
 
@@ -58,4 +58,8 @@
 
 .name-logo {
   color: #5a6b56;
+}
+body {
+  font-family: 'Guttie Regular', sans-serif;
+  color: #000000;
 }
