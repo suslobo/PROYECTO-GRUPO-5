@@ -65,7 +65,7 @@ export class BookingFormComponent implements OnInit {
     }
 
     entryDate = new Date(entryDate);
-    departureDate = new Date(departureDate);
+    departureDate = new Date(departureDate); 
 
     const diffMilliseconds = entryDate.getTime() - departureDate.getTime(); 
 
@@ -78,25 +78,14 @@ export class BookingFormComponent implements OnInit {
 
     /* const differenceInMs = departureDate.getTime() - entryDate.getTime();
     const differenceInDays = Math.round(differenceInMs / (1000 * 60 * 60 * 24));  */
-    
    
-
-    
-    
     //this.numDays = differenceInDays; 
-    
-    
-   
-
-   
+     
     // paso 5 multiplicar precio noche por dias de diferencia  y sumar cualquier otro servicio extra
    /*  const precioTotal = differenceInDays * tarifaPorDia;
     return totalPrice; */
-    
-
 
 }
-
 
   save(): void {
 
