@@ -57,7 +57,7 @@ export class BookingFormComponent implements OnInit {
 
   calculatePrice(){
 
-   /*  let departureDate = this.bookingForm.get('entryDate')?.value;
+    let departureDate = this.bookingForm.get('entryDate')?.value;
     let entryDate = this.bookingForm.get('departureDate')?.value;
 
     if(!entryDate || !departureDate || !this.house || !this.house.price){
@@ -75,9 +75,9 @@ export class BookingFormComponent implements OnInit {
     
     this.numDays = diffMilliseconds / (1000 * 60 * 60 * 24);
     this.price = this.numDays * this.house.price;
- */
 
-    console.log("Calculando precio");
+
+  /*   console.log("Calculando precio");
 
     const entryDate = this.bookingForm.get('entryDate')?.value;
     const departureDate = this.bookingForm.get('departureDate')?.value;
@@ -86,7 +86,7 @@ export class BookingFormComponent implements OnInit {
       return;
     }
     this.price = 80;
-    this. numDays = 3;
+    this. numDays = 3; */
     
 
 }
