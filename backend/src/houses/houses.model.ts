@@ -60,5 +60,4 @@ export class House {
 
     @Column({type: 'simple-array'})
     photoUrls: string[];
-    
 }
