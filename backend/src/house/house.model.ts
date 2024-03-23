@@ -3,10 +3,11 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class House {
 
+    
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({nullable: false})
     title: string;
 
     @Column()
@@ -15,7 +16,7 @@ export class House {
     @Column()
     phone: string;
 
-    @Column({unique:true})
+    @Column()
     email: string;
 
     @Column()
@@ -27,38 +28,37 @@ export class House {
     @Column()
     bathrooms: number;
 
-    @Column({type: 'decimal', precision: 14, scale: 2})
-    price: number
+    @Column()
+    price: number;
 
     @Column()
-    meters: number; 
-        
+    meters: number;
+
     @Column()
     destination: string;
 
-    @Column({type: 'boolean', default: false})
+    @Column()
     petFriendly: boolean;
 
-    @Column({type: 'boolean', default: false})
+    @Column()
     pool: boolean;
 
-    @Column({type: 'boolean', default: false})
+    @Column()
     garden: boolean;
 
-    @Column({type: 'boolean', default: false})
+    @Column()
     terrace: boolean;
 
-    @Column({type: 'boolean', default: false})
+    @Column()
     wifi: boolean;
 
-    @Column({type: 'boolean', default: false})
+    @Column()
     air: boolean;
 
-    @Column()
+    @Column({length: 3000})
     description: string;
 
-    @Column()
-    photoUrls: string ;
-
-
+    @Column({type: 'simple-array'})
+    photoUrls: string[];
+    
 }
