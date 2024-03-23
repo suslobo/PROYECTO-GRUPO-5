@@ -32,7 +32,7 @@ export class HouseController {
         });
     }
 
-    @Get('filter-by-adress')
+    @Get('filter-by-address')
     findByAdress(@Param('id', ParseIntPipe) id: string) {
         return this.houseRepo.findOne({
             where: {
