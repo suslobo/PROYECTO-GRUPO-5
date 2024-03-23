@@ -26,16 +26,16 @@ export class BookingFormComponent implements OnInit {
  
 
   bookingForm = new FormGroup({
-    id: new FormControl(),
+    //id: new FormControl(),
     entryDate: new FormControl(new Date()),
     //entryDate: new FormControl(new Date().toISOSString().slice(0,16))
     departureDate: new FormControl(new Date()),
-    people: new FormControl(0, [Validators.min(1)]),
-    destination: new FormControl(''),
-    available: new FormControl(true),
+    //people: new FormControl(0, [Validators.min(1)]),
+    //destination: new FormControl(''),
+    //available: new FormControl(true),
     //category: new FormControl(),
     //topics: new FormControl([]),
-    house: new FormControl (),
+    //house: new FormControl (),
     totalPrice: new FormControl()
   });
 
@@ -57,7 +57,7 @@ export class BookingFormComponent implements OnInit {
 
   calculatePrice(){
 
-    let departureDate = this.bookingForm.get('entryDate')?.value;
+   /*  let departureDate = this.bookingForm.get('entryDate')?.value;
     let entryDate = this.bookingForm.get('departureDate')?.value;
 
     if(!entryDate || !departureDate || !this.house || !this.house.price){
@@ -75,15 +75,19 @@ export class BookingFormComponent implements OnInit {
     
     this.numDays = diffMilliseconds / (1000 * 60 * 60 * 24);
     this.price = this.numDays * this.house.price;
+ */
 
-    /* const differenceInMs = departureDate.getTime() - entryDate.getTime();
-    const differenceInDays = Math.round(differenceInMs / (1000 * 60 * 60 * 24));  */
-   
-    //this.numDays = differenceInDays; 
-     
-    // paso 5 multiplicar precio noche por dias de diferencia  y sumar cualquier otro servicio extra
-   /*  const precioTotal = differenceInDays * tarifaPorDia;
-    return totalPrice; */
+    console.log("Calculando precio");
+
+    const entryDate = this.bookingForm.get('entryDate')?.value;
+    const departureDate = this.bookingForm.get('departureDate')?.value;
+
+    if (!entryDate || !departureDate){
+      return;
+    }
+    this.price = 80;
+    this. numDays = 3;
+    
 
 }
 

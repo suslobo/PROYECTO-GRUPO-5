@@ -19,7 +19,7 @@ import { House } from './house/house.model';
       username: 'root',
       password: 'admin',
       database: 'backend',
-      entities: [User],
+      entities: [User, Booking, House],
       synchronize: true, 
       logging: true
     }),

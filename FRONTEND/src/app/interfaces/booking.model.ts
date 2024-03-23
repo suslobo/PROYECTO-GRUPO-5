@@ -7,7 +7,7 @@ export interface Booking {
         id: number;
 
         entryDate: Date;
-        departureDate: Date,
+        departureDate: Date;
         people?: number;
         destination?: string;
         available?: boolean;
