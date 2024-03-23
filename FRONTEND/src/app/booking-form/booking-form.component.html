@@ -1,4 +1,4 @@
-<!-- 
+
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-8">
@@ -12,16 +12,16 @@
 
       <div class="form-floating mb-3">
         <input type="date" class="form-control"
-        id="startDate" formControlName="startDate"
-        placeholder="yyyy-mm-dd">
-        <label for="startDate">Fecha inicio</label>
+        id="entryDate" formControlName="entryDate"
+        placeholder="yyyy-mm-dd" (change)="calculatePrice()">
+        <label for="entryDate">Fecha inicio</label>
       </div>
 
       <div class="form-floating mb-3">
         <input type="date" class="form-control"
-        id="endDate" formControlName="endDate"
+        id="departureDate" formControlName="departureDate"
         placeholder="yyyy-mm-dd" (change)="calculatePrice()">
-        <label for="endDate">Fecha fin</label>
+        <label for="departureDate">Fecha fin</label>
       </div>
     <div class="form-floating mb-3">
       <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
@@ -139,7 +139,7 @@
 
 <div class="my-3">
 
-</div> -->
+</div> 
 
 
 
@@ -149,7 +149,7 @@
 
 
  
- 
+<!--  
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-8">
@@ -163,21 +163,21 @@
 
       <div class="form-floating mb-3">
         <input type="date" class="form-control"
-        id="startDate" formControlName="startDate"
-        placeholder="yyyy-mm-dd">
-        <label for="startDate">Fecha inicio</label>
+        id="entryDate" formControlName="entryDate"
+        placeholder="yyyy-mm-dd" (change)="calculatePrice()">
+        <label for="entryDate">Fecha inicio</label>
       </div>
 
       <div class="form-floating mb-3">
         <input type="date" class="form-control"
-        id="endDate" formControlName="endDate"
+        id="departureDate" formControlName="departureDate"
         placeholder="yyyy-mm-dd" (change)="calculatePrice()">
-        <label for="endDate">Fecha fin</label>
+        <label for="departureDate">Fecha fin</label>
       </div>
-    <div class="form-floating mb-3">
+   <!--  <div class="form-floating mb-3">
       <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
       <label for="endDate">Número de personas</label>
-    </div>
+    </div> -->
 
 
   <div class="form-check mt-3">
@@ -295,5 +295,5 @@
 
 <div class="my-3">
 
-</div> 
+</div>  -->
 

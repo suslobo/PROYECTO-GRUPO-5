@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { Booking } from '../interfaces/booking.model';
-import { NgbAlert, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 import { House } from '../interfaces/house.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -50,15 +50,16 @@ export class BookingFormComponent implements OnInit {
       const id = params['id'];
       if(!id) return;
 
-      this.httpClient.get<Booking>('http://localhost:3000/booking/' + id)
-      .subscribe(booking => this.booking = booking);
+      this.httpClient.get<House>('http://localhost:3000/houses/' + id)
+      .subscribe(house => this.house = house);
     });
   }
 
   calculatePrice(){
 
-    let departureDate = this.bookingForm.get('entryDate')?.value;
-    let entryDate = this.bookingForm.get('departureDate')?.value;
+    let entryDate = this.bookingForm.get('entryDate')?.value;
+    let departureDate = this.bookingForm.get('departureDate')?.value;
+    
 
     if(!entryDate || !departureDate || !this.house || !this.house.price){
       return;
@@ -67,7 +68,7 @@ export class BookingFormComponent implements OnInit {
     entryDate = new Date(entryDate);
     departureDate = new Date(departureDate); 
 
-    const diffMilliseconds = entryDate.getTime() - departureDate.getTime(); 
+    const diffMilliseconds = departureDate.getTime() - entryDate.getTime(); 
 
     if (diffMilliseconds <= 0) {
       return;
@@ -75,20 +76,7 @@ export class BookingFormComponent implements OnInit {
     
     this.numDays = diffMilliseconds / (1000 * 60 * 60 * 24);
     this.price = this.numDays * this.house.price;
-
-
-  /*   console.log("Calculando precio");
-
-    const entryDate = this.bookingForm.get('entryDate')?.value;
-    const departureDate = this.bookingForm.get('departureDate')?.value;
-
-    if (!entryDate || !departureDate){
-      return;
-    }
-    this.price = 80;
-    this. numDays = 3; */
     
-
 }
 
   save(): void {

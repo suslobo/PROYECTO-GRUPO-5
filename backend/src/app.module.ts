@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { HouseController } from './house/house.controller';
+
 import { BookingController } from './booking/booking.controller';
 import { UserController } from './user/user.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/user.model';
 import { Booking } from './booking/booking.model';
-import { House } from './house/house.model';
+import { House } from './houses/houses.model';
+import { HousesController } from './houses/houses.controller';
 
 
 @Module({
@@ -25,7 +26,7 @@ import { House } from './house/house.model';
     }),
     TypeOrmModule.forFeature([User, Booking, House])
   ],
-  controllers: [AppController, HouseController, BookingController, UserController],
+  controllers: [AppController, HousesController, BookingController, UserController, HousesController],
   providers: [AppService],
 })
 export class AppModule {}

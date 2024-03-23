@@ -1,11 +1,10 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { House } from './house.model';
+import { House } from './houses.model';
 import { Repository } from 'typeorm';
 
-@Controller('house')
-export class HouseController {
-
+@Controller('houses')
+export class HousesController {
     constructor(@InjectRepository(House) private houseRepo: Repository<House>) {}
 
     @Get()
@@ -193,6 +192,4 @@ export class HouseController {
     create(@Body() house: House) {
         return this.houseRepo.save(house);
     }
-
 }
-
