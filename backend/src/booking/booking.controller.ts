@@ -43,32 +43,23 @@ export class BookingController {
             return this.bookingRepository.save(booking);
         }
 
+        @Delete(':id')
+        async deleteById(
+            @Param('id', ParseIntPipe) id: number
+        ) {
+            const exists = await this.bookingRepository.existsBy({ id: id });
         
-    @Delete(':id')
-    async deleteById(
-        @Param('id', ParseIntPipe) id: number
-    ) {
-
-        const exists = await this.bookingRepository.existsBy({
-            id: id
-         });
-
-         if(!exists) {
-             throw new NotFoundException('House not found');
-         }
-
-        try {
-
-            const house = await this.bookingRepository.findOne({
-                where: {id: id}
-            });
-
-            await this.bookingRepository.save(house);
-        } catch (error) {
-            console.log("Error al borrar la casa")
-            throw new ConflictException('No se puede borrar.');
+            if (!exists) {
+                throw new NotFoundException('Booking not found');
+            }
+        
+            try {
+                await this.bookingRepository.delete(id);
+            } catch (error) {
+                console.log("Error al borrar la reserva", error);
+                throw new ConflictException('No se puede borrar.');
+            }
         }
-
-    }
+        
         
 }
