@@ -9,17 +9,17 @@ export class BookingController {
 
     constructor(
         @InjectRepository(Booking)
-        private bookingRepo: Repository<Booking>
+        private bookingRepository: Repository<Booking>
     ) {}
 
     @Get()
     findAll() {
-        return this.bookingRepo.find();
+        return this.bookingRepository.find();
     }
 
     @Get('filter-by-id/:id') // :id es una variable, parámetro en la url
     findById( @Param('id', ParseIntPipe) id: number ) {
-        return this.bookingRepo.findOne({
+        return this.bookingRepository.findOne({
             where: {
                 id: id
             }
@@ -29,7 +29,7 @@ export class BookingController {
          //http://localhost:3000/booking/filter-by-user/2
         @Get('filter-by-user/:id')
         findByUserId(@Param('id', ParseIntPipe) id: number){
-            return this.bookingRepo.find({
+            return this.bookingRepository.find({
                 where: {
                     user: {
                         id: id
@@ -40,7 +40,7 @@ export class BookingController {
 
         @Post()
         create(@Body() booking: Booking) {
-            return this.bookingRepo.save(booking);
+            return this.bookingRepository.save(booking);
         }
         
 }
