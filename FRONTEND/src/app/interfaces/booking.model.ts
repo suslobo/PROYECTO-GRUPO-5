@@ -8,7 +8,7 @@ export interface Booking {
 
         entryDate: Date;
         departureDate: Date;
-        people?: number;
+        people: number;
         destination?: string;
         available?: boolean;
         price: number;

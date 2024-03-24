@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Booking } from '../interfaces/booking.model';
 import { NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 import { House } from '../interfaces/house.model';
@@ -20,23 +20,22 @@ export class BookingFormComponent implements OnInit {
   house: House | undefined;
   price = 0;
   numDays = 0;
+  totalPrice = 0;
+  
+  numPeople: number = 0;
+
   showConfirmMessage = false;
   booking: Booking | undefined;
   
  
 
   bookingForm = new FormGroup({
-    //id: new FormControl(),
+  
     entryDate: new FormControl(new Date()),
-    //entryDate: new FormControl(new Date().toISOSString().slice(0,16))
     departureDate: new FormControl(new Date()),
-    //people: new FormControl(0, [Validators.min(1)]),
-    //destination: new FormControl(''),
-    //available: new FormControl(true),
-    //category: new FormControl(),
-    //topics: new FormControl([]),
-    //house: new FormControl (),
-    totalPrice: new FormControl()
+    people: new FormControl(0, [Validators.min(1)]),
+    cleaningService: new FormControl<boolean>(false)
+   
   });
 
   constructor(
@@ -60,6 +59,7 @@ export class BookingFormComponent implements OnInit {
     let entryDate = this.bookingForm.get('entryDate')?.value;
     let departureDate = this.bookingForm.get('departureDate')?.value;
     
+    
 
     if(!entryDate || !departureDate || !this.house || !this.house.price){
       return;
@@ -76,6 +76,13 @@ export class BookingFormComponent implements OnInit {
     
     this.numDays = diffMilliseconds / (1000 * 60 * 60 * 24);
     this.price = this.numDays * this.house.price;
+
+    const isPeople = this.bookingForm.get('people')?.value;
+    const cleaningService = this.bookingForm.get('cleaningService')?.value;
+    if(cleaningService)
+    this.price += 30;
+   
+    
     
 }
 
@@ -85,8 +92,10 @@ export class BookingFormComponent implements OnInit {
       id: this.bookingForm.get('id')?.value ?? 0,
       entryDate: this.bookingForm.get('entryDate')?.value ?? new Date(),
       departureDate: this.bookingForm.get('departureDate')?.value ?? new Date(),
+      people: this.bookingForm.get('people')?.value ?? 0,
       price: this.price,
-      house: this.house
+      house: this.house,
+      //totalPrice: this.totalPrice
       
     };
 
@@ -99,7 +108,7 @@ export class BookingFormComponent implements OnInit {
     const departureDate = this.bookingForm.get('departureDate')?.value;
     console.log(departureDate);
 
-    const people = this.bookingForm.get('people')?.value;
+    const people =; this.bookingForm.get('people')?.value;
     console.log(people);
 
     const destination = this.bookingForm.get('destination')?.value;
