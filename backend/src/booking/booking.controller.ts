@@ -1,24 +1,25 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Booking } from './booking.model';
 import { Repository } from 'typeorm';
+import { House } from 'src/houses/houses.model';
 
 @Controller('booking')
 export class BookingController {
 
     constructor(
         @InjectRepository(Booking)
-        private BookingRepository: Repository<Booking>
+        private bookingRepository: Repository<Booking>
     ){}
 
     @Get()
     findAll(){
-        return this.BookingRepository.find();
+        return this.bookingRepository.find();
     }
 
     @Get('filter-by-id/:id')
     findById(@Param('id', ParseIntPipe) id:number){
-        return this.BookingRepository.findOne({
+        return this.bookingRepository.findOne({
             where: {
                 id: id
             }
@@ -27,7 +28,7 @@ export class BookingController {
 
     @Get('filter-by-user/:id')
     findByUserId(@Param('id', ParseIntPipe) id: number){
-        return this.BookingRepository.find({
+        return this.bookingRepository.find({
             where: {
                 users: {
                     id: id
@@ -38,7 +39,7 @@ export class BookingController {
 
     @Get('filter-by-book/:id')
     findByBookId(@Param('id', ParseIntPipe) id: number){
-        return this.BookingRepository.find({
+        return this.bookingRepository.find({
             where: {
                 house: {
                     id: id
@@ -49,6 +50,9 @@ export class BookingController {
 
     @Post()
     create(@Body() Booking: Booking) {
-        return this.BookingRepository.save(Booking);
+        return this.bookingRepository.save(Booking);
     }
+
+    
+
 }
