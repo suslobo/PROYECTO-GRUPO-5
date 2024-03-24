@@ -39,7 +39,8 @@ export class HouseFormComponent implements OnInit{
 
   isUpdate: boolean = false;
   isDelete: boolean = false;
-
+  photoFile: File | undefined;
+  photoPreview: string | undefined;
 
    constructor (
     private httpClient: HttpClient,
@@ -90,7 +91,21 @@ export class HouseFormComponent implements OnInit{
 
     }
 
+    onFileChange(event: Event) {
 
+      let target = event.target as HTMLInputElement;
+            
+      if (target.files !== null && target.files.length > 0) {
+        this.photoFile = target.files[0];
+
+        let reader = new FileReader();
+        reader.onload = event => this.photoPreview = reader.result as string;
+        reader.readAsDataURL(this.photoFile);
+      }
+      
+
+
+    }
 
   save(): void {
 
@@ -117,6 +132,23 @@ export class HouseFormComponent implements OnInit{
       description: this.houseForm.get('description')?.value ?? '',
       photoUrls: this.houseForm.get('photourls')?.value ?? []
     }
+
+    console.log(this.photoFile);
+    
+    let formData = new FormData();
+
+    if (this.photoFile) // si existe foto la añado
+    formData.append('photoUrls', this.photoFile);
+
+    
+
+    this.httpClient.post('http://localhost:3000/houses', formData)
+    .subscribe(house => {
+      this.photoFile = undefined;
+      this.photoPreview = undefined;
+      console.log(house);
+      
+    })
 
     console.log(house);
 
