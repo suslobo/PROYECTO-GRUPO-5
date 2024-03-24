@@ -213,29 +213,22 @@ export class HousesController {
     }
 
     @Delete(':id')
-    async deleteById(
-        @Param('id', ParseIntPipe) id: number
-    ) {
+async deleteById(
+    @Param('id', ParseIntPipe) id: number
+) {
+    const exists = await this.houseRepository.existsBy({ id: id });
 
-        const exists = await this.houseRepository.existsBy({
-            id: id
-         });
-
-         if(!exists) {
-             throw new NotFoundException('House not found');
-         }
-
-        try {
-           
-            const house = await this.houseRepository.findOne({
-                where: {id: id}
-            });
-           
-            await this.houseRepository.save(house);
-        } catch (error) {
-            console.log("Error al borrar la casa")
-            throw new ConflictException('No se puede borrar.');
-        }
-        
+    if (!exists) {
+        throw new NotFoundException('House not found');
     }
+
+    try {
+        const house = await this.houseRepository.findOne({ where: { id: id } });
+        await this.houseRepository.remove(house);
+    } catch (error) {
+        console.log("Error al borrar la casa", error);
+        throw new ConflictException('No se puede borrar.');
+    }
+}
+
 }
