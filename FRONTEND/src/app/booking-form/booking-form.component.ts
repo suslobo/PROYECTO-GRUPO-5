@@ -92,6 +92,7 @@ export class BookingFormComponent implements OnInit{
       available: false
     };
 
+    // enviar la backend con el método POST
   this.httpClient.post<Booking>('http://localhost:3000/booking', booking)
     .subscribe(booking => {
       console.log(booking);
