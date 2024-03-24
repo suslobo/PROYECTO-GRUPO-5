@@ -25,6 +25,6 @@ export interface House {
 
   description: string;
   photoUrls: string [];
-
+ 
 
 }
