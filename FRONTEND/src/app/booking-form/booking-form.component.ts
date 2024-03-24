@@ -21,9 +21,8 @@ export class BookingFormComponent implements OnInit {
   price = 0;
   numDays = 0;
   totalPrice = 0;
-  
+  people: number = 0;
   numPeople: number = 0;
-
   showConfirmMessage = false;
   booking: Booking | undefined;
   
@@ -33,8 +32,10 @@ export class BookingFormComponent implements OnInit {
   
     entryDate: new FormControl(new Date()),
     departureDate: new FormControl(new Date()),
-    people: new FormControl(0, [Validators.min(1)]),
-    cleaningService: new FormControl<boolean>(false)
+    // people: new FormControl(0, [Validators.min(1)]),
+    cleaningService: new FormControl<boolean>(false),
+    breakfast: new FormControl<boolean>(false),
+    numPeople: new FormControl(0)
    
   });
 
@@ -77,14 +78,19 @@ export class BookingFormComponent implements OnInit {
     this.numDays = diffMilliseconds / (1000 * 60 * 60 * 24);
     this.price = this.numDays * this.house.price;
 
-    const isPeople = this.bookingForm.get('people')?.value;
+    
+
     const cleaningService = this.bookingForm.get('cleaningService')?.value;
     if(cleaningService)
     this.price += 30;
-   
+
+    const breakfast = this.bookingForm.get('breakfast')?.value;
+    if(breakfast)
+    this.price += 10;
+
     
-    
-}
+
+  }
 
   save(): void {
 
