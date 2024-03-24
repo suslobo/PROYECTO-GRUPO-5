@@ -17,7 +17,7 @@ export class Booking {
     price: number;
 
     @Column()
-    people: number;
+    people?: number;
 
     @Column()
     destination: string;
@@ -25,11 +25,12 @@ export class Booking {
     @Column()
     available: boolean;
 
-    @Column()
-    creditCard: string;
+    //@Column()
+    //creditCard: string;
 
     @Column()
     status: string;
+    
 
     
     
