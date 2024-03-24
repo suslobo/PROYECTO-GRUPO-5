@@ -34,12 +34,13 @@
           <label for="departureDate">Fecha fin</label>
         </div>
 
-        <div class="form-floating mb-3">
-          <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" 
-          placeholder="" (change)="calculatePrice()" 
-          aria-label="people" class="form-control">
-          <label for="people">Número de personas</label>
-        </div> 
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox"
+          id="breakfast" formControlName="breakfast" (change)="calculatePrice()">
+          <label class="form-check-label" for="breakfast">
+            Desayuno 10/persona € 
+          </label>
+        </div>
 
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox"
@@ -152,16 +153,6 @@
         </li>
         } 
 
-
-
-        <li class="list-group-item d-flex justify-content-between lh-sm">
-
-          <div>
-            <span>Personas</span>
-              <h6 class="my-0">{{numPeople}}</h6>
-
-          </div>
-
           <li class="list-group-item d-flex justify-content-between ">
           @if(bookingForm.get('cleaningService')?.value) {
 
@@ -171,6 +162,19 @@
               </div>
               <br>
               <span class="text-body-secondary">30 €</span>
+
+          }
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between ">
+          @if(bookingForm.get('breakfast')?.value) {
+
+              <div>
+                <h6>Desayuno</h6>
+
+              </div>
+              <br>
+              <span class="text-body-secondary">10 €</span>
 
           }
         </li>
