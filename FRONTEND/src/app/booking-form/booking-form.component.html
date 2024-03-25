@@ -75,7 +75,7 @@
     <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
     <label class="form-check-label" for="paypal">PayPal</label>
   </div> --> 
-
+  
        </form> 
 
          <div class="row gy-3 mt-1">
@@ -163,14 +163,14 @@
           } 
 
           <li class="list-group-item d-flex justify-content-between ">
-            @if(bookingForm.get('numPeople')?.value) {
+            @if(bookingForm.get('people')?.value) {
     
                 <div>
                   <h6>Número de personas</h6>
     
                 </div>
                 <br>
-                <span class="text-body-secondary">{{numPeople}}</span>
+                <span class="text-body-secondary">{{people}}</span>
     
             }
           </li>
