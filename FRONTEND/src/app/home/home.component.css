@@ -7,24 +7,20 @@
   font-family: 'Guttie Regular', sans-serif;
 }
 
-h1{
-
-padding-bottom: 20px;
-color: white;
-
-
-}
-p{
+.bg-welcome h1 {
+  padding-bottom: 20px;
   color: white;
 }
 
+.bg-welcome p {
+  color: white;
+}
 
-  body {
-    font-family: 'Guttie Regular', sans-serif;
-    color: #000000;
-  }
-  
-  .btn {
-    background-color: #00AB87;
-  }
-   
+body {
+  font-family: 'Guttie Regular', sans-serif;
+  color: #000000;
+}
+
+.btn {
+  background-color: #00AB87;
+}
