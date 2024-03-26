@@ -1,6 +1,6 @@
 
   body {
-    font-family: 'Guttie Regular', sans-serif;
+    font-family:'Poppins', sans-serif;
     color: #000000;
   }
   
@@ -12,4 +12,16 @@
 /* Estilo para el color del texto del botón con ID "detalle" */
 #detalle {
     color: #FCFBEA;
+}
+/* Reducir el tamaño de los iconos de las redes sociales */
+.list-unstyled .link-body-emphasis i {
+  font-size: 5px; /* Modifica este valor según tus preferencias */
+}
+.d-flex p{
+  margin-left: 70px;
+}
+.list-unstyled{
+  margin-right: 70px;
+  
+  
 }
