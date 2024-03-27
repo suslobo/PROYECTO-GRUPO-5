@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { HouseController } from './house/house.controller';
 import { BookingController } from './booking/booking.controller';
-import { UserController } from './user/user.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/user.model';
+import { User } from './users/users.model';
 import { Booking } from './booking/booking.model';
-import { House } from './house/house.model';
+import { House } from './houses/houses.model';
 import { HousesController } from './houses/houses.controller';
 import { UsersController } from './users/users.controller';
 
@@ -16,18 +14,18 @@ import { UsersController } from './users/users.controller';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'localhost', 
       port: 3306,
       username: 'root',
-      password: 'rootroot',
-      database: 'backend',
-      entities: [House],
+      password: 'admin',
+      database: 'backend', // crear esta base de datos en MySQL primero
+      entities: [Booking, User, House],
       synchronize: true, 
       logging: true
     }),
-    TypeOrmModule.forFeature([User, Booking, House])
+    TypeOrmModule.forFeature([Booking, User, House])
   ],
-  controllers: [AppController, HouseController, BookingController, UserController, HousesController, UsersController],
+  controllers: [BookingController, AppController, HousesController, UsersController],
   providers: [AppService],
 })
 export class AppModule {}

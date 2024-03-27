@@ -9,12 +9,13 @@ export interface Booking {
         entryDate: Date;
         departureDate: Date,
         people: number;
-        destination: string;
-        available: boolean;
+        destination?: string;
+        available?: boolean;
+        price: number;
 
-        users: User;
-        houses: House;
-        payment: Payment;
-        status: BookingStatus;
+        users?: User;
+        house?: House;
+        // creditCard: Payment;
+        // status: BookingStatus;
 
 }
