@@ -1,63 +1,46 @@
-<div class="container mt-5">
+
+   <div class="container mt-5">
     <div class="row">
-      <div class="col-12">
+        <div class="col-12">
   
-        <div class="container px-4 py-5" id="icon-grid">
-          <h2 class="pb-2 border-bottom">Detalle del Usuario con ID {{ user?.id }}</h2>
-  
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
-            <div class="col d-flex align-items-start">
-              <i class="bi bi-person text-info flex-shrink-0 me-3 fs-2"></i>
-              <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Nombre</h3>
-                <p>{{ user?.firstName }}</p>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <i class="bi bi-person text-info flex-shrink-0 me-3 fs-2"></i>
-              <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Apellido</h3>
-                <p>{{ user?.lastName }}</p>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <i class="bi bi-envelope text-info flex-shrink-0 me-3 fs-2"></i>
-              <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Email</h3>
-                <p>{{ user?.email }}</p>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <i class="bi bi-phone text-info flex-shrink-0 me-3 fs-2"></i>
-              <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Teléfono</h3>
-                <p>{{ user?.phone }}</p>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <i class="bi bi-person-badge text-info flex-shrink-0 me-3 fs-2"></i>
-              <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">NIF</h3>
-                <p>{{ user?.nif }}</p>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <i class="bi bi-lock text-info flex-shrink-0 me-3 fs-2"></i>
-              <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Contraseña</h3>
-                <p>{{ user?.password }}</p>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <i class="bi bi-geo-alt text-info flex-shrink-0 me-3 fs-2"></i>
-              <div>
-                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Dirección</h3>
-                <p>{{ user?.street }},<br>{{ user?.city }},<br>{{ user?.postalCode }}</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+        <div class="col-10">
+  
+            @if(user){
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre de la Casa</th>
+                        <!-- <th scope="col">Dirección</th> -->
+                        <th scope="col">Fecha de Entrada</th>
+                        <th scope="col">Fecha de Salida</th>
+                        <th scope="col">Ubicación</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                      <br>
+                      <br>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <!-- <td scope="row">{{booking.houses.title}}</td> -->
+                        <!-- <td scope="row">{{booking.houses.address}}</td> -->
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <!-- <td>{{booking.houses.price}}€</td> -->
+                      </tr>
+  
+                    </tbody>
+                  </table>
+  
+  
+              
+  
+            }@else {
+            <p>Usuario no encontrado.</p>
+            }
+        </div>
+  
     </div>
   </div>
   

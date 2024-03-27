@@ -5,7 +5,8 @@ import { Repository } from 'typeorm';
 
 @Controller('houses')
 export class HousesController {
-    constructor(@InjectRepository(House) private houseRepository: Repository<House>) {}
+    constructor(@InjectRepository(House) 
+    private houseRepository: Repository<House>) {}
 
     @Get()
     findAll() {

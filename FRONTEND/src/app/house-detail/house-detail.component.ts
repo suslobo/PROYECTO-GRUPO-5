@@ -21,12 +21,9 @@ export class HouseDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
-      this.http.get<House>(`http://localhost:3000/houses/${id}`).subscribe(house => this.house = house);
-    }
-    );
+      this.http.get<House>(`http://localhost:3000/houses/${id}`)
+      .subscribe(house => this.house = house);
+    });
   }
-
-
-
 }
 

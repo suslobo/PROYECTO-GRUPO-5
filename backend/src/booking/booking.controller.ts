@@ -17,16 +17,16 @@ export class BookingController {
         return this.bookingRepository.find();
     }
 
-    @Get('filter-by-id/:id')
+   /*  @Get('filter-by-id/:id')
     findById(@Param('id', ParseIntPipe) id:number){
         return this.bookingRepository.findOne({
             where: {
                 id: id
             }
         });
-    }
+    } */
 
-    @Get('filter-by-user/:id')
+   /*  @Get('filter-by-user/:id')
     findByUserId(@Param('id', ParseIntPipe) id: number){
         return this.bookingRepository.find({
             where: {
@@ -35,9 +35,9 @@ export class BookingController {
                 }
             }
         });
-    }
+    } */
 
-    @Get('filter-by-book/:id')
+   /*  @Get('filter-by-booking/:id')
     findByBookId(@Param('id', ParseIntPipe) id: number){
         return this.bookingRepository.find({
             where: {
@@ -46,8 +46,16 @@ export class BookingController {
                 }
             }
         });
-    }
-
+    } */
+    @Get(':id')
+    findById(@Param('id', ParseIntPipe) id: number) {
+       return this.bookingRepository.findOne({
+            where: {
+               id: id
+                }
+            });
+        
+}
     @Post()
     create(@Body() booking: Booking) {
         return this.bookingRepository.save(booking);
