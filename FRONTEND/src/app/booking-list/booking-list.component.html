@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-16">
-      <h1 class="mt-5">Listado de Reservas </h1>
+      <h1 class="mt-3">Listado de Reservas </h1>
         <br>
-      <table class="table">
+      <table class="table table-striped mt-2">
 
         <thead>
 
@@ -11,6 +11,10 @@
             <th scope="col">Fecha de entrada</th>
             <!-- <th scope="col">Fecha de salida</th> -->
             <th scope="col">Ubicación</th>
+            <th scope="col"></th>
+            <th scope="col" style="text-align: right;">Acciones</th>
+            <th scope="col"></th>
+           
             </tr>
             <br>
               </thead>
@@ -24,13 +28,28 @@
                       <td>
 
                       </td>
+                      <!-- <td>
+                        <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Acciones
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="accionesDropdown">
+                            <li><a class="dropdown-item" [routerLink]="['/booking', booking.id, 'detail']">Ver detalle</a></li>
+                            <li><button class="dropdown-item" (click)="deleteById(booking.id)">Borrar</button></li>
+                            
+                          </ul>
+                        </div>
+                      </td> -->
+                      
+                      
                       <td>
                         <button id="detalle" type="button" class="btn btn-outline-success me-2"
                         [routerLink]="['/booking', booking.id, 'detail']">
                         <i class="bi bi-eye"></i>
                         Ver detalle</button>
                         <td>
-                        <button id="Borrar" class="btn btn-outline-danger w-100 py-2 " (click)="deleteById(booking.id)"> Borrar</button>
+                        <button id="Borrar" class="btn btn-outline-danger w-100 py-2 " 
+                        (click)="deleteById(booking.id)"> Borrar</button>
                       </td>
 
 

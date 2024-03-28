@@ -59,6 +59,7 @@ export class BookingController {
     @Post()
     create(@Body() booking: Booking) {
         return this.bookingRepository.save(booking);
+                
     }
 
 

@@ -85,7 +85,7 @@ export class BookingFormComponent implements OnInit {
 
     const breakfast = this.bookingForm.get('breakfast')?.value;
     if(breakfast){
-      return;
+      this.price += 10;
     }
     
     //this.priceB = this.people * this.breakfast;
@@ -100,40 +100,21 @@ export class BookingFormComponent implements OnInit {
       id: this.bookingForm.get('id')?.value ?? 0,
       entryDate: this.bookingForm.get('entryDate')?.value ?? new Date(),
       departureDate: this.bookingForm.get('departureDate')?.value ?? new Date(),
-      //people: this.bookingForm.get('people')?.value ?? 0,
-      people: this.people,
+      people: this.bookingForm.get('people')?.value ?? 0,
+     
       price: this.price,
       house: this.house,
+     
       //totalPrice: this.totalPrice
       
     };
 
-    /* const id = this.bookingForm.get('id')?.value;
-    console.log(id);
-
-    const entryDate = this.bookingForm.get('entryDate')?.value;
-    console.log(entryDate);
-
-    const departureDate = this.bookingForm.get('departureDate')?.value;
-    console.log(departureDate);
-
-    const people =; this.bookingForm.get('people')?.value;
-    console.log(people);
-
-    const destination = this.bookingForm.get('destination')?.value;
-    console.log(destination);
-
-    const available = this.bookingForm.get('available')?.value;
-    console.log(available);
-
-    const topics = this.bookingForm.get('topics')?.value;
-    console.log(topics); */
   
 
     // enviar al backend con método POST
     this.httpClient.post<Booking>('http://localhost:3000/booking', booking)
     .subscribe(booking => {
-      console.log(booking);
+     /*  console.log(booking); */
       this.showConfirmMessage = true;
       this.booking = booking;
   

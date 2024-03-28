@@ -3,7 +3,7 @@
       <div class="col-12">
 
       </div>
-      <div class="col-10">
+      <div class="col-12">
 
           @if(booking){
               <table class="table table-striped">
@@ -11,8 +11,9 @@
                     <tr>
                       <th scope="col">Nombre de la Casa</th>
                       <!-- <th scope="col">Dirección</th> -->
-                      <th scope="col">Fecha de Entrada</th>
-                      <th scope="col">Fecha de Salida</th>
+                      <th scope="col">Dirección</th>
+                      <th scope="col">Teléfono</th>
+                      <th scope="col" style="text-align: center;">Email</th>
                       <th scope="col">Ubicación</th>
                       <th scope="col">Precio</th>
                     </tr>
@@ -23,10 +24,12 @@
                     <tr>
                       <!-- <td scope="row">{{booking.houses.title}}</td> -->
                       <!-- <td scope="row">{{booking.houses.address}}</td> -->
-                      <td>{{booking.entryDate}}</td>
-                      <td>{{booking.departureDate}}</td>
-                      <td>{{booking.destination}}</td>
-                      <!-- <td>{{booking.houses.price}}€</td> -->
+                      <td>{{booking.house?.title}}</td>
+                      <td>{{booking.house?.address}}</td>
+                      <td>{{booking.house?.phone}}</td>
+                      <td>{{booking.house?.email}}</td>
+                      <td>{{booking.house?.destination}}</td>
+                      <td>{{booking.house?.price}}€</td> 
                     </tr>
 
                   </tbody>
