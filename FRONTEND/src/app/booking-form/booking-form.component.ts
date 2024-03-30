@@ -49,7 +49,7 @@ export class BookingFormComponent implements OnInit {
       const id = params['id'];
       if(!id) return;
 
-      this.httpClient.get<House>('http://localhost:3000/houses/' + id)
+      this.httpClient.get<House>(`http://localhost:3000/houses/${id}`)
       .subscribe(house => this.house = house);
     });
   }
@@ -58,6 +58,7 @@ export class BookingFormComponent implements OnInit {
 
     let entryDate = this.bookingForm.get('entryDate')?.value;
     let departureDate = this.bookingForm.get('departureDate')?.value;
+    let people = this.bookingForm.get('people')?.value;
     
     
 
@@ -104,6 +105,7 @@ export class BookingFormComponent implements OnInit {
      
       price: this.price,
       house: this.house,
+     
      
       //totalPrice: this.totalPrice
       

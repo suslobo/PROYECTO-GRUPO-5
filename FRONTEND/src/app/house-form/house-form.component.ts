@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-house-form',
   standalone: true,
@@ -14,13 +15,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class HouseFormComponent implements OnInit{
 
-  house: House | undefined;
-
 
   houseForm = new FormGroup({
 
     id: new FormControl(),
     title: new FormControl('', Validators.required),
+    address: new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl(''),
     places: new FormControl('', [Validators.min(2), Validators.max(20)]),
     bedrooms: new FormControl(0, [Validators.min(1), Validators.max(10)]),
     bathrooms: new FormControl(0, [Validators.min(1), Validators.max(10)]),
@@ -33,10 +35,13 @@ export class HouseFormComponent implements OnInit{
     terrace: new FormControl(false),
     wifi: new FormControl(false),
     air: new FormControl(false),
+    people: new FormControl(0),
     description: new FormControl('', Validators.required),
-    photoUrls: new FormControl<string[]>([])
+    //photoUrl: new FormControl<string[]>([])
+    photoUrl: new FormControl('')
   });
 
+  houses: House | undefined;
   isUpdate: boolean = false;
   isDelete: boolean = false;
   photoFile: File | undefined;
@@ -62,6 +67,9 @@ export class HouseFormComponent implements OnInit{
             this.houseForm.reset({
               id: houses.id,
               title: houses.title,
+              address: houses.address,
+              phone: houses.phone,
+              email: houses.email,
               places: houses.places,
               bedrooms: houses.bedrooms,
               bathrooms: houses.bathrooms,
@@ -74,8 +82,9 @@ export class HouseFormComponent implements OnInit{
               terrace: houses.terrace,
               wifi: houses.wifi,
               air: houses.air,
+              people: houses.people,
               description: houses.description,
-              photoUrls: houses.photoUrls
+              photoUrl: houses.photoUrl
             });
           });
 
@@ -109,9 +118,9 @@ export class HouseFormComponent implements OnInit{
 
   save(): void {
 
-    console.log('invocando save');
+    // console.log('invocando save');
 
-    const house: House = {
+    /*  const house: House = {
       id: this.houseForm.get('id')?.value ?? 0,
       title: this.houseForm.get('title')?.value ?? '',
       address: this.houseForm.get('address')?.value ?? '',
@@ -130,36 +139,65 @@ export class HouseFormComponent implements OnInit{
       wifi: this.houseForm.get('wifi')?.value ?? false,
       air: this.houseForm.get('air')?.value ?? false,
       description: this.houseForm.get('description')?.value ?? '',
-      photoUrls: this.houseForm.get('photourls')?.value ?? []
-    }
-
-    console.log(this.photoFile);
+      photoUrl: this.houseForm.get('photoUrl')?.value ?? ''
+    }  */
     
     let formData = new FormData();
-
-    if (this.photoFile) // si existe foto la añado
-    formData.append('photoUrls', this.photoFile);
-
+    
     
 
-    this.httpClient.post('http://localhost:3000/houses', formData)
+    formData.append('id', this.houseForm.get('id')?.value ?? 0);
+    formData.append('tilte', this.houseForm.get('title')?.value ?? '');
+    formData.append('address', this.houseForm.get('address')?.value ?? '');
+    formData.append('phone', this.houseForm.get('phone')?.value ?? '');
+    formData.append('email', this.houseForm.get('email')?.value ?? '');
+    formData.append('places', this.houseForm.get('places')?.value ?? '');
+    formData.append('bedrooms', this.houseForm.get('bedrooms')?.value + '');
+    formData.append('bathrooms', this.houseForm.get('bathrooms')?.value + '');
+    formData.append('price', this.houseForm.get('price')?.value + '');
+    formData.append('meters', this.houseForm.get('meters')?.value + '');
+    formData.append('destination', this.houseForm.get('destination')?.value ?? '');
+    formData.append('petFriendly', this.houseForm.get('petFriendly')?.value ? 'true' : 'false');
+    formData.append('pool', this.houseForm.get('pool')?.value ? 'true' : 'false');
+    formData.append('garden', this.houseForm.get('garden')?.value ? 'true' : 'false');
+    formData.append('terrace', this.houseForm.get('terrace')?.value ? 'true' : 'false');
+    formData.append('wifi', this.houseForm.get('wifi')?.value ? 'true' : 'false');
+    formData.append('air', this.houseForm.get('air')?.value ? 'true' : 'false');
+    formData.append('description', this.houseForm.get('description')?.value ?? '');
+    //formData.append('people', this.houseForm.get('people')?.value + '');
+    formData.append('photoUrl', this.houseForm.get('photoUrl')?.value ?? '');  
+
+    if(this.photoFile) formData.append('file', this.photoFile);
+    
+    if(this.isUpdate) {
+      const id =this.houseForm.get('id')?.value;
+      this.httpClient.put<House>(`http://localhost:3000/houses/${id}`, formData)
+      .subscribe(house => {
+        this.photoFile = undefined;
+        this.photoPreview = undefined;
+        this.houses = house;
+      },);
+      
+     }else {
+      this.httpClient.post<House>('http://localhost:3000/houses', formData)
     .subscribe(house => {
       this.photoFile = undefined;
       this.photoPreview = undefined;
-      console.log(house);
+      this.houses = house;
       
-    })
+    });
+  }
 
-    console.log(house);
+    
 
-       if(this.isUpdate){
+   /* if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/houses/' + house.id;
       this.httpClient.put<House>(urlForUpdate, house).subscribe(data => this.router.navigate(['/houses']));
     } else {
       const url = 'http://localhost:3000/houses';
         this.httpClient.post<House>(url, house).subscribe(data => this.router.navigate(['/houses']));
-    }
-
+    }  
+ */
 
   }
   compareObjects(o1: any, o2: any): boolean {
@@ -168,7 +206,7 @@ export class HouseFormComponent implements OnInit{
     } else {
       return o1 === o2;
     }
-  }
+  } 
 
 
 }

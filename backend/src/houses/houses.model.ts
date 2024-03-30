@@ -10,56 +10,60 @@ export class House {
     @Column({nullable: false})
     title: string;
 
-    @Column()
+    @Column({nullable: true})
     address: string;
 
-    @Column()
+    @Column({nullable: true})
     phone: string;
 
-    @Column()
+    @Column({nullable: true})
     email: string;
 
-    @Column()
+    @Column({nullable: true})
     places: string;
 
-    @Column()
+    @Column({nullable: true})
     bedrooms: number;
 
-    @Column()
+    @Column({nullable: true})
     bathrooms: number;
 
-    @Column()
+    @Column({nullable: true})
     price: number;
 
-    @Column()
+    @Column({nullable: true})
     meters: number;
 
-    @Column()
+    @Column({nullable: true})
     destination: string;
 
-    @Column()
+    @Column({nullable: true})
     petFriendly: boolean;
 
-    @Column()
+    @Column({nullable: true})
     pool: boolean;
 
-    @Column()
+    @Column({nullable: true})
     garden: boolean;
 
-    @Column()
+    @Column({nullable: true})
     terrace: boolean;
 
-    @Column()
+    @Column({nullable: true})
     wifi: boolean;
 
-    @Column()
+    @Column({nullable: true})
     air: boolean;
 
     @Column({length: 3000})
     description: string;
 
-    @Column({type: 'simple-array'})
-    photoUrls: string[]; 
+    @Column({nullable: true})
+    people: number;
 
+   /*  @Column({type: 'simple-array'})
+    photoUrls: string[];  */
+    @Column({nullable: true})
+    photoUrl : string;
    
 }

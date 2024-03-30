@@ -21,10 +21,10 @@ export interface House {
   terrace: boolean;
   wifi: boolean;
   air: boolean;
-  people?: number
+  people: number;
 
   description: string;
-  photoUrls: string [];
+  photoUrl: string;
  
 
 }

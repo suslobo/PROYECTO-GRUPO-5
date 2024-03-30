@@ -1,7 +1,9 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param,
+    ParseIntPipe, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { House } from './houses.model';
 import { Repository } from 'typeorm';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('houses')
 export class HousesController {
@@ -180,37 +182,64 @@ export class HousesController {
         });
     }
 
-    @Get('filter-by-photoUrls')
-    findByPhotoUrls(@Param('id', ParseIntPipe) id: string) {
+    @Get('filter-by-photoUrl')
+    findByPhotoUrl(@Param('id', ParseIntPipe) id: string) {
         return this.houseRepository.find({
             where: {
-                photoUrls: id
+                photoUrl: id
             }
         });
     }
 
-    @Post()
+   /*  @Post()
     create(@Body() house: House) {
         return this.houseRepository.save(house);
+    } */
+
+    @Post()
+    @UseInterceptors(FileInterceptor('file'))
+    async create(@UploadedFile() file: Express.Multer.File,
+    @Body() houses: House){
+
+        if (file) {
+            houses.photoUrl = file.filename;
+        }
+        return await this.houseRepository.save(houses);
     }
 
     @Put(':id')
+    @UseInterceptors(FileInterceptor('file'))
     async update(
+        @UploadedFile() file: Express.Multer.File,
         @Param('id', ParseIntPipe) id: number,
-        @Body() book: House
+        @Body() houses: House
         ) {
+
+            if(!await this.houseRepository.existsBy({id: id})) {
+                throw new NotFoundException('House not found');
+            }
+
+            if (file) {
+                houses.photoUrl = file.filename;
+            }
+            houses.id = id; 
+            return await this.houseRepository.save(houses);
+
             
            
-            const exists = await this.houseRepository.existsBy({
-               id: id
-            });
+            /* const exists = await this.houseRepository.existsBy({id: id});
 
             if(!exists) {
                 throw new NotFoundException('House not found');
             }
 
-            return this.houseRepository.save(book);
+            if (file) {
+                house.photoUrl = file.filename;
+            }
 
+            house.id = id;
+            return await this.houseRepository.save(house);
+ */
     }
 
     @Delete(':id')
