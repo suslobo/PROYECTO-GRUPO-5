@@ -29,6 +29,7 @@ export class UserProfileComponent implements OnInit {
     city: new FormControl('', Validators.required),
     postalCode: new FormControl('', Validators.required)
   });
+  isUpdate: any;
 
   constructor(
     private httpClient: HttpClient,
@@ -43,7 +44,7 @@ export class UserProfileComponent implements OnInit {
       return;
 
       this.httpClient.get<User>('http://localhost:3000/users').subscribe(user => {
-       // this.isUpdate = true
+      this.isUpdate = true
 
         this.userProfile.reset({
           id: user.id,
@@ -71,7 +72,7 @@ export class UserProfileComponent implements OnInit {
 
   save(): void {
 
-    console.log('invocando save');
+    //console.log('invocando save');
 
     const user: User = {
       id: this.userProfile.get('id')?.value ?? 0,
@@ -86,7 +87,18 @@ export class UserProfileComponent implements OnInit {
       postalCode: this.userProfile.get('postalCode')?.value ?? ''
     }
 
-    console.log(user);
+
+    if(this.isUpdate){
+     
+      const urlForUpdate = 'http://localhost:3000/users/' + user.id;
+      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/']));
+    } else {
+     
+      const url = 'http://localhost:3000/users';
+      this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/']));
+    }
+
+   // console.log(user);
 /*
     if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
