@@ -70,7 +70,7 @@ export const routes: Routes = [
         component: UserDetailComponent
     },
     {
-        path: 'user/profile',
+        path: 'user/:id/profile',
         component: UserProfileComponent
     },
     {
