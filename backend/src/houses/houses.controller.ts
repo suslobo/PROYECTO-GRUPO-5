@@ -79,6 +79,7 @@ export class HousesController {
         });
     }
 
+
     /*
     @Get('filter-by-price/:min/:max')
     findByPriceBetweenMinAndMax(
