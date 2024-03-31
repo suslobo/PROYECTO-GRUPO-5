@@ -18,11 +18,9 @@ import { CurrencyPipe } from '@angular/common';
 export class BookingFormComponent implements OnInit {
 
   house: House | undefined;
-  price = 0;
+  totalPrice = 0;
   numDays = 0;
-  //priceB = 0;
   people: number = 0;
-  //numPeople: number = 0;
   showConfirmMessage = false;
   booking: Booking | undefined;
   breakfast: number = 0;
@@ -34,7 +32,8 @@ export class BookingFormComponent implements OnInit {
     departureDate: new FormControl(new Date()),
     cleaningService: new FormControl<boolean>(false),
     breakfast: new FormControl<boolean>(false),
-    people: new FormControl(0)
+    people: new FormControl(0),
+    
    
   });
 
@@ -58,7 +57,7 @@ export class BookingFormComponent implements OnInit {
 
     let entryDate = this.bookingForm.get('entryDate')?.value;
     let departureDate = this.bookingForm.get('departureDate')?.value;
-    let people = this.bookingForm.get('people')?.value;
+    
     
     
 
@@ -76,23 +75,20 @@ export class BookingFormComponent implements OnInit {
     }
     
     this.numDays = diffMilliseconds / (1000 * 60 * 60 * 24);
-    this.price = this.numDays * this.house.price;
+    this.totalPrice = this.numDays * this.house.price;
 
     
 
     const cleaningService = this.bookingForm.get('cleaningService')?.value;
     if(cleaningService)
-    this.price += 30;
+    this.totalPrice += 30;
 
     const breakfast = this.bookingForm.get('breakfast')?.value;
     if(breakfast){
-      this.price += 10;
+      this.totalPrice += 10;
     }
     
-    //this.priceB = this.people * this.breakfast;
-
     
-
   }
 
   save(): void {
@@ -103,7 +99,7 @@ export class BookingFormComponent implements OnInit {
       departureDate: this.bookingForm.get('departureDate')?.value ?? new Date(),
       people: this.bookingForm.get('people')?.value ?? 0,
      
-      price: this.price,
+      price: this.totalPrice,
       house: this.house,
      
      
