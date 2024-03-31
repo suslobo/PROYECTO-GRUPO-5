@@ -37,16 +37,14 @@ export class BookingController {
         });
     } */
 
-   /*  @Get('filter-by-booking/:id')
-    findByBookId(@Param('id', ParseIntPipe) id: number){
+  /*   @Get('filter-by-destination')
+    findByBookId(@Param('id', ParseIntPipe) id: string){
         return this.bookingRepository.find({
             where: {
-                house: {
-                    id: id
-                }
+                destination: id
             }
         });
-    } */
+    }  */
     @Get(':id')
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.bookingRepository.findOne({

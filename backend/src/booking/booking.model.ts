@@ -17,14 +17,14 @@ export class Booking {
     @Column({type: 'decimal', precision: 14, scale: 2})
     price: number;
 
-    @Column()
+    @Column({nullable: false})
     people?: number;
 
-    @Column()
-    destination: string;
+    /* @Column({nullable: false})
+    destination?: string; */
 
-    @Column()
-    available: boolean;
+  /*   @Column({nullable: false})
+    available: boolean; */
 
     @ManyToOne(() => User, {eager: true})
     users: User;
@@ -32,8 +32,8 @@ export class Booking {
     @ManyToOne(() => House, {eager: true})
     house: House;
 
-    @Column()
-    totalPrice: number;
+   /*  @Column({nullable: false})
+    totalPrice: number; */
 
 
 
