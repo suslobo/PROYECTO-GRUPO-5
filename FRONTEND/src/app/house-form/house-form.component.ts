@@ -147,7 +147,7 @@ export class HouseFormComponent implements OnInit{
     
 
     formData.append('id', this.houseForm.get('id')?.value ?? 0);
-    formData.append('tilte', this.houseForm.get('title')?.value ?? '');
+    formData.append('title', this.houseForm.get('title')?.value ?? '');
     formData.append('address', this.houseForm.get('address')?.value ?? '');
     formData.append('phone', this.houseForm.get('phone')?.value ?? '');
     formData.append('email', this.houseForm.get('email')?.value ?? '');
