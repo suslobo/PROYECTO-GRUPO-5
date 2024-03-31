@@ -8,6 +8,13 @@
             <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3">
               @for (house of houses; track house) {
                 <div class="col">
+
+             <!--      <div class="card card-cover h-100 overflow-hidden text-bg-ligh rounded-4 shadow-lg">
+                    <a [routerLink]="['/houses', house.id, 'detail']">
+                      <div class="image-container" [style.background-image]="'url(http://localhost:3000/uploads/' + house.photoUrl + ')'"></div>
+                    </a>
+                  </div> -->
+                  
                 
                   <div class="card card-cover h-100 overflow-hidden text-bg-ligh rounded-4 shadow-lg"
                   [style.background-image]="'url(http://localhost:3000/uploads/' + house.photoUrl + ')'">
@@ -30,7 +37,7 @@
                       <br>
                       <i class="bi bi-people-fill"></i>  {{house.places}}  plazas
                       <br>
-                      <i class="bi bi-geo-alt-fill"></i> Asturias
+                      <i class="bi bi-geo-alt-fill"></i> {{house.destination}}
                       <br>
                       <br>
                       Desde {{house.price}}/€ persona/noche
