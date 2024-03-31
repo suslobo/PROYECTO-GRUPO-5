@@ -10,7 +10,7 @@
           }
           -->
           <h1>Datos de contacto</h1>
-          <form class="mt-5" [formGroup]="userProfile" (ngSubmit)="save()">
+          <form class="mt" [formGroup]="userProfile" (ngSubmit)="save()">
 
               <input type="hidden" formControlName="id">
 
@@ -27,7 +27,7 @@
                           aria-label="lastName">
                   </div>
 
-                  <div class="col">
+                  <div class="col-4">
                       <label for="email">Email</label>
                       <input type="text" class="form-control" id="email" formControlName="email" placeholder=""
                           aria-label="email">

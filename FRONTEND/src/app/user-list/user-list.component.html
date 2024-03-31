@@ -14,7 +14,7 @@
               <th scope="col">Apellido</th>
               <th scope="col" style="text-align: center;">Email</th>
               <th scope="col"></th>
-              <th scope="col" style="text-align: right;">Acciones</th>
+              <th scope="col" style="text-align: left;">Acciones</th>
               <th scope="col"></th>
               </tr>
               <br>
@@ -27,17 +27,24 @@
                         <!-- <td>{{booking.departureDate}}</td> -->
                         <td>{{user.lastName}}</td>
                         <td>{{user.email}}</td>
-                        <td>
-  
-                        </td>
+                       
                         <td>
                           <button id="detalle" type="button" class="btn btn-outline-success me-2"
                           [routerLink]="['/user', user.id, 'detail']">
                           <i class="bi bi-eye"></i>
                           Ver detalle</button>
+                          
                           <td>
-                          <button id="Borrar" class="btn btn-outline-danger w-100 py-2 " 
-                          (click)="deleteById(user.id)"> Borrar</button>
+
+                            @if (users) {
+                              <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/user', user.id, 'profile']">
+                                Editar</button>
+                                }
+                              <button class="btn btn-outline-danger w-50 py-2 " (click)="deleteById(user.id)"> Borrar</button>
+                            <!-- <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/user', user.id, 'profile']">
+                              Editar</button>
+                          <button id="Borrar" class="btn btn-outline-danger w-50 py-2 " 
+                          (click)="deleteById(user.id)"> Borrar</button> -->
                         </td>
   
   
