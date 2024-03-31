@@ -5,7 +5,7 @@
   }
   
   .btn {
-    background-color: #00AB87;
+    background-color: #7d9c47;
   }
 
 
@@ -15,7 +15,7 @@
 }
 /* Reducir el tamaño de los iconos de las redes sociales */
 .list-unstyled .link-body-emphasis i {
-  font-size: 5px; /* Modifica este valor según tus preferencias */
+  font-size: 5px; /* Modifica este valor */
 }
 .d-flex p{
   margin-left: 70px;
