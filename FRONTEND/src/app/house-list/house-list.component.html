@@ -14,7 +14,12 @@
 
 
                     <a [routerLink]="['/houses', house.id, 'detail']">
-                      <img class="bd-placeholder-img card-img-top" [src]="'http://localhost:3000/uploads/' + house.photoUrl " class="img-fluid">
+                      @if(house.photoUrl){
+                      <img class="bd-placeholder-img card-img-top" [src]="'http://localhost:3000/uploads/' + house.photoUrl" class="img-fluid">
+                      } @else {
+                        <img class="bd-placeholder-img card-img-top" src="/assets/img/default.png" class="img-fluid">
+
+                      }
                     </a>
                    
                       <div class="card-body">
