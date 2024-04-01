@@ -17,6 +17,9 @@
   font-weight: normal; 
 } 
 
+.navbar-nav a:hover {
+  color: #7d9e47;
+}
 
 
 

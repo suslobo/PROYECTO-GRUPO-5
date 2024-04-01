@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+  }
+  
+  .btn {
+    background-color: #7d9e47
+  }
+  .tittle h2{
+    font-family:'Poppins', sans-serif;
+    font-size: 30px;
+    padding-top: 60px;
+    margin-left: 80px;
+    color: #000000;
+  }
+  
+  .tittle p{
+    font-family:'Poppins', sans-serif;
+    font-size: 16px;
+    padding-top: 2px;
+    margin-left: 80px; 
+    color: #434343;
+  }
