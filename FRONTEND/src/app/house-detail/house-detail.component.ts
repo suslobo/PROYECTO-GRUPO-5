@@ -3,6 +3,7 @@ import { House } from '../interfaces/house.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
+import { Rating } from '../interfaces/rating.model';
 
 @Component({
   selector: 'app-house-detail',
@@ -14,7 +15,7 @@ import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
-ratings: any;
+  ratings!: Rating[];
 
 
   constructor(private http: HttpClient,
@@ -26,6 +27,8 @@ ratings: any;
       this.http.get<House>(`http://localhost:3000/houses/${id}`).subscribe(house => this.house = house);
     }
     );
+    
+    this.http.get<Rating[]>("http://localhost:3000/rating").subscribe((ratings)=> this.ratings = ratings)
   }
 
 
