@@ -12,5 +12,5 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 export class NavbarComponent {
 collapsed: any;
 
-  collapsed = true;
+
 }
