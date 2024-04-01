@@ -17,9 +17,9 @@ export class Rating {
     @CreateDateColumn() // genera la fecha automáticamente de la publicacion del comentario
     createdDate: Date;
 
-    @ManyToOne(() => User, {eager: true}) // para que en el postman te traiha el book y el usuario
+    @ManyToOne(() => User, {eager: true}) // para que te traiga el usuario
     user: User;
 
-    @ManyToOne(() => House, {eager: true}) // para que en el postman te traiha el book y el usuario
+    @ManyToOne(() => House, {eager: true}) // para que te traiga la casa
     House: House;
 }

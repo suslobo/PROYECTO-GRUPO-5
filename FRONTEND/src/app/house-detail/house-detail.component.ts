@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { House } from '../interfaces/house.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-house-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink],
+  imports: [HttpClientModule, RouterLink, NgbRating],
   templateUrl: './house-detail.component.html',
   styleUrl: './house-detail.component.css'
 })
 export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
+ratings: any;
 
 
   constructor(private http: HttpClient,
