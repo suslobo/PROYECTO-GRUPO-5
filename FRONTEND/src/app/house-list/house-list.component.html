@@ -11,12 +11,9 @@
 
                   <div class="card shadow-sm">
                   
-
-
                     <a [routerLink]="['/houses', house.id, 'detail']">
                       <img class="bd-placeholder-img card-img-top" [src]="'http://localhost:3000/uploads/' + house.photoUrl " class="img-fluid">
                     </a>
-                   
                       <div class="card-body">
                         <p class="card-text"> <strong>{{house.title}}</strong>
                           <br>
@@ -59,22 +56,7 @@
                         
                       </div>
                     </div>
-                 
-                  
-                
-                  <!-- <div class="card card-cover h-100 overflow-hidden text-bg-ligh rounded-4 shadow-lg"
-                  [style.background-image]="'url(http://localhost:3000/uploads/' + house.photoUrl + ')'"> -->
-
-                  <!-- <a [routerLink]="['/houses', house.id, 'detail']">
-                    <img [src]="house.photoUrl" class="img-fluid">
-                  </a> -->
-
-                  <!-- <a [routerLink]="['/houses', house.id, 'detail']">
-                    <img [src]="'url(http://localhost:3000/uploads/' + house.photoUrl + ')'" class="img-fluid">
-                  </a> -->
-
-                  
-           <!--  </div> -->
+              
           }
           </div>
         </div>

@@ -7,8 +7,6 @@ export class Booking {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
 
     @Column({type: 'date'})
     entryDate: Date;
