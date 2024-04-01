@@ -1,15 +1,6 @@
-
-  body {
-    font-family: 'Guttie Regular', sans-serif;
-    color: #000000;
+.move-right {
+    margin-left: 90px; /* Puedes ajustar el valor según sea necesario */
   }
+
+
   
-  .btn {
-    background-color: #00AB87;
-  }
-
-
-/* Estilo para el color del texto del botón con ID "detalle" */
-#detalle {
-    color: #FCFBEA;
-}

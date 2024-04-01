@@ -1,21 +1,7 @@
-/* Estilos para la tipografía Guttie Regular y el color del texto */
-body {
-    font-family: 'Guttie Regular', sans-serif;
-    color: #000000;
-}
-  
-/* Estilo para el color de fondo del botón */
-.btn {
-    background-color: #00AB87; /* Color del relleno del botón */
-}
+th{
+    color: #7d9e47;
+  }
 
-/* Estilo para el color del texto del botón con ID "detalle" */
-#detalle {
-    color: #FCFBEA;
-}
-
-/* Estilo para el color del botón con ID "Borrar" */
-#Borrar {
-    background-color: rgb(241, 104, 88);
-    color:#FCFBEA;
-}
+h1{
+    color: #7d9e47;
+  }

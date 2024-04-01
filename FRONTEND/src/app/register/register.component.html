@@ -1,7 +1,7 @@
 
 <main class="form-signin w-100 m-auto">
   <form [formGroup]="registerForm" (ngSubmit)="save()">
-    <h1 class="h3 mb-3 fw-normal">Crear nueva cuenta</h1>
+    <h1 class="h3 mb-3 fw-normal" routerLink="/register/profile">Crear nueva cuenta</h1>
 
     <div class="form-floating">
       <input type="text" class="form-control" id="nickname" placeholder="alan_sastre" formControlName="nickname">
@@ -70,7 +70,7 @@
       }
     </div>
 
-    <button class="btn btn-outline-success w-100 py-2" type="submit" [disabled]="registerForm.invalid">Crear cuenta</button>
+    <button class="btn btn-outline-success w-100 py-2" type="submit" [disabled]="registerForm.invalid" routerLink="/user/profile" >Crear cuenta</button>
     @if (registerForm.invalid) {
       <small class="text-danger">Debes completar de forma correcta todos los campos para poder guardar.</small>
     }

@@ -7,15 +7,17 @@ export interface Booking {
         id: number;
 
         entryDate: Date;
-        departureDate: Date,
+        departureDate: Date;
         people: number;
         destination?: string;
         available?: boolean;
         price: number;
+        
 
         users?: User;
         house?: House;
-        // creditCard: Payment;
-        // status: BookingStatus;
+        //payment?: Payment;
+        //status?: BookingStatus;
+        totalPrice?: number;
 
 }

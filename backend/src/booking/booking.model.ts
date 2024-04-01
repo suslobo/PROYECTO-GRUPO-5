@@ -1,9 +1,12 @@
 import { House } from "src/houses/houses.model";
 import { User } from "src/users/users.model";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Booking {
+    @PrimaryGeneratedColumn()
+    id: number;
+
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -16,37 +19,24 @@ export class Booking {
     @Column({type: 'decimal', precision: 14, scale: 2})
     price: number;
 
-    @Column()
+    @Column({nullable: false})
     people?: number;
 
-    @Column()
-    destination: string;
+    /* @Column({nullable: false})
+    destination?: string; */
 
-    @Column()
-    available: boolean;
+  /*   @Column({nullable: false})
+    available: boolean; */
 
-    //@Column()
-    //creditCard: string;
-
-    @Column()
-    status: string;
-    
-
-    
-    
     @ManyToOne(() => User, {eager: true})
-    user: User;
+    users: User;
 
     @ManyToOne(() => House, {eager: true})
-     house: House;
+    house: House;
+
+   /*  @Column({nullable: false})
+    totalPrice: number; */
 
 
-
-    // @ManyToOne(() => Payment, {eager: true})
-    // payment: Payment;
-
-    // @ManyToOne(() => BookingStatus, {eager: true})
-    // status: BookingStatus;
-    
 
 }

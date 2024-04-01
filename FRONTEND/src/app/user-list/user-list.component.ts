@@ -27,7 +27,7 @@ constructor(private httpClient: HttpClient){}
     this.httpClient.delete<User>(`http://localhost:3000/users/${id}`)
       .subscribe(() => {
 
-       this.users = this.users.filter(user => user.id !== id);
+       this.users = this.users.filter(users => users.id !== id);
       });
   }
   }

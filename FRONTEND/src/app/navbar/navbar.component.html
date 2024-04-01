@@ -1,58 +1,64 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="assets/img/logo-letra.svg" alt="Logo de Rural House">
-      
-    </a>
+	<div class="container-fluid">
+	  <a class="navbar-brand" href="#">
+		<img src="assets/img/logo1.svg" alt="Logo de Rural House">
+		
+	  </a>
+  
+		  <button
+			  class="navbar-toggler"
+			  type="button"
+			  aria-controls="navbarContent"
+			  [attr.aria-expanded]="!collapsed"
+			  aria-label="Toggle navigation"
+			  (click)="collapsed = !collapsed"
+		  >
+			  <span class="navbar-toggler-icon"></span>
+		  </button>
+  
+		  <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+			  <ul class="navbar-nav ms-auto">
+  
+				 
+  
+				  <li class="nav-item" ngbDropdown>
+					  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Casas </a>
+					  <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+						  <a ngbDropdownItem routerLink="/houses" (click)="$event.preventDefault()">Listado Casas</a>
+						  <a ngbDropdownItem routerLink="/houses/create" (click)="$event.preventDefault()">Crear</a>
+					  </div>
+				  </li>
+  
+				 
+  
+		  <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+					  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Reservas </a>
+					  <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+						  <a ngbDropdownItem routerLink="/booking" (click)="$event.preventDefault()">Listado de Reservas</a>
+						 
+					  </div>
+				  </li>
+  
+		  <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+					  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Usuarios </a>
+					  <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+						  <a ngbDropdownItem routerLink="/user" (click)="$event.preventDefault()">Lista de usuarios</a>
+						  
+					  </div>
+				  </li>
 
-		<button
-			class="navbar-toggler"
-			type="button"
-			aria-controls="navbarContent"
-			[attr.aria-expanded]="!collapsed"
-			aria-label="Toggle navigation"
-			(click)="collapsed = !collapsed"
-		>
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
-			<ul class="navbar-nav ms-auto">
-
-				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Casas </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
-						<a ngbDropdownItem routerLink="/houses" (click)="$event.preventDefault()">Listado Casas</a>
-						<a ngbDropdownItem routerLink="/houses/create" (click)="$event.preventDefault()">Crear</a>
-					</div>
-				</li>
-
-        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Reservas </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/booking" (click)="$event.preventDefault()">Listado de Reservas</a>
-					</div>
-				</li>
-
-        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Usuarios </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/user" (click)="$event.preventDefault()">Lista de usuarios</a>
-						<a ngbDropdownItem routerLink="/user/profile" (click)="$event.preventDefault()">Crear usuario</a>
-					</div>
-				</li>
-
-        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+				  <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Login </a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/login" (click)="$event.preventDefault()">Entrar como usuario</a>
+						<a ngbDropdownItem routerLink="/login" (click)="$event.preventDefault()">Entrar con usuario</a>
 						<a ngbDropdownItem routerLink="/register" (click)="$event.preventDefault()">Registrarse</a>
 					</div>
 				</li>
-
-
-
-			</ul>
-		</div>
-	</div>
-</nav>
+				 
+  
+  
+  
+			  </ul>
+		  </div>
+	  </div>
+  </nav>
