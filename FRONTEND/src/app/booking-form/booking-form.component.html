@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-floating mb-3">
-          <input type="people" class="form-control"
+          <input type="number" class="form-control"
           id="people" formControlName="people"
           placeholder="" (change)="calculatePrice()">
           <label for="people">Personas</label>
@@ -128,6 +128,7 @@
     
       </div> 
 
+      @if (numDays >= 1) {
     <div class="col-md-5 col-lg-4 order-md-last">
       
       <h4 class="mt-5 d-flex justify-content-between align-items-center mb-3">
@@ -172,10 +173,11 @@
     
                 </div>
                 <br>
-                <span class="text-body-secondary">{{people}}</span>
+                <span class="text-body-secondary">{{bookingForm.get('people')?.value}}</span>
     
             }
           </li>
+        
           
         <li class="list-group-item d-flex justify-content-between ">
         @if(bookingForm.get('cleaningService')?.value) {
@@ -198,7 +200,7 @@
 
             </div>
             <br>
-            <span class="text-body-secondary">10 €</span>
+            <span class="text-body-secondary">{{totalBreakfastPrice}} €</span>
 
         }
       </li>
@@ -215,5 +217,6 @@
        
       
     </div>
+      }
   </div>
 </div>

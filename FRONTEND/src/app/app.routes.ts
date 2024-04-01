@@ -66,6 +66,10 @@ export const routes: Routes = [
         component: UserListComponent
     },
     {
+        path: 'user/profile',
+        component: UserProfileComponent
+    },
+    {
         path:'user/:id/detail',
         component: UserDetailComponent
     },
@@ -73,6 +77,7 @@ export const routes: Routes = [
         path: 'user/:id/profile',
         component: UserProfileComponent
     },
+   
     {
         path: 'not-found-404',
         component: NotFoundComponent
