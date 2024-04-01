@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 import { Rating } from '../interfaces/rating.model';
+import { User } from '../interfaces/user.model';
 
 @Component({
   selector: 'app-house-detail',
@@ -15,6 +16,7 @@ import { Rating } from '../interfaces/rating.model';
 export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
+  user: User | undefined;
   ratings!: Rating[];
 
 

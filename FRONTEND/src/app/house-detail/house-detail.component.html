@@ -233,6 +233,7 @@
 
 </div>
 
+<!-- 
 <div class="card mt-4 ml-4" style="position:relative; margin-left: 120px; margin-right: 120px">
   <div class="container px-4 py-3" >
     <h5 class="pb-2 border-bottom">Opiniones de otros viajeros </h5>
@@ -260,22 +261,11 @@
     <span class="star">&#9733;</span></p>
   <p>"Fin de semana magnífico. Ideal para grandes grupos con niños. Todo muy limpio. Cocina súper amplia con todo lo necesario. Habitaciones acogedoras y cómodas, calefacción, jacuzzis...jardin con terrazas para comer...muy completo. El trato de Susana estupendo y pueblo precioso. Muy recomendable."
   </p>  
-
-  <!--
-      <div class="rating" >
-    <div class="stars" style="text-align: right;">
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span>
-    </div>
-  </div>
-   -->
-
-
 </div>
 </div>
+-->
+
+
 <div class="card mt-4 ml-4" style="position:relative; margin-left: 120px; margin-right: 120px">
   <div class="container px-4 py-3" >
 
@@ -289,17 +279,17 @@
         <ul class="list-unstyled">
           @for (rating of ratings; track rating.id) {
             <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                {{user?.id}}
+
                 <div class="col-lg-8">
                   <h6 class="mb-0">
-                    <ngb-rating [(rate)]="rating.score" />
+                    <ngb-rating [(rate)]="rating.score" style="color:darkorange" />
                     {{rating.createdDate}}
+                    {{rating.userId}}
                   </h6>
 
                   <small class="text-body-secondary">{{rating.comment}}</small>
                 </div>
-              </a>
             </li>
           }
 
