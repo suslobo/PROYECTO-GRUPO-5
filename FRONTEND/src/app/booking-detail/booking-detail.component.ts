@@ -20,7 +20,7 @@ export class BookingDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
-      this.httpClient.get<Booking>(`http://localhost:3000/booking/${id}`)
+      this.httpClient.get<Booking>(`http://localhost:3001/booking/${id}`)
       .subscribe(booking => this.booking = booking);
     })
   }
