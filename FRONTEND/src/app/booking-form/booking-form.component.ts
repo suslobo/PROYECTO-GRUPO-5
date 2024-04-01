@@ -24,6 +24,7 @@ export class BookingFormComponent implements OnInit {
   showConfirmMessage = false;
   booking: Booking | undefined;
   breakfast: number = 0;
+  totalBreakfastPrice: number = 0;
  
 
   bookingForm = new FormGroup({
@@ -57,7 +58,8 @@ export class BookingFormComponent implements OnInit {
 
     let entryDate = this.bookingForm.get('entryDate')?.value;
     let departureDate = this.bookingForm.get('departureDate')?.value;
-    
+
+
     
     
 
@@ -78,16 +80,26 @@ export class BookingFormComponent implements OnInit {
     this.totalPrice = this.numDays * this.house.price;
 
     
+    
 
     const cleaningService = this.bookingForm.get('cleaningService')?.value;
     if(cleaningService)
     this.totalPrice += 30;
 
     const breakfast = this.bookingForm.get('breakfast')?.value;
-    if(breakfast){
-      this.totalPrice += 10;
+    const people = this.bookingForm.get('people')?.value;
+
+    if(breakfast && people){
+      this.totalBreakfastPrice = people * this.numDays * 10;
+      this.totalPrice += this.totalBreakfastPrice;
     }
     
+    /* let people = this.bookingForm.get('people')?.value;
+    if(people){
+      this.totalPrice= this.breakfast * this.people;
+    } */
+
+   // this.people = this.bookingForm.get('people')?.value || 0;
     
   }
 
