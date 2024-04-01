@@ -23,6 +23,14 @@ export class UsersController {
             });
         
 }
+@Get('filter-by-firstName')
+findByTitle(@Param('id', ParseIntPipe) id: string) {
+    return this.userRepository.findOne({
+        where: {
+            firstName: id
+        }
+    });
+}
 
     @Post()
     create(@Body() user: User) {

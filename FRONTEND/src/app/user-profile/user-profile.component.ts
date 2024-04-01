@@ -13,8 +13,6 @@ import { User } from '../interfaces/user.model';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: User | undefined;
-
   userProfile = new FormGroup({
 
     id: new FormControl(),
@@ -29,7 +27,9 @@ export class UserProfileComponent implements OnInit {
     city: new FormControl('', Validators.required),
     postalCode: new FormControl('', Validators.required)
   });
-  isUpdate: any;
+  
+  user: User | undefined;
+  isUpdate: boolean = false;
 
   constructor(
     private httpClient: HttpClient,
@@ -63,7 +63,7 @@ export class UserProfileComponent implements OnInit {
     this.activatedRoute.params.subscribe(params =>{
       let id = params['id'];
       if (id)
-      this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(users => {
+      this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(user => {
          // this.isDelete = true
     });
     })
@@ -83,7 +83,7 @@ export class UserProfileComponent implements OnInit {
       nif: this.userProfile.get('nif')?.value ?? '',
       password: this.userProfile.get('password')?.value ?? '',
       street: this.userProfile.get('street')?.value ?? '',
-      city: this.userProfile.get('v')?.value ?? '',
+      city: this.userProfile.get('city')?.value ?? '',
       postalCode: this.userProfile.get('postalCode')?.value ?? ''
     }
 
@@ -99,15 +99,15 @@ export class UserProfileComponent implements OnInit {
     }
 
    // console.log(user);
-/*
-    if(this.isUpdate){
+
+   /*  if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
       this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
     } else {
       const url = 'http://localhost:3000/houses';
         this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
-    }  */
-  }
+    } */
+  } 
 
   compareObjects(o1: any, o2: any): boolean {
     if (o1 && o2) {
