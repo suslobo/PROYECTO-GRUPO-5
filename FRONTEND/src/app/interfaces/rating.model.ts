@@ -7,8 +7,8 @@ export interface Rating {
 
   score: number;
   comment: string;
-  createdDate: Date;
-  userId: string;
-  houseId: number;
+  createdDate?: Date;
+  user?: User;
+  house?: House;
   
 }

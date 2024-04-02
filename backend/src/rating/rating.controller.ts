@@ -32,9 +32,25 @@ export class RatingController {
                 user: {
                     id: id
                 }
+            }, 
+            order: {
+                createdDate: "DESC"
             }
         });
     }
+
+    /*
+        @Get('filter-by-house/:id')
+    findByHouseId(@Param('id', ParseIntPipe) id: number){
+        return this.ratingRepository.find({
+            where: {
+                house: {
+                    id: id
+                }
+            }
+        });
+    }
+     */
 
     @Post()
     create(@Body() rating: Rating) {
