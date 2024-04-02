@@ -21,5 +21,5 @@ export class Rating {
     user: User;
 
     @ManyToOne(() => House, {eager: true}) // para que te traiga la casa
-    House: House;
+    house: House;
 }
