@@ -6,12 +6,12 @@ import { NgbAccordionConfig, NgbRating, NgbRatingModule } from '@ng-bootstrap/ng
 import { Rating } from '../interfaces/rating.model';
 import { User } from '../interfaces/user.model';
 import { DatePipe } from '@angular/common';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-house-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgbRating, NgbRatingModule, DatePipe],
+  imports: [HttpClientModule, RouterLink, NgbRating, NgbRatingModule, DatePipe, ReactiveFormsModule],
   providers: [NgbAccordionConfig],
   templateUrl: './house-detail.component.html',
   styleUrl: './house-detail.component.css'
