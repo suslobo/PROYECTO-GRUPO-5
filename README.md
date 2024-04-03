@@ -123,6 +123,26 @@ nest generate controller Book
 3. Levantar el servidor:
 nest start --watch
 
+## CREAR PROYECTO CON MYSQL
+
+ 1. nest  new nest-002-mysql --skip-git --package-manager npm
+ 2. cd nest-002-mysql
+ 3. npm install --save @nestjs/typeorm typeorm mysql2
+ 4. ng generate module database
+ 5. Añadir la configuración de MySQL
+ 6. Crear base de datos en MySQL Workbench
+ 7. book.model.ts
+ 8. ng generate controller Book
+ 9. Inyectar Repository en el BookController
+
+
+ ## CONFIGURACIÓN BASE DE DATOS
+
+app.module.ts:
+
+* TypeOrmModule.forRoot()
+* TypeOrmModule.forFeature()
+
 ## CREAR CONTROLADORES
 
 Crear interface book.model.ts
@@ -186,3 +206,84 @@ Crear author.model.ts dentro de la carpeta author
   * book-list conectado a backend nestjs
   * book-detail conectado a backend nestjs
   * book-form conectado a backend nestjs
+
+
+  ## PRESENTACIONES
+
+Duración: 20 minutos máximo.
+
+* Presentación: canva, pptx, genially
+    1. Nombre y logo, slogan del proyecto
+        Mencionar que las dudas van al final
+
+    2. Temática y objetivos del proyecto 
+      * Temática.
+      * Usuarios finales que compran/reservan/descarga/visualiza en la plataforma web
+      * Usuarios administratores: crean/editan/borran y administran la información
+
+    3. Equipo
+      * Cada uno se presenta
+    
+    4. Tecnologías utilizadas:
+        * Colaborativas: GitHub, Git, Trello, Teams, Discord
+        * Desarrollo: Angular 17, NestJS, TypeScript, MySQL, VScode, SQL
+        * Mencionar durante el curso se ha aprendido: Python, Java, JavaScript
+        * Mostrar tablero de trello.
+
+    5. Esquema de la arquitectura
+        * Navegador
+        * Frontend: App Angular
+        * Backend: App Nestjs
+        * Base de datos: MYSQL
+        * Esquema de las pantallas: También puede ser interesante mostrar un diagrama de las pantallas en Figma
+
+    6. Demo: (+10 min) [PARTE MAS IMPORTANTE]
+        * Quitar la presentación y mostrar la app en el escritorio, tener la aplicación en marca en local.
+        * Tener un recorrido preparado:
+            * login, home, listado, detalle, reseva/compra, listado, detalle, login admin, editar, actualizar...
+        * quitar presentación y mostrar la app
+        * Tener ya un recorrido preparado
+        * Tener datos con admin y con usuario normal.
+        * Probar login con admin y con usuario
+        * Mencionar que todo es responsive
+
+    7. Aprendizajes
+        * Curso desde octubre a mayo en el que se han explorado multitud de tecnologías. lenguajes y 
+          frameworks de programación
+        * El proyecto transversal se ha desarrollado desde febrero a abril aplicando todala materia vista en clase.
+          Se ha desarrolado durante las clases.
+        * Desarrollos futuros: funcionalidades que no están todavía en la app pero os gustaría tener a futuro
+        * Trabajar en equipo de forma ágil
+        * Herramientas colaborativas
+        * Materializar ideas en software
+        * Proceso de ingeniería de software: análisis, diseño, desarrollo, testing, despliegue, mantenimiento 
+        * Visión de empresa a través de consejos de los mentores.
+        * Sabemos que la formación no acaba aquí de hecho estamos muy interesadas en seguir aprendiendo nuevas tecnologías y crear todo tipo de proyectos y aportar valor.
+
+* Posibles preguntas:
+  * ¿Por qué esa temática?
+  * ¿Qué ha sido difícil en vuestro proyecto? ¿Y cómo lo habéis resulto?
+  * ¿Cómo os habéis coordinado?. Seguimieto diario por Discord, reuniones semanales, con el profesor, los mentores.
+  * ¿Cómo habéis planificado el proyecto? Trello, tareas para cada persona. Mostrar tablero en Trello
+  * ¿Por qué hemos decidio formarse en este curso?
+  * ¿En qué puesto nos veriamos al finalizar o a qué les gustaría dedicarse después de todo lo que hemos
+    visto en este curso?
+    1. Fullstack
+    2. Fontrend desarrollando app
+    3. Backend.
+  * ¿En que tecnoloías tenemos más dominio?
+
+  Preparar preguntas para las empresas (de nosotros hacia las empresas):
+
+  * ¿Qué proyectos desarrolla vuestra empresa?
+  * ¿Contratan personal junio?
+  * ¿Teneis plan de carrera? Hay progreso de junior a senior, objetivos..
+  * ¿Teneis plan de formación interna? Demostrar interés por seguir formándonos continuamente.
+
+* Demo: compartir el navegador y mostrar la app de angular
+
+## SEGURIDAD
+
+1. EN BACKEND:
+
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt

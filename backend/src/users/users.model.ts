@@ -41,5 +41,5 @@ export class User {
     default: Role.USER
     })
     role: Role;
-
+        
 }

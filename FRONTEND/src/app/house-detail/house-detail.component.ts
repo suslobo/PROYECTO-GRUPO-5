@@ -21,16 +21,16 @@ export class HouseDetailComponent implements OnInit {
   house: House | undefined;
   user: User | undefined;
   ratings!: Rating[];
+  // formulario para crear nuevos comentarios
+  ratingForm = new FormGroup({
+    score: new FormControl(0),
+    comment: new FormControl('')
+  });
 
-    // formulario para crear nuevos comentarios
-    ratingForm = new FormGroup({
-      score: new FormControl(0),
-      comment: new FormControl('')
-    });
 
+constructor(private httpClient: HttpClient,
+  private activatedRoute: ActivatedRoute) { }
 
-  constructor(private httpClient: HttpClient,
-    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -40,7 +40,6 @@ export class HouseDetailComponent implements OnInit {
       }
 
       this.httpClient.get<House>('http://localhost:3000/houses/' + id).subscribe(house => this.house = house);
-    
       this.httpClient.get<Rating[]>('http://localhost:3000/rating' + id).subscribe(ratings => this.ratings = ratings)
   });
 }
@@ -60,3 +59,4 @@ save() {
 
 }
 }
+ 

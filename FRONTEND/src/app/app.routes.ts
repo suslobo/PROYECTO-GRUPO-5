@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HouseFormComponent } from './house-form/house-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 export const routes: Routes = [
@@ -32,6 +33,14 @@ export const routes: Routes = [
         component: HouseDetailComponent
     },
     {
+        path: 'houses/create',
+        component: HouseFormComponent
+    },
+    {
+        path: 'houses/:id/update',
+        component: HouseFormComponent
+    },
+    {
         path: 'booking',
         component: BookingListComponent
     },
@@ -43,14 +52,7 @@ export const routes: Routes = [
         path: 'booking/:id/form',
         component: BookingFormComponent
     },
-    {
-        path: 'houses/create',
-        component: HouseFormComponent
-    },
-    {
-        path: 'houses/:id/update',
-        component: HouseFormComponent
-    },
+   
     {
         path: 'login',
         component: LoginComponent
@@ -64,9 +66,22 @@ export const routes: Routes = [
         component: UserListComponent
     },
     {
+        path: 'user/:id/detail',
+        component: UserDetailComponent
+    },
+    {
         path: 'user/profile',
         component: UserProfileComponent
     },
+    {
+        path:'user/:id/detail',
+        component: UserDetailComponent
+    },
+    {
+        path: 'user/:id/profile',
+        component: UserProfileComponent
+    },
+   
     {
         path: 'not-found-404',
         component: NotFoundComponent

@@ -56,13 +56,11 @@ export class RatingController {
     create(@Body() rating: Rating) {
         return this.ratingRepository.save(rating);
     }
-
     @Put(':id')
     async update(
         @Param('id', ParseIntPipe) id: number,
         @Body() rating: Rating
         ) {
-            
             // await espera a que el método existsBy termine ya que devuelve Promise<boolean>
             const exists = await this.ratingRepository.existsBy({
                id: id

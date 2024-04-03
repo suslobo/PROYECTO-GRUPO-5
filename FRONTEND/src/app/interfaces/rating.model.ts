@@ -10,5 +10,5 @@ export interface Rating {
   createdDate?: Date;
   user?: User;
   house?: House;
-  
+
 }

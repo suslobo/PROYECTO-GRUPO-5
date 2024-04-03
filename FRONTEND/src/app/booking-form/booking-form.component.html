@@ -1,14 +1,16 @@
 
-<div class="container mt-5">
+
+<div class="container">
   <div class="row">
     <div class="col-lg-8">
+
       @if (showConfirmMessage) {
         <ngb-alert type="success" [dismissible]="false" class="mt-5" style="min-height: 200px">
-          Se ha completado tu reserva para la casa {{house?.title}}.
+          Se ha completado tu reserva para la casa {{house?.title}}.          
 
-
+          
           <br>El código de tu reserva es {{booking?.id}}
-          <br> Para cualquier duda contacte con soporte&commat;certidevs.com
+          <br> Para cualquier duda contacte con soporte&commat;casaRural.com
         </ngb-alert>
         <button class="w-100 btn btn-primary btn-lg" routerLink="/houses">Volver a Casa</button>
 
@@ -34,11 +36,19 @@
           <label for="departureDate">Fecha fin</label>
         </div>
 
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control"
+          id="people" formControlName="people"
+          placeholder="" (change)="calculatePrice()">
+          <label for="people">Personas</label>
+        </div>
+
+
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox"
           id="breakfast" formControlName="breakfast" (change)="calculatePrice()">
           <label class="form-check-label" for="breakfast">
-            Desayuno 10/persona € 
+            Desayuno 10 €/persona
           </label>
         </div>
 
@@ -50,9 +60,9 @@
           </label>
         </div>
 
-        <br>
+      <br>
         <h3>Forma de Pago</h3>
-
+        
           <div class="form-check mt-3">
     <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
     <label class="form-check-label" for="credit">Tarjeta de crédito</label>
@@ -66,129 +76,148 @@
     <label class="form-check-label" for="paypal">PayPal</label>
   </div> --> 
 
-       </form>
+  <button class="w-100 btn btn-primary btn-lg" type="submit">Finalizar reserva</button>
+  
+       </form> 
 
+         <div class="row gy-3 mt-1">
+          <div class="col-md-6">
+            <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+            <small class="text-body-secondary">Nombre completo tal como aparece en la tarjeta</small>
+            <div class="invalid-feedback">
+              Nombre obligatorio
+            </div>
+          </div>
 
-       <div class="row gy-3 mt-1">
-        <div class="col-md-6">
-          <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
-          <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-          <small class="text-body-secondary">Nombre completo tal como aparece en la tarjeta</small>
-          <div class="invalid-feedback">
-            Nombre obligatorio
+          <div class="col-md-6">
+            <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+            <div class="invalid-feedback">
+              Número de tarjeta de crédito
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-expiration" class="form-label">Expiración</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+            <div class="invalid-feedback">
+              Expiración obligatorio
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+            <div class="invalid-feedback">
+              Código de seguridad obligatorio
+            </div>
           </div>
         </div>
+        <div _ngcontent-ng-c3189770292="" >
+          <div> 
+            @if (bookingForm) {
+              <div class="d-grid gap-2 mt-3">
+                <!-- <button _ngcontent-ng-c3189770292="" class="btn btn-dark" type="submit">Finalizar Pago</button>     -->   
+               </div>
+            }
+              </div> 
+          </div> 
+            <br>
+        }  
+             
+    
+      </div> 
 
-        <div class="col-md-6">
-          <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
-          <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-          <div class="invalid-feedback">
-            Número de tarjeta de crédito
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <label for="cc-expiration" class="form-label">Expiración</label>
-          <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-          <div class="invalid-feedback">
-            Expiración obligatorio
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <label for="cc-cvv" class="form-label">CVV</label>
-          <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-          <div class="invalid-feedback">
-            Código de seguridad obligatorio
-          </div>
-        </div>
-      </div>
-
-      <div _ngcontent-ng-c3189770292="" >
-        <div> 
-          @if (bookingForm) {
-            <div class="d-grid gap-2 mt-3">
-             <!-- <button _ngcontent-ng-c3189770292="" class="btn btn-dark">Finalizar pago</button>   -->
-                 </div> 
-          }
-      </div>
-    </div>
-<br>
-    }
-
-  </div>
-
-  <div class="col-md-5 col-lg-4 order-md-last">
-
-    <h4 class="mt-5 d-flex justify-content-between align-items-center mb-3">
-      <span>Tu reserva</span>
-
-      <li class="list-group-item d-flex justify-content-between lh-sm">
-        <div>
-
-            <h6 class="badge bg-success rounded-pill"> {{numDays}} días</h6>
-
-        </div>
-      </li>
-    </h4>
-    <ul class="list-group mb-4">
-      @if (house) {
-      <li class="list-group-item d-flex justify-content-between lh-sm">
-        <div>
-          <span>Nombre de la casa</span>
-          <br>
-            <h6 >{{house.title}}</h6>
-
-        </div>
-      </li>
-      }
-
-      @if (house) {
+      @if (numDays >= 1) {
+    <div class="col-md-5 col-lg-4 order-md-last">
+      
+      <h4 class="mt-5 d-flex justify-content-between align-items-center mb-3">
+        <span>Tu reserva</span>
+        
         <li class="list-group-item d-flex justify-content-between lh-sm">
           <div>
-            <span>Precio noche/persona</span>
-            <br>
-              <small>{{house.price}} €</small>
-
+           
+              <h6 class="badge bg-success rounded-pill"> {{numDays}} días</h6>
+              
           </div>
         </li>
-        } 
+      </h4>
+      <ul class="list-group mb-4">
+        @if (house) {
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <span>Nombre de la casa</span>
+            <br>
+              <h6 >{{house.title}}</h6>
+              
+          </div>
+        </li>
+        }
+
+        @if (house) {
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <span>Precio noche/persona</span>
+              <br>
+                <small>{{house.price}} €</small>
+                
+            </div>
+          </li>
+          } 
 
           <li class="list-group-item d-flex justify-content-between ">
-          @if(bookingForm.get('cleaningService')?.value) {
-
-              <div>
-                <h6>Servicio de Limpieza</h6>
-
-              </div>
-              <br>
-              <span class="text-body-secondary">30 €</span>
-
-          }
-        </li>
-
+            @if(bookingForm.get('people')?.value) {
+    
+                <div>
+                  <h6>Número de personas</h6>
+    
+                </div>
+                <br>
+                <span class="text-body-secondary">{{bookingForm.get('people')?.value}}</span>
+    
+            }
+          </li>
+        
+          
         <li class="list-group-item d-flex justify-content-between ">
-          @if(bookingForm.get('breakfast')?.value) {
+        @if(bookingForm.get('cleaningService')?.value) {
 
-              <div>
-                <h6>Desayuno</h6>
+            <div>
+              <h6>Servicio de Limpieza</h6>
 
-              </div>
-              <br>
-              <span class="text-body-secondary">10 €</span>
+            </div>
+            <br>
+            <span class="text-body-secondary">30 €</span>
 
-          }
-        </li>
-
-      <li class="list-group-item d-flex justify-content-between">
-        <span>Total (Euros)</span>
-        <strong>{{price}}</strong>
+        }
       </li>
 
-    </ul>
+      <li class="list-group-item d-flex justify-content-between ">
+        @if(bookingForm.get('breakfast')?.value) {
 
-    <button class="w-100 btn btn-primary btn-lg" type="submit">Finalizar reserva</button>
+            <div>
+              <h6>Desayuno</h6>
 
+            </div>
+            <br>
+            <span class="text-body-secondary">{{totalBreakfastPrice}} €</span>
+
+        }
+      </li>
+
+
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (Euros)</span>
+          <strong>{{totalPrice}}</strong>
+        </li>
+      
+      </ul>
+
+      
+       
+      
+    </div>
+      }
   </div>
-</div>
 </div>
