@@ -88,25 +88,25 @@ export class UserProfileComponent implements OnInit {
     }
 
 
-    if(this.isUpdate){
+ /*    if(this.isUpdate){
      
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
-      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/']));
+      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
     } else {
      
       const url = 'http://localhost:3000/users';
-      this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/']));
-    }
+      this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
+    } */
 
    // console.log(user);
 
-   /*  if(this.isUpdate){
+     if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
       this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
     } else {
       const url = 'http://localhost:3000/houses';
         this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
-    } */
+    } 
   } 
 
   compareObjects(o1: any, o2: any): boolean {

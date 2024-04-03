@@ -12,6 +12,8 @@ import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
 import { v4 as uuidv4 } from 'uuid';
+import { RatingController } from './rating/rating.controller';
+import { Rating } from './rating/rating.model';
 
 
 @Module({
@@ -33,13 +35,13 @@ import { v4 as uuidv4 } from 'uuid';
       username: 'root',
       password: 'admin',
       database: 'backend',
-      entities: [User, Booking, House],
+      entities: [User, Booking, House, Rating],
       synchronize: true, 
       logging: true
     }),
-    TypeOrmModule.forFeature([Booking, User, House])
+    TypeOrmModule.forFeature([Booking, User, House, Rating])
   ],
-  controllers: [AppController, HousesController, BookingController, UsersController],
+  controllers: [AppController, HousesController, BookingController, UsersController, RatingController],
   providers: [AppService],
 })
 export class AppModule {}

@@ -4,7 +4,12 @@ body {
   }
   
   .btn {
-    background-color: #7d9e47
+    background-color: #7d9e47;
+    border: none;
+    color:#fff;
+  }
+  .btn:hover {
+    background-color: #5a6b56;
   }
   .tittle h2{
     font-family:'Poppins', sans-serif;

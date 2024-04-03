@@ -118,29 +118,7 @@ export class HouseFormComponent implements OnInit{
 
   save(): void {
 
-    // console.log('invocando save');
-
-    /*  const house: House = {
-      id: this.houseForm.get('id')?.value ?? 0,
-      title: this.houseForm.get('title')?.value ?? '',
-      address: this.houseForm.get('address')?.value ?? '',
-      phone: this.houseForm.get('phone')?.value ?? '',
-      email: this.houseForm.get('email')?.value ?? '',
-      places: this.houseForm.get('places')?.value ?? '',
-      bedrooms: this.houseForm.get('bedrooms')?.value ?? 0,
-      bathrooms: this.houseForm.get('bathrooms')?.value ?? 0,
-      price: this.houseForm.get('price')?.value ?? 0,
-      meters: this.houseForm.get('meters')?.value ?? 0,
-      destination: this.houseForm.get('destination')?.value ?? '',
-      petFriendly: this.houseForm.get('petFriendly')?.value ?? false,
-      pool: this.houseForm.get('pool')?.value ?? false,
-      garden: this.houseForm.get('garden')?.value ?? false,
-      terrace: this.houseForm.get('terrace')?.value ?? false,
-      wifi: this.houseForm.get('wifi')?.value ?? false,
-      air: this.houseForm.get('air')?.value ?? false,
-      description: this.houseForm.get('description')?.value ?? '',
-      photoUrl: this.houseForm.get('photoUrl')?.value ?? ''
-    }  */
+   
     
     let formData = new FormData();
     
@@ -164,7 +142,6 @@ export class HouseFormComponent implements OnInit{
     formData.append('wifi', this.houseForm.get('wifi')?.value ? 'true' : 'false');
     formData.append('air', this.houseForm.get('air')?.value ? 'true' : 'false');
     formData.append('description', this.houseForm.get('description')?.value ?? '');
-    //formData.append('people', this.houseForm.get('people')?.value + '');
     formData.append('photoUrl', this.houseForm.get('photoUrl')?.value ?? '');  
 
     if(this.photoFile) formData.append('file', this.photoFile);

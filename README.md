@@ -281,3 +281,9 @@ Duración: 20 minutos máximo.
   * ¿Teneis plan de formación interna? Demostrar interés por seguir formándonos continuamente.
 
 * Demo: compartir el navegador y mostrar la app de angular
+
+## SEGURIDAD
+
+1. EN BACKEND:
+
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt
