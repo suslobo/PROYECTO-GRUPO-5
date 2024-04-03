@@ -4,16 +4,16 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-8">
-      <img class="img-fluid" src="https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg"
+      <img class="img-fluid" src="/assets/img/SALON.jpg"
         alt="Foto casa">
     </div>
     <div class="col-4">
       <div>
-        <img class="img-fluid" src="https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg"
+        <img class="img-fluid" src="/assets/img/DORMITORIO.jpg"
           alt="Foto casa">
       </div>
       <div class="my-3">
-        <img class="img-fluid" src="https://cdn.pixabay.com/photo/2022/08/17/09/15/houses-7391985_1280.jpg"
+        <img class="img-fluid mt-4" src="/assets/img/COCINA.jpg"
           alt="Foto casa">
       </div>
     </div>
@@ -68,16 +68,7 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
 <div class="card mt-4 ml-4" style="margin-left: 120px; margin-right: 120px">
-
 
   <div class="container px-4 py-3" >
     <h5 class="pb-2 border-bottom">Características y servicios</h5>
@@ -234,44 +225,11 @@
 
 </div>
 
-<!-- 
-<div class="card mt-4 ml-4" style="position:relative; margin-left: 120px; margin-right: 120px">
-  <div class="container px-4 py-3" >
-    <h5 class="pb-2 border-bottom">Opiniones de otros viajeros </h5>
-    <p><strong>Ramiro Lopez Seoane, </strong> <em>26/04/2022 </em> 
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span>
-      <span class="star">&#9733;</span></p>
-    <p>"Sorprendente casa por sus diferentes estilos, se ve que es una casa de pueblo rehabilitada, tiene una cocina gigante y buenos fuegos, nos hizo gracia que el dueño nos contó que se vestían toreros en la casa y que había hecho un video "edurne" la cantante de navidad."
-    </p>
-  <p><strong>Roma, </strong> <em>26/04/2022 </em>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span></p>
-  <p>"Decidimos viajar Avila desde Barcelona porque queríamos un lugar tranquilo cerca de Avila, Toledo y Segovia, acertamos de pleno, han sido 15 días muy intensos, pero ha merecido la pena combinar historia y monumentos con campo y piscina."
-  </p>
-  <p><strong>Marta, </strong><em>26/04/2022 </em> 
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span></p>
-  <p>"Fin de semana magnífico. Ideal para grandes grupos con niños. Todo muy limpio. Cocina súper amplia con todo lo necesario. Habitaciones acogedoras y cómodas, calefacción, jacuzzis...jardin con terrazas para comer...muy completo. El trato de Susana estupendo y pueblo precioso. Muy recomendable."
-  </p>  
-</div>
-</div>
--->
-
-
 <div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-12">
 
-      <h5 class="pb-2 border-bottom mt-5">Opiniones de otros viajeros </h5>
+    <!--    <h5 class="pb-2 border-bottom mt-5">Opiniones de otros viajeros </h5>   -->
 
       <div>
         <ul class="list-unstyled">
@@ -279,45 +237,33 @@
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
                 <img class="bd-placeholder-img" src="https://placehold.co/100">
-                {{user?.id}}
+               {{user?.id}} 
 
                 <div class="col-lg-8">
                   <h6 class="mb-0">
+
                     <ngb-rating [(rate)]="rating.score" [readonly]="true" [max]="5">
                       <ng-template let-fill="fill" let-index="index">
                         <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-3" style="color:#ffb900;"></i>
                       </ng-template>
                     </ngb-rating>
-                    {{rating.createdDate| date:'dd/MM/yyyy'}}
+                    {{rating.createdDate | date:'dd/MM/yyyy'}}
                     {{rating.user}}
                   </h6>
-
                   <small class="text-body-secondary">{{rating.comment}}</small>
                 </div>
               </a>
             </li>
           }
-
         </ul>
       </div>
 
-      <div class="col-6">
-        <h2 class="mt-5">Añade un comentario</h2>
+      <div class="col-12">
+        <h5 class="pb-2 border-bottom mt-5">Añade un comentario </h5>
   
         <!-- Formulario para crear un nuevo comentario -->
         <form [formGroup]="ratingForm" (ngSubmit)="save()">
-  
-         <!-- <div class="input-group mb-3">
-            <span class="input-group-text">
-              <i class="bi bi-star-fill fs-3" style="color:#ffb900;"></i>
-            </span>
-            <div class="form-floating">
-              <input type="number" class="form-control" id="score"
-              placeholder="0-5" formControlName="score" max="5" min="0" step="1">
-              <label for="score">Puntuación</label>
-            </div>
-          </div>-->
-  
+    
           <div class="mb-3">
             <ngb-rating  formControlName="score" [max]="5">
               <ng-template let-fill="fill" let-index="index">
