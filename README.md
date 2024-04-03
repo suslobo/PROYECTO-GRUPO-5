@@ -282,6 +282,12 @@ Duración: 20 minutos máximo.
 
 * Demo: compartir el navegador y mostrar la app de angular
 
+## SUBIDA DE ARCHIVOS EN BACKEND (MULTER)
+
+1. Instalar en backend:
+
+npm i -D @types/multer
+
 ## SEGURIDAD
 
 1. EN BACKEND:
