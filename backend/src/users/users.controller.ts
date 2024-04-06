@@ -1,13 +1,18 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './users.model';
+import { Register } from './register.dto';
+import { Role } from './role.model';
+import { Login } from './login.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Controller('users')
 export class UsersController {
     constructor(
         @InjectRepository(User)
-        private userRepository: Repository<User>
+        private userRepository: Repository<User>,
+        private jwtService: JwtService
     ){}
 
     @Get()
@@ -32,10 +37,63 @@ findByTitle(@Param('id', ParseIntPipe) id: string) {
     });
 }
 
-    @Post()
-    create(@Body() user: User) {
-        return this.userRepository.save(user);
+@Post('register')
+async register(@Body() register: Register) {
+    
+    const exists = await this.userRepository.existsBy({
+        email: register.email
+    });
+
+    if(exists)
+        throw new ConflictException("Email ocupado");
+
+   
+    const user: User = {
+        id: 0,
+        email: register.email,
+        password: register.password,
+        phone: '',
+        role: Role.USER
+    };
+    await this.userRepository.save(user);
+}
+
+@Post('login')
+    async login(@Body() login: Login) {
+
+       
+        const exists = await this.userRepository.existsBy({
+            email: login.email
+        });
+        if(!exists)
+            throw new NotFoundException("Usuario no encontrado.");
+
+        
+        const user = await this.userRepository.findOne({
+            where: {
+                email: login.email
+            }
+        });
+
+        if (user.password !== login.password){
+            throw new UnauthorizedException("Datos incorrectos");
+        }
+
+        let userData = {
+            sub: user.id,
+            email: user.email,
+            role: user.role
+        };
+
+        let token = {
+            token: await this.jwtService.signAsync(userData)
+        }
+        return token;
+
+        
+
     }
+
 
     @Delete(':id')
     async deleteById(
@@ -44,7 +102,7 @@ findByTitle(@Param('id', ParseIntPipe) id: string) {
         const exists = await this.userRepository.existsBy({ id: id });
     
         if (!exists) {
-            throw new NotFoundException('Booking not found');
+            throw new NotFoundException('User not found');
         }
     
         try {

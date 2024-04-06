@@ -8,32 +8,32 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    firstName: string;
+    @Column({nullable: true})
+    firstName?: string;
 
-    @Column()
-    lastName: string;
+    @Column({nullable: true})
+    lastName?: string;
 
     @Column({unique: true})
     email: string;
 
-    @Column()
-    phone: string;
+    @Column({nullable: true})
+    phone?: string;
 
-    @Column({unique: true})
-    nif: string;
+    @Column({nullable: true})
+    nif?: string;
 
     @Column()
     password: string;
 
-    @Column()
-    street: string;
+    @Column({nullable: true})
+    street?: string;
 
-    @Column()
-    city: string;
+    @Column({nullable: true})
+    city?: string;
 
-    @Column()
-    postalCode: string;
+    @Column({nullable: true})
+    postalCode?: string;
 
     @Column({
     type: 'enum',

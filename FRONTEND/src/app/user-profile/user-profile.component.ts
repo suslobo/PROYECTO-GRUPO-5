@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit {
     phone: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
     nif: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    //passwordConfirm: new FormControl('', [Validators.required]),
+    passwordConfirm: new FormControl('', [Validators.required]),
     street: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
     postalCode: new FormControl('', Validators.required)
@@ -64,7 +64,7 @@ export class UserProfileComponent implements OnInit {
       let id = params['id'];
       if (id)
       this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(user => {
-         // this.isDelete = true
+         //this.isDelete = true
     });
     })
 
@@ -104,8 +104,8 @@ export class UserProfileComponent implements OnInit {
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
       this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
     } else {
-      const url = 'http://localhost:3000/houses';
-        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
+      const url = 'http://localhost:3000/users';
+        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/']));
     } 
   } 
 
