@@ -39,12 +39,14 @@
                         <!-- <ngb-rating [rate]="3" />  -->
                         
     
-                        @if (house) {
+                        @if (isAdmin) {
                         <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/houses', house.id, 'update']">
                           Editar</button>
                           }
+
+                        @if(isAdmin){
                         <button class="btn btn-outline-danger w-50 py-2 " (click)="deleteById(house.id)"> Borrar</button>
-    
+                        }
     
     
     

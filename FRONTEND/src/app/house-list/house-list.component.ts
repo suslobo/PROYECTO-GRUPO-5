@@ -3,6 +3,7 @@ import { House } from '../interfaces/house.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 
 @Component({
@@ -16,8 +17,11 @@ import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 export class HouseListComponent implements OnInit{
 
   houses: House [] = [];
+  isAdmin = false;
 
-  constructor(private httpClient: HttpClient, config: NgbRatingConfig) {
+  constructor(private httpClient: HttpClient, config: NgbRatingConfig,
+    private authService: AuthenticationService) {
+      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
     config.readonly = true;
     config.max = 5;
   }
