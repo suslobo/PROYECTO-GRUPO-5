@@ -20,8 +20,12 @@
         [formGroup]="bookingForm"
         (ngSubmit)="save()">
 
-        <h1 class="mb-3">Reserva de Casa</h1>
-
+        @if (house) {
+          <div class="container" >
+            <h4 class="mb-3"> Reserva de la casa: {{house.title}} </h4>
+           
+          </div>
+        }
         <div class="form-floating mb-3">
           <input type="date" class="form-control"
           id="entryDate" formControlName="entryDate"
@@ -76,7 +80,7 @@
     <label class="form-check-label" for="paypal">PayPal</label>
   </div> --> 
 
-  <button class="w-100 btn btn-primary btn-lg" type="submit">Finalizar reserva</button>
+  <button class="w-100 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
   
        </form> 
 

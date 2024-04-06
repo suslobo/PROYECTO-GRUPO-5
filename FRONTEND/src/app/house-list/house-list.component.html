@@ -1,9 +1,9 @@
-<div class="container">
-  <div class="row">
+<div class="container ">
+  <div class="row ">
     <div class="col-12">
 
 
-      <div class="album py-5 bg-body-tertiary">
+      <div class="album py-5 bg-white">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3">
               @for (house of houses; track house) {
@@ -24,7 +24,7 @@
                           <br>
                           
                           
-                          <ngb-rating [rate]="4"></ngb-rating> 
+                          <ngb-rating [rate]="4" style="color:#ffb900;"></ngb-rating> 
                           <br>
                           <br>
                           <i class="bi bi-houses"></i> Casa Rural Completa
@@ -40,17 +40,11 @@
                         
     
                         @if (house) {
-                        <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/houses', house.id, 'update']">
+                        <button type="button" class="btn btn-outline-naranaja w-50 py-2" [routerLink]="['/houses', house.id, 'update']">
                           Editar</button>
                           }
-                        <button class="btn btn-outline-danger w-50 py-2 " (click)="deleteById(house.id)"> Borrar</button>
-    
-    
-    
-    
-                        <div class="d-flex justify-content-between align-items-center">
-    
-                      </div>
+                        <button class="btn btn-outline-naranaja w-50 py-2 " (click)="deleteById(house.id)"> Borrar</button>
+
                     </div>
                   </div>
 
