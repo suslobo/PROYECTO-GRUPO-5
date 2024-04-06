@@ -40,7 +40,7 @@ constructor(private httpClient: HttpClient,
       }
 
       this.httpClient.get<House>('http://localhost:3000/houses/' + id).subscribe(house => this.house = house);
-      this.httpClient.get<Rating[]>('http://localhost:3000/rating' + id).subscribe(ratings => this.ratings = ratings)
+      this.httpClient.get<Rating[]>('http://localhost:3000/rating/filter-by-house/' + id).subscribe(ratings => this.ratings = ratings)
   });
 }
 save() {

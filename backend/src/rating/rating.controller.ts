@@ -39,8 +39,8 @@ export class RatingController {
         });
     }
 
-    /*
-        @Get('filter-by-house/:id')
+    
+    @Get('filter-by-house/:id')
     findByHouseId(@Param('id', ParseIntPipe) id: number){
         return this.ratingRepository.find({
             where: {
@@ -50,7 +50,7 @@ export class RatingController {
             }
         });
     }
-     */
+     
 
     @Post()
     create(@Body() rating: Rating) {
