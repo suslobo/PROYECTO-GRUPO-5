@@ -15,7 +15,7 @@ export interface Booking {
         
 
         users?: User;
-        house?: House;
+        houses?: House;
         //payment?: Payment;
         //status?: BookingStatus;
         totalPrice?: number;
