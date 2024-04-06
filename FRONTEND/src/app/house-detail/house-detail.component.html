@@ -9,11 +9,11 @@
     </div>
     <div class="col-4">
       <div>
-        <img class="img-fluid mb-4" src="/assets/img/DORMITORIO.jpg"
+        <img class="img-fluid" src="/assets/img/DORMITORIO.jpg"
           alt="Foto casa">
       </div>
       <div class="my-3">
-        <img class="img-fluid mt-2" src="/assets/img/COCINA.jpg"
+        <img class="img-fluid" src="/assets/img/COCINA.jpg"
           alt="Foto casa">
       </div>
     </div>
@@ -227,9 +227,13 @@
 
 <div class="card mt-4 ml-4" style="position:relative; margin-left: 120px; margin-right: 120px">
   <div class="container px-4 py-3" >
+    <div class="col-12">
 
+    <!--    <h5 class="pb-2 border-bottom mt-5">Opiniones de otros viajeros </h5>   -->
+
+     
       <div class="col-12">
-        <h5 class="pb-2 border-bottom mt-2">Añade un comentario </h5>
+        <h5 class="pb-2 border-bottom mt-1">Añade un comentario </h5>
 
         <!-- Formulario para crear un nuevo comentario -->
         <form [formGroup]="ratingForm" (ngSubmit)="save()">
@@ -241,53 +245,43 @@
               </ng-template>
             </ngb-rating>
           </div>
+
           <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here"
-            id="comment" formControlName="comment" style="min-height:120px;"></textarea>
+            id="comment" formControlName="comment" style="min-height:150px;"></textarea>
             <label for="comment">Comentario de texto</label>
           </div>
-          <button class="w-100 btn btn-success btn-lg mt-2" type="submit">ME llamo pepe</button>
+
+          <button class="w-100 btn btn-success btn-lg mt-2" type="submit">Añadir comentario</button>
         </form>
       </div>
-    </div>
-    
-    <div class="container px-4 py-3">
-      <div class="col-12">
-        <!-- Listado de comentarios que ya existen  -->
-        <div>
-          <ul class="list-unstyled">
-            @for (rating of ratings; track rating.id) {
-              <li>
-                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                  <img class="bd-placeholder-img" src="https://placehold.co/100">
-  
-                  <div class="col-lg-8">
-                    <h6 class="mb-0">
-  
-  
-                      <ngb-rating [(rate)]="rating.score" [readonly]="true" [max]="5">
-                        <ng-template let-fill="fill" let-index="index">
-                          <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#ffb900;"></i>
-                        </ng-template>
-                      </ngb-rating>
-  
-                      {{rating.createdDate | date:'dd/MM/yyyy'}}
-                    </h6>
-  
-                    <small class="text-body-secondary">{{rating.comment}}</small>
-                  </div>
-                </a>
-              </li>
-            }
-  
-          </ul>
-        </div>
-  
+      <div>
+        <ul class="list-unstyled">
+          @for (rating of ratings; track rating.id) {
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                <img class="bd-placeholder-img" src="https://placehold.co/100">
+               {{user?.id}} 
+
+                <div class="col-lg-8">
+                  <h6 class="mb-0">
+
+                    <ngb-rating [(rate)]="rating.score" [readonly]="true" [max]="5">
+                      <ng-template let-fill="fill" let-index="index">
+                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#ffb900;"></i>
+                      </ng-template>
+                    </ngb-rating>
+                    {{rating.createdDate | date:'dd/MM/yyyy'}}
+                    {{rating.user}}
+                  </h6>
+                  <small class="text-body-secondary">{{rating.comment}}</small>
+                </div>
+              </a>
+            </li>
+          }
+        </ul>
       </div>
+
     </div>
-
-
   </div>
-
-  
     
