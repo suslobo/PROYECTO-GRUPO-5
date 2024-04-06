@@ -50,9 +50,11 @@ async register(@Body() register: Register) {
    
     const user: User = {
         id: 0,
+        nickName: register.nickName,
         email: register.email,
         password: register.password,
         phone: '',
+        
         role: Role.USER
     };
     await this.userRepository.save(user);
@@ -82,7 +84,8 @@ async register(@Body() register: Register) {
         let userData = {
             sub: user.id,
             email: user.email,
-            role: user.role
+            role: user.role,
+            firstName: user.firstName
         };
 
         let token = {
