@@ -30,7 +30,7 @@ export class Booking {
     users: User;
 
     @ManyToOne(() => House, {eager: true})
-    house: House;
+    houses: House;
 
    /*  @Column({nullable: false})
     totalPrice: number; */

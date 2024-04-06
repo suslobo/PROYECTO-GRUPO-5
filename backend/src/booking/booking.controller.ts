@@ -26,7 +26,7 @@ export class BookingController {
         });
     } */
 
-   /*  @Get('filter-by-user/:id')
+   @Get('filter-by-user/:id')
     findByUserId(@Param('id', ParseIntPipe) id: number){
         return this.bookingRepository.find({
             where: {
@@ -35,7 +35,7 @@ export class BookingController {
                 }
             }
         });
-    } */
+    } 
 
   /*   @Get('filter-by-destination')
     findByBookId(@Param('id', ParseIntPipe) id: string){
