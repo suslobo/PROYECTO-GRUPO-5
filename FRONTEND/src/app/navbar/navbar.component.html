@@ -23,7 +23,10 @@
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Casas Rurales </a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
 						<a ngbDropdownItem routerLink="/houses" (click)="$event.preventDefault()">Listado Casas</a>
-						<a ngbDropdownItem routerLink="/houses/create" (click)="$event.preventDefault()">Crear</a>
+						@if (isAdmin) {
+							<a ngbDropdownItem routerLink="/houses/create" (click)="$event.preventDefault()">Crear</a>
+						}
+						
 					</div>
 				</li>
 
@@ -36,7 +39,8 @@
 					   
 					</div>
 				</li>
-
+			
+@if (isAdmin) {
 		<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Usuarios </a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
@@ -44,15 +48,36 @@
 						
 					</div>
 				</li>
+			}
+		
+				@if(userEmail){
+					<button class="btn btn-outline-success btn-sm mx-3">{{userEmail.split('@')[0]}}</button>
 
-				<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-				  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Login </a>
+				}
+				@if(isLoggedIn){
+					<button type="button" class="btn btn-white ms-2" (click)="logout()">
+						<i class="bi bi-person" style="font-size: 35px;"></i></button>
+				} @else {
+					<button type="button" class="btn btn-success ms-2" routerLink="/login">
+						Login
+						
+					  </button>
+					  <button type="button" class="btn btn-secondary ms-2" routerLink="/register">
+						Registro
+						
+					  </button>
+				}
+				
+				<!--  <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+				  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Login </a>}
+				
 				  <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
 					  <a ngbDropdownItem routerLink="/login" (click)="$event.preventDefault()">Entrar con usuario</a>
 					  <a ngbDropdownItem routerLink="/register" (click)="$event.preventDefault()">Registrarse</a>
 				  </div>
-			  </li>
-
+				
+			  </li>  -->
+			
 
 			</ul>
 		</div>
