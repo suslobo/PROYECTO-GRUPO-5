@@ -9,10 +9,10 @@ import { DecodedToken } from './token.dto';
 export class AuthenticationService {
 
   isLoggedIn = new BehaviorSubject<boolean>(this.hasToken());
-  userEmail = new BehaviorSubject<string>(this.getCurrentName());
+  userEmail = new BehaviorSubject<string>(this.getCurrentEmail());
  // nickName = new BehaviorSubject<string>(this.getCurrentName());
   isAdmin = new BehaviorSubject<boolean>(this.getIsAdmin());
-  //isUser = new BehaviorSubject<boolean>(this.getIsUser());
+  isUser = new BehaviorSubject<boolean>(this.getIsUser());
 
   constructor() { }
 
@@ -26,14 +26,14 @@ export class AuthenticationService {
     localStorage.setItem("jwt_token", token);
     this.isLoggedIn.next(true);
     //this.nickName.next(this.getCurrentName());
-    this.userEmail.next(this.getCurrentName());
+    this.userEmail.next(this.getCurrentEmail());
     this.isAdmin.next(this.getIsAdmin());
-    //this.isUser.next(this.getIsUser());
+    this.isUser.next(this.getIsUser());
     
         
   }
 
-  getCurrentName(){
+  getCurrentEmail(){
 
     const token = localStorage.getItem("jwt_token");
     if(!token) return '';
@@ -53,13 +53,13 @@ export class AuthenticationService {
     return decodedToken.role === 'admin'; 
   }
 
- /*  getIsUser() {
+   getIsUser() {
     const token = localStorage.getItem("jwt_token");
     if(!token) return false;
 
     const decodedToken = jwtDecode(token) as DecodedToken;
     return decodedToken.role === 'user'; 
-  } */ 
+  } 
 
   logout(){
     localStorage.removeItem("jwt_token");
