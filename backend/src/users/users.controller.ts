@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, UnauthorizedException } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './users.model';
@@ -94,6 +94,24 @@ async register(@Body() register: Register) {
         return token;
 
         
+
+    }
+    @Put(':id')
+    async update(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() user: User
+        ) {
+            
+            
+            const exists = await this.userRepository.existsBy({
+               id: id
+            });
+
+            if(!exists) {
+                throw new NotFoundException('User not found');
+            }
+
+            return this.userRepository.save(user);
 
     }
 
