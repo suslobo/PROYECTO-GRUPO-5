@@ -88,15 +88,15 @@ export class UserProfileComponent implements OnInit {
 
  
 
-     if(this.isUpdate){
+      if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
-      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
+      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/user']));
     } else {
       const url = 'http://localhost:3000/users/';
-        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
-    } 
-  } 
+        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/user']));
+    }  
 
+  }
   compareObjects(o1: any, o2: any): boolean {
     if (o1 && o2) {
       return o1.id === o2.id;
