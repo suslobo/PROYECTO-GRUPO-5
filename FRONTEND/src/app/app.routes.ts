@@ -65,10 +65,10 @@ export const routes: Routes = [
     {
         path: 'user/profile',
         component: UserProfileComponent
-    },
+    },  
     {
         path:'user/:id/profile',
-        component: UserDetailComponent
+        component: UserProfileComponent
     },
    
     {
