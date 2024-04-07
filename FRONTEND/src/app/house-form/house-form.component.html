@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="row">
+<div class="card mt-4 ml-4 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px">
+    <div class="row">
       <div class="col">
 
           @if(isUpdate){
-              <h2 class="mt-5">Actualizar/Editar casa existente</h2>
+              <h4 class="mb-3 mt-5" style="color: #f57d00">Actualizar/Editar casa existente</h4>
           } @else {
-              <h2 class="mt-3">Introduce los detalles de tu casa</h2>
+            <h4 class="mb-3 mt-4" style="color: #f57d00">Introduce los detalles de tu casa</h4>
           }
 
 
@@ -93,7 +93,7 @@
                                       <div class="form-check">
                                       <input class="form-check-input" type="checkbox" value="" id="pool"
                                           formControlName="pool">
-                                      <label class="form-check-label" for="pool">
+                                      <label class="form-check-label" for="pool" style="margin-left: 8px;">
                                           Piscina
                                       </label>
                                       </div>
@@ -102,7 +102,7 @@
                                   <td>
                                       <input class="form-check-input" type="checkbox" value="" id="garden"
                                               formControlName="garden">
-                                          <label class="form-check-label" for="garden">
+                                          <label class="form-check-label" for="garden" style="margin-left: 8px;">
                                               Jardin
                                           </label>
                                   </td>
@@ -112,15 +112,15 @@
                                   <td scope="row">
                                       <input class="form-check-input" type="checkbox" value="" id="terrace"
                                               formControlName="terrace">
-                                          <label class="form-check-label" for="terrace">
+                                          <label class="form-check-label" for="terrace" style="margin-left: 8px;">
                                               Terraza
                                           </label>
                                   </td>
 
                                   <td>
                                       <input class="form-check-input" type="checkbox" value="" id="wifi"
-                                              formControlName="wifi">
-                                          <label class="form-check-label" for="wifi">
+                                              formControlName="wifi" >
+                                          <label class="form-check-label" for="wifi" style="margin-left: 8px;">
                                               WiFi
                                           </label>
                                   </td>
@@ -128,7 +128,7 @@
                                   <td>
                                       <input class="form-check-input" type="checkbox" id="air"
                                               formControlName="air">
-                                          <label class="form-check-label" for="air">
+                                          <label class="form-check-label" for="air" style="margin-left: 8px;">
                                               Aire acondicionado
                                           </label>
                                   </td>
@@ -139,19 +139,25 @@
                             </table>
 
                       </div>
-                          <div class="form-floating mt-4" >
+                          <div class="form-floating mt-4"  >
                               <textarea class="form-control" placeholder="Leave a comment here" id="description"
                               formControlName="description" style="height: 100px"></textarea>
-                              <label for="description">Descripción</label>
+                              <label for="description" style="margin-left: 8px;">Descripción</label>
                             </div>
                           </div>
                       </div>
                       
-                      <h4 class="mt-4">Datos de contacto</h4>
+               
+
+
+                      <h4 class="mb-3 mt-5" style="color: #f57d00">Datos de contacto</h4>
                       <div class="col-4">
                         <label for="phone">Teléfono</label>
                         <input type="text"  class="form-control" id="phone"
                             formControlName="phone" placeholder="" aria-label="phone">
+                            <label for="email">Email</label>
+                            <input type="text"  class="form-control" id="email"
+                                formControlName="email" placeholder="" aria-label="email">
                     </div>
                     
     
@@ -161,7 +167,7 @@
                               formControlName="email" placeholder="" aria-label="email">
                       </div>
 
-                      <h4 class="mt-4">Añadir Fotos</h4>
+                      <h4 class="mb-3 mt-5" style="color: #f57d00">Añadir Fotos</h4>
                       <div class="input-group mt-4"> 
                         <label class="input-group-text" for="photoUrl"> Subir Foto</label>
                         <input type="file" class="form-control" id="photoUrl" (change)="onFileChange($event)"> 
@@ -175,9 +181,9 @@
                     <br>
                    <!--  <button class="w-15 btn btn-success" type="submit">Guardar</button> -->
 
-              <div class="d-grid gap-2 mt-5">
-                   <button class="btn btn-outline-success w-100 py-2" type="submit">Enviar</button> 
-                  <button class="btn btn-outline-danger w-100 py-2" type="submit">Cancelar</button>
+              <div class="d-flex justify-content-between mt-5">
+                   <button class="btn btn-outline-naranaja w-50 py-2" type="submit">Enviar</button> 
+                  <button class="btn btn-outline-naranaja w-50 py-2" type="submit">Cancelar</button>
                 </div>
 
 

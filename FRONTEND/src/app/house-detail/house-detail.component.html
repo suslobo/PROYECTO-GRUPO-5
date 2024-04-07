@@ -26,7 +26,7 @@
     
     <div class="col"><img src="https://cdn-icons-png.flaticon.com/128/11269/11269300.png" loading="lazy" alt="hogar "
       title="hogar " width="20" height="20">
-      <p style="color: #ffc168;">Alquiler íntegro</p>
+      <p style="color: #f57d00;">Alquiler íntegro</p>
     </div>
     <!--  
     <div class="col"><i class="bi bi-people"></i>
@@ -39,7 +39,7 @@
         <div class="container text-center mt-1 ml-4" >
           <img src="https://cdn-icons-png.flaticon.com/128/13303/13303673.png" loading="lazy" alt="social "
             title="social " width="25" height="25">
-          <p style="color: #ffc168"> {{house.price}} €</p>
+          <p style="color: #f57d00"> {{house.price}} €</p>
           <div>
         </div>
         </div>
@@ -60,7 +60,7 @@
         title="bañera " width="20" height="20">
         @if (house) {
           <div class="container text-center mt-1 ml-4" >
-            <p style="color: #ffc168;"> Baños  {{house.bathrooms}}</p>
+            <p style="color: #f57d00;"> Baños  {{house.bathrooms}}</p>
            
           </div>
         }
@@ -69,7 +69,7 @@
       title="zona " width="25" height="25">
       @if (house) {
         <div class="container text-center mt-1 ml-4" >
-          <p style="color: #ffc168;"> {{house.meters}} Metros cuadrados</p>
+          <p style="color: #f57d00;"> {{house.meters}} Metros cuadrados</p>
          
         </div>
       }
@@ -286,7 +286,7 @@
                   <div class="mb-3">
                     <ngb-rating formControlName="score" [max]="5">
                       <ng-template let-fill="fill" let-index="index">
-                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#ffc168;"></i>
+                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#f57d00;"></i>
                       </ng-template>
                     </ngb-rating>
                   </div>
@@ -318,7 +318,7 @@
                             <!-- Calificación -->
                             <ngb-rating [(rate)]="rating.score" [readonly]="true" [max]="5">
                               <ng-template let-fill="fill" let-index="index">
-                                <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#ffb900;"></i>
+                                <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#f57d00;"></i>
                               </ng-template>
                             </ngb-rating>
                             <!-- Fecha y usuario -->
