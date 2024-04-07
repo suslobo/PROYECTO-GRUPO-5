@@ -63,12 +63,12 @@
 			
 		
 				@if(userEmail){
-					<button class="btn btn-outline-success btn-sm mx-3">{{userEmail.split('@')[0]}}</button>
-
+					<i class="bi bi-person mt-1" style="font-size: 25px;"></i>
+					<span class="nombre-usuario mt-2">{{userEmail.split('@')[0]}}</span>
 				}
 				@if(isLoggedIn){
 					<button type="button" class="btn btn-white ms-2" (click)="logout()">
-						<i class="bi bi-person" style="font-size: 35px;"></i></button>
+						Cerrar sesión</button>
 				} @else {
 					<button type="button" class="btn btn-success ms-2" routerLink="/login">
 						Login

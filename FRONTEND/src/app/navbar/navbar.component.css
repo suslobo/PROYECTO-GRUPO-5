@@ -3,7 +3,7 @@
 .navbar-brand img {
   width: 60px;
   height: auto;
-  margin-right: 20px;
+  margin-right: 60px;
  
 }
 
@@ -24,7 +24,8 @@
 
 
 .btn {
-  background-color: #f0f8f0;
+  background-color:white;
+  margin-right: 400px;
   border: none;
   color:#0c0c0c;
 }
@@ -35,6 +36,27 @@
 
 .name-logo {
   color: #eff3ee;
+}
+
+.nombre-usuario {
+  color: #f57d00;
+    
+}
+.btn-white{
+  margin-right: 60px;
+}
+.btn-success{
+  margin-right: 10px;
+}
+.btn-secondary{
+  margin-right: 60px;
+}
+.nav-item{
+  margin-right: 80px;
+  
+}
+.bi-person{
+  margin-left: 20px;
 }
 
 
