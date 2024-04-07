@@ -12,12 +12,15 @@ import { Booking } from '../interfaces/booking.model';
 })
 export class BookingListComponent implements OnInit{
 
+  userId: string = 'id_del_usuario_actual';
   bookings: Booking [] = [];
 
   constructor(private httpClient: HttpClient){}
   ngOnInit(): void {
-    this.httpClient.get<Booking[]>('http://localhost:3000/booking')
+    this.httpClient.get<Booking[]>(`http://localhost:3000/booking?userId=${this.userId}`)
     .subscribe(bookings => this.bookings = bookings);
+   /*  this.httpClient.get<Booking[]>('http://localhost:3000/booking')
+    .subscribe(bookings => this.bookings = bookings); */
   }
 
   deleteById(id: string | number): void {
