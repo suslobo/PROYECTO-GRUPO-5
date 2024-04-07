@@ -36,15 +36,25 @@
                           
                           <td>
 
-                            @if (users) {
+                           
                               <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/user', user.id, 'profile']">
                                 Editar</button>
-                                }
+                                <!-- @for (user of users; track user) {}
+                                <div >
+                                  <p>{{ user.firstName }}</p>
+                                  <button (click)="openDeleteConfirmationModal(user.id)">Borrar</button>
+                                </div>
+                               -->
+                                
+                              
                               <button class="btn btn-outline-danger w-50 py-2 " (click)="deleteById(user.id)"> Borrar</button>
-                            <!-- <button type="button" class="btn btn-outline-success w-50 py-2" [routerLink]="['/user', user.id, 'profile']">
-                              Editar</button>
-                          <button id="Borrar" class="btn btn-outline-danger w-50 py-2 " 
-                          (click)="deleteById(user.id)"> Borrar</button> -->
+                           
+                           
+
+
+
+
+
                         </td>
   
   

@@ -2,7 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Register } from '../interfaces/register.model';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 
 @Component({
@@ -25,7 +25,8 @@ export class RegisterComponent {
   );
 
   constructor(private fb: FormBuilder,
-    private httpClient: HttpClient) {}
+    private httpClient: HttpClient,
+  private router : Router) {}
 
     passwordConfirmValidator(control: AbstractControl){
       if(control.get('password')?.value === control.get('passwordConfirm')?.value){
@@ -65,8 +66,9 @@ export class RegisterComponent {
     this.httpClient.post<Register>(url, register)
     .subscribe(respuesta => {
       console.log(respuesta);
-
+      //this.router.navigate(['/profile'])
     });
+    
   }
 }
 

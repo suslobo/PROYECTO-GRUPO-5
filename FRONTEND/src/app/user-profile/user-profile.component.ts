@@ -43,7 +43,7 @@ export class UserProfileComponent implements OnInit {
       if (!id)
       return;
 
-      this.httpClient.get<User>('http://localhost:3000/users').subscribe(user => {
+      this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(user => {
       this.isUpdate = true
 
         this.userProfile.reset({
@@ -72,8 +72,6 @@ export class UserProfileComponent implements OnInit {
 
   save(): void {
 
-    //console.log('invocando save');
-
     const user: User = {
       id: this.userProfile.get('id')?.value ?? 0,
       firstName: this.userProfile.get('firstName')?.value ?? '',
@@ -88,24 +86,14 @@ export class UserProfileComponent implements OnInit {
     }
 
 
- /*    if(this.isUpdate){
-     
-      const urlForUpdate = 'http://localhost:3000/users/' + user.id;
-      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
-    } else {
-     
-      const url = 'http://localhost:3000/users';
-      this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
-    } */
-
-   // console.log(user);
+ 
 
      if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
       this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
     } else {
-      const url = 'http://localhost:3000/users';
-        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/']));
+      const url = 'http://localhost:3000/users/';
+        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
     } 
   } 
 
