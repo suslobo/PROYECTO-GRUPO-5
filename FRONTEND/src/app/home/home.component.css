@@ -1,3 +1,32 @@
+body{
+  font-family: sans serif;
+  margin: 0;
+}
+
+a{
+  text-decoration:none;
+  color:aliceblue;
+}
+
+
+header{
+  display:flex;
+  height: 70px;
+  background-color: #fdb813;
+  justify-content: space-between;
+
+}
+
+.logo{
+    display:flex;
+    align-items: center;
+}
+
+.logo img{
+    height: 50px;
+    margin-right: 10px;
+}
+
 .bg-welcome {
   background-image: url('https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_1280.jpg');
   background-position: center;
@@ -27,4 +56,17 @@ p{
   .btn {
     background-color: #00AB87;
   }
+
+  nav a{
+    font-weight: 600;
+    padding-right:10px;
+  }
+
+  nav a:hover{
+      color:black;
+  }
    
+
+  
+
+
