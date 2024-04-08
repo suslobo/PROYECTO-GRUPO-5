@@ -14,3 +14,7 @@ h1{
     color: #ffffff;
     background-color: #f57d00;
 }
+
+.naranja-border {
+  border: 2px solid #f57d00;
+}
