@@ -1,7 +1,7 @@
 
 <main class="form-signin w-100 m-auto">
   <form [formGroup]="loginForm" (ngSubmit)="save()">
-    <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+    <h4 class="mb-3 mt-5 " style="color: #f57d00;">Iniciar sesión</h4>
 
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
@@ -24,7 +24,7 @@
       </label>
     </div>
    
-    <button class="btn btn-outline-success w-100 py-2" type="submit">Iniciar sesión</button>
+    <button class="btn btn-outline-naranaja w-100 py-2" type="submit">Iniciar sesión</button>
     
     <div>
       <div>
@@ -32,7 +32,7 @@
           Pulsando en "Entrar" aceptas expresamente las <a href="https://www.casasrurales.com/aviso-legal" target="_blank" id="condiciones_uso_alta">Condiciones de uso</a> y la <a href="https://www.casasrurales.com/politica-privacidad" target="_blank" id="politica de privacidad">Política de privacidad</a> de CasasRurales.com            </p>      </div>
       </div>
 
-      <button type="submit" class="btn btn-outline-success w-100 py-2" routerLink="/register">Regístrate</button>
+      <button type="submit" class="btn btn-outline-naranaja w-100 py-2" routerLink="/register">Regístrate</button>
 
       </form>
 </main>

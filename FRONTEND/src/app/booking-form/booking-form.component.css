@@ -28,3 +28,13 @@ span{
  .icono-grande {
   font-size: 4em;
 }
+
+ .btn-outline-naranaja {
+  color: #ffffff;
+  background-color: rgb(60, 56, 56);
+}
+
+.btn-outline-naranaja:hover {
+  color: #ffffff;
+  background-color: #f57d00;
+}

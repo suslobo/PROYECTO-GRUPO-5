@@ -1,57 +1,84 @@
 
 
 
-<div class="container text-center">
+<div class="container text-center mt-5">
   <div class="row">
     <div class="col-8">
       <img class="img-fluid" src="/assets/img/SALON.jpg"
-        alt="Foto casa">
+        alt="Foto salón">
     </div>
     <div class="col-4">
       <div>
-        <img class="img-fluid" src="/assets/img/DORMITORIO.jpg"
-          alt="Foto casa">
+        <img class="img-fluid" src="/assets/img/DORMITORIO2.jpg"
+          alt="Foto habitación">
       </div>
       <div class="my-3">
-        <img class="img-fluid" src="/assets/img/COCINA.jpg"
-          alt="Foto casa">
+        <img class="img-fluid" src="/assets/img/COCINA2.jpeg"
+          alt="Foto cocina">
       </div>
     </div>
   </div>
 </div>
 
-<div class="container text-center mt-4 ml-4">
+
+<div class="container text-center mt-2 ml-4">
   <div class="row">
+    
     <div class="col"><img src="https://cdn-icons-png.flaticon.com/128/11269/11269300.png" loading="lazy" alt="hogar "
       title="hogar " width="20" height="20">
-      <p>Alquiler íntegro</p>
+      <p style="color: #f57d00;">Alquiler íntegro</p>
     </div>
+    <!--  
     <div class="col"><i class="bi bi-people"></i>
-      <p>Personas</p>
+      <p style="color: #ffc168;">Personas</p>
     </div>
-    <div class="col"><i class="bi bi-door-open"></i>
-      <p>Habitaciones</p>
+    -->
+    <div class="col">
+
+      @if (house) {
+        <div class="container text-center mt-1 ml-4" >
+          <img src="https://cdn-icons-png.flaticon.com/128/13303/13303673.png" loading="lazy" alt="social "
+            title="social " width="25" height="25">
+          <p style="color: #f57d00"> {{house.price}} €</p>
+          <div>
+        </div>
+        </div>
+      }
     </div>
+    <!--
     <div class="col"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation"
         focusable="false" style=" height: 14px; width: 14px; fill: currentcolor;">
         <path
           d="M28 2a2 2 0 0 1 2 1.85v9.99l1.85 5.54a3 3 0 0 1 .11.46l.03.24.01.24V30h-2v-2H2v2H0v-9.68a3 3 0 0 1 .09-.71l.06-.23L2 13.84V4a2 2 0 0 1 1.7-1.98L3.85 2H4zm2 20H2v4h28zm-1.39-6H3.4l-1.34 4h27.9zM28 4H4v10h2v-4a2 2 0 0 1 1.85-2H24a2 2 0 0 1 2 1.85V14h2zm-13 6H8v4h7zm9 0h-7v4h7z">
         </path>
       </svg>
-      <p>Camas</p>
+      <p style="color: #ffc168;">Camas</p>
     </div>
+     -->
+
     <div class="col"> <img src="https://cdn-icons-png.flaticon.com/128/637/637229.png" loading="lazy" alt="bañera "
-        title="bañera " width="15" height="15">
-      <p>Baños</p>
+        title="bañera " width="20" height="20">
+        @if (house) {
+          <div class="container text-center mt-1 ml-4" >
+            <p style="color: #f57d00;"> Baños  {{house.bathrooms}}</p>
+           
+          </div>
+        }
     </div>
-
-
-
-
+    <div class="col"> <img src="https://cdn-icons-png.flaticon.com/128/5442/5442095.png" loading="lazy" alt="zona "
+      title="zona " width="25" height="25">
+      @if (house) {
+        <div class="container text-center mt-1 ml-4" >
+          <p style="color: #f57d00;"> {{house.meters}} Metros cuadrados</p>
+         
+        </div>
+      }
+  </div>
+    
     <div class="col mt-3">
       @if (house) {
       <div class="d-grid gap-2">
-        <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-success">Reservar</button>
+        <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-naranaja">Reservar</button>
       </div>
       }
     </div>
@@ -68,26 +95,26 @@
   </div>
 </div>
 
-<div class="card mt-4 ml-4" style="margin-left: 120px; margin-right: 120px">
+
+@if (house) {
+  <div class="container px-4 py-3" >
+    <h5 class="pb-1"> {{house.title}}, <em>{{house.address}}</em></h5>
+   
+  </div>
+}
+
+
+<div class="card mt-1 ml-4 naranja-border" style="margin-left: 120px; margin-right: 120px">
 
   <div class="container px-4 py-3" >
+    
     <h5 class="pb-2 border-bottom">Características y servicios</h5>
 
     @if(house){
 
     <div class="row row-cols-4 mt-4 ">
 
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
-          <use xlink:href="#cpu-fill"></use>
-        </svg>
-        <div>
-          <p> <img src="https://cdn-icons-png.flaticon.com/128/11269/11269300.png" loading="lazy" alt="hogar "
-              title="hogar " width="25" height="25">
-            Nombre de la casa</p>
-          <p>{{house.title}}</p>
-        </div>
-      </div>
+
       <div class="col d-flex align-items-start">
         <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
           <use xlink:href="#calendar3"></use>
@@ -192,21 +219,39 @@
 </svg>
 <div>
   <p> <img src="https://cdn-icons-png.flaticon.com/128/3926/3926195.png" loading="lazy" alt="wifi "
-      title="wifi " width="20" height="20">
-    Wifi</p>
-  <p>{{house.wifi}}</p>
+      title="wifi " width="20" height="20" style="margin-right: 10px">
+   <p> Wifi {{house.wifi}}</p>
 </div>
 </div>
 <div class="col d-flex align-items-start">
-<svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+<svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em" >
   <use xlink:href="#tools"></use>
 </svg>
+<!--
 <div>
   <p> <img src="https://cdn-icons-png.flaticon.com/128/12685/12685128.png" loading="lazy"
       alt="aire acondicionado " title="aire acondicionado " width="30" height="30">
     Aire acondicionado</p>
   <p>{{house.air}}</p>
 </div>
+ -->
+
+ 
+
+<div > 
+  <img src="https://cdn-icons-png.flaticon.com/128/12685/12685128.png" loading="lazy"
+      alt="aire acondicionado " title="aire acondicionado " width="30" height="30" style="margin-right: 10px">
+      @if (house.air) {
+        Aire acondicionado <i class="bi bi-check2-circle fs-3 ms-2 text-success"></i>
+      } @else {
+        Aire acondicionado <i class="bi bi-x-circle fs-3 ms-2 text-danger"></i>
+
+      }
+
+</div>
+
+
+
 </div>
 
 
@@ -217,7 +262,7 @@
 </div>
 </div>
 
-<div class="card mt-4 ml-4" style="position:relative; margin-left: 120px; margin-right: 120px">
+<div class="card mt-4 ml-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px">
 <div class="container px-4 py-3" >
 <h5 class="pb-2 border-bottom">Descripción </h5>
 <p>{{house?.description}}</p>
@@ -225,62 +270,73 @@
 
 </div>
 
-<div class="container">
+
+
+
+ <div class="card mt-4 ml-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px">
   <div class="row">
-    <div class="col-12">
-
-    <!--    <h5 class="pb-2 border-bottom mt-5">Opiniones de otros viajeros </h5>   -->
-
-      <div>
-        <ul class="list-unstyled">
-          @for (rating of ratings; track rating.id) {
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                <img class="bd-placeholder-img" src="https://placehold.co/100">
-               {{users?.id}} 
-
-                <div class="col-lg-8">
-                  <h6 class="mb-0">
-
-                    <ngb-rating [(rate)]="rating.score" [readonly]="true" [max]="5">
+          <!-- Columna para el formulario de comentarios -->
+          <div class="col-6">
+              <div class="container px-4 py-3">
+                <h5 class="pb-2 border-bottom mt-1">Añade un comentario</h5>
+                <!-- Formulario para añadir un nuevo comentario -->
+                <form [formGroup]="ratingForm" (ngSubmit)="save()">
+                  <!-- Input para la calificación -->
+                  <div class="mb-3">
+                    <ngb-rating formControlName="score" [max]="5">
                       <ng-template let-fill="fill" let-index="index">
-                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-3" style="color:#ffb900;"></i>
+                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#f57d00;"></i>
                       </ng-template>
                     </ngb-rating>
-                    {{rating.createdDate | date:'dd/MM/yyyy'}}
-                    {{rating.user}}
-                  </h6>
-                  <small class="text-body-secondary">{{rating.comment}}</small>
-                </div>
-              </a>
-            </li>
-          }
-        </ul>
-      </div>
-
-      <div class="col-12">
-        <h5 class="pb-2 border-bottom mt-5">Añade un comentario </h5>
-
-        <!-- Formulario para crear un nuevo comentario -->
-        <form [formGroup]="ratingForm" (ngSubmit)="save()">
-
-          <div class="mb-3">
-            <ngb-rating  formControlName="score" [max]="5">
-              <ng-template let-fill="fill" let-index="index">
-                <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-3" style="color:#ffb900;"></i>
-              </ng-template>
-            </ngb-rating>
+                  </div>
+                  <!-- Textarea para el comentario -->
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="comment" formControlName="comment" style="min-height:150px;"></textarea>
+                    <label for="comment">Comentario de texto</label>
+                  </div>
+                  <!-- Botón para enviar el comentario -->
+                  <button class="w-100 btn btn-outline-naranaja btn-lg mt-2" type="submit">Añadir comentario</button>
+                </form>
+            </div>
           </div>
-
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here"
-            id="comment" formControlName="comment" style="min-height:150px;"></textarea>
-            <label for="comment">Comentario de texto</label>
+      
+          <!-- Columna para la lista de comentarios existentes -->
+          <div class="col-6 ">
+              <div class="container px-4 py-3">
+                <!-- Título de la sección de comentarios existentes -->
+                <h5 class="pb-2">Comentarios existentes</h5>
+                <!-- Lista de comentarios -->
+                <ul class="list-unstyled">
+                  @for (rating of ratings; track rating.id) {
+                    <li>
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                        <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
+                        <!-- Información del usuario y comentario -->
+                        <div class="col-lg-8">
+                          <h6 class="mb-0">
+                            <!-- Calificación -->
+                            <ngb-rating [(rate)]="rating.score" [readonly]="true" [max]="5">
+                              <ng-template let-fill="fill" let-index="index">
+                                <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-5" style="color:#f57d00;"></i>
+                              </ng-template>
+                            </ngb-rating>
+                            <!-- Fecha y usuario -->
+                            {{rating.createdDate | date:'dd/MM/yyyy'}} {{rating.user}}
+                          </h6>
+                          <!-- Comentario -->
+                          <small class="text-body-secondary">{{rating.comment}}</small>
+                        </div>
+                      </a>
+                    </li>
+                  }
+                </ul>
+            
           </div>
-
-          <button class="w-100 btn btn-success btn-lg" type="submit">Añadir comentario</button>
-        </form>
+        </div>
       </div>
+      
+
+
     </div>
-  </div>
+
     

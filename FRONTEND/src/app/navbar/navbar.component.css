@@ -1,14 +1,11 @@
 
 
 .navbar-brand img {
-  width: 60px;
+  width: 90px;
   height: auto;
-  margin-right: 60px;
- 
+  margin-left: 15px;
+  margin-top: 5px;
 }
-
-
-
 
 
 .navbar-nav a {
@@ -18,10 +15,8 @@
 } 
 
 .navbar-nav a:hover {
-  color: #7d9e47;
+  color: #f57d00;
 }
-
-
 
 .btn {
   background-color:white;
@@ -55,4 +50,8 @@
 
 
 
+
+.navbar-custom {
+  border-bottom: 4px solid #f57d00;
+}
 

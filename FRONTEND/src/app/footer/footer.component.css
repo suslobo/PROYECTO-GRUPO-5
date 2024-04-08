@@ -3,8 +3,6 @@
     font-family:'Poppins', sans-serif;
     color: #000000;
   }
-
-
   
   .btn {
     background-color: #7d9c47;
@@ -18,12 +16,12 @@
 /* Reducir el tamaño de los iconos de las redes sociales */
 .list-unstyled .link-body-emphasis i {
   font-size: 5px; /* Modifica este valor */
+
 }
 .d-flex p{
   margin-left: 70px;
 }
 .list-unstyled{
   margin-right: 70px;
-  
-  
 }
+

@@ -39,8 +39,8 @@ export class RatingController {
         });
     }
 
-    /*
-        @Get('filter-by-house/:id')
+    
+    @Get('filter-by-house/:id')
     findByHouseId(@Param('id', ParseIntPipe) id: number){
         return this.ratingRepository.find({
             where: {
@@ -50,7 +50,7 @@ export class RatingController {
             }
         });
     }
-     */
+     
 
     @Post()
     create(@Body() rating: Rating) {
@@ -61,7 +61,6 @@ export class RatingController {
         @Param('id', ParseIntPipe) id: number,
         @Body() rating: Rating
         ) {
-
             // await espera a que el método existsBy termine ya que devuelve Promise<boolean>
             const exists = await this.ratingRepository.existsBy({
                id: id
