@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { House } from '../interfaces/house.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
-import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbRating, NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-house-list',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgbRatingModule],
+  imports: [HttpClientModule, RouterLink, NgbRatingModule, NgbRating],
   templateUrl: './house-list.component.html',
   styleUrl: './house-list.component.css',
   providers: [NgbRatingConfig]
@@ -16,6 +16,7 @@ import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 export class HouseListComponent implements OnInit{
 
   houses: House [] = [];
+rating: any;
 
   constructor(private httpClient: HttpClient, config: NgbRatingConfig) {
     config.readonly = true;

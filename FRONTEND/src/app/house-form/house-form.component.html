@@ -9,7 +9,7 @@
           }
 
 
-          <form class="mt-5" [formGroup]="houseForm" (ngSubmit)="save()">
+          <form class="mt-4" [formGroup]="houseForm" (ngSubmit)="save()">
 
               <input type="hidden" formControlName="id">
 
@@ -44,9 +44,6 @@
                           <label for="bathrooms">Baños</label>
                           <input type="number" min="1" max="10" step="1" class="form-control" id="bathrooms"
                               formControlName="bathrooms" placeholder="" aria-label="bathrooms">
-
-
-
 
                       </div>
 
@@ -147,10 +144,7 @@
                           </div>
                       </div>
                       
-               
-
-
-                      <h4 class="mb-3 mt-5" style="color: #f57d00">Datos de contacto</h4>
+                      <h4 class="mb-3 mt-4" style="color: #f57d00">Datos de contacto</h4>
                       <div class="col-4">
                         <label for="phone">Teléfono</label>
                         <input type="text"  class="form-control" id="phone"
@@ -160,14 +154,8 @@
                                 formControlName="email" placeholder="" aria-label="email">
                     </div>
                     
-    
-                      <div class="col-4">
-                          <label for="email">Email</label>
-                          <input type="text"  class="form-control" id="email"
-                              formControlName="email" placeholder="" aria-label="email">
-                      </div>
 
-                      <h4 class="mb-3 mt-5" style="color: #f57d00">Añadir Fotos</h4>
+                      <h4 class="mb-3 mt-4" style="color: #f57d00">Añadir Fotos</h4>
                       <div class="input-group mt-4"> 
                         <label class="input-group-text" for="photoUrl"> Subir Foto</label>
                         <input type="file" class="form-control" id="photoUrl" (change)="onFileChange($event)"> 
@@ -181,11 +169,10 @@
                     <br>
                    <!--  <button class="w-15 btn btn-success" type="submit">Guardar</button> -->
 
-              <div class="d-flex justify-content-between mt-5">
+              <div class="d-flex justify-content-between mt-2">
                    <button class="btn btn-outline-naranaja w-50 py-2" type="submit">Enviar</button> 
                   <button class="btn btn-outline-naranaja w-50 py-2" type="submit">Cancelar</button>
                 </div>
-
 
           </form>
           <div class="col-lg-8">

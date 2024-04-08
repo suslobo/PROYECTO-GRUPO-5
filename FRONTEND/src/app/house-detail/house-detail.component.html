@@ -13,7 +13,7 @@
           alt="Foto habitación">
       </div>
       <div class="my-3">
-        <img class="img-fluid" src="/assets/img/COCINA.jpg"
+        <img class="img-fluid" src="/assets/img/COCINA2.jpeg"
           alt="Foto cocina">
       </div>
     </div>
@@ -220,10 +220,7 @@
 <div>
   <p> <img src="https://cdn-icons-png.flaticon.com/128/3926/3926195.png" loading="lazy" alt="wifi "
       title="wifi " width="20" height="20" style="margin-right: 10px">
-      <input class="form-check-input" type="checkbox" id="wifi" formControlName="wifi" >
-  <label class="form-check-label " for="wifi">
    <p> Wifi {{house.wifi}}</p>
-  </label>
 </div>
 </div>
 <div class="col d-flex align-items-start">
@@ -244,11 +241,13 @@
 <div > 
   <img src="https://cdn-icons-png.flaticon.com/128/12685/12685128.png" loading="lazy"
       alt="aire acondicionado " title="aire acondicionado " width="30" height="30" style="margin-right: 10px">
-  <input class="form-check-input" type="checkbox"
-  id="aire acondicionado" formControlName="aire acondicionado">
-  <label class="form-check-label " for="aire acondicionado">
-   <p> Aire acondicionado {{house.air}} </p>
-  </label>
+      @if (house.air) {
+        Aire acondicionado <i class="bi bi-check2-circle fs-3 ms-2 text-success"></i>
+      } @else {
+        Aire acondicionado <i class="bi bi-x-circle fs-3 ms-2 text-danger"></i>
+
+      }
+
 </div>
 
 
@@ -311,7 +310,7 @@
                   @for (rating of ratings; track rating.id) {
                     <li>
                       <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                        <img class="bd-placeholder-img" src="https://placehold.co/100">
+                        <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
                         <!-- Información del usuario y comentario -->
                         <div class="col-lg-8">
                           <h6 class="mb-0">

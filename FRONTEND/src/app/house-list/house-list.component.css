@@ -1,5 +1,4 @@
 ngb-rating{
-    color: yellow;
     font-size: 30px;
 
 }
@@ -26,3 +25,6 @@ ngb-rating{
 
 
 
+.btn-house-list {
+  width: 49% !important;
+}

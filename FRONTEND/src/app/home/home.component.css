@@ -30,8 +30,8 @@ body {
 .tittle h2{
   font-family:'Poppins', sans-serif;
   font-size: 30px;
-  padding-top: 60px;
-  margin-left: 80px;
+  padding-top: 50px;
+  margin-left: 120px;
   color: #000000;
 }
 
@@ -39,6 +39,6 @@ body {
   font-family:'Poppins', sans-serif;
   font-size: 16px;
   padding-top: 2px;
-  margin-left: 80px; 
+  margin-left: 120px; 
   color: #434343;
 }
