@@ -19,7 +19,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
-  user: User | undefined;
+  users: User | undefined;
   ratings!: Rating[];
   // formulario para crear nuevos comentarios
   ratingForm = new FormGroup({

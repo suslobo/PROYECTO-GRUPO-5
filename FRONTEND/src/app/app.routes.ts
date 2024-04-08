@@ -53,14 +53,7 @@ export const routes: Routes = [
         component: BookingFormComponent
     },
    
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'register',
-        component: RegisterComponent
-    },
+    
     {
         path: 'user',
         component: UserListComponent
@@ -72,14 +65,19 @@ export const routes: Routes = [
     {
         path: 'user/profile',
         component: UserProfileComponent
-    },
+    },  
     {
-        path:'user/:id/detail',
-        component: UserDetailComponent
-    },
-    {
-        path: 'user/:id/profile',
+        path:'user/:id/profile',
         component: UserProfileComponent
+    },
+   
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     },
    
     {

@@ -3,7 +3,7 @@ import { User } from "./user.model";
 
 export interface Rating {
 
-    id: number;
+  id: number;
 
   score: number;
   comment: string;

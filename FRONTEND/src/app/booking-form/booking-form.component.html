@@ -7,10 +7,16 @@
       @if (showConfirmMessage) {
         <ngb-alert type="success" [dismissible]="false" class="mt-5" style="min-height: 200px">
           Se ha completado tu reserva para la casa {{house?.title}}.          
-
-          
+          <br>
+          <br>Para las fechas {{booking?.entryDate}} y {{booking?.departureDate}}
+          <br>
           <br>El código de tu reserva es {{booking?.id}}
-          <br> Para cualquier duda contacte con soporte&commat;casaRural.com
+          
+          <div style="text-align: center;">
+            <i class="bi bi-check-lg" style="font-size: 4em;"></i>
+        </div>
+      
+          Para cualquier duda contacte con soporte&commat;casaRural.com
         </ngb-alert>
         <button class="w-100 btn btn-primary btn-lg" routerLink="/houses">Volver a Casa</button>
 
@@ -76,7 +82,8 @@
     <label class="form-check-label" for="paypal">PayPal</label>
   </div> --> 
 
-  <button class="w-100 btn btn-primary btn-lg" type="submit">Finalizar reserva</button>
+  <button class="w-50 btn btn-primary btn-lg" type="submit">Finalizar reserva</button>
+  <button class="w-50 btn btn-primary btn-lg " type="submit" routerLink="/houses">Cancelar Reserva</button>
   
        </form> 
 

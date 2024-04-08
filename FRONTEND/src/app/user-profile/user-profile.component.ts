@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit {
     phone: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
     nif: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    //passwordConfirm: new FormControl('', [Validators.required]),
+    passwordConfirm: new FormControl('', [Validators.required]),
     street: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
     postalCode: new FormControl('', Validators.required)
@@ -43,7 +43,7 @@ export class UserProfileComponent implements OnInit {
       if (!id)
       return;
 
-      this.httpClient.get<User>('http://localhost:3000/users').subscribe(user => {
+      this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(user => {
       this.isUpdate = true
 
         this.userProfile.reset({
@@ -60,19 +60,11 @@ export class UserProfileComponent implements OnInit {
         });
       });
     });
-    this.activatedRoute.params.subscribe(params =>{
-      let id = params['id'];
-      if (id)
-      this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(user => {
-         // this.isDelete = true
-    });
-    })
+   
 
   }
 
   save(): void {
-
-    //console.log('invocando save');
 
     const user: User = {
       id: this.userProfile.get('id')?.value ?? 0,
@@ -88,27 +80,17 @@ export class UserProfileComponent implements OnInit {
     }
 
 
- /*    if(this.isUpdate){
-     
+ 
+
+      if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
-      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
+      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/user']));
     } else {
-     
-      const url = 'http://localhost:3000/users';
-      this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
-    } */
+      const url = 'http://localhost:3000/users/';
+        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/user']));
+    }  
 
-   // console.log(user);
-
-     if(this.isUpdate){
-      const urlForUpdate = 'http://localhost:3000/users/' + user.id;
-      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/users']));
-    } else {
-      const url = 'http://localhost:3000/houses';
-        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/users']));
-    } 
-  } 
-
+  }
   compareObjects(o1: any, o2: any): boolean {
     if (o1 && o2) {
       return o1.id === o2.id;

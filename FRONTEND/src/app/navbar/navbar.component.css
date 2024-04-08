@@ -3,7 +3,7 @@
 .navbar-brand img {
   width: 60px;
   height: auto;
-  margin-right: 20px;
+  margin-right: 60px;
  
 }
 
@@ -24,7 +24,8 @@
 
 
 .btn {
-  background-color: #121312;
+  background-color:white;
+  margin-right: 50px;
   border: none;
   color:#0c0c0c;
 }
@@ -36,5 +37,22 @@
 .name-logo {
   color: #eff3ee;
 }
+
+.nombre-usuario {
+  color: #f57d00;
+    
+}
+
+
+.bi-person{
+  margin-left: 20px;
+}
+
+.custom-btn {
+  width: 200px; 
+  margin-right: 180px;
+}
+
+
 
 

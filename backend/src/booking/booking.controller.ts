@@ -26,16 +26,16 @@ export class BookingController {
         });
     } */
 
-   /*  @Get('filter-by-user/:id')
-    findByUserId(@Param('id', ParseIntPipe) id: number){
+   @Get('filter-by-user/:email')
+    findByUserId(@Param('email') email: string){
         return this.bookingRepository.find({
             where: {
                 users: {
-                    id: id
+                    email: email
                 }
             }
         });
-    } */
+    } 
 
   /*   @Get('filter-by-destination')
     findByBookId(@Param('id', ParseIntPipe) id: string){
