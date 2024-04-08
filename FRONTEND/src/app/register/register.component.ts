@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Register } from '../interfaces/register.model';
 import { Router, RouterLink } from '@angular/router';
+import { User } from '../interfaces/user.model';
 
 
 @Component({
@@ -63,10 +64,17 @@ export class RegisterComponent {
       password: this.registerForm.get('password')?.value ?? ''
     };
     let url= 'http://localhost:3000/users/register';
-    this.httpClient.post<Register>(url, register)
-    .subscribe(respuesta => {
-      console.log(respuesta);
-      //this.router.navigate(['/profile'])
+    this.httpClient.post<User>(url, register)
+    .subscribe({
+      next: user => {
+        console.log(user);
+      this.router.navigate([`/user/${user.id}/profile`]);
+      },
+      error: error => {
+        // aqui hacemos algo que mueste un alert rojo por antalla
+        console.log(error);
+        
+      }
     });
     
   }

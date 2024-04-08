@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Booking } from '../interfaces/booking.model';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-booking-list',
@@ -12,12 +13,16 @@ import { Booking } from '../interfaces/booking.model';
 })
 export class BookingListComponent implements OnInit{
 
-  userId: string = 'id_del_usuario_actual';
+  userEmail = '';
   bookings: Booking [] = [];
 
-  constructor(private httpClient: HttpClient){}
+  constructor(private httpClient: HttpClient, private authService: AuthenticationService){
+    this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
+
+  }
+
   ngOnInit(): void {
-    this.httpClient.get<Booking[]>(`http://localhost:3000/booking?userId=${this.userId}`)
+    this.httpClient.get<Booking[]>(`http://localhost:3000/booking/filter-by-user/${this.userEmail}`)
     .subscribe(bookings => this.bookings = bookings);
    /*  this.httpClient.get<Booking[]>('http://localhost:3000/booking')
     .subscribe(bookings => this.bookings = bookings); */

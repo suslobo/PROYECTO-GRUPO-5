@@ -60,13 +60,7 @@ export class UserProfileComponent implements OnInit {
         });
       });
     });
-    this.activatedRoute.params.subscribe(params =>{
-      let id = params['id'];
-      if (id)
-      this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(user => {
-         //this.isDelete = true
-    });
-    })
+   
 
   }
 

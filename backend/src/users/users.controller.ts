@@ -57,7 +57,7 @@ async register(@Body() register: Register) {
         
         role: Role.USER
     };
-    await this.userRepository.save(user);
+    return await this.userRepository.save(user);
 }
 
 @Post('login')
