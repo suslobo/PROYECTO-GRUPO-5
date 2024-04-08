@@ -25,7 +25,7 @@
 
 .btn {
   background-color:white;
-  margin-right: 400px;
+  margin-right: 50px;
   border: none;
   color:#0c0c0c;
 }
@@ -42,22 +42,17 @@
   color: #f57d00;
     
 }
-.btn-white{
-  margin-right: 60px;
-}
-.btn-success{
-  margin-right: 10px;
-}
-.btn-secondary{
-  margin-right: 60px;
-}
-.nav-item{
-  margin-right: 80px;
-  
-}
+
+
 .bi-person{
   margin-left: 20px;
 }
+
+.custom-btn {
+  width: 200px; 
+  margin-right: 180px;
+}
+
 
 
 
