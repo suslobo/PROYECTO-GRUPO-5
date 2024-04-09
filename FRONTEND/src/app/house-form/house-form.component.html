@@ -1,4 +1,4 @@
-<div class="card mt-4 ml-4 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px">
+<div class="card mt-5 ml-4 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px">
     <div class="row">
       <div class="col">
 
@@ -145,7 +145,7 @@
                       </div>
                       
                       <h4 class="mb-3 mt-4" style="color: #f57d00">Datos de contacto</h4>
-                      <div class="col-4">
+                      <div class="col-6">
                         <label for="phone">Teléfono</label>
                         <input type="text"  class="form-control" id="phone"
                             formControlName="phone" placeholder="" aria-label="phone">
@@ -156,22 +156,19 @@
                     
 
                       <h4 class="mb-3 mt-4" style="color: #f57d00">Añadir Fotos</h4>
+                      <div class="col-md-6">
+
                       <div class="input-group mt-4"> 
                        <!-- <label class="input-group-text" for="photoUrl"> Subir Foto</label> -->
                         <input type="file" class="form-control" id="photoUrl" (change)="onFileChange($event)"> 
                         <input type="hidden" formControlName="photoUrl">
-
-                       <!--  <div class="input-group mb-3">
-                          <label class="input-group-text" for="photoUrl">Subir foto</label>
-                          <input type="file" class="form-control" id="photoUrl" (change)="onFileChange($event)">
-                        </div> -->
                     </div> 
+                      </div>
                     <br>
-                   <!--  <button class="w-15 btn btn-success" type="submit">Guardar</button> -->
-
-              <div class="d-flex justify-content-between mt-2">
-                   <button class="btn btn-outline-naranaja w-50 py-2 mb-3" type="submit">Enviar</button> 
-                  <button class="btn btn-outline-naranaja w-50 py-2 mb-3" type="submit" routerLink="/houses">Cancelar</button>
+              <div class=" mt-2">
+                   <button class="btn btn-outline-naranaja w-25 py-2 mb-3" type="submit">Enviar</button> 
+                   <span style="margin-left: 10px;"></span>
+                  <button class="btn btn-outline-naranaja w-25 py-2 mb-3" type="submit" routerLink="/houses">Cancelar</button>
                 </div>
 
           </form>
@@ -181,7 +178,6 @@
                 <img class="img-fluid" [src]="photoPreview">
             }
         </div>
-
 
       </div>
 

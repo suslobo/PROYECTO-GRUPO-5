@@ -13,9 +13,7 @@
               <!-- <th scope="col">Fecha de salida</th> -->
               <th scope="col" style="color: #f57d00">Apellido</th>
               <th scope="col" style="color:#f57d00">Email</th>
-              <th scope="col"></th>
               <th scope="col" style="color:#f57d00">Acciones</th>
-              <th scope="col"></th>
               </tr>
               <br>
                 </thead>
@@ -33,31 +31,13 @@
                           [routerLink]="['/user', user.id, 'detail']">
                           <i class="bi bi-eye"></i>
                           Ver detalle</button>
-                          
-                          <td>
-
-                           
-                              <button type="button" class="btn btn-outline-naranaja w-50 py-2" [routerLink]="['/user', user.id, 'profile']">
+                          <span style="margin-left: 10px;"></span>
+                              <button type="button" class="btn btn-outline-naranaja w-25 py-2" [routerLink]="['/user', user.id, 'profile']">
                                 Editar</button>
-                                <!-- @for (user of users; track user) {}
-                                <div >
-                                  <p>{{ user.firstName }}</p>
-                                  <button (click)="openDeleteConfirmationModal(user.id)">Borrar</button>
-                                </div>
-                               -->
-                                
-                              
-                              <button class="btn btn-outline-naranaja w-50 py-2 " (click)="deleteById(user.id)"> Borrar</button>
-                           
-                           
+                                <span style="margin-left: 10px;"></span>
 
-
-
-
-
+                              <button class="btn btn-outline-naranaja w-25 py-2 " (click)="deleteById(user.id)"> Borrar</button>
                         </td>
-  
-  
                       </tr>
                        }
   

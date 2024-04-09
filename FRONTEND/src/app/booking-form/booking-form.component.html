@@ -1,11 +1,11 @@
 
 
-<div class="container">
+<div class="card mt-5 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px;">
   <div class="row">
     <div class="col-lg-8">
 
       @if (showConfirmMessage) {
-        <ngb-alert type="warning" [dismissible]="false" class="mt-5" style="min-height: 200px">
+        <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
           Se ha completado tu reserva para la casa {{house?.title}}.          
           <br>
           <br>Para las fechas {{booking?.entryDate}} y {{booking?.departureDate}}
@@ -18,11 +18,11 @@
       
           Para cualquier duda contacte con soporte&commat;casaRural.com
         </ngb-alert>
-        <button class="w-100 btn btn-outline-naranaja btn-lg" routerLink="/houses">Volver a Casa</button>
+        <button class="w-100 btn btn-outline-naranaja btn-lg" style="margin-bottom: 20px;" routerLink="/houses">Volver a Casa</button>
 
 
       } @else {
-        <form class="mt-5"
+        <form class="mt-4"
         [formGroup]="bookingForm"
         (ngSubmit)="save()">
 
@@ -62,7 +62,7 @@
           </label>
         </div>
 
-        <div class="form-check mb-3">
+        <div class="form-check mb-4">
           <input class="form-check-input" type="checkbox"
           id="cleaningService" formControlName="cleaningService" (change)="calculatePrice()">
           <label class="form-check-label" for="cleaningService">
@@ -70,8 +70,7 @@
           </label>
         </div>
 
-      <br>
-        <h4 class="mb-3">Forma de Pago</h4>
+        <h4 class="mb-3" style="color: #f57d00;">Forma de Pago</h4>
         
           <div class="form-check mt-3">
     <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
@@ -86,13 +85,16 @@
     <label class="form-check-label" for="paypal">PayPal</label>
   </div> --> 
 
-  <button class="w-100 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
-  <button class="w-50 btn btn-outline-naranaja btn-lg " type="button" routerLink="/houses">Cancelar Reserva</button>
+  
+  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3  " type="submit">Finalizar reserva</button>
+  <span style="margin-left: 10px;"></span>
+  <button class="w-25 btn btn-outline-naranaja btn-lg mt-3 " type="button" routerLink="/houses">Cancelar </button>
+  
 
        </form> 
 
          <div class="row gy-3 mt-1">
-          <div class="col-md-6">
+          <div class="col-md-9">
             <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
             <input type="text" class="form-control" id="cc-name" placeholder="" required="">
             <small class="text-body-secondary">Nombre completo tal como aparece en la tarjeta</small>
@@ -100,8 +102,8 @@
               Nombre obligatorio
             </div>
           </div>
-
-          <div class="col-md-6">
+          
+          <div class="col-md-5">
             <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
             <input type="text" class="form-control" id="cc-number" placeholder="" required="">
             <div class="invalid-feedback">
@@ -109,7 +111,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-2">
             <label for="cc-expiration" class="form-label">Expiración</label>
             <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
             <div class="invalid-feedback">
@@ -117,7 +119,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-2">
             <label for="cc-cvv" class="form-label">CVV</label>
             <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
             <div class="invalid-feedback">
@@ -134,6 +136,12 @@
             }
               </div> 
           </div> 
+          
+  <!--
+  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3 mb-5  " type="submit">Finalizar reserva</button>
+  <span style="margin-left: 10px;"></span>
+  <button class="w-25 btn btn-outline-naranaja btn-lg mt-3 mb-5 " type="button" routerLink="/houses">Cancelar </button>
+ -->
             <br>
         }  
              
@@ -143,7 +151,7 @@
       @if (numDays >= 1) {
     <div class="col-md-5 col-lg-4 order-md-last">
       
-      <h4 class="mt-5 d-flex justify-content-between align-items-center mb-3">
+      <h4 class="mt-4 d-flex justify-content-between align-items-center mb-2">
         <span>Tu reserva</span>
         
         <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -224,6 +232,12 @@
         </li>
       
       </ul>
+      
+  <!-- 
+  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3  " type="submit">Reservar</button>
+  <span style="margin-left: 10px;"></span> 
+  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3 " type="button" routerLink="/houses">Cancelar </button>
+-->
 
       
        
