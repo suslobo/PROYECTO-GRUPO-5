@@ -7,16 +7,14 @@
         <table class="table">
   
           <thead>
-  
               <tr>
               <th scope="col" style="color: #f57d00">Nombre</th>
               <!-- <th scope="col">Fecha de salida</th> -->
               <th scope="col" style="color: #f57d00">Apellido</th>
               <th scope="col" style="color:#f57d00">Email</th>
-              <th scope="col" style="color:#f57d00">Acciones</th>
+              <th scope="col" style="color:#f57d00; text-align: center;">Acciones</th>
               </tr>
-              <br>
-                </thead>
+            </thead>
                   <tbody>
                       @for (user of users; track user.id) {
                       <tr>
@@ -32,11 +30,11 @@
                           <i class="bi bi-eye"></i>
                           Ver detalle</button>
                           <span style="margin-left: 10px;"></span>
-                              <button type="button" class="btn btn-outline-naranaja w-25 py-2" [routerLink]="['/user', user.id, 'profile']">
-                                Editar</button>
-                                <span style="margin-left: 10px;"></span>
+                          <button type="button" class="btn btn-outline-naranaja w-25 py-2" [routerLink]="['/user', user.id, 'profile']">
+                          Editar</button>
+                          <span style="margin-left: 10px;"></span>
 
-                              <button class="btn btn-outline-naranaja w-25 py-2 " (click)="deleteById(user.id)"> Borrar</button>
+                          <button class="btn btn-outline-naranaja w-25 py-2 " (click)="deleteById(user.id)"> Borrar</button>
                         </td>
                       </tr>
                        }
