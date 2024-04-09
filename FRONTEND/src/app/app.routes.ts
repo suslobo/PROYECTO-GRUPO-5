@@ -33,6 +33,14 @@ export const routes: Routes = [
         component: HouseDetailComponent
     },
     {
+        path: 'houses/create',
+        component: HouseFormComponent
+    },
+    {
+        path: 'houses/:id/update',
+        component: HouseFormComponent
+    },
+    {
         path: 'booking',
         component: BookingListComponent
     },
@@ -44,22 +52,8 @@ export const routes: Routes = [
         path: 'booking/:id/form',
         component: BookingFormComponent
     },
-    {
-        path: 'houses/create',
-        component: HouseFormComponent
-    },
-    {
-        path: 'houses/:id/update',
-        component: HouseFormComponent
-    },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'register',
-        component: RegisterComponent
-    },
+   
+    
     {
         path: 'user',
         component: UserListComponent
@@ -71,7 +65,21 @@ export const routes: Routes = [
     {
         path: 'user/profile',
         component: UserProfileComponent
+    },  
+    {
+        path:'user/:id/profile',
+        component: UserProfileComponent
     },
+   
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
+    },
+   
     {
         path: 'not-found-404',
         component: NotFoundComponent

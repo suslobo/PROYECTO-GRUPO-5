@@ -2,19 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { House } from '../interfaces/house.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
+
 
 @Component({
   selector: 'app-house-list',
   standalone: true,
-  imports: [HttpClientModule, RouterLink],
+  imports: [HttpClientModule, RouterLink, NgbRatingModule],
   templateUrl: './house-list.component.html',
-  styleUrl: './house-list.component.css'
+  styleUrl: './house-list.component.css',
+  providers: [NgbRatingConfig]
 })
 export class HouseListComponent implements OnInit{
 
   houses: House [] = [];
+  isAdmin = false;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, config: NgbRatingConfig,
+    private authService: AuthenticationService) {
+      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    config.readonly = true;
+    config.max = 5;
+  }
+
   ngOnInit(): void {
     this.httpClient.get<House[]>('http://localhost:3000/houses')
     .subscribe(houses => this.houses = houses);

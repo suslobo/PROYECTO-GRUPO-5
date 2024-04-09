@@ -3,30 +3,33 @@
       <div class="col-12">
 
       </div>
-      <div class="col-10">
+      <div class="col-12">
 
           @if(booking){
               <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col">Nombre de la Casa</th>
+                      <th scope="col" style="color: #f57d00">Nombre de la Casa</th>
                       <!-- <th scope="col">Dirección</th> -->
-                      <th scope="col">Fecha de Entrada</th>
-                      <th scope="col">Fecha de Salida</th>
-                      <th scope="col">Ubicación</th>
-                      <th scope="col">Precio</th>
+                      <th scope="col" style="color: #f57d00">Dirección</th>
+                      <th scope="col" style="color: #f57d00">Teléfono</th>
+                      <th scope="col" style="text-align: center; color:#f57d00">Email</th>
+                      <th scope="col" style="color: #f57d00">Ubicación</th>
+                      <th scope="col" style="color: #f57d00">Precio</th>
                     </tr>
                     <br>
                     <br>
                   </thead>
                   <tbody>
                     <tr>
-                      <td scope="row">{{booking.houses.title}}</td>
+                      <!-- <td scope="row">{{booking.houses.title}}</td> -->
                       <!-- <td scope="row">{{booking.houses.address}}</td> -->
-                      <td>{{booking.entryDate}}</td>
-                      <td>{{booking.departureDate}}</td>
-                      <td>{{booking.destination}}</td>
-                      <td>{{booking.houses.price}}€</td>
+                      <td>{{booking.houses?.title}}</td>
+                      <td>{{booking.houses?.address}}</td>
+                      <td>{{booking.houses?.phone}}</td>
+                      <td>{{booking.houses?.email}}</td>
+                      <td>{{booking.houses?.destination}}</td>
+                      <td>{{booking.price}}€</td> 
                     </tr>
 
                   </tbody>
@@ -69,7 +72,7 @@
               </div> -->
 
           }@else {
-          <p>Reserva no encontrado.</p>
+          <p>Reserva no encontrada.</p>
           }
       </div>
 

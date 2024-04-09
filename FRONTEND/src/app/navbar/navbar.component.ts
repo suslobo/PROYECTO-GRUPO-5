@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,26 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+collapsed=  true;
+isLoggedIn = false;
+//nickName: string | undefined;
+userEmail: string | undefined;
+isAdmin = false;
+isUser = false;
 
-  collapsed = true;
+constructor(private authService: AuthenticationService,
+  private router: Router
+){
+  this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+ // this.authService.nickName.subscribe(nickName => this.nickName = nickName);
+  this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
+  this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+  this.authService.isUser.subscribe(isUser => this.isUser = isUser);
+
+}
+
+logout(){
+  this.authService.logout();
+  this.router.navigate(['/home']);
+}
 }

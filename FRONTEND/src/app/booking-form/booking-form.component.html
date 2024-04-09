@@ -1,256 +1,234 @@
 
-   <!--
-
-<form [formGroup]="bookForm" (ngSubmit)="save()">
-
-
-    <div>
-        <label for="id">Nombre de la casa</label>
-        <select id="id" formControlName="id">
-            <option value="">Selecciona una casa</option>
-            <option value="id 1">Hershel</option>
-            <option value="id 2">Coop</option>
-            <option value="id 3">Virgil</option>
-            <option value="id 4">Harriet</option>
-            <option value="id 5">Lanny</option>
-        </select>
-
-    </div>
-
-    <div>
-        <label for="entryDate">Fecha de entrada</label>
-        <input type="datetime-local" id="entryDate" formControlName="entryDate">
-    </div>
-
-    <div>
-        <label for="departureDate">Fecha de salida</label>
-        <input type="datetime-local" id="departureDate" formControlName="departureDate">
-    </div>
-
-    <div>
-        <label form="people">Número de personas</label>
-        <input type="number" id="people" formControlName="people">
-    </div>
-
-    <div>
-        <label>Destino</label>
-        <select id="destination" formControlName="destination">
-            <option value="">Selecciona un destino</option>
-            <option value="id 1">Asturias</option>
-            <option value="id 2">Asturias</option>
-            <option value="id 3">Asturias</option>
-            <option value="id 4">Asturias</option>
-            <option value="id 5">Asturias</option>
-        </select>    </div>
-
-    <div>
-        <label for="available">Disponible (Si/No)</label>
-        <input type="checkbox" id="available" formControlName="available">
-    </div>
-
-    <div>
-        <label for="topics">Categorías</label>
-        <select id="topics" formControlName="topics" multiple>
-            <option value="">Selecciona una categoría</option>
-            <option value="playa">Playa</option>
-            <option value="montaña">Montaña</option>
-            <option value="ciudad">Ciudad</option>
-            <option value="ciudad">Pueblo</option>
-
-
-
-        </select>
-    </div>
-
-    <button type="submit">Enviar</button>
-
-     -->
-
-
-
-     <!--
-
-     <div class="row g-3; mt-3" >
-
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
-        </div>
-
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people">
-        </div>
-
-
-        <div class="col">
-            <label for="destination">Destino</label>
-            <input type="text" class="form-contol" id="destination" formControlName="destination" placeholder="" aria-label="destination">
-        </div>
-
-
-      </div>
-
-
-
-<div class="card" style="margin: 40px;">
-  <div class="card-body">
-    <h5 style="margin-left: 10px;">Espacios para reservar</h5>
-    <div>
-            @if (house) {
-              <div class="d-grid gap-2">
-              <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-success" >Reservar</button>
-            </div>
-            }
-    </div>
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-lg-8">
 
-      <div class="row g-3; mt-3" >
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
+      @if (showConfirmMessage) {
+        <ngb-alert type="warning" [dismissible]="false" class="mt-5" style="min-height: 200px">
+          Se ha completado tu reserva para la casa {{house?.title}}.          
+          <br>
+          <br>Para las fechas {{booking?.entryDate}} y {{booking?.departureDate}}
+          <br>
+          <br>El código de tu reserva es {{booking?.id}}
+          
+          <div style="text-align: center;">
+            <i class="bi bi-check-lg" style="font-size: 4em;"></i>
         </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
+      
+          Para cualquier duda contacte con soporte&commat;casaRural.com
+        </ngb-alert>
+        <button class="w-100 btn btn-outline-naranaja btn-lg" routerLink="/houses">Volver a Casa</button>
+
+
+      } @else {
+        <form class="mt-5"
+        [formGroup]="bookingForm"
+        (ngSubmit)="save()">
+
+        @if (house) {
+          <div class="container" >
+            <h4 class="mb-3" > Reserva de la casa:  {{house.title}} </h4>
+           
+          </div>
+        }
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control"
+          id="entryDate" formControlName="entryDate"
+          placeholder="yyyy-mm-dd" (change)="calculatePrice()">
+          <label for="entryDate">Fecha inicio</label>
         </div>
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
+
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control"
+          id="departureDate" formControlName="departureDate"
+          placeholder="yyyy-mm-dd" (change)="calculatePrice()">
+          <label for="departureDate">Fecha fin</label>
         </div>
-        <div class="col">
-          <label for="destination">Destino</label>
 
-        <select class="form-select form-select-lg" aria-label="">
-          <option selected></option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-
-      </div>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control"
+          id="people" formControlName="people"
+          placeholder="" (change)="calculatePrice()">
+          <label for="people">Personas</label>
+        </div>
 
 
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox"
+          id="breakfast" formControlName="breakfast" (change)="calculatePrice()">
+          <label class="form-check-label" for="breakfast">
+            Desayuno 10 €/persona
+          </label>
+        </div>
 
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox"
+          id="cleaningService" formControlName="cleaningService" (change)="calculatePrice()">
+          <label class="form-check-label" for="cleaningService">
+            Servicio de limpieza 30 € 
+          </label>
+        </div>
 
-
-    </div>
-</div>
+      <br>
+        <h4 class="mb-3">Forma de Pago</h4>
+        
+          <div class="form-check mt-3">
+    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+    <label class="form-check-label" for="credit">Tarjeta de crédito</label>
   </div>
-  </div></div>
--->
+  <!-- <div class="form-check">
+    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+    <label class="form-check-label" for="debit">Tarjeta de débito</label>
+  </div>
+  <div class="form-check">
+    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+    <label class="form-check-label" for="paypal">PayPal</label>
+  </div> --> 
 
-<!--
-<div class="card" style="margin: 40px;">
-  <div class="card-body">
-    <h5 style="margin-left: 10px;">Espacios para reservar</h5>
-    <div>
-            @if (house) {
-              <div class="d-grid gap-2">
-              <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-success" >Reservar</button>
+  <button class="w-100 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
+  <button class="w-50 btn btn-outline-naranaja btn-lg " type="button" routerLink="/houses">Cancelar Reserva</button>
+
+       </form> 
+
+         <div class="row gy-3 mt-1">
+          <div class="col-md-6">
+            <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+            <small class="text-body-secondary">Nombre completo tal como aparece en la tarjeta</small>
+            <div class="invalid-feedback">
+              Nombre obligatorio
             </div>
-            }
-    </div>
+          </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-      <div class="row g-3; mt-3" >
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
-        </div>
-        <div class="col">
-          <label for="destination">Destino</label>
-
-        <select class="form-select form-select-lg" aria-label="">
-          <option selected></option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-
-      </div>
-
-
-
-
-
-    </div>
-</div>
-  </div>
-  </div></div>
-
-
-
-
-</form> -->
-
-
-<div class="card" style="margin: 40px;">
-  <div class="card-body">
-    <h5 style="margin-left: 10px;">Espacios para reservar</h5>
-    <div>
-            @if (bookForm) {
-              <div class="d-grid gap-2">
-              <button class="btn btn-outline-success"  >Reservar</button>
+          <div class="col-md-6">
+            <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+            <div class="invalid-feedback">
+              Número de tarjeta de crédito
             </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-expiration" class="form-label">Expiración</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+            <div class="invalid-feedback">
+              Expiración obligatorio
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+            <div class="invalid-feedback">
+              Código de seguridad obligatorio
+            </div>
+          </div>
+        </div>
+        <div _ngcontent-ng-c3189770292="" >
+          <div> 
+            @if (bookingForm) {
+              <div class="d-grid gap-2 mt-3">
+                <!-- <button _ngcontent-ng-c3189770292="" class="btn btn-dark" type="submit">Finalizar Pago</button>     -->   
+               </div>
             }
+              </div> 
+          </div> 
+            <br>
+        }  
+             
+    
+      </div> 
+
+      @if (numDays >= 1) {
+    <div class="col-md-5 col-lg-4 order-md-last">
+      
+      <h4 class="mt-5 d-flex justify-content-between align-items-center mb-3">
+        <span>Tu reserva</span>
+        
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+           
+              <h6 class="badge btn btn-outline-naranaja rounded-pill"> {{numDays}} días</h6>
+              
+          </div>
+        </li>
+      </h4>
+      <ul class="list-group mb-4">
+        @if (house) {
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <span>Nombre de la casa</span>
+            <br>
+              <h6 >{{house.title}}</h6>
+              
+          </div>
+        </li>
+        }
+
+        @if (house) {
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <span>Precio noche/persona</span>
+              <br>
+                <small>{{house.price}} €</small>
+                
+            </div>
+          </li>
+          } 
+
+          <li class="list-group-item d-flex justify-content-between ">
+            @if(bookingForm.get('people')?.value) {
+    
+                <div>
+                  <h6>Número de personas</h6>
+    
+                </div>
+                <br>
+                <span class="text-body-secondary">{{bookingForm.get('people')?.value}}</span>
+    
+            }
+          </li>
+        
+          
+        <li class="list-group-item d-flex justify-content-between ">
+        @if(bookingForm.get('cleaningService')?.value) {
+
+            <div>
+              <h6>Servicio de Limpieza</h6>
+
+            </div>
+            <br>
+            <span class="text-body-secondary">30 €</span>
+
+        }
+      </li>
+
+      <li class="list-group-item d-flex justify-content-between ">
+        @if(bookingForm.get('breakfast')?.value) {
+
+            <div>
+              <h6>Desayuno</h6>
+
+            </div>
+            <br>
+            <span class="text-body-secondary">{{totalBreakfastPrice}} €</span>
+
+        }
+      </li>
+
+
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (Euros)</span>
+          <strong>{{totalPrice}}</strong>
+        </li>
+      
+      </ul>
+
+      
+       
+      
     </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-      <div class="row g-3; mt-3" >
-
-        <div class="col">
-            <label for="entryDate">Día de entrada</label>
-            <input type="date" id="entryDate" formControlName="entryDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="entryDate">Día de salida</label>
-            <input type="date" id="departureDate" formControlName="departureDate" class="form-control">
-        </div>
-        <div class="col">
-            <label for="people">Número de personas</label>
-            <input type="number" min="1" step="1" class="form-contol" id="people" formControlName="people" placeholder="" aria-label="people" class="form-control">
-        </div>
-        <div class="col">
-          <label for="destination">Destino</label>
-
-        <select class="form-select form-select-lg" aria-label="">
-          <option selected></option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-
-      </div>
-    </div>
-</div>
+      }
   </div>
-  </div></div>
-
+</div>

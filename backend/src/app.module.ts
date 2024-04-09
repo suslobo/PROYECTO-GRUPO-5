@@ -1,33 +1,52 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { HouseController } from './house/house.controller';
 import { BookingController } from './booking/booking.controller';
-import { UserController } from './user/user.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/user.model';
+import { User } from './users/users.model';
 import { Booking } from './booking/booking.model';
-import { House } from './house/house.model';
+import { House } from './houses/houses.model';
 import { HousesController } from './houses/houses.controller';
 import { UsersController } from './users/users.controller';
+import { MulterModule } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
+import { v4 as uuidv4 } from 'uuid';
+import { RatingController } from './rating/rating.controller';
+import { Rating } from './rating/rating.model';
+import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({
   imports: [
+    JwtModule.register({
+      secret: 'admin',
+      signOptions: {expiresIn: '7d'}
+    }),
+    MulterModule.register({
+      storage: diskStorage({
+        destination: './uploads',
+        
+        filename: (req, file, callback) => {
+          let fileName = uuidv4() + extname(file.originalname);
+          callback(null, fileName);
+        }
+      })
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'localhost', 
       port: 3306,
       username: 'root',
-      password: 'rootroot',
+      password: 'admin',
       database: 'backend',
-      entities: [House],
+      entities: [User, Booking, House, Rating],
       synchronize: true, 
       logging: true
     }),
-    TypeOrmModule.forFeature([User, Booking, House])
+    TypeOrmModule.forFeature([Booking, User, House, Rating])
   ],
-  controllers: [AppController, HouseController, BookingController, UserController, HousesController, UsersController],
+  controllers: [AppController, HousesController, BookingController, UsersController, RatingController],
   providers: [AppService],
 })
 export class AppModule {}

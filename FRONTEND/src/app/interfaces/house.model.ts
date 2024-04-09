@@ -1,6 +1,5 @@
 export interface House {
 
-
   id: number;
 
   title: string;
@@ -21,9 +20,10 @@ export interface House {
   terrace: boolean;
   wifi: boolean;
   air: boolean;
+  people: number;
 
   description: string;
-  photoUrls: string [];
-
+  photoUrl: string;
+ 
 
 }

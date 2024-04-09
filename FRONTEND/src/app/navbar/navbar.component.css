@@ -1,65 +1,57 @@
-.navbar {
-  background-color: #e4ddd6;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
+
 
 .navbar-brand img {
-  width: 60px;
+  width: 90px;
   height: auto;
-  margin-right: 20px;
+  margin-left: 15px;
+  margin-top: 5px;
 }
 
-.navbar-nav {
-  list-style-type: none;
-  padding: 0;
-  text-align: center;
-}
-
-.navbar-nav li {
-  display: inline;
-  margin: 0 10px;
-}
 
 .navbar-nav a {
   text-decoration: none;
-  color: #0c0d0c;
-  font-weight: normal; /* Cambia el grosor de la fuente a normal */
-}
+  color: #171817;
+  font-weight: normal; 
+} 
 
 .navbar-nav a:hover {
-  color: #00AB87;
-}
-
-.dropdown-menu {
-  background-color: #f8e8db;
-  border: none;
-  border-radius: 5px;
-}
-
-.dropdown-item {
-  color: #333;
-}
-
-.dropdown-item:hover {
-  background-color: #dfddda;
-  color: #fff;
+  color: #f57d00;
 }
 
 .btn {
-  background-color: #7d9e47;
+  background-color:white;
+  margin-right: 50px;
   border: none;
-  color:#fff;
+  color:#0c0c0c;
 }
 
-.btn:hover {
-  background-color: #5a6b56;
-}
+/* .btn:hover {
+  background-color: #f4f5f4;
+} */
 
 .name-logo {
-  color: #5a6b56;
+  color: #eff3ee;
 }
-body {
-  font-family: 'Guttie Regular', sans-serif;
-  color: #000000;
+
+.nombre-usuario {
+  color: #f57d00;
+    
 }
+
+
+.bi-person{
+  margin-left: 20px;
+}
+
+.custom-btn {
+  width: 200px; 
+  margin-right: 180px;
+}
+
+
+
+
+.navbar-custom {
+  border-bottom: 4px solid #f57d00;
+}
+
