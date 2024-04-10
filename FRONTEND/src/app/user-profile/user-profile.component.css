@@ -1,21 +1,17 @@
-.btn1 {
-  background-color: #5a6b56 ;
-  border: none;
-  color:#fff;
+.btn-outline-naranaja {
+  color: #ffffff;
+  background-color: rgb(60, 56, 56);
 }
 
-.btn1:hover {
-  background-color: #7d9e47;
+.btn-outline-naranaja:hover {
+  color: #ffffff;
+  background-color: #f57d00;
 }
 
-h1{
-  color: #7d9e47;
-}
-h2{
-  color: #7d9e47;
+.btn-house-list {
+  width: 49% !important;
 }
 
-h3{
-  color: #7d9e47;
+.naranja-border {
+  border: 2px solid #f57d00;
 }
-

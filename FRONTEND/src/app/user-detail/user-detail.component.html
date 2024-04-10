@@ -1,19 +1,17 @@
 
-   <div class="container mt-5">
+   <div class="card mt-5 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px;">
     <div class="row">
+
         <div class="col-12">
   
-        </div>
-        <div class="col-10">
-  
             @if(user){
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
+                <table class="table  mt-4">
+                    <thead >
+                      <tr >
                         <th scope="col" style="color: #f57d00">Nombre</th>
                         <!-- <th scope="col">Dirección</th> -->
                         <th scope="col" style="color: #f57d00">Apellido</th>
-                        <th scope="col" style="text-align: center; color:#f57d00">Email</th>
+                        <th scope="col" style="color:#f57d00">Email</th>
                         <th scope="col" style="color: #f57d00">Teléfono</th>
                         <th scope="col" style="color: #f57d00">Dirección</th>
                         <th scope="col" style="color: #f57d00">Ciudad</th>
@@ -22,11 +20,11 @@
                       <br>
                       <br>
                     </thead>
-                    <tbody>
+                    <tbody >
                       <tr>
                         
-                        <td>{{user.firstName}}</td>
-                        <td>{{user.lastName}}</td>
+                        <td >{{user.firstName}}</td>
+                        <td >{{user.lastName}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.phone}}</td>
                         <td>{{user.street}}</td>
