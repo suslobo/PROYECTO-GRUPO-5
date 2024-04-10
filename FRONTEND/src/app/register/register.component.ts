@@ -16,9 +16,10 @@ import { User } from '../interfaces/user.model';
 export class RegisterComponent {
 
   registerForm = this.fb.group({
+    
     nickname: ['', [ Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     email: ['', [Validators.required, Validators.email]],
-    //phone: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
+    
     password: ['', [Validators.required]],
     passwordConfirm: ['', [Validators.required]]
   },

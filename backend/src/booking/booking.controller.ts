@@ -37,6 +37,8 @@ export class BookingController {
         });
     } 
 
+   
+
   /*   @Get('filter-by-destination')
     findByBookId(@Param('id', ParseIntPipe) id: string){
         return this.bookingRepository.find({
@@ -60,7 +62,7 @@ export class BookingController {
                 
     }
 
-
+    
     @Delete(':id')
 async deleteById(
     @Param('id', ParseIntPipe) id: number

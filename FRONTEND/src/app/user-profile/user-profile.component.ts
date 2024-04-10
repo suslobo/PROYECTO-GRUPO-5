@@ -84,10 +84,10 @@ export class UserProfileComponent implements OnInit {
 
       if(this.isUpdate){
       const urlForUpdate = 'http://localhost:3000/users/' + user.id;
-      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/user']));
+      this.httpClient.put<User>(urlForUpdate, user).subscribe(data => this.router.navigate(['/']));
     } else {
       const url = 'http://localhost:3000/users/';
-        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/user']));
+        this.httpClient.post<User>(url, user).subscribe(data => this.router.navigate(['/']));
     }  
 
   }

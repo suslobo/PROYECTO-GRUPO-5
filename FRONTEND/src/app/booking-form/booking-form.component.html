@@ -85,46 +85,47 @@
     <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
     <label class="form-check-label" for="paypal">PayPal</label>
   </div> --> 
+  <div class="row gy-3 mt-1">
+    <div class="col-md-6">
+      <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+      <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+      <small class="text-body-secondary">Nombre completo tal como aparece en la tarjeta</small>
+      <div class="invalid-feedback">
+        Nombre obligatorio
+      </div>
+    </div>
 
-  <button class="w-100 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
-  <button class="w-50 btn btn-outline-naranaja btn-lg " type="button" routerLink="/houses">Cancelar Reserva</button>
+    <div class="col-md-6">
+      <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
+      <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+      <div class="invalid-feedback">
+        Número de tarjeta de crédito
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="cc-expiration" class="form-label">Expiración</label>
+      <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+      <div class="invalid-feedback">
+        Expiración obligatorio
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="cc-cvv" class="form-label">CVV</label>
+      <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+      <div class="invalid-feedback">
+        Código de seguridad obligatorio
+      </div>
+    </div>
+  </div>
+
+  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
+  <button class="w-50 btn btn-outline-naranaja btn-lg  mt-3" type="button" routerLink="/houses">Cancelar Reserva</button>
 
        </form> 
 
-         <div class="row gy-3 mt-1">
-          <div class="col-md-6">
-            <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-            <small class="text-body-secondary">Nombre completo tal como aparece en la tarjeta</small>
-            <div class="invalid-feedback">
-              Nombre obligatorio
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-            <div class="invalid-feedback">
-              Número de tarjeta de crédito
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <label for="cc-expiration" class="form-label">Expiración</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-            <div class="invalid-feedback">
-              Expiración obligatorio
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <label for="cc-cvv" class="form-label">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-            <div class="invalid-feedback">
-              Código de seguridad obligatorio
-            </div>
-          </div>
-        </div>
+         
         <div _ngcontent-ng-c3189770292="" >
           <div> 
             @if (bookingForm) {
