@@ -15,10 +15,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { RatingController } from './rating/rating.controller';
 import { Rating } from './rating/rating.model';
 import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
 
 
 @Module({
   imports: [
+    PassportModule,
     JwtModule.register({
       secret: 'admin',
       signOptions: {expiresIn: '7d'}
