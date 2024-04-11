@@ -191,10 +191,7 @@ export class HousesController {
         });
     }
 
-   /*  @Post()
-    create(@Body() house: House) {
-        return this.houseRepository.save(house);
-    } */
+
 
     @Post()
     @UseInterceptors(FileInterceptor('file'))

@@ -16,6 +16,7 @@ import { RatingController } from './rating/rating.controller';
 import { Rating } from './rating/rating.model';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { JwtValidator } from './users/jwt.validators';
 
 
 @Module({
@@ -49,6 +50,6 @@ import { PassportModule } from '@nestjs/passport';
     TypeOrmModule.forFeature([Booking, User, House, Rating])
   ],
   controllers: [AppController, HousesController, BookingController, UsersController, RatingController],
-  providers: [AppService],
+  providers: [AppService, JwtValidator],
 })
 export class AppModule {}

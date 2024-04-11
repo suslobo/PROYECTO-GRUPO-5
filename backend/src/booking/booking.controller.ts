@@ -1,7 +1,8 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, Request, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Booking } from './booking.model';
 import { Repository } from 'typeorm';
+import { Role } from 'src/users/role.model';
 
 
 @Controller('booking')
@@ -37,7 +38,22 @@ export class BookingController {
         });
     } 
 
-   
+    @Get('filter-by-current-user')
+    findByCurrentUserId(@Request() request) {
+
+        if (request.user.role === Role.ADMIN) {
+            return this.bookingRepository.find();
+        } else {
+            return this.bookingRepository.find({
+                where: {
+                    users: {
+                        id: request.user.id
+                    }
+                }
+            });
+        }
+
+    }   
 
   /*   @Get('filter-by-destination')
     findByBookId(@Param('id', ParseIntPipe) id: string){

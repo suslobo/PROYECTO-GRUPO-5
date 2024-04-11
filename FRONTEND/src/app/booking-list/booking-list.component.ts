@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Booking } from '../interfaces/booking.model';
 import { AuthenticationService } from '../authentication/authentication.service';
@@ -14,16 +14,18 @@ import { AuthenticationService } from '../authentication/authentication.service'
 export class BookingListComponent implements OnInit{
 
   userEmail = '';
+  //isAdmin = false;
   bookings: Booking [] = [];
 
-  constructor(private httpClient: HttpClient, private authService: AuthenticationService){
+  constructor(private httpClient: HttpClient, private authService: AuthenticationService, private cdr: ChangeDetectorRef){
     this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
+    //this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
 
   }
 
   ngOnInit(): void {
     this.httpClient.get<Booking[]>(`http://localhost:3000/booking/filter-by-user/${this.userEmail}`)
-    .subscribe(bookings => this.bookings = bookings);
+    .subscribe(bookings =>{ this.bookings = bookings; this.cdr.detectChanges()});
   
   }
 

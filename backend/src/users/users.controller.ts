@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, UnauthorizedException } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Request, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './users.model';
@@ -6,6 +6,7 @@ import { Register } from './register.dto';
 import { Role } from './role.model';
 import { Login } from './login.dto';
 import { JwtService } from '@nestjs/jwt';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('users')
 export class UsersController {
@@ -19,7 +20,7 @@ export class UsersController {
     findAll() {
         return this.userRepository.find();
     }
-    @Get(':id')
+   /*  @Get(':id')
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.userRepository.findOne({
             where: {
@@ -35,6 +36,29 @@ findByTitle(@Param('id', ParseIntPipe) id: string) {
             firstName: id
         }
     });
+} */
+
+@Get('account')
+@UseGuards(AuthGuard('jwt'))
+public getCurrentAccountUser(@Request() request) {
+    
+    return request.user;
+}
+
+
+
+// update user: Actualiza el usuario se utiliza desde la pantalla Mi Perfil de frontend para enviar usuario
+@Put()
+@UseGuards(AuthGuard('jwt'))
+public update(@Body() user: User, @Request() request) {
+
+    if (request.user.role !== Role.ADMIN && user.id !== request.user.id) {
+        // Si el usuario que actualiza no coincide con el usuario enviado
+        // entonces no puede actualizar 
+        throw new UnauthorizedException();
+    }
+
+    return this.userRepository.save(user);
 }
 
 @Post('register')
@@ -97,24 +121,7 @@ async register(@Body() register: Register) {
         
 
     }
-    @Put(':id')
-    async update(
-        @Param('id', ParseIntPipe) id: number,
-        @Body() user: User
-        ) {
-            
-            
-            const exists = await this.userRepository.existsBy({
-               id: id
-            });
-
-            if(!exists) {
-                throw new NotFoundException('User not found');
-            }
-
-            return this.userRepository.save(user);
-
-    }
+ 
 
 
     @Delete(':id')
