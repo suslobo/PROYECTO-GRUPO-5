@@ -1,8 +1,9 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, Request, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, Request, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Booking } from './booking.model';
 import { Repository } from 'typeorm';
 import { Role } from 'src/users/role.model';
+import { AuthGuard } from '@nestjs/passport';
 
 
 @Controller('booking')
@@ -28,6 +29,7 @@ export class BookingController {
     } */
 
    @Get('filter-by-user/:email')
+   @UseGuards(AuthGuard('jwt'))
     findByUserId(@Param('email') email: string){
         return this.bookingRepository.find({
             where: {
@@ -39,6 +41,7 @@ export class BookingController {
     } 
 
     @Get('filter-by-current-user')
+    @UseGuards(AuthGuard('jwt'))
     findByCurrentUserId(@Request() request) {
 
         if (request.user.role === Role.ADMIN) {
@@ -64,6 +67,7 @@ export class BookingController {
         });
     }  */
     @Get(':id')
+    @UseGuards(AuthGuard('jwt'))
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.bookingRepository.findOne({
             where: {

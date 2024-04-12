@@ -6,7 +6,7 @@ ng new FRONTEND --skip-git --style=css --routing=true --ssr=false
 
 ### PASO 2: ENTRAR AL PROYECTO
 
-cd angular-006-servicios
+cd frontend
 
 ### PASO 3: INSTALAR BOOTSTRAP
 
