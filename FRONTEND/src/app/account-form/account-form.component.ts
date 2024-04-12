@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-account-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgbAlert, RouterLink, HttpClientModule],
+  imports: [ReactiveFormsModule, NgbAlert, RouterLink],
   templateUrl: './account-form.component.html',
   styleUrl: './account-form.component.css'
 })
@@ -17,6 +17,9 @@ export class AccountFormComponent implements OnInit{
   user: User | undefined;
   
   userForm = new FormGroup({
+    id: new FormControl(),
+    email: new FormControl(),
+    password: new FormControl(),
     firstName: new FormControl(),
     lastName: new FormControl(),
     phone: new FormControl(),
@@ -28,10 +31,7 @@ export class AccountFormComponent implements OnInit{
 
   });
 
-  constructor(private httpClient: HttpClient,
-    private activatedRoute: ActivatedRoute,
-    private router: Router
-  ){}
+  constructor(private httpClient: HttpClient){}
 
 
   ngOnInit(): void {
@@ -39,6 +39,8 @@ export class AccountFormComponent implements OnInit{
       this.user = user;
       this.userForm.reset({
         firstName: user.firstName,
+        email: user.email,
+        password: user.password,
         lastName: user.lastName,
         phone: user.phone,
         nif: user.nif,
