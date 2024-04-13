@@ -19,6 +19,7 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtValidator } from './users/jwt.validators';
 
 
+
 @Module({
   imports: [
     PassportModule,
@@ -49,7 +50,7 @@ import { JwtValidator } from './users/jwt.validators';
     }),
     TypeOrmModule.forFeature([Booking, User, House, Rating])
   ],
-  controllers: [AppController, HousesController, BookingController, UsersController, RatingController],
+  controllers: [ HousesController, BookingController, UsersController, RatingController],
   providers: [AppService, JwtValidator],
 })
 export class AppModule {}

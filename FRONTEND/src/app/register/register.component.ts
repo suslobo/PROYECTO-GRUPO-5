@@ -59,7 +59,7 @@ export class RegisterComponent {
   save(){
 
     let register: Register = {
-     nickname: this.registerForm.get('nickname')?.value ?? '',
+     //nickname: this.registerForm.get('nickname')?.value ?? '',
       email: this.registerForm.get('email')?.value ?? '',
      // phone: this.registerForm.get('phone')?.value ?? '',
       password: this.registerForm.get('password')?.value ?? ''

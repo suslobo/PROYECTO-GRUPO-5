@@ -86,7 +86,7 @@ export const routes: Routes = [
         path: 'register',
         component: RegisterComponent
     },
-   
+  
     {
         path: 'not-found-404',
         component: NotFoundComponent

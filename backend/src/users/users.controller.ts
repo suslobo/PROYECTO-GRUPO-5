@@ -52,13 +52,18 @@ public getCurrentAccountUser(@Request() request) {
 @UseGuards(AuthGuard('jwt'))
 public update(@Body() user: User, @Request() request) {
 
-    if (request.user.role !== Role.ADMIN && user.id !== request.user.id) {
-        // Si el usuario que actualiza no coincide con el usuario enviado
-        // entonces no puede actualizar 
+   /*  if (request.user.role !== Role.ADMIN && user.id !== request.user.id) {
+        
         throw new UnauthorizedException();
     }
 
     return this.userRepository.save(user);
+} */
+if(request.user.role !== request.user.id){
+    
+    throw new UnauthorizedException();
+}
+return this.userRepository.save(user);  
 }
 
 @Post('register')
@@ -74,14 +79,14 @@ async register(@Body() register: Register) {
    
     const user: User = {
         id: 0,
-        nickName: register.nickName,
+        //nickName: register.nickName,
         email: register.email,
         password: register.password,
         phone: null,
         
         role: Role.USER
     };
-    return await this.userRepository.save(user);
+     await this.userRepository.save(user);
 }
 
 @Post('login')
@@ -109,7 +114,7 @@ async register(@Body() register: Register) {
             sub: user.id,
             email: user.email,
             role: user.role,
-            firstName: user.firstName
+            
         };
 
         let token = {

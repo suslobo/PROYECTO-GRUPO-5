@@ -29,7 +29,7 @@ export class BookingController {
     } */
 
    @Get('filter-by-user/:email')
-   @UseGuards(AuthGuard('jwt'))
+  
     findByUserId(@Param('email') email: string){
         return this.bookingRepository.find({
             where: {
@@ -41,7 +41,7 @@ export class BookingController {
     } 
 
     @Get('filter-by-current-user')
-    @UseGuards(AuthGuard('jwt'))
+    //@UseGuards(AuthGuard('jwt'))
     findByCurrentUserId(@Request() request) {
 
         if (request.user.role === Role.ADMIN) {
@@ -67,7 +67,7 @@ export class BookingController {
         });
     }  */
     @Get(':id')
-    @UseGuards(AuthGuard('jwt'))
+    //@UseGuards(AuthGuard('jwt'))
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.bookingRepository.findOne({
             where: {
@@ -77,7 +77,9 @@ export class BookingController {
         
 }
     @Post()
-    create(@Body() booking: Booking) {
+    @UseGuards(AuthGuard('jwt'))
+    create(@Body() booking: Booking, @Request() request) {
+        booking.users = request.users;
         return this.bookingRepository.save(booking);
                 
     }
