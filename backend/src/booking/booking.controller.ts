@@ -40,8 +40,8 @@ export class BookingController {
         });
     } 
 
-    @Get('filter-by-current-user')
-    //@UseGuards(AuthGuard('jwt'))
+     @Get('filter-by-current-user')
+    @UseGuards(AuthGuard('jwt'))
     findByCurrentUserId(@Request() request) {
 
         if (request.user.role === Role.ADMIN) {

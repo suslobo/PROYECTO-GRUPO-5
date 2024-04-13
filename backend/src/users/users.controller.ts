@@ -79,14 +79,14 @@ async register(@Body() register: Register) {
    
     const user: User = {
         id: 0,
-        //nickName: register.nickName,
+        nickName: register.nickName,
         email: register.email,
         password: register.password,
-        phone: null,
+        phone: '',
         
         role: Role.USER
     };
-     await this.userRepository.save(user);
+    return await this.userRepository.save(user);
 }
 
 @Post('login')
