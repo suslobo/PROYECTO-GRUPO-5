@@ -11,6 +11,7 @@ export class HousesController {
     private houseRepository: Repository<House>) {}
 
     @Get()
+    
     findAll() {
         return this.houseRepository.find();
     }

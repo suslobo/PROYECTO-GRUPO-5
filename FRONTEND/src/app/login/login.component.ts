@@ -41,16 +41,19 @@ export class LoginComponent {
       next: data => {
         console.log(data.token);
         this.authService.handleLogin(data.token);
-        this.router.navigate(['/books']);
+        this.router.navigate(['/home']);
       },
       error: error => {
         console.log(error);
 
         if (error.status === 404) {
           this.error = "No se ha encontrado el usuario";
+        
+         
 
         } else if (error.status === 401) {
-          this.error = "Credenciales incorrectas.";
+          this.error = "Datos incorrectos.";
+          
         }
 
       }  

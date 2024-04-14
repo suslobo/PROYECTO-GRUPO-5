@@ -25,6 +25,7 @@ export class RegisterComponent {
   },
   {validators: this.passwordConfirmValidator}
   );
+  error = '';
 
   constructor(private fb: FormBuilder,
     private httpClient: HttpClient,
@@ -42,19 +43,6 @@ export class RegisterComponent {
       }
    
     }
-   /*  checkEmail() {
-    const email = this.registerForm.get('email')?.value;
-
-    
-    const emailExists = true;
-
-    if (emailExists) {
-      alert('¡Error! El correo electrónico ya existe.');
-    } else {
-      this.save();
-    }
-  } */
-    
 
   save(){
 
@@ -67,13 +55,15 @@ export class RegisterComponent {
     let url= 'http://localhost:3000/users/register';
     this.httpClient.post<User>(url, register)
     .subscribe({
-      next: user => {
-        console.log(user);
-      this.router.navigate([`/user/${user.id}/profile`]);
+      next: data => {
+       
+      this.router.navigate(['login']);
       },
       error: error => {
-        // aqui hacemos algo que mueste un alert rojo por antalla
-        console.log(error);
+        if (error.status === 409){
+          this.error = 'Datos ocupados';
+        }
+       
         
       }
     });

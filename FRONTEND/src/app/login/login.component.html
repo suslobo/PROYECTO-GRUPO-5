@@ -25,7 +25,9 @@
     </div>
    
     <button class="btn btn-outline-naranaja w-100 py-2" type="submit">Iniciar sesión</button>
-    
+    @if (error) {
+      <small class="text-danger">{{error}}</small>
+    }
     <div>
       <div>
       <p class="c-p-conditions">

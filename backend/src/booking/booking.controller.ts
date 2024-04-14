@@ -79,6 +79,7 @@ export class BookingController {
     @Post()
     @UseGuards(AuthGuard('jwt'))
     create(@Body() booking: Booking, @Request() request) {
+        
         booking.users = request.users;
         return this.bookingRepository.save(booking);
                 

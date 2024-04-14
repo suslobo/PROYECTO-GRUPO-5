@@ -59,7 +59,7 @@ public update(@Body() user: User, @Request() request) {
 
     return this.userRepository.save(user);
 } */
-if(request.user.role !== request.user.id){
+if(request.user.role !== Role.ADMIN && user.id !== request.user.id){
     
     throw new UnauthorizedException();
 }
@@ -75,14 +75,14 @@ async register(@Body() register: Register) {
 
     if(exists)
         throw new ConflictException("Email ocupado");
-
+   
    
     const user: User = {
         id: 0,
         nickName: register.nickName,
         email: register.email,
         password: register.password,
-        phone: '',
+        phone: null,
         
         
         role: Role.USER
