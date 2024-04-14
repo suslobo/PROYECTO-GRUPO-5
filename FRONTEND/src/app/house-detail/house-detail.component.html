@@ -319,7 +319,12 @@
                   @for (rating of ratings; track rating.id) {
                     <li>
                       <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" >
-                        <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
+                        @if (rating.user?.photoUrl) {
+                          <h5 class="pb-2">Avatar existente</h5>
+                          <img class="bd-placeholder-img" style="max-width:100px;" [src]="'http://localhost:3000/uploads/' + rating.user?.photoUrl">
+                        } @else {
+                          <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
+                        }
                         <!-- Información del usuario y comentario -->
                         <div class="col-lg-8">
                           <h6 class="mb-0">
