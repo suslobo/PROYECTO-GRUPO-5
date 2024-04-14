@@ -57,7 +57,7 @@ export class RegisterComponent {
     .subscribe({
       next: data => {
        
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
       },
       error: error => {
         if (error.status === 409){
