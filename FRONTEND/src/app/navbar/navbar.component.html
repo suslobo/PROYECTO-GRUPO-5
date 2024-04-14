@@ -68,8 +68,8 @@
 					<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
 						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button">{{userEmail.split('@')[0]}}</a>
 						<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-							<a ngbDropdownItem routerLink="/booking" (click)="$event.preventDefault()">Editar
-								Reservas</a>
+							<a ngbDropdownItem routerLink="/account" (click)="$event.preventDefault()">Editar
+								Perfil</a>
 								
 						</div>
 	
@@ -86,11 +86,11 @@
 					<button type="button" class="btn btn-white ms-2" (click)="logout()">
 						Cerrar sesión</button>
 				} @else {
-					<button type="button" class="btn btn-success ms-2" routerLink="/login">
+					<button type="button" class="btn btn-white ms-2" routerLink="/login">
 						Login
 						
 					  </button>
-					  <button type="button" class="btn btn-secondary ms-2" routerLink="/register">
+					  <button type="button" class="btn btn-white ms-2" routerLink="/register">
 						Registro
 						
 					  </button>
