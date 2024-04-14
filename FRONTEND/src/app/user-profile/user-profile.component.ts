@@ -30,7 +30,7 @@ export class UserProfileComponent implements OnInit {
   
   user: User | undefined;
   isUpdate: boolean = false;
-
+ 
   constructor(
     private httpClient: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -60,7 +60,7 @@ export class UserProfileComponent implements OnInit {
         });
       });
     });
-   
+    
 
   }
 

@@ -24,6 +24,9 @@ export class BookingListComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+    
+    
     this.httpClient.get<Booking[]>(`http://localhost:3000/booking/filter-by-user/${this.userEmail}`)
     .subscribe(bookings =>{ this.bookings = bookings});
   
@@ -40,4 +43,8 @@ export class BookingListComponent implements OnInit{
   }
 
 }
+
+
+
+
 

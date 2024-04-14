@@ -20,7 +20,7 @@ export class UsersController {
     findAll() {
         return this.userRepository.find();
     }
-   /*  @Get(':id')
+   @Get(':id')
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.userRepository.findOne({
             where: {
@@ -29,7 +29,7 @@ export class UsersController {
             });
         
 }
-@Get('filter-by-firstName')
+/*@Get('filter-by-firstName')
 findByTitle(@Param('id', ParseIntPipe) id: string) {
     return this.userRepository.findOne({
         where: {
@@ -47,7 +47,7 @@ public getCurrentAccountUser(@Request() request) {
 
 
 
-// update user: Actualiza el usuario se utiliza desde la pantalla Mi Perfil de frontend para enviar usuario
+
 @Put()
 @UseGuards(AuthGuard('jwt'))
 public update(@Body() user: User, @Request() request) {
@@ -83,6 +83,7 @@ async register(@Body() register: Register) {
         email: register.email,
         password: register.password,
         phone: '',
+        
         
         role: Role.USER
     };

@@ -60,7 +60,7 @@ export const routes: Routes = [
         path: 'account',
         component: AccountFormComponent
     },
-    
+   
     {
         path: 'user',
         component: UserListComponent
@@ -77,6 +77,7 @@ export const routes: Routes = [
         path:'user/:id/profile',
         component: UserProfileComponent
     },
+    
    
     {
         path: 'login',
