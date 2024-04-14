@@ -55,9 +55,9 @@ export class RegisterComponent {
     let url= 'http://localhost:3000/users/register';
     this.httpClient.post<User>(url, register)
     .subscribe({
-      next: data => {
+      next: user => {
        
-      this.router.navigate(['/user/profile']);
+      this.router.navigate([`/user/${user.id}/profile`]);
       },
       error: error => {
         if (error.status === 409){

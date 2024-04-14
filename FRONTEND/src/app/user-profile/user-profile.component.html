@@ -3,10 +3,11 @@
       <div class="col">
 
           @if(isUpdate){
-            <h4 class="mb-2 mt-4" style="color: #f57d00">Rellenar formulario</h4>
+            <h4 class="mt-3" style="color: #f57d00">Rellenar Formulario</h4>
+            
            
         } @else {
-            <h4 class="mt-3" style="color: #f57d00">Actualizar usuario</h4>
+            <h4 class="mb-2 mt-4" style="color: #f57d00">Actualizar</h4>
         }
           <h4 style="margin-top: 20px;">Datos de contacto</h4>
           <form class="mt" [formGroup]="userProfile" (ngSubmit)="save()">
