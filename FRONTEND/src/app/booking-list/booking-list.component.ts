@@ -17,20 +17,20 @@ export class BookingListComponent implements OnInit{
   isAdmin = false;
   bookings: Booking [] = [];
 
-  constructor(private httpClient: HttpClient, 
-    private authService: AuthenticationService){
-
-    this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
+  constructor(private httpClient: HttpClient, private authService: AuthenticationService){
+    //this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
     this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
 
   }
 
   ngOnInit(): void {
 
-    
-    const url = 'http://localhost:3000/booking/filter-by-current-user';
-    this.httpClient.get<Booking[]>(url)
-    .subscribe(bookings => this.bookings = bookings);
+    this.httpClient.get<Booking[]>('http://localhost:3000/booking/filter-by-current-user')
+    .subscribe(bookings => this.bookings = bookings); 
+
+    /* 
+    this.httpClient.get<Booking[]>(`http://localhost:3000/booking/filter-by-user/${this.userEmail}`)
+    .subscribe(bookings => this.bookings = bookings); */
   
   }
 

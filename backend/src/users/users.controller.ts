@@ -38,7 +38,7 @@ findByTitle(@Param('id', ParseIntPipe) id: string) {
     });
 } */
 
-@Get('account')
+@Get('account/:id')
 @UseGuards(AuthGuard('jwt'))
 public getCurrentAccountUser(@Request() request) {
     
