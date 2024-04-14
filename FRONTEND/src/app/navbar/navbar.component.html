@@ -39,20 +39,27 @@
 						<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
 							<a ngbDropdownItem routerLink="/booking" (click)="$event.preventDefault()">Listado de
 								Reservas</a>
-								@if (isAdmin) {
-									<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-										<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Usuarios </a>
-										<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-											<a ngbDropdownItem routerLink="/user" (click)="$event.preventDefault()">Lista de usuarios</a>
-					
-										</div>
-									</li>
+								
+							
+									
 					
 				
-								}
+							
 						</div>
 	
 					</li>
+					
+				}
+
+				@if (isAdmin) {
+					<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Usuarios </a>
+						<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+							<a ngbDropdownItem routerLink="/user" (click)="$event.preventDefault()">Lista de usuarios</a>
+	
+						</div>
+					</li>
+	
 					
 				}
 
@@ -63,17 +70,7 @@
 						<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
 							<a ngbDropdownItem routerLink="/booking" (click)="$event.preventDefault()">Editar
 								Reservas</a>
-								@if (isAdmin) {
-									<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-										<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Usuarios </a>
-										<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-											<a ngbDropdownItem routerLink="/user" (click)="$event.preventDefault()">Lista de usuarios</a>
-					
-										</div>
-									</li>
-					
-				
-								}
+								
 						</div>
 	
 					</li>

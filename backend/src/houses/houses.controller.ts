@@ -1,4 +1,5 @@
 import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param,
+    ParseBoolPipe,
     ParseIntPipe, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { House } from './houses.model';
@@ -121,7 +122,7 @@ export class HousesController {
     }
 
     @Get('filter-by-petFriendly')
-    findByPetFriendly(@Param('id', ParseIntPipe) id: boolean) {
+    findByPetFriendly(@Param('id', ParseBoolPipe) id: boolean) {
         return this.houseRepository.find({
             where: {
                 petFriendly: id
