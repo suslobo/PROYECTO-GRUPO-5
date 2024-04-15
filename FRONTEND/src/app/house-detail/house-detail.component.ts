@@ -20,7 +20,7 @@ export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
   user: User | undefined;
-  ratings: Rating [] = [];
+  ratings: Rating[] = [];
   // formulario para crear nuevos comentarios
   ratingForm = new FormGroup({
     score: new FormControl(0),
@@ -43,7 +43,9 @@ constructor(private httpClient: HttpClient,
       .subscribe(house => this.house = house);
 
       this.httpClient.get<Rating[]>('http://localhost:3000/rating/filter-by-house/' + id)
-      .subscribe(ratings => this.ratings = ratings);
+      .subscribe(ratings => {
+        this.ratings = ratings;
+      });
   });
 }
 save() {

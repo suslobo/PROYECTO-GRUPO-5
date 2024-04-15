@@ -330,7 +330,7 @@
                               </ng-template>
                             </ngb-rating>
                             <!-- Fecha y usuario -->
-                            {{rating.createdDate | date:'dd/MM/yyyy'}} {{rating.user}}
+                            {{rating.createdDate | date:'dd/MM/yyyy'}} {{rating.user?.email}}
                           </h6>
                           <!-- Comentario -->
                           <small class="text-body-secondary">{{rating.comment}}</small>

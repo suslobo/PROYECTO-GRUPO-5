@@ -81,18 +81,6 @@ export class HousesController {
         });
     }
 
-    /*
-    @Get('filter-by-price/:min/:max')
-    findByPriceBetweenMinAndMax(
-        @Param('min', ParseIntPipe) min: number,
-        @Param('max', ParseIntPipe) max: number) {
-        return this.houseRepo.find({
-            where: {
-                price: Between(min, max)
-            }
-        });
-    }
-    */
 
     @Get('filter-by-price')
     findByPrice(@Param('id', ParseIntPipe) id: number) {
