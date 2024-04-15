@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { House } from '../interfaces/house.model';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbAccordionConfig, NgbRating, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { Rating } from '../interfaces/rating.model';
