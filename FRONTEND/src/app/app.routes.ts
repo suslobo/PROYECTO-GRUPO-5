@@ -37,12 +37,12 @@ export const routes: Routes = [
     {
         path: 'houses/create',
         component: HouseFormComponent,
-        canActivate: [roleAdminGuard]
+       
     },
     {
         path: 'houses/:id/update',
         component: HouseFormComponent,
-        canActivate: [roleAdminGuard]
+       
     },
     {
         path: 'booking',

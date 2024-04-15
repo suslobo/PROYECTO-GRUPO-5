@@ -27,31 +27,20 @@ export class BookingController {
             }
         });
     } 
-    @Get('filter-by-user/:email')
-    findByUserId(@Param('email', ParseIntPipe) email: string){
+    @Get('filter-by-user/:id')
+    findByUserId(@Param('id', ParseIntPipe) id: number){
         return this.bookingRepository.find({
             where: {
                 user: {
-                    email: email
+                    id: id
                 }
             }
         });
     }
 
-  /*  @Get('filter-by-user/:email')
-  @UseGuards(AuthGuard('jwt'))
-    findByUserEmail(@Request() request){
-        return this.bookingRepository.find({
-            where: {
-                users: {
-                    email: request.user.id
-                }
-            }
-        });
-    }  */ 
-
-      @Get('filter-by-current-user')
+ 
     @UseGuards(AuthGuard('jwt'))
+    @Get('filter-by-current-user')
     findByCurrentUserId(@Request() request) {
 
         if (request.user.role === Role.ADMIN) {
@@ -94,13 +83,6 @@ findByBookId(@Param('id', ParseIntPipe) id: number){
 findWithFilter(@Query() filters: any) {
     console.log(filters);
 
-    // Si está vacío devolver .find() sin filtro (No hace falta)
-    // Ejemplo: http://localhost:3000/reservation/filter
-    // if(Object.keys(filters).length === 0) 
-    //    return this.reservationRepo.find();
-
-    // Si no está vacío entonces filtar:
-    // Ejemplo: http://localhost:3000/reservation/filter?user.id=3&startDate=2024-01-01&price=244
     return this.bookingRepository.find({
         where: filters
     });

@@ -61,6 +61,8 @@ export class RatingController {
         rating.user = request.user;
         return this.ratingRepository.save(rating);      
     }
+
+    
     @Put(':id')
     async update(
         @Param('id', ParseIntPipe) id: number,

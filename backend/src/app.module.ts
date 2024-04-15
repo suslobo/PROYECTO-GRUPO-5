@@ -50,7 +50,7 @@ import { JwtValidator } from './users/jwt.validators';
     }),
     TypeOrmModule.forFeature([Booking, User, House, Rating])
   ],
-  controllers: [ HousesController, BookingController, UsersController, RatingController],
-  providers: [AppService, JwtValidator],
+  controllers: [HousesController, BookingController, UsersController, RatingController],
+  providers: [JwtValidator],
 })
 export class AppModule {}
