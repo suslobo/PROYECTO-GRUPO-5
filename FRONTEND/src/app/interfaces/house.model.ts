@@ -1,3 +1,5 @@
+import { User } from "./user.model";
+
 export interface House {
 
   id: number;
@@ -24,6 +26,8 @@ export interface House {
 
   description: string;
   photoUrl: string;
+
+  users?: User;
  
 
 }

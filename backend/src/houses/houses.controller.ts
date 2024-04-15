@@ -1,4 +1,5 @@
 import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param,
+    ParseBoolPipe,
     ParseIntPipe, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { House } from './houses.model';
@@ -11,6 +12,7 @@ export class HousesController {
     private houseRepository: Repository<House>) {}
 
     @Get()
+    
     findAll() {
         return this.houseRepository.find();
     }
@@ -79,18 +81,6 @@ export class HousesController {
         });
     }
 
-    /*
-    @Get('filter-by-price/:min/:max')
-    findByPriceBetweenMinAndMax(
-        @Param('min', ParseIntPipe) min: number,
-        @Param('max', ParseIntPipe) max: number) {
-        return this.houseRepo.find({
-            where: {
-                price: Between(min, max)
-            }
-        });
-    }
-    */
 
     @Get('filter-by-price')
     findByPrice(@Param('id', ParseIntPipe) id: number) {
@@ -120,7 +110,7 @@ export class HousesController {
     }
 
     @Get('filter-by-petFriendly')
-    findByPetFriendly(@Param('id', ParseIntPipe) id: boolean) {
+    findByPetFriendly(@Param('id', ParseBoolPipe) id: boolean) {
         return this.houseRepository.find({
             where: {
                 petFriendly: id
@@ -191,10 +181,7 @@ export class HousesController {
         });
     }
 
-   /*  @Post()
-    create(@Body() house: House) {
-        return this.houseRepository.save(house);
-    } */
+
 
     @Post()
     @UseInterceptors(FileInterceptor('file'))

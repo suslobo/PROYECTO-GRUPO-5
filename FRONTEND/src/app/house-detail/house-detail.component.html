@@ -318,7 +318,7 @@
                 <ul class="list-unstyled">
                   @for (rating of ratings; track rating.id) {
                     <li>
-                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top">
                         <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
                         <!-- Información del usuario y comentario -->
                         <div class="col-lg-8">
@@ -330,7 +330,7 @@
                               </ng-template>
                             </ngb-rating>
                             <!-- Fecha y usuario -->
-                            {{rating.createdDate | date:'dd/MM/yyyy'}} {{rating.user}}
+                            {{rating.createdDate | date:'dd/MM/yyyy'}} {{rating.user?.email}}
                           </h6>
                           <!-- Comentario -->
                           <small class="text-body-secondary">{{rating.comment}}</small>

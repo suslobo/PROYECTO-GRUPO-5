@@ -4,8 +4,8 @@
     <h4 class="mb-3 mt-5 " style="color: #f57d00;">Iniciar sesión</h4>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
-      <label for="floatingInput">NickName</label>
+      <input type="text" class="form-control" id="floatingnickName" placeholder="" formControlName="nickName">
+      <label for="floatingnickName">NickName</label>
     </div>
 
     <div class="form-floating">
@@ -25,7 +25,9 @@
     </div>
    
     <button class="btn btn-outline-naranaja w-100 py-2" type="submit">Iniciar sesión</button>
-    
+    @if (error) {
+      <small class="text-danger">{{error}}</small>
+    }
     <div>
       <div>
       <p class="c-p-conditions">

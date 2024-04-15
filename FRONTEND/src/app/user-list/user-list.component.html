@@ -23,7 +23,7 @@
                         <!-- <td>{{booking.departureDate}}</td> -->
                         <td>{{user.lastName}}</td>
                         <td>{{user.email}}</td>
-                       
+                      
                         <td>
                           <button id="detalle" type="button" class="btn btn-outline-naranaja"
                           [routerLink]="['/user', user.id, 'detail']">
@@ -36,6 +36,7 @@
 
                           <button class="btn btn-outline-naranaja w-25 py-2 " (click)="deleteById(user.id)"> Borrar</button>
                         </td>
+                     
                       </tr>
                        }
   

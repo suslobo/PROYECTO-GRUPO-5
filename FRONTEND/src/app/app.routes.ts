@@ -12,6 +12,8 @@ import { HouseFormComponent } from './house-form/house-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { AccountFormComponent } from './account-form/account-form.component';
+import { roleAdminGuard } from './authentication/role.guard';
 
 
 export const routes: Routes = [
@@ -34,11 +36,13 @@ export const routes: Routes = [
     },
     {
         path: 'houses/create',
-        component: HouseFormComponent
+        component: HouseFormComponent,
+       
     },
     {
         path: 'houses/:id/update',
-        component: HouseFormComponent
+        component: HouseFormComponent,
+       
     },
     {
         path: 'booking',
@@ -52,8 +56,11 @@ export const routes: Routes = [
         path: 'booking/:id/form',
         component: BookingFormComponent
     },
+    {
+        path: 'account',
+        component: AccountFormComponent
+    },
    
-    
     {
         path: 'user',
         component: UserListComponent
@@ -70,6 +77,7 @@ export const routes: Routes = [
         path:'user/:id/profile',
         component: UserProfileComponent
     },
+    
    
     {
         path: 'login',
@@ -79,7 +87,7 @@ export const routes: Routes = [
         path: 'register',
         component: RegisterComponent
     },
-   
+  
     {
         path: 'not-found-404',
         component: NotFoundComponent

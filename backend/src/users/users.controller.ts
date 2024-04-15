@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, UnauthorizedException } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Request, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './users.model';
@@ -6,6 +6,7 @@ import { Register } from './register.dto';
 import { Role } from './role.model';
 import { Login } from './login.dto';
 import { JwtService } from '@nestjs/jwt';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('users')
 export class UsersController {
@@ -19,7 +20,7 @@ export class UsersController {
     findAll() {
         return this.userRepository.find();
     }
-    @Get(':id')
+   @Get(':id')
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.userRepository.findOne({
             where: {
@@ -28,14 +29,53 @@ export class UsersController {
             });
         
 }
-@Get('filter-by-firstName')
+/*@Get('filter-by-firstName')
 findByTitle(@Param('id', ParseIntPipe) id: string) {
     return this.userRepository.findOne({
         where: {
             firstName: id
         }
     });
+} */
+
+@Get('account/:id')
+@UseGuards(AuthGuard('jwt'))
+public getCurrentAccountUser(@Request() request) {
+    
+    return request.user;
 }
+
+@Put(':id')
+async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() user: User
+    ) {
+        
+        
+        const exists = await this.userRepository.existsBy({
+           id: id
+        });
+
+        if(!exists) {
+            throw new NotFoundException('User not found');
+        }
+
+        return this.userRepository.save(user);
+
+}
+
+
+/* @Put()
+@UseGuards(AuthGuard('jwt'))
+public update(@Body() user: User, @Request() request) {
+
+   
+if(request.user.role !== Role.ADMIN && user.id !== request.user.id){
+    
+    throw new UnauthorizedException();
+}
+return this.userRepository.save(user);  
+} */
 
 @Post('register')
 async register(@Body() register: Register) {
@@ -46,14 +86,15 @@ async register(@Body() register: Register) {
 
     if(exists)
         throw new ConflictException("Email ocupado");
-
+   
    
     const user: User = {
         id: 0,
         nickName: register.nickName,
         email: register.email,
         password: register.password,
-        phone: '',
+        phone: null,
+        
         
         role: Role.USER
     };
@@ -85,7 +126,7 @@ async register(@Body() register: Register) {
             sub: user.id,
             email: user.email,
             role: user.role,
-            firstName: user.firstName
+            
         };
 
         let token = {
@@ -96,24 +137,7 @@ async register(@Body() register: Register) {
         
 
     }
-    @Put(':id')
-    async update(
-        @Param('id', ParseIntPipe) id: number,
-        @Body() user: User
-        ) {
-            
-            
-            const exists = await this.userRepository.existsBy({
-               id: id
-            });
-
-            if(!exists) {
-                throw new NotFoundException('User not found');
-            }
-
-            return this.userRepository.save(user);
-
-    }
+ 
 
 
     @Delete(':id')

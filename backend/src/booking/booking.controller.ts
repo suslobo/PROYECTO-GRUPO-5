@@ -1,7 +1,9 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, Request, ParseIntPipe, Post, Put, UseGuards, Query } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Booking } from './booking.model';
 import { Repository } from 'typeorm';
+import { Role } from 'src/users/role.model';
+import { AuthGuard } from '@nestjs/passport';
 
 
 @Controller('booking')
@@ -17,35 +19,59 @@ export class BookingController {
         return this.bookingRepository.find();
     }
 
-   /*  @Get('filter-by-id/:id')
-    findById(@Param('id', ParseIntPipe) id:number){
+
+    @Get('filter-by-id/:id')
+    findById(@Param('id', ParseIntPipe) id :number){
         return this.bookingRepository.findOne({
             where: {
                 id: id
             }
         });
-    } */
-
-   @Get('filter-by-user/:email')
-    findByUserId(@Param('email') email: string){
+    } 
+    @Get('filter-by-user/:id')
+    findByUserId(@Param('id', ParseIntPipe) id: number){
         return this.bookingRepository.find({
             where: {
-                users: {
-                    email: email
+                user: {
+                    id: id
                 }
             }
         });
-    } 
-
-  /*   @Get('filter-by-destination')
-    findByBookId(@Param('id', ParseIntPipe) id: string){
+    }
+    
+    @Get('filter-by-house/:id')
+    findByHouseId(@Param('id', ParseIntPipe) id: number){
         return this.bookingRepository.find({
             where: {
-                destination: id
+                user: {
+                    id: id
+                }
             }
         });
-    }  */
-    @Get(':id')
+    }  
+
+ 
+    @UseGuards(AuthGuard('jwt'))
+    @Get('filter-by-current-user')
+    findByCurrentUserId(@Request() request) {
+
+        if (request.user.role === Role.ADMIN) {
+            return this.bookingRepository.find();
+        } else {
+            return this.bookingRepository.find({
+                where: {
+                    user: {
+                        id: request.user.id
+                    }
+                }
+            });
+        }
+
+    }    
+
+ 
+/*     @Get(':id')
+    //@UseGuards(AuthGuard('jwt'))
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.bookingRepository.findOne({
             where: {
@@ -53,14 +79,36 @@ export class BookingController {
                 }
             });
         
+}  */
+
+@Get('filter-by-house/:id')
+findByBookId(@Param('id', ParseIntPipe) id: number){
+    return this.bookingRepository.find({
+        where: {
+            house: {
+                id: id
+            }
+        }
+    });
+}
+@Get('filter')
+findWithFilter(@Query() filters: any) {
+    console.log(filters);
+
+    return this.bookingRepository.find({
+        where: filters
+    });
 }
     @Post()
-    create(@Body() booking: Booking) {
+    @UseGuards(AuthGuard('jwt'))
+    create(@Body() booking: Booking, @Request() request) {
+        
+        booking.user = request.user;
         return this.bookingRepository.save(booking);
                 
     }
 
-
+    
     @Delete(':id')
 async deleteById(
     @Param('id', ParseIntPipe) id: number
@@ -80,3 +128,6 @@ async deleteById(
 }
 
 }
+
+
+

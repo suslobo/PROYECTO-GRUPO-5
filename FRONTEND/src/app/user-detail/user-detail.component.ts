@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user.model';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.css'
 })
