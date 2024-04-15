@@ -29,14 +29,6 @@ export class UsersController {
             });
         
 }
-/*@Get('filter-by-firstName')
-findByTitle(@Param('id', ParseIntPipe) id: string) {
-    return this.userRepository.findOne({
-        where: {
-            firstName: id
-        }
-    });
-} */
 
 @Get('account/:id')
 @UseGuards(AuthGuard('jwt'))
@@ -51,7 +43,6 @@ async update(
     @Body() user: User
     ) {
         
-        
         const exists = await this.userRepository.existsBy({
            id: id
         });
@@ -63,19 +54,6 @@ async update(
         return this.userRepository.save(user);
 
 }
-
-
-/* @Put()
-@UseGuards(AuthGuard('jwt'))
-public update(@Body() user: User, @Request() request) {
-
-   
-if(request.user.role !== Role.ADMIN && user.id !== request.user.id){
-    
-    throw new UnauthorizedException();
-}
-return this.userRepository.save(user);  
-} */
 
 @Post('register')
 async register(@Body() register: Register) {
