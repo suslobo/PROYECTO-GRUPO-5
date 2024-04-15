@@ -11,5 +11,4 @@ export const roleAdminGuard: CanActivateFn = (route, state) => {
   } else {
      return router.navigate(['/login']);
   }
-  
 };

@@ -3,7 +3,7 @@
       <div class="col">
 
           @if(isUpdate){
-              <h4 class="mb-3 mt-4" style="color: #f57d00">Actualizar Datos</h4>
+              <h4 class="mb-3 mt-4" style="color: #f57d00">Actualizar casa existente</h4>
           } @else {
             <h4 class="mb-3 mt-4" style="color: #f57d00">Introduce los detalles de tu casa</h4>
           }
@@ -143,16 +143,24 @@
                             </div>
                           </div>
                       </div>
-                      
-                      <h4 class="mb-3 mt-4" style="color: #f57d00">Datos de contacto</h4>
+                      <div class="row">
+                        <h4 class="mb-3 mt-4" style="color: #f57d00">Datos de contacto</h4>
+                        <div class="col-6">
+                          <label for="phone">Teléfono</label>
+                          <input type="text"  class="form-control" id="phone"
+                              formControlName="phone" placeholder="" aria-label="phone">
+                              <label for="email">Email</label>
+                              <input type="text"  class="form-control" id="email"
+                                  formControlName="email" placeholder="" aria-label="email">
+                      </div>
                       <div class="col-6">
-                        <label for="phone">Teléfono</label>
-                        <input type="text"  class="form-control" id="phone"
-                            formControlName="phone" placeholder="" aria-label="phone">
-                            <label for="email">Email</label>
-                            <input type="text"  class="form-control" id="email"
-                                formControlName="email" placeholder="" aria-label="email">
+                        @if (photoPreview) {
+                            <h3 class="my-5">Previsualización</h3>
+                            <img class="img-fluid" [src]="photoPreview">
+                        }
                     </div>
+                      </div>
+                     
                     
 
                       <h4 class="mb-3 mt-4" style="color: #f57d00">Añadir Fotos</h4>

@@ -3,14 +3,14 @@
         <div class="col">
 
 
-            <h4 class="mt-3" style="color: #f57d00">Mi perfil</h4>
+            <h4 class="mt-4" style="color: #f57d00">Mi perfil</h4>
 
             <h4 style="margin-top: 20px;">Datos de contacto</h4>
             <form class="mt" [formGroup]="userForm" (ngSubmit)="save()">
 
                 <input type="hidden" formControlName="id">
 
-                <div class="row" style="margin-top: 10px;">
+                <div class="row" style="margin-top: 20px;">
                     <div class="col-4">
                         <label for="firstName">Nombre </label>
                         <input type="text" class="form-control" id="firstName" formControlName="firstName"
@@ -29,7 +29,7 @@
                             aria-label="email">
                     </div>
 
-                    <div class="row" style="margin-top: 10px;">
+                    <div class="row" style="margin-top: 20px;">
                         <div class="col-4">
                             <label for="phone">Teléfono</label>
                             <input type="text" class="form-control" id="phone" formControlName="phone" placeholder=""
@@ -46,7 +46,7 @@
                                 placeholder="" aria-label="password">
                         </div>
 
-                        <div class="row" style="margin-top: 10px;">
+                        <div class="row" style="margin-top: 20px;">
                             <div class="col-4">
                                 <label for="street">Dirección</label>
                                 <input type="text" class="form-control" id="street" formControlName="street"
@@ -65,14 +65,18 @@
 
                         </div>
 
+                        <div class="mt-4 mb-3" style="margin-left: 20px;">
+                            <button class="btn btn-outline-naranaja w-25 py-2 mb-3 " type="submit">Guardar</button>
+                            <span style="margin-left: 110px;"></span>
 
-
-                        <div class="d-grid gap-2 mt-5">
-                            <button class="btn btn-outline-success w-100 py-2" type="submit">Guardar</button>
-                            <button class="btn btn-outline-danger w-100 py-2" type="submit"
+                            <button class="btn btn-outline-naranaja w-25 py-2 mb-3" type="submit"
                                 routerLink="/home">Cancelar</button>
-                        </div>
+                            <span style="margin-left: 110px;"></span>
 
+                            <button class="btn btn-outline-naranaja w-25 py-2 mb-3" type="submit"
+                             routerLink="/account/avatar">Sube tu foto de perfil</button>
+
+                        </div>
                     </div>
                 </div>
 

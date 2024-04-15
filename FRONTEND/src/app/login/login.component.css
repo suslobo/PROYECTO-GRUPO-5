@@ -11,3 +11,9 @@
   color: #ffffff;
   background-color: #f57d00;
 }
+.my-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Esto asegura que el formulario ocupe toda la altura de la ventana */
+}

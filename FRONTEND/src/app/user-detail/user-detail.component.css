@@ -1,7 +1,14 @@
 th{
-  color: #7d9e47;
+  color: #000000;
 }
 
 .naranja-border {
   border: 2px solid #f57d00;
+}
+p{
+  font-size: 20px;
+  
+}
+.table-responsive {
+  overflow-x: auto;
 }

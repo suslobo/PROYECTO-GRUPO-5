@@ -13,7 +13,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { AccountFormComponent } from './account-form/account-form.component';
-import { roleAdminGuard } from './authentication/role.guard';
+import { AvatarFormComponent } from './avatar-form/avatar-form.component';
 
 
 export const routes: Routes = [
@@ -87,7 +87,14 @@ export const routes: Routes = [
         path: 'register',
         component: RegisterComponent
     },
-  
+    {
+        path: 'account',
+        component: AccountFormComponent
+    },
+    {
+        path: 'account/avatar',
+        component: AvatarFormComponent
+    },
     {
         path: 'not-found-404',
         component: NotFoundComponent
@@ -96,7 +103,6 @@ export const routes: Routes = [
         path: '**',
         redirectTo: '/not-found-404'
     }
-
 
 ];
 

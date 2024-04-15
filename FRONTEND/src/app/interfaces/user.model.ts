@@ -9,11 +9,11 @@ export interface User {
   nif?: string;
   password: string;
 
-
   street?: string;
   city?: string;
   postalCode?: string;
 
+  photoUrl?: string;
   role?: Role;
 }
 export enum Role {
