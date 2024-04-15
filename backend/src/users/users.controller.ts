@@ -98,7 +98,7 @@ export class UsersController {
 
     }
 
-    @Put()
+   /*  @Put()
     @UseGuards(AuthGuard('jwt'))
     public update(@Body() user: User, @Request() request) {
 
@@ -108,13 +108,34 @@ export class UsersController {
          }
      
          return this.userRepository.save(user);
-     } */
+     } 
         if (request.user.role !== Role.ADMIN && user.id !== request.user.id) {
 
             throw new UnauthorizedException();
         }
         return this.userRepository.save(user);
     }
+ */
+
+    @Put(':id')
+    async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() user: User
+    ) {
+
+
+        const exists = await this.userRepository.existsBy({
+           id: id
+        });
+
+        if(!exists) {
+            throw new NotFoundException('User not found');
+        }
+
+        return this.userRepository.save(user);
+
+}
+
 
 
     // account

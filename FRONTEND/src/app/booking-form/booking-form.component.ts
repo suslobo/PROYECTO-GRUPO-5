@@ -3,14 +3,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular
 import { Booking } from '../interfaces/booking.model';
 import { NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 import { House } from '../interfaces/house.model';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-reservation-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, HttpClientModule, NgbAlert, CurrencyPipe],
+  imports: [ReactiveFormsModule, RouterLink, NgbAlert, CurrencyPipe],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css'
 })

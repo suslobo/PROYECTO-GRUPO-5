@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { House } from '../interfaces/house.model';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbAccordionConfig, NgbRating, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { Rating } from '../interfaces/rating.model';
@@ -11,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-house-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgbRating, NgbRatingModule, DatePipe, ReactiveFormsModule],
+  imports: [RouterLink, NgbRating, NgbRatingModule, DatePipe, ReactiveFormsModule],
   providers: [NgbAccordionConfig],
   templateUrl: './house-detail.component.html',
   styleUrl: './house-detail.component.css'

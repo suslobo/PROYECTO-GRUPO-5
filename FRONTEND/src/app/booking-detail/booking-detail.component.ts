@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Booking } from '../interfaces/booking.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-booking-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './booking-detail.component.html',
   styleUrl: './booking-detail.component.css'
 })
