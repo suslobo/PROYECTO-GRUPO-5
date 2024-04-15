@@ -26,7 +26,7 @@ export class HouseDetailComponent implements OnInit {
     score: new FormControl(0),
     comment: new FormControl('')
   });
-user: any;
+
 
 
 constructor(private httpClient: HttpClient,

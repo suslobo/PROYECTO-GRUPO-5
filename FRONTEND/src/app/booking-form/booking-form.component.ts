@@ -100,7 +100,7 @@ export class BookingFormComponent implements OnInit {
       people: this.bookingForm.get('people')?.value ?? 0,
      
       price: this.totalPrice,
-      houses: this.house,
+      house: this.house,
               
     };
 
