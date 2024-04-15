@@ -27,8 +27,8 @@ En angular.json hay que agregar el bootstrap-icons.min.css a styles:
 ## PASO 5: LEVANTAR EL BACKEND
 
 En otra terminal
-json-server --watch db.json
 
+json-server --watch db.json
 ## PASO 6: CREAR COMPONENTES
 
 ng g c nombre del componente
