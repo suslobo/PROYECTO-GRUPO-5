@@ -19,8 +19,9 @@ export class BookingController {
         return this.bookingRepository.find();
     }
 
+
     @Get('filter-by-id/:id')
-    findById(@Param('id', ParseIntPipe) id:number){
+    findById(@Param('id', ParseIntPipe) id :number){
         return this.bookingRepository.findOne({
             where: {
                 id: id
@@ -37,6 +38,17 @@ export class BookingController {
             }
         });
     }
+    
+    @Get('filter-by-house/:id')
+    findByHouseId(@Param('id', ParseIntPipe) id: number){
+        return this.bookingRepository.find({
+            where: {
+                user: {
+                    id: id
+                }
+            }
+        });
+    }  
 
  
     @UseGuards(AuthGuard('jwt'))
@@ -69,7 +81,7 @@ export class BookingController {
         
 }  */
 
-@Get('filter-by-houses/:id')
+@Get('filter-by-house/:id')
 findByBookId(@Param('id', ParseIntPipe) id: number){
     return this.bookingRepository.find({
         where: {

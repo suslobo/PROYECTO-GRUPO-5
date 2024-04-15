@@ -1,5 +1,5 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Booking } from '../interfaces/booking.model';
 import { AuthenticationService } from '../authentication/authentication.service';
@@ -7,7 +7,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 @Component({
   selector: 'app-booking-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule],
+  imports: [RouterLink],
   templateUrl: './booking-list.component.html',
   styleUrl: './booking-list.component.css'
 })

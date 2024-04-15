@@ -1,6 +1,6 @@
 
 import { House } from "./house.model";
-import { Payment } from "./payment.model";
+
 import { User} from "./user.model";
 
 export interface Booking {
@@ -15,9 +15,8 @@ export interface Booking {
         
 
         users?: User;
-        houses?: House;
-        //payment?: Payment;
-        //status?: BookingStatus;
+        house?: House;
+       
         totalPrice?: number;
 
 }

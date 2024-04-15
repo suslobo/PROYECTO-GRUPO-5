@@ -32,6 +32,8 @@ export class Booking {
     @ManyToOne(() => House, {eager: true})
     house: House;
 
+    
+
    /*  @Column({nullable: false})
     totalPrice: number; */
 
