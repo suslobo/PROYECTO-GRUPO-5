@@ -15,10 +15,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { RatingController } from './rating/rating.controller';
 import { Rating } from './rating/rating.model';
 import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
+import { JwtValidator } from './users/jwt.validators';
+
 
 
 @Module({
   imports: [
+    PassportModule,
     JwtModule.register({
       secret: 'admin',
       signOptions: {expiresIn: '7d'}
@@ -46,7 +50,7 @@ import { JwtModule } from '@nestjs/jwt';
     }),
     TypeOrmModule.forFeature([Booking, User, House, Rating])
   ],
-  controllers: [AppController, HousesController, BookingController, UsersController, RatingController],
-  providers: [AppService],
+  controllers: [HousesController, BookingController, UsersController, RatingController],
+  providers: [JwtValidator],
 })
 export class AppModule {}

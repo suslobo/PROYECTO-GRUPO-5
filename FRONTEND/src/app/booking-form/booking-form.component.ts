@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular
 import { Booking } from '../interfaces/booking.model';
 import { NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 import { House } from '../interfaces/house.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 
@@ -59,10 +59,6 @@ export class BookingFormComponent implements OnInit {
     let entryDate = this.bookingForm.get('entryDate')?.value;
     let departureDate = this.bookingForm.get('departureDate')?.value;
 
-
-    
-    
-
     if(!entryDate || !departureDate || !this.house || !this.house.price){
       return;
     }
@@ -80,8 +76,6 @@ export class BookingFormComponent implements OnInit {
     this.totalPrice = this.numDays * this.house.price;
 
     
-    
-
     const cleaningService = this.bookingForm.get('cleaningService')?.value;
     if(cleaningService)
     this.totalPrice += 30;
@@ -94,12 +88,6 @@ export class BookingFormComponent implements OnInit {
       this.totalPrice += this.totalBreakfastPrice;
     }
     
-    /* let people = this.bookingForm.get('people')?.value;
-    if(people){
-      this.totalPrice= this.breakfast * this.people;
-    } */
-
-   // this.people = this.bookingForm.get('people')?.value || 0;
     
   }
 
@@ -112,14 +100,9 @@ export class BookingFormComponent implements OnInit {
       people: this.bookingForm.get('people')?.value ?? 0,
      
       price: this.totalPrice,
-      houses: this.house,
-     
-     
-      //totalPrice: this.totalPrice
-      
+      house: this.house,
+              
     };
-
-  
 
     // enviar al backend con método POST
     this.httpClient.post<Booking>('http://localhost:3000/booking', booking)
@@ -127,11 +110,6 @@ export class BookingFormComponent implements OnInit {
      /*  console.log(booking); */
       this.showConfirmMessage = true;
       this.booking = booking;
-  
-
   });
 }
-
-
-
 }

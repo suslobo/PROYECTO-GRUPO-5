@@ -16,14 +16,16 @@ import { User } from '../interfaces/user.model';
 export class RegisterComponent {
 
   registerForm = this.fb.group({
+    
     nickname: ['', [ Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     email: ['', [Validators.required, Validators.email]],
-    //phone: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
+    
     password: ['', [Validators.required]],
     passwordConfirm: ['', [Validators.required]]
   },
   {validators: this.passwordConfirmValidator}
   );
+  error = '';
 
   constructor(private fb: FormBuilder,
     private httpClient: HttpClient,
@@ -41,19 +43,6 @@ export class RegisterComponent {
       }
    
     }
-   /*  checkEmail() {
-    const email = this.registerForm.get('email')?.value;
-
-    
-    const emailExists = true;
-
-    if (emailExists) {
-      alert('¡Error! El correo electrónico ya existe.');
-    } else {
-      this.save();
-    }
-  } */
-    
 
   save(){
 
@@ -67,12 +56,14 @@ export class RegisterComponent {
     this.httpClient.post<User>(url, register)
     .subscribe({
       next: user => {
-        console.log(user);
+       
       this.router.navigate([`/user/${user.id}/profile`]);
       },
       error: error => {
-        // aqui hacemos algo que mueste un alert rojo por antalla
-        console.log(error);
+        if (error.status === 409){
+          this.error = 'Datos ocupados';
+        }
+       
         
       }
     });

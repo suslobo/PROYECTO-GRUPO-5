@@ -11,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-house-detail',
   standalone: true,
-  imports: [RouterLink, NgbRating, NgbRatingModule, DatePipe, ReactiveFormsModule],
+  imports: [RouterLink, NgbRatingModule, DatePipe, ReactiveFormsModule],
   providers: [NgbAccordionConfig],
   templateUrl: './house-detail.component.html',
   styleUrl: './house-detail.component.css'
@@ -19,14 +19,14 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
-  users: User | undefined;
-  ratings!: Rating[];
+  user: User | undefined;
+  ratings: Rating[] = [];
   // formulario para crear nuevos comentarios
   ratingForm = new FormGroup({
     score: new FormControl(0),
     comment: new FormControl('')
   });
-user: any;
+
 
 
 constructor(private httpClient: HttpClient,
@@ -40,8 +40,13 @@ constructor(private httpClient: HttpClient,
         return; //
       }
 
-      this.httpClient.get<House>('http://localhost:3000/houses/' + id).subscribe(house => this.house = house);
-      this.httpClient.get<Rating[]>('http://localhost:3000/rating/filter-by-house/' + id).subscribe(ratings => this.ratings = ratings)
+      this.httpClient.get<House>('http://localhost:3000/houses/' + id)
+      .subscribe(house => this.house = house);
+
+      this.httpClient.get<Rating[]>('http://localhost:3000/rating/filter-by-house/' + id)
+      .subscribe(ratings => {
+        this.ratings = ratings;
+      });
   });
 }
 save() {
@@ -59,5 +64,6 @@ save() {
     });
 
 }
+
 }
  

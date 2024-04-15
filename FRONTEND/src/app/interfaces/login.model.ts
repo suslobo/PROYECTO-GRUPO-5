@@ -1,5 +1,5 @@
 export interface Login {
   email: string;
-  nickName: string;
+  nickName?: string;
   password: string;
 }
