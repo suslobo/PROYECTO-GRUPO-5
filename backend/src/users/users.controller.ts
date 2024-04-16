@@ -14,93 +14,88 @@ export class UsersController {
         @InjectRepository(User)
         private userRepository: Repository<User>,
         private jwtService: JwtService
-    ){}
+    ) { }
 
     @Get()
     findAll() {
         return this.userRepository.find();
     }
-   @Get(':id')
+    @Get(':id')
     findById(@Param('id', ParseIntPipe) id: number) {
-       return this.userRepository.findOne({
+        return this.userRepository.findOne({
             where: {
-               id: id
-                }
-            });
-        
-}
-
-
-@Get('account/:id')
-@UseGuards(AuthGuard('jwt'))
-public getCurrentAccountUser(@Request() request) {
-    
-    return request.user;
-}
-
-@Put(':id')
-async update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() user: User
-    ) {
-        
-        
-        const exists = await this.userRepository.existsBy({
-           id: id
+                id: id
+            }
         });
 
-        if(!exists) {
+    }
+    @Get('account/:id')
+    @UseGuards(AuthGuard('jwt'))
+    public getCurrentAccountUser(@Request() request) {
+
+        return request.user;
+    }
+
+    @Put(':id')
+    async update(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() user: User
+    ) {
+
+
+        const exists = await this.userRepository.existsBy({
+            id: id
+        });
+
+        if (!exists) {
             throw new NotFoundException('User not found');
         }
 
         return this.userRepository.save(user);
 
-}
+    }
+    @Post('register')
+    async register(@Body() register: Register) {
+
+        const exists = await this.userRepository.existsBy({
+            email: register.email
+        });
+
+        if (exists)
+            throw new ConflictException("Email ocupado");
 
 
+        const user: User = {
+            id: 0,
+            nickName: register.nickName,
+            email: register.email,
+            password: register.password,
+            phone: null,
 
-@Post('register')
-async register(@Body() register: Register) {
-    
-    const exists = await this.userRepository.existsBy({
-        email: register.email
-    });
 
-    if(exists)
-        throw new ConflictException("Email ocupado");
-   
-   
-    const user: User = {
-        id: 0,
-        nickName: register.nickName,
-        email: register.email,
-        password: register.password,
-        phone: null,
-        
-        
-        role: Role.USER
-    };
-    return await this.userRepository.save(user);
-}
+            role: Role.USER
+        };
+        return await this.userRepository.save(user);
+    }
 
-@Post('login')
+    @Post('login')
     async login(@Body() login: Login) {
 
-       
+
         const exists = await this.userRepository.existsBy({
             email: login.email
         });
-        if(!exists)
+        if (!exists)
             throw new NotFoundException("Usuario no encontrado.");
 
-        
+
         const user = await this.userRepository.findOne({
             where: {
                 email: login.email
             }
         });
 
-        if (user.password !== login.password){
+        if (user.password !== login.password) {
             throw new UnauthorizedException("Datos incorrectos");
         }
 
@@ -108,7 +103,7 @@ async register(@Body() register: Register) {
             sub: user.id,
             email: user.email,
             role: user.role,
-            
+
         };
 
         let token = {
@@ -116,10 +111,10 @@ async register(@Body() register: Register) {
         }
         return token;
 
-        
+
 
     }
- 
+
 
 
     @Delete(':id')
@@ -127,17 +122,17 @@ async register(@Body() register: Register) {
         @Param('id', ParseIntPipe) id: number
     ) {
         const exists = await this.userRepository.existsBy({ id: id });
-    
+
         if (!exists) {
             throw new NotFoundException('User not found');
         }
-    
+
         try {
             await this.userRepository.delete(id);
         } catch (error) {
             console.log("Error al borrar el usuario", error);
             throw new ConflictException('No se puede borrar.');
         }
-    
-}
+
+    }
 }

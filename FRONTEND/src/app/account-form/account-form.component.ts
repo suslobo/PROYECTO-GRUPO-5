@@ -3,7 +3,7 @@ import { User } from '../interfaces/user.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-account-form',
