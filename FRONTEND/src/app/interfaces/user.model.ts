@@ -13,7 +13,7 @@ export interface User {
   street?: string;
   city?: string;
   postalCode?: string;
-  photoUrl?: string;
+  photoUrl: string;
 
   role?: Role;
 }

@@ -25,7 +25,8 @@ export class UserProfileComponent implements OnInit {
     passwordConfirm: new FormControl('', [Validators.required]),
     street: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
-    postalCode: new FormControl('', Validators.required)
+    postalCode: new FormControl('', Validators.required),
+    photoUrl: new FormControl('')
   });
   
   user: User | undefined;
@@ -56,7 +57,8 @@ export class UserProfileComponent implements OnInit {
           password: user.password,
           street: user.street,
           city: user.city,
-          postalCode: user.postalCode
+          postalCode: user.postalCode,
+          photoUrl: user.photoUrl
         });
       });
     });
@@ -76,7 +78,8 @@ export class UserProfileComponent implements OnInit {
       password: this.userProfile.get('password')?.value ?? '',
       street: this.userProfile.get('street')?.value ?? '',
       city: this.userProfile.get('city')?.value ?? '',
-      postalCode: this.userProfile.get('postalCode')?.value ?? ''
+      postalCode: this.userProfile.get('postalCode')?.value ?? '',
+      photoUrl: this.userProfile.get('photoUrl')?.value ?? ''
     }
 
 

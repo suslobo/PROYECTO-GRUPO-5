@@ -11,14 +11,14 @@ import { User } from '../interfaces/user.model';
 })
 export class AvatarFormComponent implements OnInit {
 
-  photoFile: File |undefined;
+  photoFile: File | undefined;
   photoPreview: string | undefined;
   user: User | undefined;
 
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.httpClient.get<User>('http:localhost:3000/user/account')
+    this.httpClient.get<User>('http://localhost:3000/users/account')
     .subscribe(user => this.user = user); // traes el usuario
   }
 
@@ -43,7 +43,7 @@ export class AvatarFormComponent implements OnInit {
       formData.append('file', this.photoFile);
     } 
     // enviamos la foto
-    this.httpClient.post<User>('http:localhost:3000/users/avatar', formData)
+    this.httpClient.post<User>('http://localhost:3000/users/avatar', formData)
     .subscribe(user => {
       this.photoFile = undefined;
       this.photoPreview = undefined;
