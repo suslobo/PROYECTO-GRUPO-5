@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Request, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { BadRequestException, Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Request, UnauthorizedException, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './users.model';
@@ -7,6 +7,7 @@ import { Role } from './role.model';
 import { Login } from './login.dto';
 import { JwtService } from '@nestjs/jwt';
 import { AuthGuard } from '@nestjs/passport';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('users')
 export class UsersController {
@@ -84,7 +85,7 @@ export class UsersController {
             email: register.email,
             password: register.password,
             phone: null,
-
+            photoUrl: null,
 
             role: Role.USER
         };
@@ -123,11 +124,24 @@ export class UsersController {
             token: await this.jwtService.signAsync(userData)
         }
         return token;
-
-
-
     }
 
+    @Post('avatar')
+    @UseInterceptors(FileInterceptor('file'))
+    @UseGuards(AuthGuard('jwt'))
+    async uploadAvatar(
+        @UploadedFile() file: Express.Multer.File,
+        @Request() request
+    ) {
+        if (!file) {
+            throw new BadRequestException('Archivo incorrecto')
+        }
+
+        // guardar la ruta del archivo, hay que crear un atributo del user
+        request.user.photoUrl = file.filename;
+        return await this.userRepository.save(request.user);
+
+    }
 
 
     @Delete(':id')

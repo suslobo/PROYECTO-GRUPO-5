@@ -13,6 +13,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { AccountFormComponent } from './account-form/account-form.component';
+import { AvatarFormComponent } from './avatar-form/avatar-form.component';
 
 
 
@@ -77,7 +78,10 @@ export const routes: Routes = [
         path:'user/:id/profile',
         component: UserProfileComponent
     },
-    
+    {
+        path: 'account/avatar',
+        component: AvatarFormComponent
+    },
    
     {
         path: 'login',

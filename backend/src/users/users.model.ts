@@ -38,6 +38,9 @@ export class User {
     @Column({nullable: true})
     postalCode?: string;
 
+    @Column({nullable: true})
+    photoUrl: string;
+
     @Column({
     type: 'enum',
     enum: Role,
