@@ -6,6 +6,7 @@ import { House } from '../interfaces/house.model';
 import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
+import { HouseDetailComponent } from '../house-detail/house-detail.component';
 
 @Component({
   selector: 'app-reservation-form',
@@ -25,6 +26,7 @@ export class BookingFormComponent implements OnInit {
   booking: Booking | undefined;
   breakfast: number = 0;
   totalBreakfastPrice: number = 0;
+  destination: HouseDetailComponent | undefined
  
 
   bookingForm = new FormGroup({
@@ -34,6 +36,7 @@ export class BookingFormComponent implements OnInit {
     cleaningService: new FormControl<boolean>(false),
     breakfast: new FormControl<boolean>(false),
     people: new FormControl(0),
+    destination: new FormControl()
     
    
   });
@@ -50,8 +53,11 @@ export class BookingFormComponent implements OnInit {
       if(!id) return;
 
       this.httpClient.get<House>(`http://localhost:3000/houses/${id}`)
-      .subscribe(house => this.house = house);
+      .subscribe(house => {
+        this.house = house;
+      this.bookingForm.get('destination')?.setValue(house.destination);
     });
+  });
   }
 
   calculatePrice(){
@@ -98,6 +104,7 @@ export class BookingFormComponent implements OnInit {
       entryDate: this.bookingForm.get('entryDate')?.value ?? new Date(),
       departureDate: this.bookingForm.get('departureDate')?.value ?? new Date(),
       people: this.bookingForm.get('people')?.value ?? 0,
+      destination: this.bookingForm.get('destination')?.value ?? '',
      
       price: this.totalPrice,
       house: this.house,

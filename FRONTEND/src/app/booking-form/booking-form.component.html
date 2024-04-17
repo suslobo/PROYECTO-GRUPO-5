@@ -53,6 +53,13 @@
           <label for="people">Personas</label>
         </div>
 
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control"
+          id="destination" formControlName="destination"
+          placeholder="" (change)="save()"readonly>
+          <label for="destination">{{house?.destination}}</label>
+        </div>
+
 
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox"

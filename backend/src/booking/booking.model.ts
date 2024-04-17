@@ -14,6 +14,9 @@ export class Booking {
     @Column({type: 'date'})
     departureDate: Date;
 
+    @Column({nullable: false})
+    destination: string;
+
     @Column({type: 'decimal', precision: 14, scale: 2})
     price: number;
 
