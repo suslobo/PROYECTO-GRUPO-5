@@ -43,7 +43,7 @@ export class AvatarFormComponent implements OnInit {
       formData.append('file', this.photoFile);
     } 
     // enviamos la foto
-    this.httpClient.post<User>('http:localhost:3000/user/avatar', formData)
+    this.httpClient.post<User>('http:localhost:3000/users/avatar', formData)
     .subscribe(user => {
       this.photoFile = undefined;
       this.photoPreview = undefined;
