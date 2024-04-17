@@ -13,7 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './house-form.component.html',
   styleUrl: './house-form.component.css'
 })
-export class HouseFormComponent implements OnInit{
+export class HouseFormComponent implements OnInit {
 
 
   houseForm = new FormGroup({
@@ -37,7 +37,6 @@ export class HouseFormComponent implements OnInit{
     air: new FormControl(false),
     people: new FormControl(0),
     description: new FormControl('', Validators.required),
-    //photoUrl: new FormControl<string[]>([])
     photoUrl: new FormControl('')
   });
 
@@ -47,82 +46,82 @@ export class HouseFormComponent implements OnInit{
   photoFile: File | undefined;
   photoPreview: string | undefined;
 
-   constructor (
+  constructor(
     private httpClient: HttpClient,
     private activatedRoute: ActivatedRoute,
     private router: Router
-    ) {}
+  ) { }
 
 
   ngOnInit(): void {
 
-        this.activatedRoute.params.subscribe(params => {
-          let id = params['id'];
-          if (!id)
-            return;
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id'];
+      if (!id)
+        return;
 
-          this.httpClient.get<House>(`http://localhost:3000/houses/${id}`).subscribe(houses => {
-            this.isUpdate = true
+      this.httpClient.get<House>(`http://localhost:3000/houses/${id}`).subscribe(houses => {
+        this.isUpdate = true
 
-            this.houseForm.reset({
-              id: houses.id,
-              title: houses.title,
-              address: houses.address,
-              phone: houses.phone,
-              email: houses.email,
-              places: houses.places,
-              bedrooms: houses.bedrooms,
-              bathrooms: houses.bathrooms,
-              price: houses.price,
-              meters: houses.meters,
-              destination: houses.destination,
-              petFriendly: houses.petFriendly,
-              pool: houses.pool,
-              garden: houses.garden,
-              terrace: houses.terrace,
-              wifi: houses.wifi,
-              air: houses.air,
-              people: houses.people,
-              description: houses.description,
-              photoUrl: houses.photoUrl
-            });
-          });
-
+        this.houseForm.reset({
+          id: houses.id,
+          title: houses.title,
+          address: houses.address,
+          phone: houses.phone,
+          email: houses.email,
+          places: houses.places,
+          bedrooms: houses.bedrooms,
+          bathrooms: houses.bathrooms,
+          price: houses.price,
+          meters: houses.meters,
+          destination: houses.destination,
+          petFriendly: houses.petFriendly,
+          pool: houses.pool,
+          garden: houses.garden,
+          terrace: houses.terrace,
+          wifi: houses.wifi,
+          air: houses.air,
+          people: houses.people,
+          description: houses.description,
+          photoUrl: houses.photoUrl
+        });
       });
 
-      this.activatedRoute.params.subscribe(params =>{
-        let id = params['id'];
-        if (id)
+    });
+
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id'];
+      if (id)
         this.httpClient.get<House>(`http://localhost:3000/houses/${id}`).subscribe(houses => {
-            this.isDelete = true
-      });
-      })
+          this.isDelete = true
+        });
+    })
 
+  }
+
+  onFileChange(event: Event) {
+
+    let target = event.target as HTMLInputElement;
+
+    if (target.files !== null && target.files.length > 0) {
+      this.photoFile = target.files[0];
+
+      let reader = new FileReader();
+      reader.onload = event => this.photoPreview = reader.result as string;
+      reader.readAsDataURL(this.photoFile);
     }
 
-    onFileChange(event: Event) {
-
-      let target = event.target as HTMLInputElement;
-            
-      if (target.files !== null && target.files.length > 0) {
-        this.photoFile = target.files[0];
-
-        let reader = new FileReader();
-        reader.onload = event => this.photoPreview = reader.result as string;
-        reader.readAsDataURL(this.photoFile);
-      }
-      
 
 
-    }
+  }
 
   save(): void {
 
-   
-    
+
+
     let formData = new FormData();
-    
-    
+
+
 
     formData.append('id', this.houseForm.get('id')?.value ?? 0);
     formData.append('title', this.houseForm.get('title')?.value ?? '');
@@ -142,49 +141,49 @@ export class HouseFormComponent implements OnInit{
     formData.append('wifi', this.houseForm.get('wifi')?.value ? 'true' : 'false');
     formData.append('air', this.houseForm.get('air')?.value ? 'true' : 'false');
     formData.append('description', this.houseForm.get('description')?.value ?? '');
-    formData.append('photoUrl', this.houseForm.get('photoUrl')?.value ?? '');  
+    formData.append('photoUrl', this.houseForm.get('photoUrl')?.value ?? '');
 
-    if(this.photoFile) formData.append('file', this.photoFile);
-    
-    if(this.isUpdate) {
-      const id =this.houseForm.get('id')?.value;
+    if (this.photoFile) formData.append('file', this.photoFile);
+
+    if (this.isUpdate) {
+      const id = this.houseForm.get('id')?.value;
       this.httpClient.put<House>(`http://localhost:3000/houses/${id}`, formData)
-      .subscribe(house => {
-        this.photoFile = undefined;
-        this.photoPreview = undefined;
-        this.houses = house;
-      },);
-      
-     }else {
-      this.httpClient.post<House>('http://localhost:3000/houses', formData)
-    .subscribe(house => {
-      this.photoFile = undefined;
-      this.photoPreview = undefined;
-      this.houses = house;
-      
-    });
-  }
+        .subscribe(house => {
+          this.photoFile = undefined;
+          this.photoPreview = undefined;
+          this.houses = house;
+        },);
 
-    
-
-   /* if(this.isUpdate){
-      const urlForUpdate = 'http://localhost:3000/houses/' + house.id;
-      this.httpClient.put<House>(urlForUpdate, house).subscribe(data => this.router.navigate(['/houses']));
     } else {
-      const url = 'http://localhost:3000/houses';
-        this.httpClient.post<House>(url, house).subscribe(data => this.router.navigate(['/houses']));
-    }  
- */
+      this.httpClient.post<House>('http://localhost:3000/houses', formData)
+        .subscribe(house => {
+          this.photoFile = undefined;
+          this.photoPreview = undefined;
+          this.houses = house;
+
+        });
+    }
+
+
+
+    /*  if(this.isUpdate){
+       const urlForUpdate = 'http://localhost:3000/houses/' + house.id;
+       this.httpClient.put<House>(urlForUpdate, house).subscribe(data => this.router.navigate(['/houses']));
+     } else {
+       const url = 'http://localhost:3000/houses';
+         this.httpClient.post<House>(url, houses.subscribe(data => this.router.navigate(['/houses']));
+     }   */
+  
 
   }
-  
+
   compareObjects(o1: any, o2: any): boolean {
     if (o1 && o2) {
       return o1.id === o2.id;
     } else {
       return o1 === o2;
     }
-  } 
+  }
 
 
 }
