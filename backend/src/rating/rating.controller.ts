@@ -1,8 +1,9 @@
-import { Body, Controller, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Request, UseGuards } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Rating } from './rating.model';
 import { Repository } from 'typeorm';
 import { AuthGuard } from '@nestjs/passport';
+
 
 @Controller('rating')
 export class RatingController {
@@ -52,6 +53,24 @@ export class RatingController {
             }
         });
     }
+/* 
+    @UseGuards(AuthGuard('jwt'))
+    @Get('filter-by-current-user')
+    findByCurrentUserId(@Request() request) {
+
+        if (request.user.role === Role.ADMIN) {
+            return this.ratingRepository.find();
+        } else {
+            return this.ratingRepository.find({
+                where: {
+                    user: {
+                        id: request.user.id
+                    }
+                }
+            });
+        }
+
+    }  */   
      
 
     @Post()
@@ -80,5 +99,22 @@ export class RatingController {
             return this.ratingRepository.save(rating);
     }
 
+   /*  @Delete(':id')
+    async deleteById(
+    @Param('id', ParseIntPipe) id: number
+    ) {
+    const exists = await this.ratingRepository.existsBy({ id: id });
+
+    if (!exists) {
+        throw new NotFoundException('Comment not found');
+    }
+
+    try {
+        await this.ratingRepository.delete(id);
+    } catch (error) {
+        console.log("Error al borrar el comentario", error);
+        throw new ConflictException('No se puede borrar.');
+    }
+} */
 }
 

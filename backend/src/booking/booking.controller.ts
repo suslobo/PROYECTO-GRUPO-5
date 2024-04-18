@@ -110,9 +110,9 @@ findWithFilter(@Query() filters: any) {
 
     
     @Delete(':id')
-async deleteById(
+    async deleteById(
     @Param('id', ParseIntPipe) id: number
-) {
+    ) {
     const exists = await this.bookingRepository.existsBy({ id: id });
 
     if (!exists) {
