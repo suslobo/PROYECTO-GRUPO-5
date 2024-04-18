@@ -1,8 +1,10 @@
 import { HttpClient} from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Booking } from '../interfaces/booking.model';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-booking-list',
@@ -16,12 +18,31 @@ export class BookingListComponent implements OnInit{
   userEmail = '';
   isAdmin = false;
   bookings: Booking [] = [];
+  private modalService = inject(NgbModal);
 
-  constructor(private httpClient: HttpClient, private authService: AuthenticationService){
-    //this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
+  constructor(private httpClient: HttpClient, private authService: AuthenticationService,
+  
+  ){
+    
     this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
 
   }
+  
+openModal(content: TemplateRef<any>, bookings: Booking) {
+  const modalRef = this.modalService.open(content, {
+    centered: true
+  });
+
+  modalRef.result.then(result => {
+    if (result === 'Aceptar'){
+      console.log('Ha pulsado boorrar reserva');
+      this.deleteById(bookings);
+      
+    }
+  });
+  
+}
+
 
   ngOnInit(): void {
 
@@ -34,13 +55,23 @@ export class BookingListComponent implements OnInit{
   
   }
 
-  deleteById(id: string | number): void {
+/*   deleteById(id: string | number): void {
     const remove: boolean = confirm("¿Quiere eliminar esta reserva de su lista?");
     if (!remove) return;
     this.httpClient.delete<Booking>(`http://localhost:3000/booking/${id}`)
       .subscribe(() => {
 
        this.bookings = this.bookings.filter(booking => booking.id !== id);
+      });
+  } */
+
+  deleteById(booking: Booking){
+   // const remove: boolean = confirm("¿Quiere eliminar esta reserva de su lista?");
+    //if (!remove) return;
+    this.httpClient.delete<Booking>('http://localhost:3000/booking/' + booking.id)
+      .subscribe(() => {
+
+       this.bookings = this.bookings.filter(booking => booking.id !== booking.id);
       });
   }
 

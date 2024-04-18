@@ -41,8 +41,7 @@
                           </ul>
                         </div>
                       </td> -->
-                      
-                      
+                                            
                       <td>
                         <button id="detalle" type="button" class="btn btn-outline-naranaja me-2"
                         [routerLink]="['/booking', booking.id, 'detail']">
@@ -50,10 +49,8 @@
                         Ver detalle</button>
                         <td>
                         <button id="Borrar" class="btn btn-outline-naranaja w-100 py-2 " 
-                        (click)="deleteById(booking.id)"> Borrar</button>
+                        (click)="openModal(content, booking)"> Borrar</button>
                       </td>
-
-
                     </tr>
                      }
 
@@ -66,3 +63,19 @@
     </div>
 
 </div>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">¿Desea borrar esta reserva?</h4>
+		<button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
+    <!-- <button id="Borrar" class="btn btn-outline-naranaja w-100 py-2 " 
+    (click)="deleteById(booking.id)"> Borrar</button> -->
+  </div>
+	<div class="modal-body">
+		<p>Para continuar pulse aceptar</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Aceptar')">Aceptar</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Cancelar')">Cancelar</button>
+	</div>
+</ng-template>
