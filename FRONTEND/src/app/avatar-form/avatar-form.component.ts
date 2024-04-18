@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user.model';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-avatar-form',
   standalone: true,
-  imports: [],
+  imports: [NgbAlert],
   templateUrl: './avatar-form.component.html',
   styleUrl: './avatar-form.component.css'
 })
@@ -14,7 +15,7 @@ export class AvatarFormComponent implements OnInit {
   photoFile: File | undefined;
   photoPreview: string | undefined;
   user: User | undefined;
-
+  showConfirmMessage = false;
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
@@ -48,6 +49,7 @@ export class AvatarFormComponent implements OnInit {
       this.photoFile = undefined;
       this.photoPreview = undefined;
       this.user = user;
+      this.showConfirmMessage = true
     })
   }
 

@@ -2,6 +2,23 @@
   <div class="row">
     <div class="col-lg-8">
 
+      @if (showConfirmMessage) {
+        <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
+         Su foto se ha subido correctamente.          
+          
+          
+          <div style="text-align: center;">
+            <i class="bi bi-check-lg" style="font-size: 4em;"></i>
+        </div>
+      
+          Para cualquier duda contacte con soporte&commat;casaRural.com
+        </ngb-alert>
+       <!--  <button class="w-100 btn btn-outline-naranaja btn-lg" style="margin-bottom: 20px;" 
+        routerLink="/home">Volver </button> -->
+
+
+      } 
+
       <h4 class="mt-4 mb-4">Avatar de usuario</h4>
 
       <form>
@@ -25,7 +42,9 @@
       @if (!photoPreview && user?.photoUrl) {
       
       <img class="img-fluid mb-5 mt-5" [src]="'http://localhost:3000/uploads/' + user?.photoUrl">
-      }
+      } <!-- @else {
+        <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
+      }  -->
 
     </div>
   </div>
