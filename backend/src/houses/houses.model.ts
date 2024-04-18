@@ -61,8 +61,6 @@ export class House {
     @Column({nullable: true})
     people: number;
 
-   /*  @Column({type: 'simple-array'})
-    photoUrls: string[];  */
     @Column({nullable: true})
     photoUrl : string;
    

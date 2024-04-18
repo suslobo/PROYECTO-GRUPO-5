@@ -23,8 +23,8 @@
       <img class="img-fluid mb-3 rounded-circle" [src]="photoPreview" style="width: 80px; height: 80px;">
       }
       @if (!photoPreview && user?.photoUrl) {
-      <h4 class="my-5">Avatar existente</h4>
-      <img class="img-fluid" [src]="'http://localhost:3000/uploads/' + user?.photoUrl">
+      
+      <img class="img-fluid mb-5 mt-5" [src]="'http://localhost:3000/uploads/' + user?.photoUrl">
       }
 
     </div>

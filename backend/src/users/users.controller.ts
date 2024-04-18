@@ -37,7 +37,7 @@ export class UsersController {
         return request.user;
     }
 
-    /* @Put(':id')
+     @Put(':id')
     async update(
         @Param('id', ParseIntPipe) id: number,
         @Body() user: User
@@ -54,20 +54,19 @@ export class UsersController {
 
         return this.userRepository.save(user);
 
-    } */
+    } 
 
     @Put()
     @UseGuards(AuthGuard('jwt'))
-    public update(@Body() user: User, @Request() request) {
+    public updateUser(@Body() user: User, @Request() request) {
 
         if (request.user.role !== Role.ADMIN && user.id !== request.user.id) {
-            // Si el usuario que actualiza no coincide con el usuario enviado
-            // entonces no puede actualizar 
+           
             throw new UnauthorizedException();
         }
 
         return this.userRepository.save(user);
-    }
+    } 
     @Post('register')
     async register(@Body() register: Register) {
 
