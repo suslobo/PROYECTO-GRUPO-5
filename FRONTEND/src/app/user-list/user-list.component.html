@@ -35,8 +35,8 @@
                           <button type="button" class="btn btn-outline-naranaja w-25 py-2" [routerLink]="['/user', user.id, 'profile']">
                           Editar</button>
                           <span style="margin-left: 10px;"></span>
-
-                          <button class="btn btn-outline-naranaja w-25 py-2 " (click)="deleteById(user.id)"> Borrar</button>
+                          <!-- <button class="btn btn-outline-naranaja w-25 py-2 " (click)="deleteById(user.id)"> Borrar</button> -->
+                          <button class="btn btn-outline-naranaja w-25 py-2 " (click)="openModal(content, user)"> Borrar</button>
                         </td>
                      
                       </tr>
@@ -51,4 +51,16 @@
       </div>
   
   </div>
-  
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">¿Desea borrar este ususario?</h4>
+      <button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
+    </div>
+    <div class="modal-body">
+      <p>Para continuar pulse aceptar</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('Aceptar')">Aceptar</button>
+      <button type="button" class="btn btn-danger" (click)="modal.close('Cancelar')">Cancelar</button>
+    </div>
+  </ng-template>

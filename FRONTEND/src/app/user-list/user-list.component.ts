@@ -1,7 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { User } from '../interfaces/user.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 //import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 //import { NgbdModalFocus } from './modal.component.ts';
@@ -18,35 +19,52 @@ import { User } from '../interfaces/user.model';
 export class UserListComponent implements OnInit {
 
 users: User [] = [];
+private modalService = inject(NgbModal);
+
+constructor(private httpClient: HttpClient){}
 
 
-constructor(private httpClient: HttpClient,
- // private modalService: NgbModal
+openModal(content: TemplateRef<any>, users: User) {
+  const modalRef = this.modalService.open(content, {
+    centered: true
+  });
+
+  modalRef.result.then(result => {
+    if (result === 'Aceptar'){
+      console.log('Ha pulsado boorrar usuario');
+      this.deleteById(users);
+      
+    }
+  });
   
-){}
-
+}
   ngOnInit(): void {
     this.httpClient.get<User[]>('http://localhost:3000/users')
     .subscribe(users => this.users = users);
   }
 
-
-
-  
-
-  deleteById(id: string | number): void {
+/*   deleteById(id: string | number): void {
     const remove: boolean = confirm("¿Quiere eliminar este usuario de su lista?");
     if (!remove) return;
 
    /*  const modalRef = this.modalService.open(NgbdModalFocus);
     modalRef.componentInstance.open('autofocus'); */
     
-    this.httpClient.delete<User>(`http://localhost:3000/users/${id}`)
+   /*  this.httpClient.delete<User>(`http://localhost:3000/users/${id}`)
       .subscribe(() => {
 
        this.users = this.users.filter(users => users.id !== id);
       });
-  }
+  }  */
+  deleteById(user: User){
+    // const remove: boolean = confirm("¿Quiere eliminar esta reserva de su lista?");
+     //if (!remove) return;
+     this.httpClient.delete<User>('http://localhost:3000/users/' + user.id)
+       .subscribe(() => {
+ 
+        this.users = this.users.filter(user => user.id !== user.id);
+       });
+   }
 
   
   }
