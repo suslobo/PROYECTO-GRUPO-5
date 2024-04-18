@@ -45,7 +45,8 @@
                           }
 
                         @if(isAdmin){
-                        <button class="btn btn-outline-naranaja btn-house-list py-2 ms-1 " (click)="deleteById(house.id)"> Borrar</button>
+                          <!-- <button class="btn btn-outline-naranaja btn-house-list py-2 ms-1 " (click)="deleteById(house.id)"> Borrar</button> -->
+                        <button id="Borrar" class="btn btn-outline-naranaja btn-house-list py-2 ms-1 " (click)="openModal(content, house)"> Borrar</button>
                         }
     
     
@@ -68,7 +69,19 @@
           </div>
         </div>
       </div>
-
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">¿Desea borrar esta casa?</h4>
+          <button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
+        </div>
+        <div class="modal-body">
+          <p>Para continuar pulse aceptar</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="modal.close('Aceptar')">Aceptar</button>
+          <button type="button" class="btn btn-danger" (click)="modal.close('Cancelar')">Cancelar</button>
+        </div>
+      </ng-template>
 
 
 
