@@ -1,11 +1,25 @@
 <div style="position: relative; top: -185px;  width: 100%; height: 100px; z-index: -1; ">
-  <img class="img-fluid" src="/assets/img/USER-LIST.jpg" >
+  <img class="img-fluid" src="/assets/img/user-list.jpg" >
 </div>
 
 <div class="card mt-5 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px; z-index: 0;">
   <div class="row">
+    @if (showConfirmMessage) {
+      <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
+        <p>El usuario se ha borrado correctamente</p>
+        
+        <div style="text-align: center;">
+          <i class="bi bi-check-lg" style="font-size: 4em;"></i>
+      </div>
+    
+        Para cualquier duda contacte con soporte&commat;casaRural.com
+      </ngb-alert>
+      <button class="w-100 btn btn-outline-naranaja btn-lg" style="margin-bottom: 20px;" routerLink="/home">Volver a lista de usuarios</button>
+    
+    
+    }   
     <div class="col-16">
-      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16" style="margin-top: 35px; margin-left: 350px; position: absolute; z-index: 1; color:#000000">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-bounding-box mt-2" viewBox="0 0 16 16" style="margin-top: 35px; margin-left: 350px; position: absolute; z-index: 1; color:#000000">
         <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"/>
         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
       </svg>
