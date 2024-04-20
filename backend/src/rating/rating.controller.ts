@@ -99,22 +99,6 @@ export class RatingController {
             return this.ratingRepository.save(rating);
     }
 
-   /*  @Delete(':id')
-    async deleteById(
-    @Param('id', ParseIntPipe) id: number
-    ) {
-    const exists = await this.ratingRepository.existsBy({ id: id });
-
-    if (!exists) {
-        throw new NotFoundException('Comment not found');
-    }
-
-    try {
-        await this.ratingRepository.delete(id);
-    } catch (error) {
-        console.log("Error al borrar el comentario", error);
-        throw new ConflictException('No se puede borrar.');
-    }
-} */
+  
 }
 

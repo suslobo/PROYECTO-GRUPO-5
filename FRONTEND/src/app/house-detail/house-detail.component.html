@@ -4,12 +4,12 @@
 <div class="container text-center mt-5">
   <div class="row">
     <div class="col-8">
-      <img class="img-fluid" src="/assets/img/SALON.jpg"
+      <img class="img-fluid" src="/assets/img/SALON-COMPRIMIDA.jpg"
         alt="Foto salón">
     </div>
     <div class="col-4">
       <div>
-        <img class="img-fluid" src="/assets/img/DORMITORIO2.jpg"
+        <img class="img-fluid" src="/assets/img/DORMITORIO-COMPRIMIDA.jpg"
           alt="Foto habitación">
       </div>
       <div class="my-3">
@@ -321,10 +321,11 @@
                       <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" >
                         @if (rating.user?.photoUrl) {
                           <!-- <h5 class="pb-2">Avatar existente</h5> -->
-                          <img class="img-fluid mb-3 rounded-circle" style="max-width:100px;" [src]="'http://localhost:3000/uploads/' + rating.user?.photoUrl">
+                          <img class="img-fluid mb-3 rounded-circle" style="width: 80px; height: 80px;" [src]="'http://localhost:3000/uploads/' + rating.user?.photoUrl">
                         } @else {
                           <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
                         }
+                       
                         <!-- Información del usuario y comentario -->
                         <div class="col-lg-8">
                           <h6 class="mb-0">

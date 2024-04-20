@@ -15,7 +15,7 @@ export class Rating {
     comment: string;
 
     @CreateDateColumn() // genera la fecha automáticamente de la publicacion del comentario
-    createdDate: Date;
+    createdDate: Date; 
 
     @ManyToOne(() => User, {eager: true}) // para que te traiga el usuario
     user: User;
