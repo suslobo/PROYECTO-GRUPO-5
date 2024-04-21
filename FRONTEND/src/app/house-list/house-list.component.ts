@@ -38,7 +38,7 @@ export class HouseListComponent implements OnInit{
         this.deleteById(houses);
         
       }
-    })
+    });
   }
   ngOnInit(): void {
     this.httpClient.get<House[]>('http://localhost:3000/houses')

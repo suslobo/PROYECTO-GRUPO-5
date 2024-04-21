@@ -20,8 +20,8 @@ import { AuthenticationService } from '../authentication/authentication.service'
 export class UserListComponent implements OnInit {
 
 users: User [] = [];
-showConfirmMessage = false;
 isAdmin = false;
+showConfirmMessage = false;
 private modalService = inject(NgbModal);
 
 constructor(private httpClient: HttpClient, private authService: AuthenticationService){
