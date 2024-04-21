@@ -61,7 +61,7 @@ export class RegisterComponent {
       },
       error: error => {
         if (error.status === 409){
-          this.error = 'Datos ocupados';
+          this.error = 'Este email ya existe';
         }
        
         

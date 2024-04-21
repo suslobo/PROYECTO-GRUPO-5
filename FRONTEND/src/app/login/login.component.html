@@ -31,7 +31,9 @@
           </div>
 
           <button class="btn btn-outline-naranaja w-100 py-2" type="submit">Iniciar sesión</button>
-
+          @if (error) {
+            <small style="color: #ffffff;"><strong>{{error}}</strong></small>
+          }
           <button type="submit" class="btn btn-outline-naranaja w-100 py-2 mt-2 mb-3"
             routerLink="/register">Regístrate</button>
           <div>

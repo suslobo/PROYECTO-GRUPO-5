@@ -153,16 +153,14 @@
                               <input type="text"  class="form-control" id="email"
                                   formControlName="email" placeholder="" aria-label="email">
                       </div>
-                      <div class="col-6">
+                      <div class="col-6" style="margin-top: -40px;">
                         @if (photoPreview) {
-                            <h3 class="my-5">Previsualización</h3>
-                            <img class="img-fluid" [src]="photoPreview">
+                            <h4 style="color: #f57d00">Previsualización</h4>
+                            <img class="img-fluid" [src]="photoPreview" style="width: 300px;">
                         }
                     </div>
                       </div>
-                     
                     
-
                       <h4 class="mb-3 mt-4" style="color: #f57d00">Añadir Fotos</h4>
                       <div class="col-md-6">
 
@@ -180,13 +178,13 @@
                 </div>
 
           </form>
-          <div class="col-lg-8">
+<!--           <div class="col-lg-8">
             @if (photoPreview) {
                 <h3 class="my-5">Previsualización</h3>
                 <img class="img-fluid" [src]="photoPreview">
             }
         </div>
-
+ -->
       </div>
 
   </div>

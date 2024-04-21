@@ -52,15 +52,18 @@
             <label for="passwordConfirm">Confirmación contraseña</label>
             @if(registerForm.controls.passwordConfirm.touched && registerForm.getError('confirmError')) {
             <div>
-              <small class="text-danger">Las contraseñas no coinciden.</small>
+              <small style="color: #ffffff;"><strong> Las contraseñas no coinciden</strong></small>
             </div>
             }
           </div>
           <button class="btn btn-outline-naranaja w-100 py-2" type="submit" [disabled]="registerForm.invalid">Crear
             cuenta</button>
+            @if (error) {
+              <small> <button class="btn btn-outline-naranaja w-100 py-2 mt-3">{{error}}</button></small>
+            }
 
           @if (registerForm.invalid) {
-          <small style="color: #ffffff;">Debes completar de forma correcta todos los campos para poder guardar.</small>
+          <small style="color: #ffffff;"><strong> Debes completar de forma correcta todos los campos para poder guardar</strong></small>
           }
 
         </form>
@@ -69,7 +72,7 @@
     </div>
   </div>
 
-  <div class="col-8 " style="position: absolute; top: -60px; left: 0; width: 100%; height: 100%; z-index: -1;">
-    <img src="/assets/img/41338960465_55053d02b4_k.jpg" style="width: 100%; height: 100%;" alt="lago" class="img-fluid">
+  <div class="col-8 " style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+    <img src="/assets/img/41338960465_55053d02b4_k.jpg" style="width: 100%; height: 90%;" alt="lago" class="img-fluid">
   </div>
 </div>      
