@@ -5,7 +5,21 @@
 <div class="card mt-5 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px; z-index: 0;">
   
   <div class="row" >
-    
+    @if (showConfirmMessage) {
+      <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
+        <p>La reserva se ha borrado correctamente</p>
+
+        <div style="text-align: center;">
+          <i class="bi bi-check-lg" style="font-size: 4em;"></i>
+      </div>
+
+        Para cualquier duda contacte con soporte&commat;casaRural.com
+      </ngb-alert>
+      <button class="w-100 btn btn-outline-naranaja btn-lg" style="margin-bottom: 20px;" routerLink="/home">Volver a Casa</button>
+
+
+    }
+
     <div class="col-16">
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16" style="margin-top: 30px; margin-left: 350px; position: absolute; z-index: 1; color:#000000" >
         <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
@@ -56,7 +70,7 @@
                         Ver detalle</button>
                         <td>
                         <button id="Borrar" class="btn btn-outline-naranaja w-100  " 
-                        (click)="deleteById(booking.id)"> Borrar</button>
+                        (click)="openModal(content, booking)"> Borrar</button>
                       </td>
                     </tr>
                      }
@@ -66,3 +80,19 @@
         </div>
     </div>
 </div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title">¿Desea borrar esta reserva?</h4>
+      <button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
+  <!-- <button id="Borrar" class="btn btn-outline-naranaja w-100 py-2 " 
+  (click)="deleteById(booking.id)"> Borrar</button> -->
+</div>
+  <div class="modal-body">
+      <p>Para continuar pulse aceptar</p>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('Aceptar')">Aceptar</button>
+  <button type="button" class="btn btn-danger" (click)="modal.close('Cancelar')">Cancelar</button>
+  </div>
+</ng-template>
+
