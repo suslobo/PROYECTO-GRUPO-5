@@ -43,7 +43,6 @@ export class UsersController {
         @Body() user: User
     ) {
 
-
         const exists = await this.userRepository.existsBy({
             id: id
         });
@@ -59,6 +58,7 @@ export class UsersController {
     @Put()
     @UseGuards(AuthGuard('jwt'))
     public updateUser(@Body() user: User, @Request() request) {
+
 
         if (request.user.role !== Role.ADMIN && user.id !== request.user.id) {
            

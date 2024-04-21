@@ -41,7 +41,7 @@ export class AccountFormComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.httpClient.get<User>('http://localhost:3000/users/account/:id').subscribe(user => {
+    this.httpClient.get<User>('http://localhost:3000/user/account/:id').subscribe(user => {
       this.user = user;
       this.userForm.reset({
         firstName: user.firstName,
