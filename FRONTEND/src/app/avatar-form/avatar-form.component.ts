@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user.model';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-avatar-form',
   standalone: true,
-  imports: [NgbAlert],
+  imports: [NgbAlert, RouterLink],
   templateUrl: './avatar-form.component.html',
   styleUrl: './avatar-form.component.css'
 })
