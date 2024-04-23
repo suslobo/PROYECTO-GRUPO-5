@@ -1,4 +1,7 @@
+import { Transform } from "class-transformer";
+import { IsBoolean } from "class-validator";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { isBoolean } from "util";
 
 
 @Entity()
@@ -34,24 +37,35 @@ export class House {
     @Column({nullable: true})
     meters: number;
 
+  
     @Column({nullable: true})
     destination: string;
 
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
+  
     petFriendly: boolean;
+
+    @Transform(({value}) => value === 'true')
 
     @Column({nullable: true})
     pool: boolean;
 
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
+ 
     garden: boolean;
 
+@Transform(({value}) => value === 'true')
     @Column({nullable: true})
+ 
     terrace: boolean;
 
     @Column({nullable: true})
+    @Transform(({value}) => value === 'true')
     wifi: boolean;
 
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
     air: boolean;
 

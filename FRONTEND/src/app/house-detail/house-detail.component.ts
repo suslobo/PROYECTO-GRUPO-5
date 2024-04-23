@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { House } from '../interfaces/house.model';
 import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { NgbAccordionConfig, NgbRating, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionConfig, NgbAlert, NgbModal, NgbRating, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { Rating } from '../interfaces/rating.model';
 import { User } from '../interfaces/user.model';
 import { DatePipe } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-house-detail',
   standalone: true,
-  imports: [RouterLink, NgbRatingModule, DatePipe, ReactiveFormsModule],
+  imports: [RouterLink, NgbRatingModule, DatePipe, ReactiveFormsModule, NgbAlert],
   providers: [NgbAccordionConfig],
   templateUrl: './house-detail.component.html',
   styleUrl: './house-detail.component.css'
@@ -20,7 +21,9 @@ export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
   user: User | undefined;
+  
   ratings: Rating[] = [];
+  isLoggedIn = false;
   // formulario para crear nuevos comentarios
   ratingForm = new FormGroup({
     score: new FormControl(0),
@@ -28,8 +31,13 @@ export class HouseDetailComponent implements OnInit {
   });
 
 
-constructor(private httpClient: HttpClient,
-  private activatedRoute: ActivatedRoute) { }
+constructor(private httpClient: HttpClient, private authService: AuthenticationService,
+  private activatedRoute: ActivatedRoute
+) {
+  this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+ }
+
+
 
 
   ngOnInit(): void {
@@ -57,8 +65,10 @@ save() {
   }
   this.httpClient.post<Rating>('http://localhost:3000/rating', rating)
     .subscribe(rating => {
+      
       this.ratingForm.reset();
       this.httpClient.get<Rating[]>('http://localhost:3000/rating/filter-by-house/'+ this.house?.id)
+      
       .subscribe(ratings => this.ratings = ratings);
     });
 

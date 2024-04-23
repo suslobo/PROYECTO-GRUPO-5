@@ -21,7 +21,7 @@ export class UsersController {
     findAll() {
         return this.userRepository.find();
     }
-    @Get(':id')
+    @Get('filter-by-id/:id')
     findById(@Param('id', ParseIntPipe) id: number) {
         return this.userRepository.findOne({
             where: {
@@ -30,7 +30,7 @@ export class UsersController {
         });
 
     }
-    @Get('account/:id')
+    @Get('account')
     @UseGuards(AuthGuard('jwt'))
     public getCurrentAccountUser(@Request() request) {
 

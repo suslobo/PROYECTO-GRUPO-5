@@ -1,6 +1,7 @@
 <div class="card mt-5 ml-4 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px">
     <div class="row">
       <div class="col">
+       
 
           @if(isUpdate){
               <h4 class="mb-3 mt-4" style="color: #f57d00">Actualizar Datos</h4>
@@ -174,6 +175,20 @@
                 </div>
 
           </form>
+          @if (showConfirmMessage) {
+            <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
+              <p>Casa creada/actualizada correctamente</p>
+              
+              <div style="text-align: center;">
+                <i class="bi bi-check-lg" style="font-size: 4em;"></i>
+            </div>
+          
+              Para cualquier duda contacte con soporte&commat;casaRural.com
+            </ngb-alert>
+            
+          
+          
+          } 
           <div class="col-lg-8">
             @if (photoPreview) {
                 <h3 class="my-5">Previsualización</h3>

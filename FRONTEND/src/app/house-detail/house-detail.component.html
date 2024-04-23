@@ -78,20 +78,17 @@
     <div class="col mt-3">
       @if (house) {
       <div class="d-grid gap-2">
-        <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-naranaja">Reservar</button>
+        
+        @if(!isLoggedIn){
+          <button routerLink="/register" class="btn btn-outline-naranaja">Reservar</button>
+        }@else {
+          <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-naranaja">Reservar</button>
+        }
       </div>
-      }
+      } 
     </div>
 
-    <!--
-      <div>
-      @if (house) {
-      <div class="d-grid gap-2">
-        <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-success">Reservar</button>
-      </div>
-      }
-    </div>
-    -->
+   
   </div>
 </div>
 

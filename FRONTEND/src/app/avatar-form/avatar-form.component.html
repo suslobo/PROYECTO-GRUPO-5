@@ -18,9 +18,10 @@
 
 
       } 
-
+      
+        <span style="margin-left: 110px;"></span>
       <h4 class="mt-4 mb-4">Avatar de usuario</h4>
-
+      
       <form>
 
         <div class="input-group mb-3">
@@ -29,23 +30,23 @@
         </div>
 
         <button class="btn btn-outline-naranaja w-25 py-2 mb-4" type="button" (click)="save()">Subir avatar</button>
-       
+        <button class="w-100 btn btn-outline-naranaja btn-lg" style="margin-bottom: 20px;" routerLink="/account">Volver</button>
       </form>
 
     </div>
     <div class="col-lg-4">
 
       @if (photoPreview) {
-      <h4 class="my-4 ">Nuevo avatar a subir</h4>
-      <img class="img-fluid mb-3 rounded-circle" [src]="photoPreview" style="width: 80px; height: 80px;">
-      }
-      @if (!photoPreview && user?.photoUrl) {
-      
-      <img class="img-fluid mb-5 mt-5" [src]="'http://localhost:3000/uploads/' + user?.photoUrl">
-      } <!-- @else {
-        <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
-      }  -->
-
-    </div>
+        <h4 class="my-4 ">Nuevo avatar a subir</h4>
+        <img class="img-fluid mb-3 rounded-circle" [src]="photoPreview" style="width: 80px; height: 80px;">
+    }
+    @if (!photoPreview && user?.photoUrl) {
+        <!-- <h4 class="my-5">Avatar existente</h4> -->
+        <img class="img-fluid mt-5 mb-5" [src]="'http://localhost:3000/uploads/' + user?.photoUrl">
+    } 
+ <!--    @else {
+      <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
+    } -->
   </div>
+</div>
 </div>

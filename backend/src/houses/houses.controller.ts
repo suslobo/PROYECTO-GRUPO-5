@@ -1,6 +1,8 @@
 import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param,
     ParseBoolPipe,
-    ParseIntPipe, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
+    ParseIntPipe, Post, Put, UploadedFile, UseInterceptors, 
+    UsePipes,
+    ValidationPipe} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { House } from './houses.model';
 import { Repository } from 'typeorm';
@@ -196,6 +198,7 @@ export class HousesController {
 
     @Put(':id')
     @UseInterceptors(FileInterceptor('file'))
+    @UsePipes(new ValidationPipe({ transform: true }))
     async update(
         @UploadedFile() file: Express.Multer.File,
         @Param('id', ParseIntPipe) id: number,
@@ -210,6 +213,7 @@ export class HousesController {
                 houses.photoUrl = file.filename;
             }
             houses.id = id; 
+       
             return await this.houseRepository.save(houses);
 
             

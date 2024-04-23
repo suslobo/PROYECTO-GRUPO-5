@@ -3,13 +3,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { House } from '../interfaces/house.model';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @Component({
   selector: 'app-house-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, HttpClientModule],
+  imports: [ReactiveFormsModule, RouterLink, HttpClientModule, NgbAlert],
   templateUrl: './house-form.component.html',
   styleUrl: './house-form.component.css'
 })
@@ -29,12 +30,12 @@ export class HouseFormComponent implements OnInit {
     price: new FormControl(0, [Validators.min(0), Validators.max(300)]),
     meters: new FormControl(0, [Validators.min(50), Validators.max(1000)]),
     destination: new FormControl('', Validators.required),
-    petFriendly: new FormControl(false),
-    pool: new FormControl(false),
-    garden: new FormControl(false),
-    terrace: new FormControl(false),
-    wifi: new FormControl(false),
-    air: new FormControl(false),
+    petFriendly: new FormControl(),
+    pool: new FormControl(),
+    garden: new FormControl(),
+    terrace: new FormControl(),
+    wifi: new FormControl(),
+    air: new FormControl(),
     people: new FormControl(0),
     description: new FormControl('', Validators.required),
     photoUrl: new FormControl('')
@@ -45,6 +46,7 @@ export class HouseFormComponent implements OnInit {
   isDelete: boolean = false;
   photoFile: File | undefined;
   photoPreview: string | undefined;
+  showConfirmMessage = false;
 
   constructor(
     private httpClient: HttpClient,
@@ -134,12 +136,12 @@ export class HouseFormComponent implements OnInit {
     formData.append('price', this.houseForm.get('price')?.value + '');
     formData.append('meters', this.houseForm.get('meters')?.value + '');
     formData.append('destination', this.houseForm.get('destination')?.value ?? '');
-    formData.append('petFriendly', this.houseForm.get('petFriendly')?.value ? 'true' : 'false');
-    formData.append('pool', this.houseForm.get('pool')?.value ? 'true' : 'false');
-    formData.append('garden', this.houseForm.get('garden')?.value ? 'true' : 'false');
-    formData.append('terrace', this.houseForm.get('terrace')?.value ? 'true' : 'false');
-    formData.append('wifi', this.houseForm.get('wifi')?.value ? 'true' : 'false');
-    formData.append('air', this.houseForm.get('air')?.value ? 'true' : 'false');
+    formData.append('petFriendly', this.houseForm.get('petFriendly')?.value);
+    formData.append('pool', this.houseForm.get('pool')?.value);
+    formData.append('garden', this.houseForm.get('garden')?.value );
+    formData.append('terrace', this.houseForm.get('terrace')?.value);
+    formData.append('wifi', this.houseForm.get('wifi')?.value);
+    formData.append('air', this.houseForm.get('air')?.value);
     formData.append('description', this.houseForm.get('description')?.value ?? '');
     formData.append('photoUrl', this.houseForm.get('photoUrl')?.value ?? '');
 
@@ -152,6 +154,7 @@ export class HouseFormComponent implements OnInit {
           this.photoFile = undefined;
           this.photoPreview = undefined;
           this.houses = house;
+          this.showConfirmMessage = true;
         },);
 
     } else {
@@ -160,7 +163,7 @@ export class HouseFormComponent implements OnInit {
           this.photoFile = undefined;
           this.photoPreview = undefined;
           this.houses = house;
-
+          this.showConfirmMessage = true;
         });
     }
 
