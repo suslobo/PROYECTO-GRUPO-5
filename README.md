@@ -145,9 +145,7 @@ app.module.ts:
 
 ## CREAR CONTROLADORES
 
-Crear interface book.model.ts
 
-nest generate controller Book
 
 Recuperar datos:
 
@@ -167,11 +165,11 @@ Borrar datos existentes
 
 ## EJEMPLO:
 
-## AUTHOR
 
-nest generate controller Author
 
-Crear author.model.ts dentro de la carpeta author
+nest generate controller nombre
+
+Crear author.model.ts dentro de la carpeta nombre
 
 * @Get() findAll
 * @Get() findById
@@ -197,15 +195,15 @@ Crear author.model.ts dentro de la carpeta author
 
 * interfaces con todos los model.ts
 
-* Crear componentes: home, navbar, footer, book-list, book-detail, book-form
+* Crear componentes: 
 
 * Enrutado app.routers.ts
 
 * Desarrollar los componentes:
 
-  * book-list conectado a backend nestjs
-  * book-detail conectado a backend nestjs
-  * book-form conectado a backend nestjs
+  * nombre componente conectado a backend nestjs
+  * nombre componente conectado a backend nestjs
+  * nombre componente conectado a backend nestjs
 
 
   ## PRESENTACIONES
@@ -260,27 +258,6 @@ Duración: 20 minutos máximo.
         * Visión de empresa a través de consejos de los mentores.
         * Sabemos que la formación no acaba aquí de hecho estamos muy interesadas en seguir aprendiendo nuevas tecnologías y crear todo tipo de proyectos y aportar valor.
 
-* Posibles preguntas:
-  * ¿Por qué esa temática?
-  * ¿Qué ha sido difícil en vuestro proyecto? ¿Y cómo lo habéis resulto?
-  * ¿Cómo os habéis coordinado?. Seguimieto diario por Discord, reuniones semanales, con el profesor, los mentores.
-  * ¿Cómo habéis planificado el proyecto? Trello, tareas para cada persona. Mostrar tablero en Trello
-  * ¿Por qué hemos decidio formarse en este curso?
-  * ¿En qué puesto nos veriamos al finalizar o a qué les gustaría dedicarse después de todo lo que hemos
-    visto en este curso?
-    1. Fullstack
-    2. Fontrend desarrollando app
-    3. Backend.
-  * ¿En que tecnoloías tenemos más dominio?
-
-  Preparar preguntas para las empresas (de nosotros hacia las empresas):
-
-  * ¿Qué proyectos desarrolla vuestra empresa?
-  * ¿Contratan personal junio?
-  * ¿Teneis plan de carrera? Hay progreso de junior a senior, objetivos..
-  * ¿Teneis plan de formación interna? Demostrar interés por seguir formándonos continuamente.
-
-* Demo: compartir el navegador y mostrar la app de angular
 
 ## SUBIDA DE ARCHIVOS EN BACKEND (MULTER)
 
