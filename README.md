@@ -1,4 +1,9 @@
-# ANGULAR_GRUPO-5 
+# RURAL HOUSE
+
+
+
+
+![Logo de mi proyecto](https://github.com/almudenadomenech/PROYECTO-GRUPO-5/blob/Almudena/FRONTEND/src/assets/img/Captura%20home.PNG)
 
 ### PASO 1: CREAR PROYECTO ANGULAR CON ENRUTADO
 
