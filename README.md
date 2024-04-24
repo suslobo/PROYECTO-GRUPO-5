@@ -1,9 +1,9 @@
 # RURAL HOUSE
 
 
-![FRONTEND/src/assets/img/Captura home.PNG](https://github.com/almudenadomenech/PROYECTO-GRUPO-5/blob/Almudena/FRONTEND/src/assets/img/Captura%20home.PNG)
 
-![Logo de mi proyecto](https://github.com/usuario/proyecto/raw/main/imagenes/logo.png)
+
+![Logo de mi proyecto](https://github.com/almudenadomenech/PROYECTO-GRUPO-5/blob/Almudena/FRONTEND/src/assets/img/Captura%20home.PNG)
 
 
 
