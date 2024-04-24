@@ -1,6 +1,6 @@
-# ANGULAR_GRUPO-5 
+# RURAL HOUSE
 
-![alt text](<Captura home-1.PNG>)
+
 ![Texto alternativo](/assets/img/Captura home.PNG)
 
 
