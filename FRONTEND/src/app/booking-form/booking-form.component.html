@@ -5,7 +5,7 @@
     <div class="col-lg-8">
 
       @if (showConfirmMessage) {
-        <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
+        <ngb-alert type="warning" [dismissible]="false" class="mt-5 mb-4" style="min-height: 200px">
           Se ha completado tu reserva para la casa {{house?.title}}.          
           <br>
           <br>Para las fechas {{booking?.entryDate}} y {{booking?.departureDate}}
@@ -128,7 +128,7 @@
     </div>
   </div>
   
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3  " type="submit">Finalizar reserva</button>
+  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
   <span style="margin-left: 10px;"></span>
   <button class="w-25 btn btn-outline-naranaja btn-lg mt-3 " type="button" routerLink="/houses">Cancelar </button>
   
@@ -145,12 +145,7 @@
             }
               </div> 
           </div> 
-          
-  <!--
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3 mb-5  " type="submit">Finalizar reserva</button>
-  <span style="margin-left: 10px;"></span>
-  <button class="w-25 btn btn-outline-naranaja btn-lg mt-3 mb-5 " type="button" routerLink="/houses">Cancelar </button>
- -->
+
             <br>
         }  
              
@@ -240,16 +235,7 @@
           <strong>{{totalPrice}}</strong>
         </li>
       
-      </ul>
-      
-  <!-- 
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3  " type="submit">Reservar</button>
-  <span style="margin-left: 10px;"></span> 
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3 " type="button" routerLink="/houses">Cancelar </button>
--->
-
-      
-       
+      </ul>   
       
     </div>
       }

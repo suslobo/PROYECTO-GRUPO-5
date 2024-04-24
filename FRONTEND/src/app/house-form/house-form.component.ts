@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { House } from '../interfaces/house.model';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgbAlert, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @Component({
   selector: 'app-house-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, HttpClientModule],
+  imports: [ReactiveFormsModule, RouterLink, HttpClientModule, NgbAlert],
   templateUrl: './house-form.component.html',
   styleUrl: './house-form.component.css'
 })
@@ -46,6 +47,8 @@ export class HouseFormComponent implements OnInit{
   isDelete: boolean = false;
   photoFile: File | undefined;
   photoPreview: string | undefined;
+  showConfirmMessage = false;
+  private modalService = inject(NgbModal);
 
    constructor (
     private httpClient: HttpClient,
@@ -153,6 +156,8 @@ export class HouseFormComponent implements OnInit{
         this.photoFile = undefined;
         this.photoPreview = undefined;
         this.houses = house;
+        this.showConfirmMessage = true;
+
       },);
       
      }else {
@@ -161,7 +166,8 @@ export class HouseFormComponent implements OnInit{
       this.photoFile = undefined;
       this.photoPreview = undefined;
       this.houses = house;
-      
+      this.showConfirmMessage = true;
+
     });
   }
 

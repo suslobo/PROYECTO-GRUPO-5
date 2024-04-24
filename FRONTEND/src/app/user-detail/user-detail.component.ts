@@ -20,7 +20,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
-      this.http.get<User>(`http://localhost:3000/users/` + id)
+      this.http.get<User>(`http://localhost:3000/users/filter-by-id/` + id)
       .subscribe(user => this.user = user);
     });
   }

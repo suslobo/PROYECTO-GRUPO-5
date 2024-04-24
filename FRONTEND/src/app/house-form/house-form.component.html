@@ -5,7 +5,7 @@
           @if(isUpdate){
               <h4 class="mb-3 mt-4" style="color: #f57d00">Actualizar casa existente</h4>
           } @else {
-            <h4 class="mb-3 mt-4" style="color: #f57d00">Introduce los detalles de tu casa</h4>
+            <h4 class="mb-3 mt-4" style="color: #f57d00"><i class="bi bi-signpost-fill" style=" margin-right: 10px;"></i>Introduce los detalles de tu casa</h4>
           }
 
 
@@ -13,28 +13,28 @@
 
               <input type="hidden" formControlName="id">
 
-              <div class="row">
+              <div class="row" >
                   <div class="col ">
                       <label for="title">Nombre de la casa</label>
-                      <input type="text" class="form-control" id="title"
+                      <input type="text" class="form-control mt-2" id="title"
                       formControlName="title" placeholder="" aria-label="title">
                   </div>
 
                   <div class="col">
                     <label for="address">Dirección</label>
-                    <input type="address" class="form-control" id="address"
+                    <input type="address" class="form-control mt-2" id="address"
                     formControlName="address" placeholder="" aria-label="address">
                 </div>
 
                   <div class="col">
                       <label for="places">Plazas</label>
-                      <input type="text"  class="form-control" id="places"
+                      <input type="text"  class="form-control mt-2" id="places"
                           formControlName="places" placeholder="" aria-label="places">
                   </div>
 
                   <div class="col">
                       <label for="bedrooms">Habitaciones</label>
-                      <input type="number" min="1" max="10" step="1" class="form-control" id="bedrooms"
+                      <input type="number" min="1" max="10" step="1" class="form-control mt-2" id="bedrooms"
                           formControlName="bedrooms" placeholder="" aria-label="bedrooms">
                   </div>
 
@@ -42,26 +42,26 @@
                       <div class="col ">
 
                           <label for="bathrooms">Baños</label>
-                          <input type="number" min="1" max="10" step="1" class="form-control" id="bathrooms"
+                          <input type="number" min="1" max="10" step="1" class="form-control mt-2" id="bathrooms"
                               formControlName="bathrooms" placeholder="" aria-label="bathrooms">
 
                       </div>
 
                       <div class="col">
                           <label for="price">Precio por noche (€)</label>
-                          <input type="number" min="0" max="300" step="0.01" class="form-control" id="price"
+                          <input type="number" min="0" max="300" step="0.01" class="form-control mt-2" id="price"
                               formControlName="price" placeholder="" aria-label="price">
                       </div>
 
                       <div class="col">
                           <label for="meters">Metros cuadrados</label>
-                          <input type="number" min="50" max="1000" step="1" class="form-control" id="meters"
+                          <input type="number" min="50" max="1000" step="1" class="form-control mt-2" id="meters"
                               formControlName="meters" placeholder="" aria-label="meters">
                       </div>
 
                       <div class="col">
                           <label for="destination">Ubicación</label>
-                          <select class="form-select" id="destination"
+                          <select class="form-select mt-2" id="destination"
                           formControlName="destination" aria-label="destination"
                           [compareWith]="compareObjects">
 
@@ -144,13 +144,17 @@
                           </div>
                       </div>
                       <div class="row">
-                        <h4 class="mb-3 mt-4" style="color: #f57d00">Datos de contacto</h4>
+                        <h4 class="mb-3 mt-4" style="color: #f57d00">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16" style="margin-right: 10px;">
+                                <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"/>
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                              </svg>Datos de contacto</h4>
                         <div class="col-6">
-                          <label for="phone">Teléfono</label>
-                          <input type="text"  class="form-control" id="phone"
+                          <label for="phone" style="margin-top: 13px;">Teléfono</label>
+                          <input type="text"  class="form-control mt-2" id="phone"
                               formControlName="phone" placeholder="" aria-label="phone">
-                              <label for="email">Email</label>
-                              <input type="text"  class="form-control" id="email"
+                              <label for="email" style="margin-top: 13px;">Email</label>
+                              <input type="text"  class="form-control mt-2" id="email"
                                   formControlName="email" placeholder="" aria-label="email">
                       </div>
                       <div class="col-6" style="margin-top: -40px;">
@@ -161,7 +165,7 @@
                     </div>
                       </div>
                     
-                      <h4 class="mb-3 mt-4" style="color: #f57d00">Añadir Fotos</h4>
+                      <h4 class="mb-3 mt-4" style="color: #f57d00"><i class="bi bi-camera-fill" style="color:#f57d00; margin-right: 10px;"></i>Añadir Fotos</h4>
                       <div class="col-md-6">
 
                       <div class="input-group mt-4"> 
@@ -181,13 +185,19 @@
                 </div>
 
           </form>
-<!--           <div class="col-lg-8">
-            @if (photoPreview) {
-                <h3 class="my-5">Previsualización</h3>
-                <img class="img-fluid" [src]="photoPreview">
-            }
-        </div>
- -->
+          @if (showConfirmMessage) {
+            <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
+              <p>Casa creada/actualizada correctamente</p>
+      
+              <div style="text-align: center;">
+                <i class="bi bi-check-lg" style="font-size: 4em;"></i>
+            </div>
+      
+              Para cualquier duda contacte con soporte&commat;casaRural.com
+            </ngb-alert>
+      
+      
+          }
       </div>
 
   </div>

@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-account-form',
@@ -15,6 +16,8 @@ import { HttpClient} from '@angular/common/http';
 export class AccountFormComponent implements OnInit{
 
   user: User | undefined;
+  showConfirmMessage = false;
+  isAdmin = false;
   
   userForm = new FormGroup({
     id: new FormControl(),
@@ -31,11 +34,14 @@ export class AccountFormComponent implements OnInit{
 
   });
 
-  constructor(private httpClient: HttpClient){}
+  constructor(private httpClient: HttpClient,
+    private authService: AuthenticationService){
+      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    }
 
 
   ngOnInit(): void {
-    this.httpClient.get<User>('http://localhost:3000/users/account/:id').subscribe(user => {
+    this.httpClient.get<User>('http://localhost:3000/users/account').subscribe(user => {
       this.user = user;
       this.userForm.reset({
         firstName: user.firstName,
@@ -63,6 +69,7 @@ export class AccountFormComponent implements OnInit{
 
     this.httpClient.put('http://localhost:3000/users', this.user)
     .subscribe(data => {
+      this.showConfirmMessage = true;
 
     });
 

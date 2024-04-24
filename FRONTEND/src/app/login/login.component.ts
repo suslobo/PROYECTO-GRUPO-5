@@ -42,7 +42,7 @@ export class LoginComponent {
       next: data => {
         console.log(data.token);
         this.authService.handleLogin(data.token);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/houses']);
       },
       error: error => {
         console.log(error);

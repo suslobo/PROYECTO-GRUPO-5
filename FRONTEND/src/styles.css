@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: #000000;
   }
   
@@ -12,7 +12,7 @@ body {
     background-color: #f57d00;
   }
   .tittle h2{
-    font-family:'Poppins', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 30px;
     padding-top: 60px;
     margin-left: 80px;
@@ -20,7 +20,7 @@ body {
   }
   
   .tittle p{
-    font-family:'Poppins', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px;
     padding-top: 2px;
     margin-left: 80px; 

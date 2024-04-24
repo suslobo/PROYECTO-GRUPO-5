@@ -7,6 +7,7 @@ import { Rating } from '../interfaces/rating.model';
 import { User } from '../interfaces/user.model';
 import { DatePipe } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-house-detail',
@@ -21,6 +22,7 @@ export class HouseDetailComponent implements OnInit {
   house: House | undefined;
   user: User | undefined;
   ratings: Rating[] = [];
+  isLoggedIn = false;
   // formulario para crear nuevos comentarios
   ratingForm = new FormGroup({
     score: new FormControl(0),
@@ -30,7 +32,11 @@ export class HouseDetailComponent implements OnInit {
 
 
 constructor(private httpClient: HttpClient,
-  private activatedRoute: ActivatedRoute) { }
+  private activatedRoute: ActivatedRoute, 
+  private authService: AuthenticationService) {
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+
+   }
 
 
   ngOnInit(): void {

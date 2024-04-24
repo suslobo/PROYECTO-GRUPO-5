@@ -75,23 +75,27 @@
       }
   </div>
     
-    <div class="col mt-3">
+  <div class="col mt-3">
+    @if (house) {
+    <div class="d-grid gap-2">
+
+      @if(!isLoggedIn){
+        <button routerLink="/register" class="btn btn-outline-naranaja">Reservar</button>
+      }@else {
+        <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-naranaja">Reservar</button>
+      }
+    </div>
+    } 
+  </div>
+
+<!--     <div class="col mt-3">
       @if (house) {
       <div class="d-grid gap-2">
         <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-naranaja">Reservar</button>
       </div>
       }
-    </div>
+    </div> -->
 
-    <!--
-      <div>
-      @if (house) {
-      <div class="d-grid gap-2">
-        <button [routerLink]="['/booking', house.id, 'form']" class="btn btn-outline-success">Reservar</button>
-      </div>
-      }
-    </div>
-    -->
   </div>
 </div>
 
@@ -137,7 +141,7 @@
       <div>
         <p> <img src="https://cdn-icons-png.flaticon.com/128/637/637229.png" loading="lazy" alt="bañera "
             title="bañera " width="30" height="30">
-          Núnero de baños</p>
+          Número de baños</p>
         <p>{{house.bathrooms}}</p>
       </div>
     </div>
