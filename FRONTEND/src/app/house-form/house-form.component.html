@@ -2,11 +2,11 @@
     <div class="row">
       <div class="col">
 
-          @if(isUpdate){
-              <h4 class="mb-3 mt-4" style="color: #f57d00">Actualizar casa existente</h4>
-          } @else {
+          @if(!isUpdate){
             <h4 class="mb-3 mt-4" style="color: #f57d00"><i class="bi bi-signpost-fill" style=" margin-right: 10px;"></i>Introduce los detalles de tu casa</h4>
-          }
+        } @else {
+          <h4 class="mb-3 mt-4" style="color: #f57d00">Actualizar</h4>
+        }
 
 
           <form class="mt-4" [formGroup]="houseForm" (ngSubmit)="save()">
