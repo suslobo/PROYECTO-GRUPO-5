@@ -1,5 +1,9 @@
 # Rural House 
+Escapadas rurales a tu medida. 
+Rural House es una aplicación que permite al usuario navegar de forma ágil y poder reservar la casa deseada. Además el usuario cuenta con un apartado donde puede ver todas las reservas que ha realizado en la aplicación y el detalle de la misma.
+
 ![Logo de mi proyecto](https://github.com/almudenadomenech/PROYECTO-GRUPO-5/blob/Susana/FRONTEND/src/assets/img/Captura-home.png)
+
 
 ### PASO 1: CREAR PROYECTO ANGULAR CON ENRUTADO
 

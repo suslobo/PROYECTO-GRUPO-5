@@ -6,26 +6,6 @@
           <h4 class="mb-4 mt-4 " style="color: #ffffff;" routerLink="/register/profile">Crear nueva cuenta</h4>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nickname" placeholder="" formControlName="nickname">
-            <label for="nickname ">Nickname</label>
-            @if(registerForm.controls.nickname.touched && registerForm.controls.nickname.errors) {
-            <div>
-              @if (registerForm.controls.nickname.errors['required']) {
-              <small class="text-danger ">Nickname es obligatorio.</small>
-
-              }
-              @if (registerForm.controls.nickname.errors['minlength']) {
-              <small class="text-danger">Nickname debe tener longitud >= 3 caracteres.</small>
-
-              }
-              @if (registerForm.controls.nickname.errors['maxlength']) {
-              <small class="text-danger ">Nickname debe tener longitud <= 15 caracteres.</small>
-                  }
-            </div>
-            }
-          </div>
-
-          <div class="form-floating mb-3">
             <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
             <label for="email">Email</label>
             @if(registerForm.controls.email.touched && registerForm.controls.email.errors) {
@@ -72,7 +52,7 @@
     </div>
   </div>
 
-  <div class="col-8 " style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <div class="col-8 " style="position: absolute; top: -60px; left: 0; width: 100%; height: 100%; z-index: -1;">
     <img src="/assets/img/41338960465_55053d02b4_k.jpg" style="width: 100%; height: 90%;" alt="lago" class="img-fluid">
   </div>
 </div>      

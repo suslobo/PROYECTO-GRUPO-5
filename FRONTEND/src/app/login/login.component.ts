@@ -18,7 +18,7 @@ export class LoginComponent {
 
   
   loginForm = this.fb.group({
-    nickName: ['', Validators.required],
+
     email: ['', Validators.required],
     password: ['', Validators.required]
    
@@ -32,7 +32,6 @@ export class LoginComponent {
 
   save() {
     let login: Login = {
-      //nickName: this.loginForm.get('nickName')?.value,
       email: this.loginForm.get('email')?.value ?? '',
       password: this.loginForm.get('password')?.value ?? ''
     }

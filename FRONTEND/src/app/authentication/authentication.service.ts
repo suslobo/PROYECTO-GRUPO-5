@@ -10,7 +10,6 @@ export class AuthenticationService {
 
   isLoggedIn = new BehaviorSubject<boolean>(this.hasToken());
   userEmail = new BehaviorSubject<string>(this.getCurrentEmail());
- // nickName = new BehaviorSubject<string>(this.getCurrentName());
   isAdmin = new BehaviorSubject<boolean>(this.getIsAdmin());
   isUser = new BehaviorSubject<boolean>(this.getIsUser());
 
@@ -25,7 +24,6 @@ export class AuthenticationService {
 
     localStorage.setItem("jwt_token", token);
     this.isLoggedIn.next(true);
-    //this.nickName.next(this.getCurrentName());
     this.userEmail.next(this.getCurrentEmail());
     this.isAdmin.next(this.getIsAdmin());
     this.isUser.next(this.getIsUser());
@@ -39,7 +37,6 @@ export class AuthenticationService {
     if(!token) return '';
 
     const decodedToken = jwtDecode(token) as DecodedToken;
-    //return decodedToken.nickName;
    return decodedToken.email;
     
 
@@ -64,7 +61,6 @@ export class AuthenticationService {
   logout(){
     localStorage.removeItem("jwt_token");
     this.isLoggedIn.next(false);
-    //this.nickName.next('');
     this.userEmail.next('');
     this.isAdmin.next(false);
     //this.isUser.next(false);

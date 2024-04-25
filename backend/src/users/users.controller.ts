@@ -104,7 +104,7 @@ async register(@Body() register: Register) {
    
     const user: User = {
         id: 0,
-        nickName: register.nickName,
+       
         email: register.email,
         password: register.password,
         phone: null,
