@@ -8,8 +8,7 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({nullable: true})
-    nickName?: string;
+   
 
     @Column({nullable: true})
     firstName?: string;

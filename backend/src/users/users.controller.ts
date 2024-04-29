@@ -80,7 +80,7 @@ export class UsersController {
 
         const user: User = {
             id: 0,
-            nickName: register.nickName,
+           
             email: register.email,
             password: register.password,
             phone: null,
