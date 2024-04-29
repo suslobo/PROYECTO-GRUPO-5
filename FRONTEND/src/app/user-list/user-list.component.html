@@ -1,5 +1,5 @@
-<div style="position: relative; top: -520px;  width: 100%; height: 100px; z-index: -1; ">
-  <img class="img-fluid" src="/assets/img/forest-1950402_1920.jpg" >
+<div style="position: relative; top: -540px;  width: 100%; height: 100px; z-index: -1; ">
+  <img class="img-fluid" src="/assets/img/forest-1950402_1920-min-min.jpg" >
 </div>
 
 <div class="card mt-5 px-4 naranja-border" style="position:relative; margin-left: 120px; margin-right: 120px; z-index: 0;">
@@ -46,13 +46,13 @@
             <td>{{user.email}}</td>
 
             <td>
-              <button id="detalle" type="button" class="btn btn-outline-naranaja w-25"
+              <button id="detalle" type="button" class="btn btn-outline-naranaja w-50"
                 [routerLink]="['/user', user.id, 'detail']">
                 <i class="bi bi-eye"></i>
                 Detalle</button>
-              <span style="margin-left: 10px;"></span>
-              <button type="button" class="btn btn-outline-naranaja w-25 py-2" [routerLink]="['/user', user.id, 'profile']">
-                Editar</button>
+              <!-- <span style="margin-left: 10px;"></span> -->
+             <!--  <button type="button" class="btn btn-outline-naranaja w-25 py-2" [routerLink]="['/user', user.id, 'profile']">
+                Editar</button> -->
               <span style="margin-left: 10px;"></span>
 
               <button class="btn btn-outline-naranaja w-25 py-2 " (click)="openModal(content, user)"> Borrar</button>
