@@ -1,9 +1,13 @@
 # RURAL HOUSE
 
+Escapadas rurales a tu medida. 
+Rural House es una aplicación que permite al usuario navegar de forma ágil y poder reservar la casa deseada. Además el usuario cuenta con un apartado donde puede ver todas las reservas que ha realizado en la aplicación y el detalle de la misma.
+
 ![Logo de mi proyecto](https://github.com/almudenadomenech/PROYECTO-GRUPO-5/blob/Almudena/FRONTEND/src/assets/img/Captura-home.PNG)
 
 
-
+## Enlace de la presentación:
+https://app.genial.ly/editor/6601495aaa36ce001491b7f0
 
 ### PASO 1: CREAR PROYECTO ANGULAR CON ENRUTADO
 
@@ -53,6 +57,29 @@ no hace falta hacerlos todos de golpe.
 en el ts del componente en imports
 ReactiveFormsModule
 
+1. house-form.component.ts crear el FormGroup con sus FormControl
+
+2. house-form.component.html creado el <form> de HTML con Bootstrap
+
+3. house-form.component.ts método save extraer los campos del formulario y crear un objeto House y enviarlo a backend con HttpClient método POST
+
+
+## PASOS
+
+1. ng generate component house-list
+
+2. ng generate component house-detail
+
+3. Enrutado en app.routes.ts
+
+4. router-outlet en app.component.html
+
+5. Copiar código: house-list.component.ts y house-list.component.html
+    * agregar botones para llegar a house-form para crear (POST) y actualizar (PUT)
+
+6. Copiar código: house-detail.component.ts y house-detail.component.html
+    * agregar botón para llegar a produchouset-form para actualizar (PUT)
+
 ## ACTUALIZAR ANGULAR
 
 1. Desinstalar Angular:
@@ -67,47 +94,20 @@ ng new angular-009-forms-bootstrap --skip-git --style=css --routing=true --ssr=f
 4. Boostrap:
   ng add @ng-bootstrap/ng-bootstrap
 
-## HACER UN FORMULARIO
-
-## CONECTAR FORMULARIOS
-
-angular-009-forms-bootstrap:
-
-* product-list
-* product-detail
-* product-form: creación y actualización
-
-Objetivo: tener desarrollado un CRUD completo sobre productos.
-
-## PASOS
-
-1. ng generate component product-list
-
-2. ng generate component product-detail
-
-3. Enrutado en app.routes.ts
-
-4. router-outlet en app.component.html
-
-5. Copiar código: product-list.component.ts y product-list.component.html
-    * agregar botones para llegar a product-form para crear (POST) y actualizar (PUT)
-
-6. Copiar código: product-detail.component.ts y product-detail.component.html
-    * agregar botón para llegar a product-form para actualizar (PUT)
 
 
 ## FUNCIONALIDAD ACTUALIZAR PRODUCTO (PUT)
 
-1. Capturar el id (1,2,3 ...) de la URL utilizando activatedRoute de forma igual al product-detail.
+1. Capturar el id (1,2,3 ...) de la URL utilizando activatedRoute de forma igual al house-detail.
 
-2. Una vez capturado el id, si existe, entonces hacer un GET con httpClient para traer el producto por id, por ejemplo el producto 1.
+2. Una vez capturado el id, si existe, entonces hacer un GET con httpClient para traer el house por id, por ejemplo el casa 1.
 
-3. Cargar los valores del producto en el formulario de productForm. De esta forma el formulario aparecerá con los valores del producto ya cargados para editarlos.
+3. Cargar los valores de la casa en el formulario de productForm. De esta forma el formulario aparecerá con los valores de la casa ya cargados para editarlos.
 
 4. En el método save, distinguir si existe id entonces hacer un update PUT, si no existe id entonces hacer un create POST.
 
 
-## CREAT BACKEND
+## CREAR BACKEND
 
 # DESCARGAR E INSTALAR POSTMAN
 Descargar e instalar POSTMAN
@@ -122,8 +122,8 @@ Postman permite probar el backend.
 
 nest new nest-BACKEND --skip-git --package-manager npm
 
-2. Creat un controlador:
-nest generate controller Book
+2. Crear un controlador:
+nest generate controller User
 
 3. Levantar el servidor:
 nest start --watch
@@ -137,8 +137,8 @@ nest start --watch
  5. Añadir la configuración de MySQL
  6. Crear base de datos en MySQL Workbench
  7. book.model.ts
- 8. ng generate controller Book
- 9. Inyectar Repository en el BookController
+ 8. ng generate controller User
+ 9. Inyectar Repository en el UserController
 
 
  ## CONFIGURACIÓN BASE DE DATOS
@@ -148,11 +148,8 @@ app.module.ts:
 * TypeOrmModule.forRoot()
 * TypeOrmModule.forFeature()
 
-## CREAR CONTROLADORES
 
-
-
-Recuperar datos:
+## Recuperar datos:
 
 * Métodos @Get()
 * Métodos @Get() con parámetros
@@ -170,11 +167,9 @@ Borrar datos existentes
 
 ## EJEMPLO:
 
+nest generate controller Booking
 
-
-nest generate controller nombre
-
-Crear author.model.ts dentro de la carpeta nombre
+Crear booking.model.ts dentro de la carpeta booking
 
 * @Get() findAll
 * @Get() findById
@@ -182,19 +177,6 @@ Crear author.model.ts dentro de la carpeta nombre
 * @Put update
 * @Delete deleteById
 
-## CREAR FRONTEND Y BACKEND
-
-* Crear carpeta fullstack-001
-
-* Crear backend:
-1. nest new BACKEND --skip-git --package-manager npm
-2. cd backend
-3. npm install --save @nestjs/typeorm typeorm mysql2 @nestjs/swagger
-
-* Crear frontend:
-1. ng new frontend --skip-git --style=css --routing=true --ssr=false
-2. cd frontend
-3. ng add @ng-bootstrap/ng-bootstrap
 
 ## FRONTEND
 
@@ -206,11 +188,25 @@ Crear author.model.ts dentro de la carpeta nombre
 
 * Desarrollar los componentes:
 
-  * nombre componente conectado a backend nestjs
-  * nombre componente conectado a backend nestjs
-  * nombre componente conectado a backend nestjs
+  * house-list conectado a backend nestjs
+  * house-detail conectado a backend nestjs
+  * house-form conectado a backend nestjs
 
+## SUBIDA DE ARCHIVOS EN BACKEND (MULTER)
 
+Instalar en backend:
+
+npm i -D @types/multer
+
+## SEGURIDAD
+En backen:
+
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt
+
+Crear el controlador de usuario:
+
+login
+register
 
 En el FRONTEND:
 
@@ -220,10 +216,43 @@ npm install jwt-decode
 
 En authentication:
 
-1. 
-ng generate guard authentication/role
+1. ng generate guard authentication/role
 dejar por defecto en la pregunta que te hace. Enter y ya está.
 Se crea un archivo role.guards.ts en la carpeta.
 
 2. Crear un intercetor
 ng generate interceptor authentication/jwt
+
+
+## VALIDAR TOKEN JWT EN BACKEND NESTJS
+
+
+https://docs.nestjs.com/recipes/passport
+
+Objetivo: validar el token JWT que llega en cada petición de angular de un usuario autenticado.
+
+Esto permite proteger / agregar seguridad a los controladores, evitando que un usuario sin token pueda hacer peticiones a un método de un controlador.
+
+
+Crear clase JwtStrategy que herede (extends) PassportStrategy
+
+
+Asegurarse de haber ejecutado en backend:
+
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt.
+
+## USERS
+
+Angular componentes:
+
+* login
+* register: solo crea, no edita
+
+* account-form (mi perfil): solo editar, no crear
+
+* user-list (para admin)
+* user-detail (para admin)
+* user-form (para admin)
+
+
+## DISEÑO DE LA APP
