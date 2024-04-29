@@ -21,6 +21,7 @@ export class HouseDetailComponent implements OnInit {
 
   house: House | undefined;
   user: User | undefined;
+  showConfirmMessage = false;
   
   ratings: Rating[] = [];
   isLoggedIn = false;
@@ -48,7 +49,9 @@ constructor(private httpClient: HttpClient, private authService: AuthenticationS
       }
 
       this.httpClient.get<House>('http://localhost:3000/houses/' + id)
-      .subscribe(house => this.house = house);
+      .subscribe(house => {
+        this.house = house;
+        this.showConfirmMessage = true;});
 
       this.httpClient.get<Rating[]>('http://localhost:3000/rating/filter-by-house/' + id)
       .subscribe(ratings => {
