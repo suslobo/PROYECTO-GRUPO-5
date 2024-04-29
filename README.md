@@ -7,7 +7,7 @@ Rural House es una aplicación que permite al usuario navegar de forma ágil y p
 
 
 ## Enlace de la presentación:
-https://app.genial.ly/editor/6601495aaa36ce001491b7f0
+https://view.genial.ly/6601495aaa36ce001491b7f0/presentation-rural-house
 
 ### PASO 1: CREAR PROYECTO ANGULAR CON ENRUTADO
 
