@@ -4,7 +4,7 @@ Rural House es una aplicación que permite al usuario navegar de forma ágil y p
 
 ![Logo de mi proyecto](https://github.com/almudenadomenech/PROYECTO-GRUPO-5/blob/Susana/FRONTEND/src/assets/img/Captura-home.png)
 
-# Enlace de la presentación: https://app.genial.ly/editor/6601495aaa36ce001491b7f0
+# Enlace de la presentación: https://view.genial.ly/6601495aaa36ce001491b7f0/presentation-rural-house
 ### PASO 1: CREAR PROYECTO ANGULAR CON ENRUTADO
 
 ng new FRONTEND --skip-git --style=css --routing=true --ssr=false
