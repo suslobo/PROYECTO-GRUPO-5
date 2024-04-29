@@ -20,18 +20,18 @@
       } 
       
         <span style="margin-left: 110px;"></span>
-      <h4 class="mt-4 mb-4">Avatar de usuario</h4>
+        <h4 class="mt-4 mb-4"><i class="bi bi-camera-fill" style="color:#f57d00; margin-right: 17px;"></i>Foto de usuario</h4>
       
       <form>
 
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 mt-4">
           <label class="input-group-text" for="photoUrl">Subir foto</label>
           <input type="file" class="form-control" id="photoUrl" (change)="onFileChange($event)">
         </div>
 
-        <button class="btn btn-outline-naranaja w-25 py-2 mb-4" type="button" (click)="save()">Subir foto</button>
+        <button class="btn btn-outline-naranaja w-25 py-2 mb-4 mt-3" type="button" (click)="save()">Subir foto</button>
         <span style="margin-left: 50px;"></span>
-        <button class="btn btn-outline-naranaja w-25 py-2 mb-4" type= "submit" routerLink="/account">Volver</button>
+        <button class="btn btn-outline-naranaja w-25 py-2 mb-4 mt-3" type= "submit" routerLink="/account">Volver</button>
       </form>
 
     </div>
