@@ -17,7 +17,7 @@ export class RegisterComponent {
 
   registerForm = this.fb.group({
     
-    nickname: ['', [ Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+   
     email: ['', [Validators.required, Validators.email]],
     
     password: ['', [Validators.required]],
@@ -47,7 +47,7 @@ export class RegisterComponent {
   save(){
 
     let register: Register = {
-     nickname: this.registerForm.get('nickname')?.value ?? '',
+     
       email: this.registerForm.get('email')?.value ?? '',
      // phone: this.registerForm.get('phone')?.value ?? '',
       password: this.registerForm.get('password')?.value ?? ''
