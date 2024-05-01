@@ -70,7 +70,7 @@
                         Detalle</button>
                         <td>
                         <button id="Borrar" class="btn btn-outline-naranaja w-100  " 
-                        (click)="openModal(content, booking)"> Borrar</button>
+                        (click)="openModal(content, booking)"> Eliminar</button>
                       </td>
                     </tr>
                      }
@@ -82,7 +82,7 @@
 </div>
 <ng-template #content let-modal>
   <div class="modal-header">
-      <h4 class="modal-title">¿Desea borrar esta reserva?</h4>
+      <h4 class="modal-title">¿Desea eliminar esta reserva?</h4>
       <button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
   <!-- <button id="Borrar" class="btn btn-outline-naranaja w-100 py-2 " 
   (click)="deleteById(booking.id)"> Borrar</button> -->

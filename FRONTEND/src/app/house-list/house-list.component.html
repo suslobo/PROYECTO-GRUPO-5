@@ -65,7 +65,7 @@
                           }
 
                         @if(isAdmin){
-                        <button class="btn btn-outline-naranaja btn-house-list py-2 ms-1 "(click)="openModal(content, house)"> Borrar</button>
+                        <button class="btn btn-outline-naranaja btn-house-list py-2 ms-1 "(click)="openModal(content, house)"> Eliminar</button>
                         }
     
     
@@ -90,7 +90,7 @@
       </div>
       <ng-template #content let-modal>
         <div class="modal-header">
-          <h4 class="modal-title">¿Desea borrar esta casa?</h4>
+          <h4 class="modal-title">¿Desea eliminar esta casa?</h4>
           <button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
         </div>
         <div class="modal-body">
