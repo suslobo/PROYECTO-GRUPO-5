@@ -20,7 +20,7 @@
     }    
 
     <div class="col-16">
-      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16" style="margin-top: 30px; margin-left: 350px; position: absolute; z-index: 1; color:#000000" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-fill mt-4" viewBox="0 0 16 16" style="margin-top: 30px; margin-left: 350px; position: absolute; z-index: 1; color:#000000" >
         <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
         <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
       </svg> 
@@ -50,18 +50,7 @@
                   <td>{{booking.departureDate}}</td>
                   <td>{{booking.destination}}</td>
 
-                  <!-- <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Acciones
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="accionesDropdown">
-                        <li><a class="dropdown-item" [routerLink]="['/booking', booking.id, 'detail']">Ver detalle</a></li>
-                        <li><button class="dropdown-item" (click)="deleteById(booking.id)">Borrar</button></li>
-
-                      </ul>
-                    </div>
-                  </td> -->
+     
 
                   <td>
                     <button id="detalle" type="button" class="btn btn-outline-naranaja w-100 me-2 "
@@ -70,7 +59,7 @@
                     Detalle</button>
                     <td>
                     <button id="Borrar" class="btn btn-outline-naranaja w-100  " 
-                    (click)="openModal(content, booking)"> Borrar</button>
+                    (click)="openModal(content, booking)">Eliminar</button>
                   </td>
                 </tr>
                  }
@@ -83,10 +72,9 @@
 </div>
 <ng-template #content let-modal>
   <div class="modal-header">
-      <h4 class="modal-title">¿Desea borrar esta reserva?</h4>
+      <h4 class="modal-title">¿Desea eliminar esta reserva?</h4>
       <button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
-  <!-- <button id="Borrar" class="btn btn-outline-naranaja w-100 py-2 " 
-  (click)="deleteById(booking.id)"> Borrar</button> -->
+  
 </div>
   <div class="modal-body">
       <p>Para continuar pulse aceptar</p>

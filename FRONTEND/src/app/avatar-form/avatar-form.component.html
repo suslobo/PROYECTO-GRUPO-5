@@ -38,12 +38,12 @@
     <div class="col-lg-4">
 
       @if (photoPreview) {
-        <h4 class="my-4 ">Nuevo avatar a subir</h4>
+        <h4 class="my-4 ">Foto de perfil</h4>
         <img class="img-fluid mb-3 rounded-circle" [src]="photoPreview" style="width: 80px; height: 80px;">
     }
     @if (!photoPreview && user?.photoUrl) {
         <!-- <h4 class="my-5">Avatar existente</h4> -->
-        <img class="img-fluid mt-5 mb-5" [src]="'http://localhost:3000/uploads/' + user?.photoUrl">
+        <img class="img-fluid mt-4 mb-5" [src]="'http://localhost:3000/uploads/' + user?.photoUrl">
     } 
  <!--    @else {
       <img class="bd-placeholder-img" src="/assets/img/Usuario2.png" style="width: 80px;">
