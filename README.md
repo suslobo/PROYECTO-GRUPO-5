@@ -242,4 +242,24 @@ user-list (para admin)
 user-detail (para admin)
 user-form (para admin)
 
+## DISEÑO DE LA APP
+
+  # Logo: 
+    Optamos por una estética minimalista, utilizando una combinación de blanco y negro para crear un impacto visual elegante y atemporal.
+  
+  # Paleta de Colores: 
+    La paleta de colores se basa en el tono #f57d00, un naranja cálido que evoca la calidez y energía del amanecer, añadiendo un toque de vitalidad a la interfaz.
+
+  # Iconografía: 
+    Se ha implementado una selección cuidadosa de iconos con el objetivo de mejorar la usabilidad y la experiencia del usuario, agregando claridad y cohesión visual a la aplicación.
+  
+  # Imágenes: 
+    Cada imagen ha sido meticulosamente elegida por la sensación de tranquilidad que transmite. Cada una de ellas invita al usuario a sumergirse en un entorno sereno y armonioso, fomentando una experiencia de uso relajante y placentera.
+  
+  # Tipografía: 
+    Se ha optado por Montserrat, una fuente sans-serif ampliamente reconocida por su excelente legibilidad y versatilidad. Su uso proporciona una apariencia moderna y profesional, garantizando una experiencia de lectura cómoda y sin esfuerzo para el usuario.
+
+
+
+
 
