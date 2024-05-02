@@ -21,7 +21,7 @@ cd frontend
 
 ng add @ng-bootstrap/ng-bootstrap
 
-## PASO 4: INSTALAR BOOTSTRAP-ICONS
+### PASO 4: INSTALAR BOOTSTRAP-ICONS
 
 npm i bootstrap-icons
 
@@ -33,38 +33,38 @@ En angular.json hay que agregar el bootstrap-icons.min.css a styles:
               "src/styles.css"
             ],
 
-## PASO 5: LEVANTAR EL BACKEND
+### PASO 5: LEVANTAR EL BACKEND
 
-En otra terminal
-
+En otra terminal:
 json-server --watch db.json
-## PASO 6: CREAR COMPONENTES
+
+### PASO 6: CREAR COMPONENTES
 
 ng g c nombre del componente
 
-## PASO 7: HACER EL ENRUTADO
+### PASO 7: HACER EL ENRUTADO
 
 Empezar con el list y luego detalle
-Se pueden ir enrutando a medida que crece el proyecto, 
-no hace falta hacerlos todos de golpe.
+Se pueden ir enrutando a medida que crece el proyecto.
 
-## PASO 8: CREAR LA INTERFACES
+
+### PASO 8: CREAR LA INTERFACES
+
 1. Crear una carpeta dentro de app
 2. Crear las rutas en el app.component.htm en el navbar
 
-## PASO 9: HACER FORMULARIOS
+### PASO 9: HACER FORMULARIOS
 
-en el ts del componente en imports
-ReactiveFormsModule
+En el ts del componente en imports, se añade ReactiveFormsModule.
 
 1. house-form.component.ts crear el FormGroup con sus FormControl
 
 2. house-form.component.html creado el <form> de HTML con Bootstrap
 
-3. house-form.component.ts método save extraer los campos del formulario y crear un objeto House y enviarlo a backend con HttpClient método POST
+3. house-form.component.ts método save extraer los campos del formulario y crear un objeto House y enviarlo a        backend con HttpClient método POST
 
 
-## PASOS
+#### PASOS:
 
 1. ng generate component house-list
 
@@ -78,7 +78,8 @@ ReactiveFormsModule
     * agregar botones para llegar a house-form para crear (POST) y actualizar (PUT)
 
 6. Copiar código: house-detail.component.ts y house-detail.component.html
-    * agregar botón para llegar a produchouset-form para actualizar (PUT)
+    * agregar botón para llegar a house-form para actualizar (PUT)
+
 
 ## ACTUALIZAR ANGULAR
 
@@ -89,7 +90,7 @@ ReactiveFormsModule
   npm install -g @angular/cli@17.2.0
 
 3. Crear proyecto:
-ng new angular-009-forms-bootstrap --skip-git --style=css --routing=true --ssr=false
+ng new frontend --skip-git --style=css --routing=true --ssr=false
 
 4. Boostrap:
   ng add @ng-bootstrap/ng-bootstrap
@@ -102,21 +103,22 @@ ng new angular-009-forms-bootstrap --skip-git --style=css --routing=true --ssr=f
 
 2. Una vez capturado el id, si existe, entonces hacer un GET con httpClient para traer el house por id, por ejemplo el casa 1.
 
-3. Cargar los valores de la casa en el formulario de productForm. De esta forma el formulario aparecerá con los valores de la casa ya cargados para editarlos.
+3. Cargar los valores de la casa en el formulario de houseForm. De esta forma el formulario aparecerá con los valores de la casa ya cargados para editarlos.
 
 4. En el método save, distinguir si existe id entonces hacer un update PUT, si no existe id entonces hacer un create POST.
 
 
-## CREAR BACKEND
+# CREAR BACKEND
 
-# DESCARGAR E INSTALAR POSTMAN
+## DESCARGAR E INSTALAR POSTMAN
+
 Descargar e instalar POSTMAN
 
 https://www.postman.com/
 
 Postman permite probar el backend.
 
-## COMANDOS 
+### COMANDOS 
 
 1. Crear proyecto backend:
 
@@ -130,13 +132,13 @@ nest start --watch
 
 ## CREAR PROYECTO CON MYSQL
 
- 1. nest  new nest-002-mysql --skip-git --package-manager npm
- 2. cd nest-002-mysql
+ 1. nest  new nest-backend --skip-git --package-manager npm
+ 2. cd nest-backend
  3. npm install --save @nestjs/typeorm typeorm mysql2
  4. ng generate module database
  5. Añadir la configuración de MySQL
  6. Crear base de datos en MySQL Workbench
- 7. book.model.ts
+ 7. user.model.ts
  8. ng generate controller User
  9. Inyectar Repository en el UserController
 
@@ -149,7 +151,7 @@ app.module.ts:
 * TypeOrmModule.forFeature()
 
 
-## Recuperar datos:
+### Recuperar datos:
 
 * Métodos @Get()
 * Métodos @Get() con parámetros
@@ -161,11 +163,11 @@ app.module.ts:
 
 Método @Post()
 @Body() para recibir un objeto en método @Post()
-Actualizar datos existentes:
+Actualizar datos existentes.
 
 Borrar datos existentes
 
-## EJEMPLO:
+#### EJEMPLO:
 
 nest generate controller Booking
 
@@ -255,19 +257,26 @@ Angular componentes:
 * user-form (para admin)
 
 
-## DISEÑO DE LA APP
+# DISEÑO DE LA APP
 
-  # Logo: 
-    Optamos por una estética minimalista, utilizando una combinación de blanco y negro para crear un impacto visual elegante y atemporal.
+  ### Logo: 
+    Optamos por una estética minimalista, utilizando una combinación de blanco y
+    negro para crear un impacto visual elegante y atemporal.
 
-  # Paleta de Colores: 
-    La paleta de colores se basa en el tono #f57d00, un naranja cálido que evoca la calidez y energía del amanecer, añadiendo un toque de vitalidad a la interfaz.
+  ### Paleta de Colores: 
+    La paleta de colores se basa en el tono #f57d00, un naranja cálido que evoca 
+    la calidez y energía del amanecer, añadiendo un toque de vitalidad a la interfaz.
 
-  # Iconografía: 
-    Se ha implementado una selección cuidadosa de iconos con el objetivo de mejorar la usabilidad y la experiencia del usuario, agregando claridad y cohesión visual a la aplicación.
+  ### Iconografía: 
+    Se ha implementado una selección cuidadosa de iconos con el objetivo de mejorar la usabilidad
+    y la experiencia del usuario, agregando claridad y cohesión visual a la aplicación.
 
-  # Imágenes: 
-    Cada imagen ha sido meticulosamente elegida por la sensación de tranquilidad que transmite. Cada una de ellas invita al usuario a sumergirse en un entorno sereno y armonioso, fomentando una experiencia de uso relajante y placentera.
+  ### Imágenes: 
+    Cada imagen ha sido meticulosamente elegida por la sensación de tranquilidad que transmite.
+    Cada una de ellas invita al usuario a sumergirse en un entorno sereno y armonioso, fomentando 
+    una experiencia de uso relajante y placentera.
 
-  # Tipografía: 
-    Se ha optado por Montserrat, una fuente sans-serif ampliamente reconocida por su excelente legibilidad y versatilidad. Su uso proporciona una apariencia moderna y profesional, garantizando una experiencia de lectura cómoda y sin esfuerzo para el usuario. 
+  ### Tipografía: 
+    Se ha optado por Montserrat, una fuente sans-serif ampliamente reconocida por su excelente 
+    legibilidad y versatilidad. Su uso proporciona una apariencia moderna y profesional, garantizando
+    una experiencia de lectura cómoda y sin esfuerzo para el usuario. 
