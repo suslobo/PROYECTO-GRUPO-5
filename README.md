@@ -4,7 +4,8 @@ Rural House es una aplicación que permite al usuario navegar de forma ágil y p
 
 ![Logo de mi proyecto](https://github.com/almudenadomenech/PROYECTO-GRUPO-5/blob/Susana/FRONTEND/src/assets/img/Captura-home.png)
 
-# Enlace de la presentación: https://view.genial.ly/6601495aaa36ce001491b7f0/presentation-rural-house
+## Enlace de la presentación: https://view.genial.ly/6601495aaa36ce001491b7f0/presentation-rural-house
+
 ### PASO 1: CREAR PROYECTO ANGULAR CON ENRUTADO
 
 ng new FRONTEND --skip-git --style=css --routing=true --ssr=false
@@ -17,7 +18,7 @@ cd frontend
 
 ng add @ng-bootstrap/ng-bootstrap
 
-## PASO 4: INSTALAR BOOTSTRAP-ICONS
+### PASO 4: INSTALAR BOOTSTRAP-ICONS
 
 npm i bootstrap-icons
 
@@ -29,26 +30,26 @@ En angular.json hay que agregar el bootstrap-icons.min.css a styles:
               "src/styles.css"
             ],
 
-## PASO 5: LEVANTAR EL BACKEND
+### PASO 5: LEVANTAR EL BACKEND
 
 En otra terminal
-
 json-server --watch db.json
-## PASO 6: CREAR COMPONENTES
+
+### PASO 6: CREAR COMPONENTES
 
 ng g c nombre del componente
 
-## PASO 7: HACER EL ENRUTADO
+### PASO 7: HACER EL ENRUTADO
 
 Empezar con el list y luego detalle
 Se pueden ir enrutando a medida que crece el proyecto, 
 no hace falta hacerlos todos de golpe.
 
-## PASO 8: CREAR LA INTERFACES
+### PASO 8: CREAR LA INTERFACES
 1. Crear una carpeta dentro de app
 2. Crear las rutas en el app.component.htm en el navbar
 
-## PASO 9: HACER FORMULARIOS
+### PASO 9: HACER FORMULARIOS
 
 en el ts del componente en imports
 ReactiveFormsModule
@@ -59,7 +60,8 @@ ReactiveFormsModule
 
 3. house-form.component.ts método save extraer los campos del formulario y crear un objeto House y enviarlo a backend con HttpClient método POST
 
-## PASOS
+#### PASOS
+
 1. ng generate component house-list
 
 2. ng generate component house-detail
@@ -100,16 +102,16 @@ ng new angular-009-forms-bootstrap --skip-git --style=css --routing=true --ssr=f
 4. En el método save, distinguir si existe id entonces hacer un update PUT, si no existe id entonces hacer un create POST.
 
 
-## CREAR BACKEND
+# CREAR BACKEND
 
-# DESCARGAR E INSTALAR POSTMAN
+## DESCARGAR E INSTALAR POSTMAN
 Descargar e instalar POSTMAN
 
 https://www.postman.com/
 
 Postman permite probar el backend.
 
-## COMANDOS 
+### COMANDOS 
 
 1. Crear proyecto backend:
 
@@ -141,7 +143,7 @@ app.module.ts:
 * TypeOrmModule.forRoot()
 * TypeOrmModule.forFeature()
 
-## Recuperar datos:
+### Recuperar datos:
 
 * Métodos @Get()
 * Métodos @Get() con parámetros
@@ -157,7 +159,7 @@ Actualizar datos existentes:
 
 Borrar datos existentes
 
-## EJEMPLO:
+#### EJEMPLO:
 
 nest generate controller Booking
 
@@ -242,22 +244,29 @@ user-list (para admin)
 user-detail (para admin)
 user-form (para admin)
 
-## DISEÑO DE LA APP
+# DISEÑO DE LA APP
 
-  # Logo: 
-    Optamos por una estética minimalista, utilizando una combinación de blanco y negro para crear un impacto visual elegante y atemporal.
+  ### Logo: 
+    Optamos por una estética minimalista, utilizando una combinación de blanco y 
+    negro para crear un impacto visual elegante y atemporal.
   
-  # Paleta de Colores: 
-    La paleta de colores se basa en el tono #f57d00, un naranja cálido que evoca la calidez y energía del amanecer, añadiendo un toque de vitalidad a la interfaz.
+  ### Paleta de Colores: 
+    La paleta de colores se basa en el tono #f57d00, un naranja cálido que evoca 
+    la calidez y energía del amanecer, añadiendo un toque de vitalidad a la interfaz.
 
-  # Iconografía: 
-    Se ha implementado una selección cuidadosa de iconos con el objetivo de mejorar la usabilidad y la experiencia del usuario, agregando claridad y cohesión visual a la aplicación.
+  ### Iconografía: 
+    Se ha implementado una selección cuidadosa de iconos con el objetivo de mejorar la usabilidad 
+    y la experiencia del usuario, agregando claridad y cohesión visual a la aplicación.
   
-  # Imágenes: 
-    Cada imagen ha sido meticulosamente elegida por la sensación de tranquilidad que transmite. Cada una de ellas invita al usuario a sumergirse en un entorno sereno y armonioso, fomentando una experiencia de uso relajante y placentera.
+  ### Imágenes: 
+    Cada imagen ha sido meticulosamente elegida por la sensación de tranquilidad que transmite. 
+    Cada una de ellas invita al usuario a sumergirse en un entorno sereno y armonioso, fomentando 
+    una experiencia de uso relajante y placentera.
   
-  # Tipografía: 
-    Se ha optado por Montserrat, una fuente sans-serif ampliamente reconocida por su excelente legibilidad y versatilidad. Su uso proporciona una apariencia moderna y profesional, garantizando una experiencia de lectura cómoda y sin esfuerzo para el usuario.
+  ### Tipografía: 
+    Se ha optado por Montserrat, una fuente sans-serif ampliamente reconocida por su excelente 
+    legibilidad y versatilidad. Su uso proporciona una apariencia moderna y profesional, garantizando 
+    una experiencia de lectura cómoda y sin esfuerzo para el usuario.
 
 
 
