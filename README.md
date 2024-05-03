@@ -61,7 +61,7 @@ En el ts del componente en imports, se añade ReactiveFormsModule.
 
 2. house-form.component.html creado el <form> de HTML con Bootstrap
 
-3. house-form.component.ts método save extraer los campos del formulario y crear un objeto House y enviarlo a        backend con HttpClient método POST
+3. house-form.component.ts método save extraer los campos del formulario y crear un objeto House y enviarlo a backend con HttpClient método POST
 
 
 #### PASOS:

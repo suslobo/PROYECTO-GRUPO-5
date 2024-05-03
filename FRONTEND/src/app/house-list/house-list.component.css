@@ -23,8 +23,17 @@ ngb-rating{
     background-color: #f57d00;
 }
 
-
-
 .btn-house-list {
   width: 49% !important;
+}
+
+
+.highlight-on-hover {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.highlight-on-hover:hover {
+  transform: scale(1.0); 
+  filter: brightness(120%); /* Aumenta el brillo */
+  box-shadow: 0 0 20px rgba(230, 226, 226, 0.5), 0.9; /* Aumenta la sombra */
 }
