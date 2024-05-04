@@ -1,6 +1,8 @@
 import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param,
     ParseBoolPipe,
-    ParseIntPipe, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
+    ParseIntPipe, Post, Put, UploadedFile, UseInterceptors, 
+    UsePipes,
+    ValidationPipe} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { House } from './houses.model';
 import { Repository } from 'typeorm';
@@ -16,7 +18,6 @@ export class HousesController {
     findAll() {
         return this.houseRepository.find();
     }
-
 
     @Get(':id')
     findById(@Param('id', ParseIntPipe) id: number) {
@@ -80,7 +81,6 @@ export class HousesController {
             }
         });
     }
-
 
     @Get('filter-by-price')
     findByPrice(@Param('id', ParseIntPipe) id: number) {
@@ -181,8 +181,6 @@ export class HousesController {
         });
     }
 
-
-
     @Post()
     @UseInterceptors(FileInterceptor('file'))
     async create(@UploadedFile() file: Express.Multer.File,
@@ -196,6 +194,7 @@ export class HousesController {
 
     @Put(':id')
     @UseInterceptors(FileInterceptor('file'))
+    @UsePipes(new ValidationPipe({ transform: true }))
     async update(
         @UploadedFile() file: Express.Multer.File,
         @Param('id', ParseIntPipe) id: number,
@@ -210,23 +209,9 @@ export class HousesController {
                 houses.photoUrl = file.filename;
             }
             houses.id = id; 
+
             return await this.houseRepository.save(houses);
 
-            
-           
-            /* const exists = await this.houseRepository.existsBy({id: id});
-
-            if(!exists) {
-                throw new NotFoundException('House not found');
-            }
-
-            if (file) {
-                house.photoUrl = file.filename;
-            }
-
-            house.id = id;
-            return await this.houseRepository.save(house);
- */
     }
 
     @Delete(':id')

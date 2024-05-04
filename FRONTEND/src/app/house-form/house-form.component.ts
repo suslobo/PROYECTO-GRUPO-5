@@ -16,7 +16,6 @@ import { NgbAlert, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HouseFormComponent implements OnInit{
 
-
   houseForm = new FormGroup({
 
     id: new FormControl(),
@@ -30,12 +29,12 @@ export class HouseFormComponent implements OnInit{
     price: new FormControl(0, [Validators.min(0), Validators.max(300)]),
     meters: new FormControl(0, [Validators.min(50), Validators.max(1000)]),
     destination: new FormControl('', Validators.required),
-    petFriendly: new FormControl(false),
-    pool: new FormControl(false),
-    garden: new FormControl(false),
-    terrace: new FormControl(false),
-    wifi: new FormControl(false),
-    air: new FormControl(false),
+    petFriendly: new FormControl(),
+    pool: new FormControl(),
+    garden: new FormControl(),
+    terrace: new FormControl(),
+    wifi: new FormControl(),
+    air: new FormControl(),
     people: new FormControl(0),
     description: new FormControl('', Validators.required),
     //photoUrl: new FormControl<string[]>([])
@@ -48,14 +47,12 @@ export class HouseFormComponent implements OnInit{
   photoFile: File | undefined;
   photoPreview: string | undefined;
   showConfirmMessage = false;
-  private modalService = inject(NgbModal);
 
    constructor (
     private httpClient: HttpClient,
     private activatedRoute: ActivatedRoute,
     private router: Router
     ) {}
-
 
   ngOnInit(): void {
 
@@ -90,7 +87,6 @@ export class HouseFormComponent implements OnInit{
               photoUrl: houses.photoUrl
             });
           });
-
       });
 
       this.activatedRoute.params.subscribe(params =>{
@@ -100,7 +96,6 @@ export class HouseFormComponent implements OnInit{
             this.isDelete = true
       });
       })
-
     }
 
     onFileChange(event: Event) {
@@ -114,19 +109,12 @@ export class HouseFormComponent implements OnInit{
         reader.onload = event => this.photoPreview = reader.result as string;
         reader.readAsDataURL(this.photoFile);
       }
-      
-
-
     }
 
   save(): void {
 
-   
-    
     let formData = new FormData();
     
-    
-
     formData.append('id', this.houseForm.get('id')?.value ?? 0);
     formData.append('title', this.houseForm.get('title')?.value ?? '');
     formData.append('address', this.houseForm.get('address')?.value ?? '');
@@ -138,14 +126,14 @@ export class HouseFormComponent implements OnInit{
     formData.append('price', this.houseForm.get('price')?.value + '');
     formData.append('meters', this.houseForm.get('meters')?.value + '');
     formData.append('destination', this.houseForm.get('destination')?.value ?? '');
-    formData.append('petFriendly', this.houseForm.get('petFriendly')?.value ? 'true' : 'false');
-    formData.append('pool', this.houseForm.get('pool')?.value ? 'true' : 'false');
-    formData.append('garden', this.houseForm.get('garden')?.value ? 'true' : 'false');
-    formData.append('terrace', this.houseForm.get('terrace')?.value ? 'true' : 'false');
-    formData.append('wifi', this.houseForm.get('wifi')?.value ? 'true' : 'false');
-    formData.append('air', this.houseForm.get('air')?.value ? 'true' : 'false');
+    formData.append('petFriendly', this.houseForm.get('petFriendly')?.value);
+    formData.append('pool', this.houseForm.get('pool')?.value);
+    formData.append('garden', this.houseForm.get('garden')?.value );
+    formData.append('terrace', this.houseForm.get('terrace')?.value);
+    formData.append('wifi', this.houseForm.get('wifi')?.value);
+    formData.append('air', this.houseForm.get('air')?.value);
     formData.append('description', this.houseForm.get('description')?.value ?? '');
-    formData.append('photoUrl', this.houseForm.get('photoUrl')?.value ?? '');  
+    formData.append('photoUrl', this.houseForm.get('photoUrl')?.value ?? '');
 
     if(this.photoFile) formData.append('file', this.photoFile);
     
@@ -170,18 +158,6 @@ export class HouseFormComponent implements OnInit{
 
     });
   }
-
-    
-
-   /* if(this.isUpdate){
-      const urlForUpdate = 'http://localhost:3000/houses/' + house.id;
-      this.httpClient.put<House>(urlForUpdate, house).subscribe(data => this.router.navigate(['/houses']));
-    } else {
-      const url = 'http://localhost:3000/houses';
-        this.httpClient.post<House>(url, house).subscribe(data => this.router.navigate(['/houses']));
-    }  
- */
-
   }
   
   compareObjects(o1: any, o2: any): boolean {
@@ -191,6 +167,4 @@ export class HouseFormComponent implements OnInit{
       return o1 === o2;
     }
   } 
-
-
 }

@@ -1,3 +1,4 @@
+import { Transform } from "class-transformer";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -37,21 +38,31 @@ export class House {
     @Column({nullable: true})
     destination: string;
 
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
+
     petFriendly: boolean;
+
+    @Transform(({value}) => value === 'true')
 
     @Column({nullable: true})
     pool: boolean;
 
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
+ 
     garden: boolean;
 
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
+ 
     terrace: boolean;
 
     @Column({nullable: true})
+    @Transform(({value}) => value === 'true')
     wifi: boolean;
 
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
     air: boolean;
 
@@ -61,9 +72,7 @@ export class House {
     @Column({nullable: true})
     people: number;
 
-   /*  @Column({type: 'simple-array'})
-    photoUrls: string[];  */
     @Column({nullable: true})
     photoUrl : string;
-   
+
 }
