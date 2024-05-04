@@ -168,16 +168,6 @@ export class HouseFormComponent implements OnInit {
     }
 
 
-
-    /*  if(this.isUpdate){
-       const urlForUpdate = 'http://localhost:3000/houses/' + house.id;
-       this.httpClient.put<House>(urlForUpdate, house).subscribe(data => this.router.navigate(['/houses']));
-     } else {
-       const url = 'http://localhost:3000/houses';
-         this.httpClient.post<House>(url, houses.subscribe(data => this.router.navigate(['/houses']));
-     }   */
-  
-
   }
 
   compareObjects(o1: any, o2: any): boolean {

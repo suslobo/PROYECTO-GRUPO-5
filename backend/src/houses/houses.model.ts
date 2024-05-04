@@ -56,7 +56,7 @@ export class House {
  
     garden: boolean;
 
-@Transform(({value}) => value === 'true')
+    @Transform(({value}) => value === 'true')
     @Column({nullable: true})
  
     terrace: boolean;

@@ -215,22 +215,7 @@ export class HousesController {
             houses.id = id; 
        
             return await this.houseRepository.save(houses);
-
-            
-           
-            /* const exists = await this.houseRepository.existsBy({id: id});
-
-            if(!exists) {
-                throw new NotFoundException('House not found');
-            }
-
-            if (file) {
-                house.photoUrl = file.filename;
-            }
-
-            house.id = id;
-            return await this.houseRepository.save(house);
- */
+ 
     }
 
     @Delete(':id')
