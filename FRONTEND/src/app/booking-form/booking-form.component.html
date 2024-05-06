@@ -60,6 +60,7 @@
           <label for="destination">{{house?.destination}}</label>
         </div>
 
+        <h4 class="mb-3" style="color: #f57d00;">Servicios adicionales</h4>
 
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox"
@@ -83,15 +84,6 @@
     <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
     <label class="form-check-label" for="credit">Tarjeta de crédito</label>
   </div>
-  <!-- <div class="form-check">
-    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-    <label class="form-check-label" for="debit">Tarjeta de débito</label>
-  </div>
-  <div class="form-check">
-    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-    <label class="form-check-label" for="paypal">PayPal</label>
-  </div> --> 
-
 
   <div class="row gy-3 mt-1">
     <div class="col-md-9">
@@ -131,11 +123,9 @@
   <button class="w-50 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
   <span style="margin-left: 10px;"></span>
   <button class="w-25 btn btn-outline-naranaja btn-lg mt-3 " type="button" routerLink="/houses">Cancelar </button>
-  
 
        </form> 
 
-        
         <div _ngcontent-ng-c3189770292="" >
           <div> 
             @if (bookingForm) {
@@ -149,7 +139,6 @@
             <br>
         }  
              
-    
       </div> 
 
       @if (numDays >= 1) {
