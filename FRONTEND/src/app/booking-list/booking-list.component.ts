@@ -41,32 +41,27 @@ export class BookingListComponent implements OnInit{
 
   }
 
-
   ngOnInit(): void {
-
-    this.httpClient.get<Booking[]>('http://localhost:3000/booking/filter-by-current-user')
-      .subscribe(bookings => this.bookings = bookings);
-      this.loadBookings();
-
-  }
-
-  loadBookings(): void {
-    this.httpClient.get<Booking[]>('http://localhost:3000/booking')
-    .subscribe(bookings => this.bookings = bookings);
-  }
-
-  deleteById(booking: Booking) {
-
-    this.httpClient.delete<Booking>('http://localhost:3000/booking/' + booking.id)
-      .subscribe(() => {
-        this.showConfirmMessage = true;
-        // this.bookings = this.bookings.filter(booking => booking.id !== booking.id);
-        this.loadBookings();
-      });
-  }
+    this.loadBookings();
 
 }
 
+loadBookings(): void {
+  this.httpClient.get<Booking[]>('http://localhost:3000/booking/filter-by-current-user')
+  .subscribe(bookings => this.bookings = bookings);
+}
+
+deleteById(booking: Booking) {
+
+  this.httpClient.delete<Booking>('http://localhost:3000/booking/' + booking.id)
+    .subscribe(() => {
+      this.showConfirmMessage = true;
+      // this.bookings = this.bookings.filter(booking => booking.id !== booking.id);
+      this.loadBookings();
+    });
+}
+
+}
 
 
 
