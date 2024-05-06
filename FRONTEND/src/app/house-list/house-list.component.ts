@@ -41,6 +41,9 @@ export class HouseListComponent implements OnInit{
     });
   }
   ngOnInit(): void {
+      this.loadHouses();
+  }
+  loadHouses(): void {
     this.httpClient.get<House[]>('http://localhost:3000/houses')
     .subscribe(houses => this.houses = houses);
   }
@@ -50,20 +53,10 @@ export class HouseListComponent implements OnInit{
      this.httpClient.delete<House>('http://localhost:3000/houses/' + house.id)
        .subscribe(() => {
         this.showConfirmMessage = true;
-        this.houses = this.houses.filter(house => house.id !== house.id);
+        this.loadHouses();
        });
    }
-  /*  deleteById(id: string | number): void {
-    const remove: boolean = confirm("¿Quiere eliminar esta casa?");
-    if (!remove) return;
-    this.httpClient.delete<House>(`http://localhost:3000/houses/${id}`)
-      .subscribe(() => {
-
-        console.log('La casa ha sido eliminada');
-
-       this.houses = this.houses.filter(house => house.id !== id);
-      });
-  } */
+  
 
 
 }

@@ -48,27 +48,22 @@ export class BookingListComponent implements OnInit {
 
     this.httpClient.get<Booking[]>('http://localhost:3000/booking/filter-by-current-user')
       .subscribe(bookings => this.bookings = bookings);
-
+      this.loadBookings();
    
   }
 
-  /*   deleteById(id: string | number): void {
-      const remove: boolean = confirm("¿Quiere eliminar esta reserva de su lista?");
-      if (!remove) return;
-      this.httpClient.delete<Booking>(`http://localhost:3000/booking/${id}`)
-        .subscribe(() => {
-  
-         this.bookings = this.bookings.filter(booking => booking.id !== id);
-        });
-    } */
+  loadBookings(): void {
+    this.httpClient.get<Booking[]>('http://localhost:3000/booking')
+    .subscribe(bookings => this.bookings = bookings);
+  }
 
   deleteById(booking: Booking) {
-    // const remove: boolean = confirm("¿Quiere eliminar esta reserva de su lista?");
-    //if (!remove) return;
+    
     this.httpClient.delete<Booking>('http://localhost:3000/booking/' + booking.id)
       .subscribe(() => {
         this.showConfirmMessage = true;
-        this.bookings = this.bookings.filter(booking => booking.id !== booking.id);
+        // this.bookings = this.bookings.filter(booking => booking.id !== booking.id);
+        this.loadBookings();
       });
   }
 

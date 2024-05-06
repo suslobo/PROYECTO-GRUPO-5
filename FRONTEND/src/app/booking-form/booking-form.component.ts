@@ -83,9 +83,10 @@ export class BookingFormComponent implements OnInit {
 
     
     const cleaningService = this.bookingForm.get('cleaningService')?.value;
-    if(cleaningService)
+    const numDays = this.bookingForm.get('numDays')?.value;
+    if(cleaningService){
     this.totalPrice += 30;
-
+    }
     const breakfast = this.bookingForm.get('breakfast')?.value;
     const people = this.bookingForm.get('people')?.value;
 
