@@ -5,8 +5,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { NgbAlert, NgbModal, NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationService } from '../authentication/authentication.service';
-
-
 @Component({
   selector: 'app-house-list',
   standalone: true,
@@ -41,16 +39,20 @@ export class HouseListComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-    this.httpClient.get<House[]>('http://localhost:3000/houses')
-    .subscribe(houses => this.houses = houses);
-  }
-  deleteById(house: House){
+    this.loadHouses();
+}
+loadHouses(): void {
+  this.httpClient.get<House[]>('http://localhost:3000/houses')
+  .subscribe(houses => this.houses = houses);
+}
 
-    this.httpClient.delete<House>('http://localhost:3000/houses/' + house.id)
-      .subscribe(() => {
-       this.showConfirmMessage = true;
-       this.houses = this.houses.filter(house => house.id !== house.id);
-      });
-  }
+deleteById(house: House){
+
+   this.httpClient.delete<House>('http://localhost:3000/houses/' + house.id)
+     .subscribe(() => {
+      this.showConfirmMessage = true;
+      this.loadHouses();
+     });
+ }
 
 }

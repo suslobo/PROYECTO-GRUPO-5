@@ -47,39 +47,24 @@ openModal(content: TemplateRef<any>, users: User) {
 
 }
 
-  ngOnInit(): void {
-    this.httpClient.get<User[]>('http://localhost:3000/users')
-    .subscribe(users => this.users = users);
-  }
+ngOnInit(): void {
+  this.httpClient.get<User[]>('http://localhost:3000/users')
+  .subscribe(users => this.users = users);
+  this.loadUsers();
+}
+loadUsers(): void {
+  this.httpClient.get<User[]>('http://localhost:3000/users')
+  .subscribe(users => this.users = users);
+}
 
+deleteById(user: User){
 
-
-  
-
-  /* deleteById(id: string | number): void {
-    const remove: boolean = confirm("¿Quiere eliminar este usuario de su lista?");
-    if (!remove) return;
-
-    const modalRef = this.modalService.open(NgbdModalFocus);
-    modalRef.componentInstance.open('autofocus');
-    
-    this.httpClient.delete<User>(`http://localhost:3000/users/${id}`)
-      .subscribe(() => {
-
-       this.users = this.users.filter(users => users.id !== id);
-      });
-  } */
-
-  deleteById(user: User){
-    // const remove: boolean = confirm("¿Quiere eliminar esta reserva de su lista?");
-     //if (!remove) return;
-     this.httpClient.delete<User>('http://localhost:3000/users/' + user.id)
-       .subscribe(() => {
-        this.showConfirmMessage = true;
-        this.users = this.users.filter(user => user.id !== user.id);
-       });
-   }
-
-  }
-
+   this.httpClient.delete<User>('http://localhost:3000/users/' + user.id)
+     .subscribe(() => {
+      this.showConfirmMessage = true;
+      this.loadUsers();
+      // this.users = this.users.filter(user => user.id !== user.id);
+     });
+ }
+}
 

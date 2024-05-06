@@ -8,16 +8,12 @@
     @if (showConfirmMessage) {
       <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
         <p>La reserva se ha eliminado correctamente</p>
-
         <div style="text-align: center;">
           <i class="bi bi-check-lg" style="font-size: 4em;"></i>
       </div>
-
         Para cualquier duda contacte con soporte&commat;casaRural.com
       </ngb-alert>
       <button class="w-100 btn btn-outline-naranaja btn-lg" style="margin-bottom: 20px;" routerLink="/home">Volver a Casa</button>
-
-
     }
 
     <div class="col-16">
@@ -39,7 +35,6 @@
             <th scope="col" style="text-align: right; color: #f57d00">Acciones</th>
             <th scope="col"></th>
             <th scope="col"></th>
-           
             </tr>
             <br>
               </thead>
@@ -49,20 +44,6 @@
                       <td>{{booking.entryDate}}</td>
                       <td>{{booking.departureDate}}</td>
                       <td>{{booking.destination}}</td>
-
-                      <!-- <td>
-                        <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Acciones
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="accionesDropdown">
-                            <li><a class="dropdown-item" [routerLink]="['/booking', booking.id, 'detail']">Ver detalle</a></li>
-                            <li><button class="dropdown-item" (click)="deleteById(booking.id)">Borrar</button></li>
-                            
-                          </ul>
-                        </div>
-                      </td> -->
-                      
                       <td>
                         <button id="detalle" type="button" class="btn btn-outline-naranaja w-100 me-2 "
                         [routerLink]="['/booking', booking.id, 'detail']">
@@ -84,9 +65,7 @@
   <div class="modal-header">
       <h4 class="modal-title">¿Desea eliminar esta reserva?</h4>
       <button type="button" class="btn-close" aria-label="Cancelar" (click)="modal.dismiss('Cancelar')"></button>
-  <!-- <button id="Borrar" class="btn btn-outline-naranaja w-100 py-2 " 
-  (click)="deleteById(booking.id)"> Borrar</button> -->
-</div>
+  </div>
   <div class="modal-body">
       <p>Para continuar pulse aceptar</p>
   </div>
