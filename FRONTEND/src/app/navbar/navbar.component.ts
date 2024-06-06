@@ -13,7 +13,6 @@ import { AuthenticationService } from '../authentication/authentication.service'
 export class NavbarComponent {
 collapsed=  true;
 isLoggedIn = false;
-//nickName: string | undefined;
 userEmail: string | undefined;
 isAdmin = false;
 isUser = false;
@@ -22,7 +21,6 @@ constructor(private authService: AuthenticationService,
   private router: Router
 ){
   this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
- // this.authService.nickName.subscribe(nickName => this.nickName = nickName);
   this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
   this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
   this.authService.isUser.subscribe(isUser => this.isUser = isUser);

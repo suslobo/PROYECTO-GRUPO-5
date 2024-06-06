@@ -5,7 +5,7 @@
     <div class="col-lg-8">
 
       @if (showConfirmMessage) {
-        <ngb-alert type="warning" [dismissible]="false" class="mt-4 mb-3" style="min-height: 200px">
+        <ngb-alert type="warning" [dismissible]="false" class="mt-5 mb-4" style="min-height: 200px">
           Se ha completado tu reserva para la casa {{house?.title}}.          
           <br>
           <br>Para las fechas {{booking?.entryDate}} y {{booking?.departureDate}}
@@ -53,6 +53,14 @@
           <label for="people">Personas</label>
         </div>
 
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control"
+          id="destination" formControlName="destination"
+          placeholder="" (change)="save()"readonly>
+          <label for="destination">{{house?.destination}}</label>
+        </div>
+
+        <h4 class="mb-3" style="color: #f57d00;">Servicios adicionales</h4>
 
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox"
@@ -76,15 +84,6 @@
     <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
     <label class="form-check-label" for="credit">Tarjeta de crédito</label>
   </div>
-  <!-- <div class="form-check">
-    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-    <label class="form-check-label" for="debit">Tarjeta de débito</label>
-  </div>
-  <div class="form-check">
-    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-    <label class="form-check-label" for="paypal">PayPal</label>
-  </div> --> 
-
 
   <div class="row gy-3 mt-1">
     <div class="col-md-9">
@@ -121,14 +120,12 @@
     </div>
   </div>
   
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3  " type="submit">Finalizar reserva</button>
+  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3" type="submit">Finalizar reserva</button>
   <span style="margin-left: 10px;"></span>
   <button class="w-25 btn btn-outline-naranaja btn-lg mt-3 " type="button" routerLink="/houses">Cancelar </button>
-  
 
        </form> 
 
-        
         <div _ngcontent-ng-c3189770292="" >
           <div> 
             @if (bookingForm) {
@@ -138,16 +135,10 @@
             }
               </div> 
           </div> 
-          
-  <!--
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3 mb-5  " type="submit">Finalizar reserva</button>
-  <span style="margin-left: 10px;"></span>
-  <button class="w-25 btn btn-outline-naranaja btn-lg mt-3 mb-5 " type="button" routerLink="/houses">Cancelar </button>
- -->
+
             <br>
         }  
              
-    
       </div> 
 
       @if (numDays >= 1) {
@@ -200,7 +191,6 @@
             }
           </li>
         
-          
         <li class="list-group-item d-flex justify-content-between ">
         @if(bookingForm.get('cleaningService')?.value) {
 
@@ -227,22 +217,12 @@
         }
       </li>
 
-
         <li class="list-group-item d-flex justify-content-between">
           <span>Total (Euros)</span>
           <strong>{{totalPrice}}</strong>
         </li>
       
-      </ul>
-      
-  <!-- 
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3  " type="submit">Reservar</button>
-  <span style="margin-left: 10px;"></span> 
-  <button class="w-50 btn btn-outline-naranaja btn-lg mt-3 " type="button" routerLink="/houses">Cancelar </button>
--->
-
-      
-       
+      </ul>   
       
     </div>
       }

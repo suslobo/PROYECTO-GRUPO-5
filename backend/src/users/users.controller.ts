@@ -21,7 +21,7 @@ export class UsersController {
     findAll() {
         return this.userRepository.find();
     }
-   @Get(':id')
+   @Get('filter-by-id/:id')
     findById(@Param('id', ParseIntPipe) id: number) {
        return this.userRepository.findOne({
             where: {
@@ -32,7 +32,7 @@ export class UsersController {
 }
 
 
-@Get('account/:id')
+@Get('account')
 @UseGuards(AuthGuard('jwt'))
 public getCurrentAccountUser(@Request() request) {
     
@@ -56,7 +56,21 @@ async update(
 
         return this.userRepository.save(user);
 
-}
+} 
+
+@Put()
+    @UseGuards(AuthGuard('jwt'))
+    public updateUser(@Body() user: User, @Request() request) {
+
+        if (request.user.role !== Role.ADMIN && user.id !== request.user.id) {
+            // Si el usuario que actualiza no coincide con el usuario enviado
+            // entonces no puede actualizar 
+            throw new UnauthorizedException();
+        }
+
+        return this.userRepository.save(user);
+    }
+
 
 @Post('avatar')
     @UseInterceptors(FileInterceptor('file'))
@@ -90,7 +104,7 @@ async register(@Body() register: Register) {
    
     const user: User = {
         id: 0,
-        nickName: register.nickName,
+       
         email: register.email,
         password: register.password,
         phone: null,

@@ -3,7 +3,7 @@
       <div class="col">
 
           @if(isUpdate){
-            <h4 class="mb-2 mt-4" style="color: #f57d00">Editar usuario</h4>
+            <h4 class="mb-2 mt-4" style="color: #f57d00">Formulario de registro</h4>
            
         } @else {
             <h4 class="mb-2 mt-4" style="color: #f57d00">Rellenar</h4>
@@ -70,9 +70,13 @@
 
 
 
-                      <div class="d-grid gap-2 mt-5">
-                          <button class="btn1 btn-outline-success w-100 py-2" type="submit">Enviar</button>
-                          <button class="btn btn-outline-danger w-100 py-2" type="submit" routerLink="/register">Cancelar</button>
+                      <div class="mt-5 mb-2">
+                        <button class="btn btn-outline-naranaja w-25 py-2 mb-3" type="submit">Guardar</button> 
+                        <span style="margin-left: 60px;"></span>
+                        <button class="btn btn-outline-naranaja w-25 py-2 mb-3" type="submit" routerLink="/register">Cancelar</button>
+                        <span style="margin-left: 60px;"></span>
+                        <button class="btn btn-outline-naranaja w-25 py-2 mb-3" type="submit" routerLink="/login">Omitir</button>
+
                       </div>
 
                   </div>

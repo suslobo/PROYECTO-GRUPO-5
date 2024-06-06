@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { House } from '../interfaces/house.model';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { NgbAccordionConfig, NgbRating, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionConfig, NgbAlert, NgbRating, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { Rating } from '../interfaces/rating.model';
 import { User } from '../interfaces/user.model';
 import { DatePipe } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-house-detail',
   standalone: true,
-  imports: [RouterLink, NgbRatingModule, DatePipe, ReactiveFormsModule],
+  imports: [RouterLink, NgbRatingModule, DatePipe, ReactiveFormsModule, NgbAlert],
   providers: [NgbAccordionConfig],
   templateUrl: './house-detail.component.html',
   styleUrl: './house-detail.component.css'
@@ -21,17 +22,19 @@ export class HouseDetailComponent implements OnInit {
   house: House | undefined;
   user: User | undefined;
   ratings: Rating[] = [];
+  isLoggedIn = false;
   // formulario para crear nuevos comentarios
   ratingForm = new FormGroup({
     score: new FormControl(0),
     comment: new FormControl('')
   });
 
-
-
 constructor(private httpClient: HttpClient,
-  private activatedRoute: ActivatedRoute) { }
+  private activatedRoute: ActivatedRoute, 
+  private authService: AuthenticationService) {
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
 
+   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {

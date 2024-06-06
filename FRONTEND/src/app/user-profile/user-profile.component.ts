@@ -43,7 +43,7 @@ export class UserProfileComponent implements OnInit {
       if (!id)
       return;
 
-      this.httpClient.get<User>(`http://localhost:3000/users/${id}`).subscribe(user => {
+      this.httpClient.get<User>(`http://localhost:3000/users/filter-by-id/${id}`).subscribe(user => {
       this.isUpdate = true
 
         this.userProfile.reset({
